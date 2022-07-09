@@ -1,7 +1,6 @@
 <?php
-require './application/config/database.php';
+require '../../config/database.php';
 
 class dashboard extends Database
 {
-
 }
