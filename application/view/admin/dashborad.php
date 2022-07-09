@@ -236,7 +236,7 @@
     </div>
 
     <!-- ส่วนของ Modal เปลี่ยนตำแหน่ง -->
-    <div class="modal fade" id="change_position" tabindex="-1">
+    <div class="modal fade" id="change_position" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-info">

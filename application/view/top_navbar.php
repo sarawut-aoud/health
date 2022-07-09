@@ -4,8 +4,6 @@
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
-
-
     </ul>
 
     <ul class="navbar-nav ml-auto">
@@ -16,8 +14,8 @@
                         <i class="fas fa-user-circle " style="font-size: 32px;"></i>
                     </div>
                     <div class=" ms-3" style="margin-top:-0.8rem !important;">
-                        <span class="d-block">ศราวุธ อวดกล้า</span>
-                        <span>ADMIN</span>
+                        <span class="d-md-block d-none ">ศราวุธ อวดกล้า</span>
+                        <span class="d-md-block d-none">ADMIN</span>
                     </div>
                 </div>
             </a>
