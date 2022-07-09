@@ -1,4 +1,4 @@
-<?php 
+<?php
 require '../../core/path.php';
 require '../../model/user/dashborad_model.php';
 
@@ -6,7 +6,7 @@ require '../../model/user/dashborad_model.php';
 $sql = new dashboard();
 $query = $sql->personal();
 $data = mysqli_fetch_object($query);
- ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +16,7 @@ $data = mysqli_fetch_object($query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title_path ?></title>
     <?php require '../../core/loadscript.php' ?>
-
+    <link rel="stylesheet" href="../../../assets/custom_style.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -56,7 +56,7 @@ $data = mysqli_fetch_object($query);
                                     <div class="card-body">
                                         <ul class="nav nav-tabs nav-primary mb-0" data-bs-toggle="tabs">
                                             <li class="nav-item">
-                                            <a class="nav-link active" href="#">ข้อมูลส่วนตัว</a>
+                                                <a class="nav-link active" href="#">ข้อมูลส่วนตัว</a>
                                             </li>
                                         </ul>
                                         <div class="d-md-flex d-sm-block form-row p-2">
@@ -135,19 +135,15 @@ $data = mysqli_fetch_object($query);
                                                 </div>
                                             </div>
                                         </div>
-                                    
 
-                                       
-                                    </div>  
+                                    </div>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </section>
-
-       
-
+        </div>
         <?php require '../footer.php'; ?>
     </div>
 

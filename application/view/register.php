@@ -34,7 +34,7 @@
                                 <div class="col-md-2 p-1">
                                     <div class="form-group">
                                         <label class="small mb-1">คำนำหน้า <span>*<span></label>
-                                        <select class="form-select" id="title" name="title" autocomplete="off" placeholder="ชื่อ" required>
+                                        <select class="form-select py-2" id="title" name="title" autocomplete="off" placeholder="ชื่อ" required>
 
                                             <?= select_data('title') ?>
 
