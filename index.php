@@ -10,8 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= $title_path ?></title>
 
+  
     <link rel="stylesheet" href="./assets/bootstrap5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/custom_style.css">
+    <link rel="stylesheet" href="./assets/custom_style.css">
 
 </head>
 <style>
@@ -54,10 +55,10 @@
 
                             <div class="mt-4 d-flex justify-content-around">
 
-                                <a href="#" style="font-size: 16px !important;">ลงทะเบียนเข้าสู่ระบบ</a>
+                                <a href="./application/view/register.php" style="font-size: 16px !important;">ลงทะเบียนเข้าสู่ระบบ</a>
 
 
-                                <a href="#" style="font-size: 16px !important;">ลืมรหัสผ่าน</a>
+                                <a href="./application/view/forget-password.php" style="font-size: 16px !important;">ลืมรหัสผ่าน</a>
 
                             </div>
                             <!-- /.col -->
@@ -85,7 +86,7 @@
 
 </body>
 <script src="./assets/bootstrap5/js/bootstrap.min.js"></script>
-<script src="./assets/javascript/h_tempalt.js"></script>
+<script src="./assets/h_template.js"></script>
 
 
 </html>
