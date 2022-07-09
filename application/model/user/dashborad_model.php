@@ -37,7 +37,7 @@ class dashboard extends Database
       return $result;
     }
   }
-  public function load_amphoe_info($amphoe = '')
+  public function load_amphoe_info($amphoe)
   {
     if ($amphoe == '') {
       $result = mysqli_query($this->dbcon, "SELECT * FROM system_amphoe ");
@@ -49,8 +49,12 @@ class dashboard extends Database
   }
   public function load_province_info($province)
   {
-
-    $result = mysqli_query($this->dbcon, "SELECT * FROM system_province WHERE province_id ='$province'");
-    return $result;
+    if ($province == '') {
+        $result = mysqli_query($this->dbcon, "SELECT * FROM system_province ");
+        return $result;
+      } else {
+        $result = mysqli_query($this->dbcon, "SELECT * FROM system_province WHERE province_id ='$province' ");
+        return $result;
+      }
   }
 }

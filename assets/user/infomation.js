@@ -40,7 +40,7 @@ var infomation = {
         $("#amphoe_id").val(result.amphoe_name)
       },
     });
-  }
+  },
 };
 
 $(document).ready(function () {

@@ -63,19 +63,19 @@ $data = mysqli_fetch_object($query);
                                             <div class="col-md-2 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">คำนำหน้า</label>
-                                                    <input class="form-control py-2" id="title" name="title" type="text" value="<?php echo $data->titile; ?>" autocomplete="off" placeholder="ชื่อ" required>
+                                                    <input class="form-control py-2" id="title" name="title" type="text" value="<?php echo $data->titile; ?>"  placeholder="ชื่อ" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-md-5 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">ชื่อ</label>
-                                                    <input class="form-control py-2" id="fname" name="fname" type="text" value="<?php echo $data->first_name; ?>" autocomplete="off" placeholder="ชื่อ" required>
+                                                    <input class="form-control py-2" id="fname" name="fname" type="text" value="<?php echo $data->first_name; ?>"  placeholder="ชื่อ" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-md-5 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">นามสกุล</label>
-                                                    <input class="form-control py-2" id="fname" name="fname" type="text" value="<?php echo $data->last_name; ?>" autocomplete="off" placeholder="นามสกุล" required>
+                                                    <input class="form-control py-2" id="fname" name="fname" type="text" value="<?php echo $data->last_name; ?>"  placeholder="นามสกุล" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -83,13 +83,13 @@ $data = mysqli_fetch_object($query);
                                             <div class="col-md-4 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">อายุ</label>
-                                                    <input class="form-control py-2" id="fname" name="fname" type="text" value="<?php echo $data->age; ?>" autocomplete="off" placeholder="อายุ" required>
+                                                    <input class="form-control py-2" id="fname" name="fname" type="text" value="<?php echo $data->age; ?>" placeholder="อายุ" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-md-8 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">วันเดือนปีเกิด</label>
-                                                    <input class="form-control py-2" id="fname" name="fname" type="date" value="<?php echo $data->birthday; ?>" autocomplete="off" placeholder="วันเดินปีเกิด" required>
+                                                    <input class="form-control py-2" id="fname" name="fname" type="text" value="<?php echo $data->birthday; ?>" placeholder="วันเดินปีเกิด" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -97,13 +97,13 @@ $data = mysqli_fetch_object($query);
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">บัตรประชาชน</label>
-                                                    <input class="form-control py-2" id="id_card" name="id_card" type="tel" value="<?php echo $data->id_card; ?>" autocomplete="off" placeholder="X-XXXX-XXXXX-XX-X" required>
+                                                    <input class="form-control py-2" id="id_card" name="id_card" type="tel" value="<?php echo $data->id_card; ?>"  placeholder="X-XXXX-XXXXX-XX-X" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">เบอร์โทร</label>
-                                                    <input class="form-control py-2" id="id_card" name="id_card" type="tel" value="<?php echo $data->phone_number; ?>" autocomplete="off" placeholder="เบอร์โทร" required>
+                                                    <input class="form-control py-2" id="id_card" name="id_card" type="tel" value="<?php echo $data->phone_number; ?>" placeholder="เบอร์โทร" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -111,7 +111,7 @@ $data = mysqli_fetch_object($query);
                                             <div class="col-md-12 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">ที่อยู่ปัจจุบัน</label>
-                                                    <textarea class="form-control py-2" id="id_card" name="id_card" type="tel" value="<?php echo $data->address; ?>" autocomplete="off" placeholder="ที่อยู่ปัจจุบัน" rows="4" required></textarea>
+                                                    <textarea class="form-control py-2" id="id_card" name="id_card" type="tel" value="<?php echo $data->address; ?>"  placeholder="ที่อยู่ปัจจุบัน" rows="4" disabled></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -119,24 +119,24 @@ $data = mysqli_fetch_object($query);
                                             <div class="col-md-4 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">ตำบล</label>
-                                                    <input class="form-control py-2" id="tumbon_id" name="tumbon_id" type="text" autocomplete="off" required>
-                                                    <input type="hidden" id="tumbon" value="22">
+                                                    <input class="form-control py-2" id="tumbon_id" name="tumbon_id" type="text"  disabled>
+                                                    <input type="hidden" id="tumbon" value="<?php echo $data->tumbon_id; ?>">
 
                                                 </div>
                                             </div>
                                             <div class="col-md-4 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">อำเภอ</label>
-                                                    <input class="form-control py-2" id="amphoe_id" name="amphoe_id" type="text" autocomplete="off" required>
-                                                    <input type="hidden" id="ampher" value="5">
+                                                    <input class="form-control py-2" id="amphoe_id" name="amphoe_id" type="text" disabled>
+                                                    <input type="hidden" id="ampher" value="<?php echo $data->ampher_id; ?>">
 
                                                 </div>
                                             </div>
                                             <div class="col-md-4 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">จังหวัด</label>
-                                                    <input class="form-control py-2" id="province_id" name="province_id" type="text" autocomplete="off" required>
-                                                    <input type="hidden" id="province" value="1">
+                                                    <input class="form-control py-2" id="province_id" name="province_id" type="text" disabled>
+                                                    <input type="hidden" id="province" value="<?php echo $data->province_id; ?>">
 
                                                 </div>
                                             </div>
