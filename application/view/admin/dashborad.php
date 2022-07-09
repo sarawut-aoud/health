@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title_path ?></title>
     <?php require '../../core/loadscript.php' ?>
+    <link rel="stylesheet" href="../../../assets/custom_style.css">
 
 </head>
 
@@ -20,7 +21,7 @@
         require '../left_sidebar.php';
         ?>
 
-        <div class="content-wrapper">
+        <div class="content-wrapper ">
 
             <div class="content-header">
                 <div class="container-fluid">
@@ -31,7 +32,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard v1</li>
+                                <li class="breadcrumb-item active">Dashboard</li>
                             </ol>
                         </div>
                     </div>
@@ -227,18 +228,38 @@
                             </form>
                         </div>
                     </div>
-
-
-
-
                 </div>
             </section>
-
         </div>
 
         <?php require '../footer.php'; ?>
     </div>
 
+    <!-- ส่วนของ Modal เปลี่ยนตำแหน่ง -->
+    <div class="modal fade" id="change_position" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                    <h5 class="modal-title ">เปลี่ยนตำแหน่ง</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body mt-3 ms-4 me-4">
+                    <div class="row justify-content-between p-2">
+                        <div class="col-md-6 text-start">
+                            แพทย์
+                        </div>
+                        <div class="col-md-6 text-end">
+                            <button class="btn btn-outline-info">เลือก</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../../../assets/admin/dashborad.js"></script>
 </body>
 
 </html>

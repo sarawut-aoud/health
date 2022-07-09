@@ -22,11 +22,13 @@
   width: 150px !important;
 
 }
-.body_index #register #register {
+
+.body_index #Formregister #register {
   border-radius: 20px !important;
   width: 150px !important;
 
 }
+
 .body_index .bg-info {
   background-color: #8af1ff !important;
 }
@@ -52,23 +54,25 @@
   background-color: #39bcd4 !important;
   border-color: #39bcd4 !important;
 }
-.body_index #register #register.btn.btn-info {
+
+.body_index #Formregister #register.btn.btn-info {
   color: #000;
   background-color: #8EEEFF !important;
   border-color: #8EEEFF !important;
 }
 
-.body_index #register #register.btn.btn-info:active {
+.body_index #Formregister #register.btn.btn-info:active {
   color: #000;
   background-color: #39bcd4 !important;
   border-color: #39bcd4 !important;
 }
 
-.body_index #register #register.btn.btn-info:hover {
+.body_index #Formregister #register.btn.btn-info:hover {
   color: #000;
   background-color: #39bcd4 !important;
   border-color: #39bcd4 !important;
 }
+
 .body_index .card-header:first-child {
   border-radius: calc(2.25rem - 1px) calc(2.25rem - 1px) 0 0 !important;
 }
