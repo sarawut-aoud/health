@@ -26,32 +26,29 @@ if ($func == 'tumbon') {
     }
     echo json_encode($data);
 }
-
-if ($func == 'ampher') {
-    $ampher = $_REQUEST['ampher'];
-
-    $query = $class->load_ampher_info($ampher);
-
+if ($func == 'province') {
+    $province =$_REQUEST['province'];
+    $query = $class->load_province_info($province);
+    
     $i = 0;
-    while ($row = $query->fetch_object()) {
+    while($row = $query->fetch_object()){
         $data = array(
-            "ampher_id" => intval($row->amphoe_id),
-            "ampher_name" => $row->nameTh,
+            "province_id" =>intval($row->province_id),
+            "province_name"=>$row->nameTh,
         );
         $i++;
     }
     echo json_encode($data);
 }
-
-if ($func == 'province') {
-    $province_id = $_REQUEST['province'];
-    $query = $class->load_province_info($province_id);
-
+if ($func == 'amphoe') {
+    $amphoe =$_REQUEST['amphoe'];
+    $query = $class->load_amphoe_info($amphoe);
+    
     $i = 0;
-    while ($row = $query->fetch_object()) {
+    while($row = $query->fetch_object()){
         $data = array(
-            "province_id" => intval($row->province_id),
-            "province_name" => $row->nameTh,
+            "amphoe_id" =>intval($row->amphoe_id),
+            "amphoe_name"=>$row->nameTh,
         );
         $i++;
     }

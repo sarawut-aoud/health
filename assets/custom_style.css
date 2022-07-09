@@ -161,4 +161,7 @@ body .content-wrapper {
 .select2-container .select2-selection--single .select2-selection__rendered {
   padding-top: 8px !important;
   text-align: center !important;
-}
+}.nav-primary nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  border: 3px solid #007bff !important;
+      border-color: #007bff #007fff #fff !important;
+  }

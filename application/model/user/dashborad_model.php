@@ -37,13 +37,13 @@ class dashboard extends Database
       return $result;
     }
   }
-  public function load_ampher_info($ampher = '')
+  public function load_amphoe_info($amphoe = '')
   {
-    if ($ampher == '') {
+    if ($amphoe == '') {
       $result = mysqli_query($this->dbcon, "SELECT * FROM system_amphoe ");
       return $result;
     } else {
-      $result = mysqli_query($this->dbcon, "SELECT * FROM system_amphoe WHERE amphoe_id ='$ampher' ");
+      $result = mysqli_query($this->dbcon, "SELECT * FROM system_amphoe WHERE amphoe_id ='$amphoe' ");
       return $result;
     }
   }
