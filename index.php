@@ -60,8 +60,6 @@
                                 <a href="#" style="font-size: 16px !important;">ลืมรหัสผ่าน</a>
 
                             </div>
-
-
                             <!-- /.col -->
                             <center>
                                 <div class="copyright mt-4 ">

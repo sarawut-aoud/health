@@ -198,6 +198,11 @@ ALTER TABLE `personal_document`
   ADD PRIMARY KEY (`pd_id`);
 
 --
+-- Indexes for table add colunm `personal_document`
+--
+ALTER TABLE `personal_document`
+  ADD is_active enum (`active`,`inactive`);
+--
 -- Indexes for table `user_status`
 --
 ALTER TABLE `user_status`
