@@ -3,5 +3,25 @@ require './application/config/database.php';
 
 class dashboard extends Database
 {
-
+  /**
+    *     public function ชื่อ ฟังก์ชั่น ($uname){
+     *          
+     *        
+    *       $checkuser = mysqli_query($this->dbcon, "SELECT username FROM tbl_farmer WHERE username = '$uname'  ");
+     *      return $checkuser;
+     *      }
+     * */
+   /**
+    *     public function ชื่อ ฟังก์ชั่น (){
+     *          
+     *        
+    *       $checkuser = mysqli_query($this->dbcon, "SELECT username FROM tbl_farmer ");
+     *      return $checkuser;
+    
+     *      }
+     * */
+        public function personal(){
+            $pd_id =  mysqli_query($this->dbcon, "SELECT * FROM personal_document  ");
+            return $pd_id;
+        }
 }
