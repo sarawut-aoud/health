@@ -141,3 +141,24 @@
 .ps-3 {
   padding-left: 1rem !important;
 }
+
+.nav_sidebar .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #fff;
+  background-color: #64c2d2 !important;
+}
+
+body .content-wrapper {
+  background-color: #E4ECF1 !important;
+}
+
+.navbar-light {
+  background-color: #57c5d5 !important;
+}
+
+.select2-container .select2-selection--single {
+  height: 42px !important;
+}
+.select2-container .select2-selection--single .select2-selection__rendered {
+  padding-top: 8px !important;
+  text-align: center !important;
+}
