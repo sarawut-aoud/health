@@ -29,4 +29,22 @@ class register extends Database
         $result = mysqli_query($this->dbcon, "SELECT * FROM system_province ");
         return $result;
     }
+
+    /** สว่นของการลงทะเบียน */
+
+    public function register_model($title, $fname, $lname, $address, $ampher, $tumbon, $province, $id_card, $username, $password, $age, $birthday, $phone_number)
+    {
+
+        $result = mysqli_query($this->dbcon, "INSERT INTO personal_document ( title, first_name, last_name, address, ampher_id, tumbon_id, province_id, id_card, username, `password`, age, birthday, phone_number )
+        VALUES ('$title','$fname','$lname','$address','$ampher','$tumbon','$province','$id_card','$username','$password','$age','$birthday','$phone_number')");
+        return $result;
+    }
+
+    public function check_username($username)
+    {
+
+        $result = mysqli_query($this->dbcon, "SELECT username FROM personal_document WHERE username='$username' ");
+
+        return $result;
+    }
 }

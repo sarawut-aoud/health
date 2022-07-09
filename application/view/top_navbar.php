@@ -31,7 +31,7 @@
                     <i class="fas fa-sync-alt mr-2"></i> เปลี่ยนตำแหน่ง
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
+                <a class="dropdown-item is_logout">
                     <i class="fas fa-sign-out mr-2"></i> ออกจากระบบ
                 </a>
                 <div class="dropdown-divider"></div>

@@ -11,6 +11,13 @@
     <link rel="stylesheet" href="../../assets/bootstrap5/css/bootstrap.min.css">
     <link rel="stylesheet" href="../plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <!-- <link rel="stylesheet" href="../plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css"> -->
+    <link rel="stylesheet" href="../plugins/sweetalert2/sweetalert2.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="../plugins/bootstrap-datepicker-thai/css/datepicker.css">
     <link rel="stylesheet" href="../../assets/custom_style.css">
 </head>
 <style>
@@ -58,13 +65,13 @@
                                 <div class="col-md-4 p-1">
                                     <div class="form-group">
                                         <label class="small mb-1">อายุ <span>*<span></label>
-                                        <input class="form-control py-2" id="age" name="age" type="tel" onkeypress="number(event)" autocomplete="off" placeholder="อายุ" required>
+                                        <input class="form-control py-2" id="age" name="age" type="text" maxlength="2" onkeypress="return onlyNumber(event)" autocomplete="off" placeholder="อายุ" required>
                                     </div>
                                 </div>
                                 <div class="col-md-8 p-1">
                                     <div class="form-group">
                                         <label class="small mb-1">วัน/เดือน/ปีเกิด </label>
-                                        <input class="form-control py-2" id="birthday" name="birthday" onkeypress="not_number(event)" type="date" autocomplete="off" placeholder="วันเดินปีเกิด" required>
+                                        <input class="form-control py-2" id="birthday" name="birthday" type="text" autocomplete="off" placeholder="วันเดินปีเกิด" required>
                                     </div>
                                 </div>
                             </div>
@@ -78,7 +85,7 @@
                                 <div class="col-md-6 p-1">
                                     <div class="form-group">
                                         <label class="small mb-1">เบอร์โทร <span>*<span></label>
-                                        <input class="form-control py-2" id="phone_number" name="phone_number" type="tel"  autocomplete="off" placeholder="เบอร์โทร" required>
+                                        <input class="form-control py-2" id="phone_number" name="phone_number" maxlength="10" onkeypress="return onlyNumber(event)" type="tel" autocomplete="off" placeholder="เบอร์โทร" required>
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +127,12 @@
                                 <div class="col-md-6 p-1">
                                     <div class="form-group">
                                         <label class="small md-1">ชื่อเข้าใช้งาน <span>*<span></label>
-                                        <input class="form-control " id="username" name="username" type="text" placeholder="ชื่อเข้าใช้งาน" autocomplete="off" required>
+                                        <input class="form-control py-2" id="username" name="username" type="text" placeholder="ชื่อเข้าใช้งาน" autocomplete="off" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 p-1">
+                                    <div class="form-group">
+                                        <label class="mt-3 p-3"> <span id="show_username"><span></label>
                                     </div>
                                 </div>
                             </div>
@@ -161,14 +173,23 @@
     </div>
 
 
+    <script src="../../assets/h_template.js"></script>
 
     <script src="../plugins/jquery/jquery.js"></script>
 
     <script src="../../assets/bootstrap5/js/bootstrap.min.js"></script>
     <script src="../plugins/select2/js/select2.full.min.js"></script>
-    <script src="../../assets/h_template.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="../plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="../plugins/bootstrap-datepicker-thai/js/bootstrap-datepicker.js"></script>
+    <script src="../plugins/bootstrap-datepicker-thai/js/bootstrap-datepicker-thai.js"></script>
+    <!-- Input mask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.3.0/imask.min.js"></script>
+    <script src="../plugins/bootstrap-datepicker-thai/js/locales/bootstrap-datepicker.th.js"></script>
     <script src="../../assets/register.js"></script>
     <script src="../../assets/numlock.js"></script>
+    <script src="../../assets/id_card.js"></script>
 
 </body>
 

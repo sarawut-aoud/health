@@ -204,7 +204,7 @@
                                                 <div class="form-group">
                                                     <label class="small mb-1">รหัสผ่าน</label>
                                                     <div class="input-group">
-                                                        <input class=" form-control py-2" type="password" id="password-input" name="password-input" aria-describedby="passwordHelp" placeholder="รหัสผ่าน" maxlength="20" required />
+                                                        <input class=" form-control py-2" type="password" id="password-input" name="password-input" autocomplete="off"  placeholder="รหัสผ่าน" maxlength="20" required />
                                                     </div>
                                                 </div>
                                             </div>
@@ -213,7 +213,7 @@
                                                 <div class="form-group">
                                                     <label class="small mb-1">ยันยันรหัสผ่าน</label>
                                                     <div class="input-group">
-                                                        <input class=" form-control py-2" type="password" id="confirm_password" name="confirm_password" aria-describedby="passwordHelp" placeholder="ยินยันรหัสผ่าน" maxlength="20" required />
+                                                        <input class=" form-control py-2" type="password" id="confirm_password" name="confirm_password"  autocomplete="off" placeholder="ยินยันรหัสผ่าน" maxlength="20" required />
 
                                                     </div>
                                                 </div>
