@@ -119,19 +119,25 @@ $data = mysqli_fetch_object($query);
                                             <div class="col-md-4 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">ตำบล</label>
-                                                    <input class="form-control py-2" id="fname" name="fname" type="text" autocomplete="off" required>
+                                                    <input class="form-control py-2" id="tumbon_id" name="tumbon_id" type="text" autocomplete="off" required>
+                                                    <input type="hidden" id="tumbon" value="">
+
                                                 </div>
                                             </div>
                                             <div class="col-md-4 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">อำเภอ</label>
-                                                    <input class="form-control py-2" id="fname" name="fname" type="text" autocomplete="off" required>
+                                                    <input class="form-control py-2" id="ampher_id" name="ampher_id" type="text" autocomplete="off" required>
+                                                    <input type="hidden" id="ampher" value="">
+
                                                 </div>
                                             </div>
                                             <div class="col-md-4 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">จังหวัด</label>
-                                                    <input class="form-control py-2" id="fname" name="fname" type="text" autocomplete="off" required>
+                                                    <input class="form-control py-2" id="province_id" name="province_id" type="text" autocomplete="off" required>
+                                                    <input type="hidden" id="province" value="">
+
                                                 </div>
                                             </div>
                                         </div>
@@ -147,6 +153,8 @@ $data = mysqli_fetch_object($query);
         <?php require '../footer.php'; ?>
     </div>
 
+
+    <script src="../../../assets/user/infomation.js"></script>
 </body>
 
 </html>
