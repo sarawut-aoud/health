@@ -14,14 +14,14 @@
                         <i class="fas fa-user-circle " style="font-size: 32px;"></i>
                     </div>
                     <div class=" ms-3" style="margin-top:-0.8rem !important;">
-                        <span class="d-md-block d-none "><?= $_SESSION['first_name'] ?></span>
+                        <span class="d-md-block d-none "><?= $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] ?></span>
                         <span class="d-md-block d-none" id='user_position'></span>
                     </div>
                 </div>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
+                <a id='user_path' href="" class="dropdown-item">
                     <i class="fas fa-user-circle mr-2"></i> ข้อมูลส่วนตัว
                 </a>
                 <div class="dropdown-divider"></div>

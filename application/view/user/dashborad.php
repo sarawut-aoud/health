@@ -1,11 +1,13 @@
 <?php
 require_once '../../core/path.php';
 require_once '../../model/user/dashborad_model.php';
+require '../../core/session.php';
 
 // $username = $_REQUEST['username'];
 $sql = new dashboard();
 $query = $sql->personal();
 $data = mysqli_fetch_object($query);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,20 +65,26 @@ $data = mysqli_fetch_object($query);
                                             <div class="col-md-2 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">คำนำหน้า</label>
-                                                    <input class="form-control py-2" id="title" name="title" type="text" value="<?php if($data->title==1){echo "นาย";}elseif($data->title==2){echo "นาง";}else{echo "นางสาว";} ?>"   disabled>
-                                                   
+                                                    <input class="form-control py-2" id="title" name="title" type="text" value="<?php if ($data->title == 1) {
+                                                                                                                                    echo "นาย";
+                                                                                                                                } elseif ($data->title == 2) {
+                                                                                                                                    echo "นาง";
+                                                                                                                                } else {
+                                                                                                                                    echo "นางสาว";
+                                                                                                                                } ?>" disabled>
+
                                                 </div>
                                             </div>
                                             <div class="col-md-5 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">ชื่อ</label>
-                                                    <input class="form-control py-2" id="fname" name="fname" type="text" value="<?php echo $data->first_name; ?>"  placeholder="ชื่อ" disabled>
+                                                    <input class="form-control py-2" id="fname" name="fname" type="text" value="<?php echo $data->first_name; ?>" placeholder="ชื่อ" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-md-5 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">นามสกุล</label>
-                                                    <input class="form-control py-2" id="lname" name="lname" type="text" value="<?php echo $data->last_name; ?>"  placeholder="นามสกุล" disabled>
+                                                    <input class="form-control py-2" id="lname" name="lname" type="text" value="<?php echo $data->last_name; ?>" placeholder="นามสกุล" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -98,7 +106,7 @@ $data = mysqli_fetch_object($query);
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">บัตรประชาชน</label>
-                                                    <input class="form-control py-2" id="id_card" name="id_card" type="tel" value="<?php echo $data->id_card; ?>"  placeholder="X-XXXX-XXXXX-XX-X" disabled>
+                                                    <input class="form-control py-2" id="id_card" name="id_card" type="tel" value="<?php echo $data->id_card; ?>" placeholder="X-XXXX-XXXXX-XX-X" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 p-1">
@@ -112,7 +120,7 @@ $data = mysqli_fetch_object($query);
                                             <div class="col-md-12 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">ที่อยู่ปัจจุบัน</label>
-                                                    <input class="form-control py-2" id="address" name="address" type="text" value="<?php echo $data->address; ?>"  placeholder="ที่อยู่ปัจจุบัน" rows="4" disabled></input>
+                                                    <input class="form-control py-2" id="address" name="address" type="text" value="<?php echo $data->address; ?>" placeholder="ที่อยู่ปัจจุบัน" rows="4" disabled></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -120,7 +128,7 @@ $data = mysqli_fetch_object($query);
                                             <div class="col-md-4 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">ตำบล</label>
-                                                    <input class="form-control py-2" id="tumbon_id" name="tumbon_id" type="text"  disabled>
+                                                    <input class="form-control py-2" id="tumbon_id" name="tumbon_id" type="text" disabled>
                                                     <input type="hidden" id="tumbon" value="<?php echo $data->tumbon_id; ?>">
 
                                                 </div>
@@ -153,9 +161,40 @@ $data = mysqli_fetch_object($query);
         </div>
         <?php require '../footer.php'; ?>
     </div>
+    <input type="hidden" id="personal_id" value="<?= $_SESSION['pd_id'] ?>">
+    <!-- ส่วนของ Modal เปลี่ยนตำแหน่ง -->
+    <div class="modal fade" id="change_position" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                    <h5 class="modal-title ">เปลี่ยนตำแหน่ง</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body mt-3 ms-4 me-4">
+                    <?php
+                    require_once '../../model/user_status_model.php';
+                    $class = new user_change();
+                    $query = $class->Get_status_name();
+                    foreach ($query as $menu) {
+                    ?>
+                        <div class="row justify-content-between p-2">
+                            <div class="col-md-6 text-start">
+                                <?= $menu['status_name'] ?>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <button id="btn_change_status" name="btn_change_status" value="<?= $menu['id'] ?>" class="btn btn-outline-info">เลือก</button>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script src="../../../assets/user/infomation.js"></script>
+    <script src="../../../assets/h_template.js"></script>
 </body>
 
 </html>

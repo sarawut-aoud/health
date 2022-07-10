@@ -1,7 +1,5 @@
 <?php
-require '../../model/user/dashborad_model.php';
-
-
+require_once '../../model/user/dashborad_model.php';
 
 $class = new dashboard();
 

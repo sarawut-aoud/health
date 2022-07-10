@@ -21,6 +21,8 @@ class user_change extends Database_set
             AND pd.pd_id = '$row->pd_id' 
         GROUP BY
             us.status_name
+        ORDER BY 
+            us.id ASC
              ");
         }
         return $result;

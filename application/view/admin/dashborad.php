@@ -114,7 +114,7 @@ require '../../core/session.php';
 
         <?php require '../footer.php'; ?>
     </div>
-
+    <input type="hidden" id="personal_id" value="<?= $_SESSION['pd_id'] ?>">
     <!-- ส่วนของ Modal เปลี่ยนตำแหน่ง -->
     <div class="modal fade" id="change_position" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">

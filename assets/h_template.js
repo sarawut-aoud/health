@@ -24,12 +24,15 @@ $(document).ready(function () {
   $.ajax({
     type: "get",
     dataType: "json",
-    data: { func: "get" },
-    url: "../../model/top_navbar_model.php",
+    data: {
+      pd_id: $("#personal_id").val(),
+      func: "get",
+    },
+    url: "../../controller/top_navbar.php",
     success: function (result) {
-      console.log(result);
       if (result.is_success) {
         $("#user_position").html(result.status);
+        $("#user_path").attr("href", result.path);
       }
     },
   });
@@ -44,8 +47,12 @@ $(document).ready(function () {
     $.ajax({
       type: "post",
       dataType: "json",
-      data: { btn_change_status: $(this).val(), func: "change" },
-      url: "../../model/top_navbar_model.php",
+      data: {
+        btn_change_status: $(this).val(),
+        func: "change",
+        pd_id: $("#personal_id").val(),
+      },
+      url: "../../controller/top_navbar.php",
       success: function (result) {
         if (result.is_success) {
           location.reload();

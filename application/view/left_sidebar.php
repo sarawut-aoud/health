@@ -67,7 +67,9 @@ $row = $query->fetch_object();
                     </li>
                 <?php } ?>
                 <!-- ส่วนของเพิ่มข้อมูล -->
-                <?php if ($row->user_rate != "" || $row->user_rate != NULL) { ?>
+                <?php if ($row->user_rate != "" && $row->user_rate != NULL && $row->user_rate != '1') {
+
+                ?>
                     <li class="nav-header">Infomation</li>
                     <li class="nav-item ">
                         <a href="#" class="nav-link active">

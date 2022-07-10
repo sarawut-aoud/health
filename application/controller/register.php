@@ -1,5 +1,5 @@
 <?php
-require '../model/register.php';
+require_once '../model/register.php';
 
 $class = new register();
 

@@ -1,5 +1,5 @@
 <?php
-require '../model/login_model.php';
+require_once '../model/login_model.php';
 
 $class = new login_model();
 
