@@ -76,7 +76,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="elderly.php" class="nav-link">
                                 <i class="far fa-user-plus nav-icon"></i>
                                 <span>เพิ่มข้อมูลผู้สูงอายุ</span>
                             </a>

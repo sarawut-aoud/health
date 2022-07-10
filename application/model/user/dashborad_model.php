@@ -58,24 +58,5 @@ class dashboard extends Database
       }
   }
 
-  public function select($type, $dataset = '')
-  {
-    require_once '../../core/data_utllities.php';
-    if ($type == "title") {
-      if (!empty($dataset)) {
-          foreach ($title_name as $key => $val) {
-              if ($dataset == $key) {
-                  echo "<option selected value='$key'>$val</option>";
-              } else {
-                  echo "<option value='$key'>$val</option>";
-              }
-          }
-      } else {
-          echo  '<option value="" selected disabled>คำนำหน้า</option>';
-          foreach ($title_name as $key => $val) {
-              echo "<option value='$key'>$val</option>";
-          }
-      }
-  }
-  } 
+  
 }
