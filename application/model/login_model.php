@@ -1,36 +1,37 @@
 <?php
 require '../config/database.php';
 
-class login_model extends Database
+class login_model extends Database_set
 {
     public function login($username, $password, $phone_number)
     {
+
         $check = $this->check_login($username, $password, $phone_number);
         if (!empty($check)) {
             $result = $check->fetch_object();
             $login = mysqli_query($this->dbcon, "SELECT
-            pd.pd_id,
-            pd.title,
-            pd.first_name,
-            pd.last_name,
-            pd.address,
-            pd.ampher_id,
-            pd.tumbon_id,
-            pd.province_id,
-            pd.id_card,
-            pd.phone_number,
-            us.user_rate,
-            us.status_name
-        FROM
-            personal_document pd
-            LEFT JOIN user_status_keep uk ON uk.pd_id = pd.pd_id
-            LEFT JOIN user_status us ON us.id = uk.status_id
-        WHERE
-            pd.`status` = 'active' 
-            AND pd.username = '$result->username' 
-            AND pd.pd_id = '$result->pd_id'  
-         
-             ");
+                pd.pd_id,
+                pd.title,
+                pd.first_name,
+                pd.last_name,
+                pd.address,
+                pd.ampher_id,
+                pd.tumbon_id,
+                pd.province_id,
+                pd.id_card,
+                pd.phone_number,
+                us.user_rate
+               
+            FROM
+                personal_document pd
+                LEFT JOIN user_status_keep uk ON uk.pd_id = pd.pd_id
+                LEFT JOIN user_status us ON us.id = uk.status_id
+            WHERE
+                pd.`status` = 'active' 
+                AND pd.username = '$result->username' 
+                AND pd.pd_id = '$result->pd_id'  
+             
+                 ");
 
             if (!empty($login)) {
                 $row = $login->fetch_object();
@@ -45,7 +46,7 @@ class login_model extends Database
                 $_SESSION['ampher_id'] = $row->ampher_id;
                 $_SESSION['tumbon_id'] = $row->tumbon_id;
                 $_SESSION['province_id'] = $row->province_id;
-                $_SESSION['status_name'] = $row->status_name;
+
                 if ($row->user_rate == '5') {
                     $module = "application/view/admin/dashborad.php";
                 } else {

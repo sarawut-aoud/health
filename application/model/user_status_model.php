@@ -1,7 +1,7 @@
 <?php
 require_once '../../config/database.php';
 
-class user_change extends Database
+class user_change extends Database_set
 {
     public function Get_status_name()
     {

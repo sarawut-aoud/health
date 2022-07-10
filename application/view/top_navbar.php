@@ -15,7 +15,7 @@
                     </div>
                     <div class=" ms-3" style="margin-top:-0.8rem !important;">
                         <span class="d-md-block d-none "><?= $_SESSION['first_name'] ?></span>
-                        <span class="d-md-block d-none"><?= $_SESSION['status_name'] ?></span>
+                        <span class="d-md-block d-none" id='user_position'></span>
                     </div>
                 </div>
             </a>

@@ -21,6 +21,18 @@
   });
 });
 $(document).ready(function () {
+  $.ajax({
+    type: "get",
+    dataType: "json",
+    data: { func: "get" },
+    url: "../../model/top_navbar_model.php",
+    success: function (result) {
+      console.log(result);
+      if (result.is_success) {
+        $("#user_position").html(result.status);
+      }
+    },
+  });
   //---------------------- ส่วนของ Modal เปลี่ยนตำแหน่ง
   $(document).on("click", ".change_position", function (e) {
     e.preventDefault();
@@ -32,7 +44,7 @@ $(document).ready(function () {
     $.ajax({
       type: "post",
       dataType: "json",
-      data: { btn_change_status: $(this).val() },
+      data: { btn_change_status: $(this).val(), func: "change" },
       url: "../../model/top_navbar_model.php",
       success: function (result) {
         if (result.is_success) {

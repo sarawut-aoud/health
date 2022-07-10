@@ -89,7 +89,7 @@
 <script src="./application/plugins/jquery/jquery.min.js"></script>
 <script src="./assets/bootstrap5/js/bootstrap.min.js"></script>
 <script src="./application/plugins/sweetalert2/sweetalert2.min.js"></script>
-<script src="./assets/h_template.js"></script>
+<!-- <script src="./assets/h_template.js"></script> -->
 <script src="./assets/login.js"></script>
 
 

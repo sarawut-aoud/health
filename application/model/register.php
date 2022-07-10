@@ -1,7 +1,7 @@
 <?php
 require '../config/database.php';
 
-class register extends Database
+class register extends Database_set
 {
     public function load_tumbon($ampher)
     {

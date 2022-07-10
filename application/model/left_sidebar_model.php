@@ -1,7 +1,7 @@
 <?php
-require '../../config/database.php';
+require_once '../../config/database.php';
 
-class left_sidemodel  extends Database
+class left_sidemodel  extends Database_set
 {
 
     public function Get_application()

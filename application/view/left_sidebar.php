@@ -1,5 +1,5 @@
 <?php
-require '../../model/left_sidebar_model.php';
+require_once '../../model/left_sidebar_model.php';
 $left  = new left_sidemodel();
 $query = $left->Get_application();
 $row = $query->fetch_object();

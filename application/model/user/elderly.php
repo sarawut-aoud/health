@@ -1,7 +1,7 @@
 <?php
-require '../../config/database.php';
+require_once  '../../config/database.php';
 
-class addelderly extends Database
+class addelderly extends Database_set
 {
     public function add_tumbon($ampher)
     {

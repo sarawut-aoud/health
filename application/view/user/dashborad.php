@@ -1,6 +1,6 @@
 <?php
-require '../../core/path.php';
-require '../../model/user/dashborad_model.php';
+require_once '../../core/path.php';
+require_once '../../model/user/dashborad_model.php';
 
 // $username = $_REQUEST['username'];
 $sql = new dashboard();

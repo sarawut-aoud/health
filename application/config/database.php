@@ -7,7 +7,7 @@ define('DB_NAME', 'db_health'); // Database Name
 date_default_timezone_set('Asia/Bangkok');
 
 
-class Database
+class Database_set
 {
     // Connect Database
     public function __construct()

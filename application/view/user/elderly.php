@@ -9,9 +9,9 @@
     <title><?= $title_path ?></title>
     <?php require '../../core/loadscript.php' ?>
   
-    <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
+    <!-- <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-    <link rel="stylesheet" href="../../plugins/bootstrap-datepicker-thai/css/datepicker.css">
+    <link rel="stylesheet" href="../../plugins/bootstrap-datepicker-thai/css/datepicker.css"> -->
     <link rel="stylesheet" href="../../../assets/custom_style.css">
 
 </head>
@@ -228,19 +228,20 @@
     </div>
 
     
-    <script src="../../plugins/jquery/jquery.js"></script>
+    <!-- <script src="../../plugins/jquery/jquery.js"></script>
     <script src="../../plugins/select2/js/select2.full.min.js"></script>
-    <script src="../../plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script src="../../plugins/sweetalert2/sweetalert2.min.js"></script> -->
     <!-- daterangepicker -->
     <script src="../../plugins/bootstrap-datepicker-thai/js/bootstrap-datepicker.js"></script>
     <script src="../../plugins/bootstrap-datepicker-thai/js/bootstrap-datepicker-thai.js"></script>
     <!-- Input mask -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.3.0/imask.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.3.0/imask.min.js"></script> -->
     <script src="../../plugins/bootstrap-datepicker-thai/js/locales/bootstrap-datepicker.th.js"></script>
     
     <script src="../../../assets/user/elderly.js"></script>
     <script src="../../../assets/numlock.js"></script>
     <script src="../../../assets/id_card.js"></script>
+    <script src="../../../assets/h_template.js"></script>
     
 </body>
 

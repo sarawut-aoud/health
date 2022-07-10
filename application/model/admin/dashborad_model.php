@@ -1,7 +1,7 @@
 <?php
 require '../../config/database.php';
 
-class dashboard extends Database
+class dashboard extends Database_set
 {
    /**
     *     public function ชื่อ ฟังก์ชั่น ($uname){
