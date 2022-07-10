@@ -63,7 +63,8 @@ $data = mysqli_fetch_object($query);
                                             <div class="col-md-2 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">คำนำหน้า</label>
-                                                    <input class="form-control py-2" id="title" name="title" type="text" value="<?php echo $data->first_name; ?>"   disabled>
+                                                    <input class="form-control py-2" id="title" name="title" type="text" value="<?php if($data->title==1){echo "นาย";}elseif($data->title==2){echo "นาง";}else{echo "นางสาว";} ?>"   disabled>
+                                                   
                                                 </div>
                                             </div>
                                             <div class="col-md-5 p-1">
@@ -128,7 +129,7 @@ $data = mysqli_fetch_object($query);
                                                 <div class="form-group">
                                                     <label class="small mb-1">อำเภอ</label>
                                                     <input class="form-control py-2" id="amphoe_id" name="amphoe_id" type="text" disabled>
-                                                    <input type="hidden" id="amphoe" value="<?php echo $data->amphoe_id; ?>">
+                                                    <input type="hidden" id="amphoe" value="<?php echo $data->ampher_id; ?>">
 
                                                 </div>
                                             </div>
