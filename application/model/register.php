@@ -43,7 +43,7 @@ class register extends Database
     public function check_username($username)
     {
 
-        $result = mysqli_query($this->dbcon, "SELECT username FROM personal_document WHERE username='$username' ");
+        $result = mysqli_query($this->dbcon, "SELECT username FROM personal_document WHERE username='$username' AND `status`='active' ");
 
         return $result;
     }

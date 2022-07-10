@@ -29,7 +29,7 @@
 <body class="body_index">
     <div class="container p-5">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12 col-12 col-sm-12  col-xl-10 col-xxl-8">
                 <form method="POST" id="Formregister" class="needs-validation" novalidate>
                     <div class="card shadow-lg border-0 rounded-lg ">
                         <div class="card-header  text-center bg-info bg-gradient   ">

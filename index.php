@@ -10,8 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= $title_path ?></title>
 
-  
+
     <link rel="stylesheet" href="./assets/bootstrap5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./application/plugins/sweetalert2/sweetalert2.min.css">
     <link rel="stylesheet" href="./assets/custom_style.css">
 
 </head>
@@ -22,7 +23,7 @@
 <body class="body_index">
     <!-- login-logo -->
     <div class="content-wrapper">
-        <div class="col-xl-3 col-md-4 position-absolute top-50 start-50 translate-middle">
+        <div class="col-10 col-sm-10 col-md-6 col-xl-3 col-xxl-3 position-absolute top-50 start-50 translate-middle">
             <div class="card shadow">
                 <div class="card-header  text-center bg-info bg-gradient ">
                     <h5 class="card-title ">LOGIN</h5>
@@ -49,7 +50,7 @@
                             </div>
                             <center>
                                 <div class="col-12 mt-4 mb-0">
-                                    <button type="submit" id="btnLogin" name="btnLogin" class="btn btn-info ">เข้าสู่ระบบ</button>
+                                    <button id="btnLogin" name="btnLogin" class="btn btn-info ">เข้าสู่ระบบ</button>
                                 </div>
                             </center>
 
@@ -85,8 +86,11 @@
 
 
 </body>
+<script src="./application/plugins/jquery/jquery.min.js"></script>
 <script src="./assets/bootstrap5/js/bootstrap.min.js"></script>
+<script src="./application/plugins/sweetalert2/sweetalert2.min.js"></script>
 <script src="./assets/h_template.js"></script>
+<script src="./assets/login.js"></script>
 
 
 </html>
