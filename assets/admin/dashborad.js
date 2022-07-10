@@ -4,6 +4,7 @@ $(document).ready(function () {
     e.preventDefault();
     $("#change_position").modal("show");
   });
+  //---------------------- ส่วนของ การออกจากระบบ
 
   $(document).on("click", ".is_logout", function (e) {
     e.preventDefault();

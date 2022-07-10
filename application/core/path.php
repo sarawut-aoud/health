@@ -42,7 +42,7 @@ function select_data($type, $dataset = '')
     if ($type == 'alcohol') {
         if (!empty($dataset)) {
             foreach ($cigarate as $key => $val) {
-                if ($alcohol == $key) {
+                if ($dataset == $key) {
                     echo "<option selected value='$key'>$val</option>";
                 } else {
                     echo "<option value='$key'>$val</option>";
@@ -51,6 +51,57 @@ function select_data($type, $dataset = '')
         } else {
             echo '<option value="" selected disabled>---เลือกชนิดเหล้าสี---</option>';
             foreach ($alcohol as $key => $val) {
+                echo  "<option value='$key'>$val</option>";
+            }
+        }
+    }
+
+    if ($type == 'education') {
+        if (!empty($dataset)) {
+            foreach ($education as $key => $val) {
+                if ($dataset == $key) {
+                    echo "<option selected value='$key'>$val</option>";
+                } else {
+                    echo "<option value='$key'>$val</option>";
+                }
+            }
+        } else {
+            echo '<option value="" selected disabled>---การศึกษา---</option>';
+            foreach ($education as $key => $val) {
+                echo  "<option value='$key'>$val</option>";
+            }
+        }
+    }
+
+    if ($type == 'pd_status') {
+        if (!empty($dataset)) {
+            foreach ($pd_status as $key => $val) {
+                if ($dataset == $key) {
+                    echo "<option selected value='$key'>$val</option>";
+                } else {
+                    echo "<option value='$key'>$val</option>";
+                }
+            }
+        } else {
+            echo '<option value="" selected disabled>---สถานะภาพ---</option>';
+            foreach ($pd_status as $key => $val) {
+                echo  "<option value='$key'>$val</option>";
+            }
+        }
+    }
+
+    if ($type == 'occupation') {
+        if (!empty($dataset)) {
+            foreach ($occupation as $key => $val) {
+                if ($dataset == $key) {
+                    echo "<option selected value='$key'>$val</option>";
+                } else {
+                    echo "<option value='$key'>$val</option>";
+                }
+            }
+        } else {
+            echo '<option value="" selected disabled>---อาชีพ---</option>';
+            foreach ($occupation as $key => $val) {
                 echo  "<option value='$key'>$val</option>";
             }
         }
