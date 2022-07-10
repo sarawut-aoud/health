@@ -63,7 +63,7 @@ $data = mysqli_fetch_object($query);
                                             <div class="col-md-2 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">คำนำหน้า</label>
-                                                    <input class="form-control py-2" id="title" name="title" type="text" value="<?php echo $data->titile; ?>"  placeholder="ชื่อ" disabled>
+                                                    <input class="form-control py-2" id="title" name="title" type="text" value="<?php echo $data->first_name; ?>"   disabled>
                                                 </div>
                                             </div>
                                             <div class="col-md-5 p-1">
@@ -75,7 +75,7 @@ $data = mysqli_fetch_object($query);
                                             <div class="col-md-5 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">นามสกุล</label>
-                                                    <input class="form-control py-2" id="fname" name="fname" type="text" value="<?php echo $data->last_name; ?>"  placeholder="นามสกุล" disabled>
+                                                    <input class="form-control py-2" id="lname" name="lname" type="text" value="<?php echo $data->last_name; ?>"  placeholder="นามสกุล" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -83,13 +83,13 @@ $data = mysqli_fetch_object($query);
                                             <div class="col-md-4 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">อายุ</label>
-                                                    <input class="form-control py-2" id="fname" name="fname" type="text" value="<?php echo $data->age; ?>" placeholder="อายุ" disabled>
+                                                    <input class="form-control py-2" id="age" name="age" type="text" value="<?php echo $data->age; ?>" placeholder="อายุ" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-md-8 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">วันเดือนปีเกิด</label>
-                                                    <input class="form-control py-2" id="fname" name="fname" type="text" value="<?php echo $data->birthday; ?>" placeholder="วันเดินปีเกิด" disabled>
+                                                    <input class="form-control py-2" id="birthday" name="birthday" type="text" value="<?php echo $data->birthday; ?>" placeholder="วันเดินปีเกิด" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -103,7 +103,7 @@ $data = mysqli_fetch_object($query);
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">เบอร์โทร</label>
-                                                    <input class="form-control py-2" id="id_card" name="id_card" type="tel" value="<?php echo $data->phone_number; ?>" placeholder="เบอร์โทร" disabled>
+                                                    <input class="form-control py-2" id="phone_number" name="phone_number" type="tel" value="<?php echo $data->phone_number; ?>" placeholder="เบอร์โทร" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -111,7 +111,7 @@ $data = mysqli_fetch_object($query);
                                             <div class="col-md-12 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">ที่อยู่ปัจจุบัน</label>
-                                                    <textarea class="form-control py-2" id="id_card" name="id_card" type="tel" value="<?php echo $data->address; ?>"  placeholder="ที่อยู่ปัจจุบัน" rows="4" disabled></textarea>
+                                                    <input class="form-control py-2" id="address" name="address" type="text" value="<?php echo $data->address; ?>"  placeholder="ที่อยู่ปัจจุบัน" rows="4" disabled></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -128,7 +128,7 @@ $data = mysqli_fetch_object($query);
                                                 <div class="form-group">
                                                     <label class="small mb-1">อำเภอ</label>
                                                     <input class="form-control py-2" id="amphoe_id" name="amphoe_id" type="text" disabled>
-                                                    <input type="hidden" id="ampher" value="<?php echo $data->ampher_id; ?>">
+                                                    <input type="hidden" id="amphoe" value="<?php echo $data->amphoe_id; ?>">
 
                                                 </div>
                                             </div>
