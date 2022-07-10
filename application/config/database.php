@@ -20,4 +20,13 @@ class Database
             echo "Failed to connect to MySQL : " . mysqli_connect_error();
         }
     }
+    function encode($pass)
+    {
+        $key = 'key@_health';
+        $url = utf8_encode($pass);
+        $base64 = base64_encode(base64_encode($url));
+        $str = strrev($base64);
+        $password = hash_hmac("sha256", $str, $key);
+        return $password;
+    }
 }

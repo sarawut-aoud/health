@@ -19,7 +19,7 @@
 <body class="body_index">
     <!-- login-logo -->
     <div class="content-wrapper">
-        <div class="col-xl-3 col-md-4 position-absolute top-50 start-50 translate-middle">
+        <div class="col-10 col-sm-10 col-md-6 col-xl-3 col-xxl-3 position-absolute top-50 start-50 translate-middle">
             <div class="card shadow">
                 <div class="card-header  text-center bg-info bg-gradient ">
                     <h5 class="card-title ">ขอรหัสผ่านใหม่</h5>

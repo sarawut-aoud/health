@@ -65,7 +65,7 @@ if ($func == 'register') {
     $ampher_id =  $_POST['ampher_id'] != "" ? $_POST['ampher_id'] : "";
     $tumbon_id =  $_POST['tumbon_id'] != "" ? $_POST['tumbon_id'] : "";
     $username = $_POST['username'] != "" ? $_POST['username'] : "";
-    $password =   $_POST['password-input'] != "" ? urldecode(base64_encode($_POST['password-input'])) : "";
+    $password =   $_POST['password-input'] != "" ? $class->encode($_POST['password-input']) : "";
 
 
     if (

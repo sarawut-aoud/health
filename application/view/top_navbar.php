@@ -14,8 +14,8 @@
                         <i class="fas fa-user-circle " style="font-size: 32px;"></i>
                     </div>
                     <div class=" ms-3" style="margin-top:-0.8rem !important;">
-                        <span class="d-md-block d-none ">ศราวุธ อวดกล้า</span>
-                        <span class="d-md-block d-none">ADMIN</span>
+                        <span class="d-md-block d-none "><?= $_SESSION['first_name'] ?></span>
+                        <span class="d-md-block d-none"><?= $_SESSION['status_name'] ?></span>
                     </div>
                 </div>
             </a>
@@ -33,7 +33,6 @@
                     <i class="fas fa-sign-out mr-2"></i> ออกจากระบบ
                 </a>
                 <div class="dropdown-divider"></div>
-
             </div>
         </li>
     </ul>
