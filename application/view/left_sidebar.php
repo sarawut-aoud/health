@@ -82,7 +82,7 @@ $row = $query->fetch_object();
                         <ul class="nav nav-treeview">
                             <?php foreach ($query as $menu) { ?>
                                 <li class="nav-item">
-                                    <a href="<?= '.'.$menu['href_module'] ?>" class="nav-link">
+                                    <a href="<?= '..'.$menu['href_module'] ?>" class="nav-link">
                                         <i class="far fa-user-plus nav-icon"></i>
                                         <span><?= $menu['application_name'] ?></span>
                                     </a>
