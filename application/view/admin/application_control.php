@@ -1,6 +1,6 @@
 <?php
 require '../../core/path.php';
-require_once '../../model/admin/status_model.php';
+
 require '../../core/session.php';
 ?>
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ require '../../core/session.php';
 
 </head>
 <style>
-    #frmstatus .small span {
+    #frmstatus span {
         color: red;
     }
 </style>
@@ -35,12 +35,12 @@ require '../../core/session.php';
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">กำหนดสถานะ </h1>
+                            <h1 class="m-0">กำหนดสิทธิ์การเข้าถึงแอป </h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="dashborad.php">Home</a></li>
-                                <li class="breadcrumb-item active">กำหนดสถานะ</li>
+                                <li class="breadcrumb-item active">กำหนดสิทธิ์การเข้าถึง</li>
                             </ol>
                         </div>
                     </div>
@@ -55,15 +55,15 @@ require '../../core/session.php';
                         <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-10 col-sm col">
                             <div class="card card-shadow  ">
                                 <div class="card-header  bg-gradient-blue">
-                                    <h5 class="card-title">กำหนดสถานะ</h5>
+                                    <h5 class="card-title">กำหนดสิทธิ์การเข้าถึง</h5>
                                 </div>
                                 <form action="" id="frmstatus" method="post">
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-12 col-xxl-5 col-xl-5 p-1">
+                                            <div class="col-md-5 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">เลือกผู้ใช้งาน <span>*<span></label>
-                                                    <select class="form-control py-2 select2 " id="pd_id" name="pd_id" required>
+                                                    <select class="form-control py-2" id="pd_id" name="pd_id" required>
 
                                                     </select>
                                                 </div>
@@ -71,7 +71,7 @@ require '../../core/session.php';
                                             <div class="col-md-7 p-1">
                                                 <div class="form-group ">
                                                     <label class="small mb-1">เลือกสถานะ <span>*<span></label>
-                                                    <div class="d-sm-block d-xxl-flex d-xl-flex d-md-block ">
+                                                    <div class="d-flex">
                                                         <div class="custom-control custom-checkbox mt-2 ms-5">
                                                             <input class="custom-control-input" type="checkbox" id="status_name1" name="status_name" value="1">
                                                             <label for="status_name1" class="custom-control-label">Admin</label>
@@ -96,7 +96,7 @@ require '../../core/session.php';
 
                                     </div>
                                     <div class="card-footer text-end">
-                                        <button id="saveStatus" class="btn btn-sm btn-primary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm">ยืนยันการเพิ่มข้อมูล</button>
+                                        <button id="saveStatus" class="btn btn-sm btn-primary  rounded-pill col-2">ยืนยันการเพิ่มข้อมูล</button>
                                     </div>
                                 </form>
                             </div>
@@ -110,43 +110,22 @@ require '../../core/session.php';
                                         <table class="table table-bordered" id="example" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr align="center">
-                                                    <td style="width: 20% ;">ชื่อ – สกุล</td>
+                                                    <td>ชื่อ – สกุล</td>
                                                     <td>สถานะ</td>
-                                                    <td style="width: 20% ;"></td>
+                                                    <td></td>
                                                 </tr>
                                             </thead>
-                                            <?php
-                                            function set_input($name)
-                                            {
-                                                echo '<div class="custom-control custom-checkbox ms-3 ">';
-                                                echo '<input class="custom-control-input" type="checkbox" checked="checked" disabled >';
-                                                echo '<label  class="custom-control-label">' . $name . '</label>';
-                                                echo '</div>';
-                                            }
-                                            $class = new status_model();
-                                            $sql = $class->Get_table();
-                                            while ($row = $sql->fetch_object()) { ?>
-                                                <tbody>
-                                                    <td><?= $row->fullname ?></td>
-                                                    <td>
-                                                        <div class="d-sm-block d-xxl-flex d-xl-flex ">
-                                                            <?php
-                                                            foreach ($class->Get_table_status($row->pd_id) as $status) {
-                                                                set_input($status['status_name']);
-                                                            }
-                                                            ?>
-                                                        </div>
-                                                    </td>
-                                                    <td align="center">
-                                                        <div class="btn-group btn-group-toggle">
-                                                            <button value="<?= $row->pd_id ?>" id="edit" class="btn  btn-outline-warning  "><i class="fas fa-cog"></i></button>
-                                                            <button value="<?= $row->pd_id ?>" id="delete" class="btn  btn-outline-danger  "><i class="fas fa-trash-alt"></i></button>
-                                                        </div>
+                                            <tbody>
+                                                <td>ชื่อ – สกุล</td>
+                                                <td>สถานะ</td>
+                                                <td align="center" style="width: 20% ;">
+                                                    <div class="btn-group btn-group-toggle">
+                                                        <button id="edit" class="btn  btn-outline-warning  "><i class="fas fa-cog"></i></button>
+                                                        <button id="delete" class="btn  btn-outline-danger  "><i class="fas fa-trash-alt"></i></button>
+                                                    </div>
 
-                                                    </td>
-
-                                                </tbody>
-                                            <?php } ?>
+                                                </td>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -193,7 +172,7 @@ require '../../core/session.php';
     </div>
 
 
-    <script src="../../../assets/admin/status.js"></script>
+    <script src="../../../assets/admin/dashborad.js"></script>
     <script src="../../../assets/h_template.js"></script>
 </body>
 

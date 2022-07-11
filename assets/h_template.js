@@ -97,4 +97,34 @@ $(document).ready(function () {
       }
     });
   });
+
+  $("#example")
+    .DataTable({
+      // "searching": true,
+      responsive: true,
+      lengthChange: false,
+      autoWidth: false,
+      // dom: "Btrip",
+      buttons: {
+        dom: {
+          button: {
+            className: "btn btn-light  ",
+          },
+        },
+        buttons: [
+          {
+            extend: "colvis",
+            className: "btn btn-outline-info",
+          },
+        ],
+      },
+      language: {
+        buttons: {
+          colvis: "Change columns",
+        },
+      },
+    })
+    .buttons()
+    .container()
+    .appendTo("#example1_wrapper .col-md-6:eq(0)");
 });

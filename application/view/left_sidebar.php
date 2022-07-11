@@ -45,7 +45,7 @@ $row = $query->fetch_object();
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a href="../admin/application_control.php" class="nav-link">
                                     <i class="fas fa-shield-check nav-icon"></i>
                                     <span>กำหนดสิทธิ์การเข้าถึงแอป</span>
                                 </a>
