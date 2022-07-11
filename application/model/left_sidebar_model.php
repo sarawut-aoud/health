@@ -13,6 +13,7 @@ class left_sidemodel  extends Database_set
             $result = mysqli_query($this->dbcon, "SELECT
             ap.application_name,
             ap.href_module ,
+            ap.app_icon,
             us.user_rate
         FROM
             personal_document pd

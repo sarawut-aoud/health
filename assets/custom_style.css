@@ -181,3 +181,17 @@ body .content-wrapper {
 
   background-color: #c2e1ff !important;
 }
+
+.btn-group>.btn-group:not(:last-child)>.btn, .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+  border-radius: 30px 0px 0px 30px !important;
+  width: 50px;
+}
+
+btn-group>.btn-group:not(:first-child)>.btn, .btn-group>.btn:not(:first-child) {
+  border-radius: 0px 30px 30px 00px !important;
+  width: 50px;
+}
+
+.card-footer {
+  background-color: #fff !important;
+}

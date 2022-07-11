@@ -39,9 +39,15 @@ $row = $query->fetch_object();
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
+                                <a href="../admin/status.php" class="nav-link">
+                                    <i class="far fa-user-cog nav-icon"></i>
+                                    <span>กำหนดสถานะ</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="" class="nav-link">
                                     <i class="fas fa-shield-check nav-icon"></i>
-                                    <span>กำหนดสิทธิ์การเข้าถึง</span>
+                                    <span>กำหนดสิทธิ์การเข้าถึงแอป</span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -82,8 +88,8 @@ $row = $query->fetch_object();
                         <ul class="nav nav-treeview">
                             <?php foreach ($query as $menu) { ?>
                                 <li class="nav-item">
-                                    <a href="<?= '..'.$menu['href_module'] ?>" class="nav-link">
-                                        <i class="far fa-user-plus nav-icon"></i>
+                                    <a href="<?= '..' . $menu['href_module'] ?>" class="nav-link">
+                                        <i class="<?= $menu['app_icon'] ?> nav-icon"></i>
                                         <span><?= $menu['application_name'] ?></span>
                                     </a>
                                 </li>
