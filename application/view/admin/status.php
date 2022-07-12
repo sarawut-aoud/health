@@ -71,23 +71,8 @@ require '../../core/session.php';
                                             <div class="col-md-7 p-1">
                                                 <div class="form-group ">
                                                     <label class="small mb-1">เลือกสถานะ <span>*<span></label>
-                                                    <div class="d-sm-block d-xxl-flex d-xl-flex d-md-block ">
-                                                        <div class="custom-control custom-checkbox mt-2 ms-5">
-                                                            <input class="custom-control-input" type="checkbox" id="status_name1" name="status_name" value="1">
-                                                            <label for="status_name1" class="custom-control-label">Admin</label>
-                                                        </div>
-                                                        <div class="custom-control custom-checkbox mt-2 ms-5">
-                                                            <input class="custom-control-input" type="checkbox" id="status_name2" name="status_name" value="2">
-                                                            <label for="status_name2" class="custom-control-label">แพทย์</label>
-                                                        </div>
-                                                        <div class="custom-control custom-checkbox mt-2 ms-5">
-                                                            <input class="custom-control-input" type="checkbox" id="status_name3" name="status_name" value="3">
-                                                            <label for="status_name3" class="custom-control-label">เจ้าหน้าที่สาธารณะสุข</label>
-                                                        </div>
-                                                        <div class="custom-control custom-checkbox mt-2 ms-5">
-                                                            <input class="custom-control-input" type="checkbox" id="status_name4" name="status_name" value="4">
-                                                            <label for="status_name4" class="custom-control-label">อสม.</label>
-                                                        </div>
+                                                    <div class="d-sm-block d-xxl-flex d-xl-flex d-md-block " id="status_show">
+
                                                     </div>
 
                                                 </div>
@@ -96,7 +81,10 @@ require '../../core/session.php';
 
                                     </div>
                                     <div class="card-footer text-end">
-                                        <button id="saveStatus" class="btn btn-sm btn-primary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm">ยืนยันการเพิ่มข้อมูล</button>
+                                        <a id="cancle" class="btn btn-sm btn-secondary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm">ยกเลิก</a>
+
+                                        <a id="updateStatus" class="btn btn-sm btn-warning  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm">ยืนยันการแก้ไขข้อมูล</a>
+                                        <a id="saveStatus" class="btn btn-sm btn-primary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm">ยืนยันการเพิ่มข้อมูล</a>
                                     </div>
                                 </form>
                             </div>

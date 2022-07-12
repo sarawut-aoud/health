@@ -1,4 +1,6 @@
-<?php require '../../core/path.php' ?>
+<?php require '../../core/path.php';
+require '../../core/session.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
