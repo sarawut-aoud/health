@@ -29,6 +29,19 @@ class addelderly extends Database_set
         $result = mysqli_query($this->dbcon, "SELECT * FROM system_province ");
         return $result;
     }
+    public function Get_table()
+    {
+        $result = mysqli_query($this->dbcon, "SELECT *
+        FROM personal_document pd
+      
+        LEFT JOIN   user_status_keep uk ON uk.pd_id = pd.pd_id
+        LEFT JOIN user_status us ON us.id = uk.status_id 
+    WHERE
+        pd.`status` = 'active'
+        -- AND uk.status_id = '5' 
+        ");
+        return $result;
+    }
 
     // /** สว่นของการลงทะเบียน */
 

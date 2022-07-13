@@ -192,11 +192,9 @@ require '../../core/session.php';
                                             </div>
                                         </div>
 
-                                        <div class="d-flex justify-content-center">
-                                            <div class="form-group mt-4 mb-0">
-                                                <button type="submit" id="register" name="register" class="btn btn-info ">บันทึก</button>
-                                                <button type="reset" class="btn btn-danger ">ยกเลิก</button>
-                                            </div>
+                                        <div class="card-footer text-end">
+                                                <button type="reset" class="btn btn-sm btn-secondary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm">ยกเลิก</button>
+                                                <button type="submit" id="register" name="register" class="btn btn-sm btn-primary  rounded-pill ">ยืนยันการเพิ่มข้อมูล</button>
                                         </div>
                                     </div>
                                 </div>
@@ -224,9 +222,22 @@ require '../../core/session.php';
                                                     <td>เบอร์โทร</td>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-
-                                            </tbody>
+                                            <?php 
+                                            $class = new addelderly();
+                                            $sql = $class->Get_table();
+                                            while ($row = $sql->fetch_object()) { ?>
+                                                <tbody>
+                                                    <td><?= $row->id_card ?></td>
+                                                    <td><?= $row->first_name.$row->last_name ?></td>
+                                                    <td><?= $row->age ?></td>
+                                                    <td><?= $row->education ?></td>
+                                                    <td><?= $row->pd_status ?></td>
+                                                    <td><?= $row->occupation ?></td>
+                                                    <td><?= $row->occupation ?></td>
+                                                    <td><?= $row->address ?></td>
+                                                    <td><?= $row->phone_number ?></td>
+                                                </tbody>
+                                            <?php } ?>
                                         </table>
                                     </div>
                                 </div>
