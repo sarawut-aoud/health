@@ -1,5 +1,6 @@
 <?php
-require '../../core/path.php';
+require_once '../../core/data_utllities.php';
+
 require_once '../../model/admin/status_model.php';
 require '../../core/session.php';
 ?>
@@ -106,10 +107,12 @@ require '../../core/session.php';
                                             <?php
                                             function set_input($name)
                                             {
-                                                echo '<div class="custom-control custom-checkbox ms-3 ">';
-                                                echo '<input class="custom-control-input" type="checkbox" checked="checked" disabled >';
-                                                echo '<label  class="custom-control-label">' . $name . '</label>';
-                                                echo '</div>';
+                                                if ($name != null) {
+                                                    echo '<div class="custom-control custom-checkbox ms-3 ">';
+                                                    echo '<input class="custom-control-input" type="checkbox" checked="checked" disabled >';
+                                                    echo '<label  class="custom-control-label">' . $name . '</label>';
+                                                    echo '</div>';
+                                                }
                                             }
                                             $class = new status_model();
                                             $sql = $class->Get_table();
@@ -120,6 +123,7 @@ require '../../core/session.php';
                                                         <div class="d-sm-block d-xxl-flex d-xl-flex ">
                                                             <?php
                                                             foreach ($class->Get_table_status($row->pd_id) as $status) {
+
                                                                 set_input($status['status_name']);
                                                             }
                                                             ?>

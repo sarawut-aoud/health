@@ -1,6 +1,8 @@
 <?php
+error_reporting(~E_NOTICE);
 
-$title_name =(array) array(
+$title_path = 'แบบบันทึกตรวจสุขภาพ';
+$title_name = (array) array(
 
     1 => "นาย",
     2 => "นาง",
@@ -56,7 +58,7 @@ $cigarate = (array)array(
     46    =>    "WONDER รสเมนทอล",
     47    =>    "อื่น ๆ",
 );
-$alcohol =(array) array(
+$alcohol = (array) array(
     1 => "แสงโสม",
     2 => "รีเจนซี่ (Regency)",
     3 => "มังกรทอง",
@@ -70,7 +72,7 @@ $alcohol =(array) array(
     11 => "แม่โขง",
     12 => "อื่น ๆ",
 );
- $education2 =(array) array(
+$education2 = (array) array(
     '1' => "ประถม",
     '2' => "มัธยมศึกษาตอนต้น",
     '3' => "มัธยมศึกษาตอนปลาย",
@@ -79,17 +81,17 @@ $alcohol =(array) array(
     '6' => "อนุปริญญา",
     '7' => "ปริญญา"
 );
-    
 
 
-$pd_status = array(
+
+$pd_status =  (array)array(
     1 => "โสด",
     2 => "มีคู่สมรส",
     3 => "หม้าย",
     4 => "หย่า",
     5 => "แยกทาง",
 );
-$occupation = array(
+$occupation =  (array)array(
     1 => "รับราชการ / รัฐวิสาหกิจ",
     2 => "รับจ้างทั่วไป",
     3 => "พนักงานเอกชน",
@@ -98,7 +100,7 @@ $occupation = array(
     6 => "เจ้าของธุรกิจ / ธุรกิจส่วนตัว",
     7 => "อื่น ๆ ",
 );
-$housing_type = array(
+$housing_type =  (array)array(
     1 => "บ้านเดี่ยว",
     2 => "อาคารพาณิชย์หรือตึกแถว",
     3 => "ทาวน์เฮาส์",
