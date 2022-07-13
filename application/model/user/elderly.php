@@ -31,7 +31,14 @@ class addelderly extends Database_set
     }
     public function Get_table()
     {
-        $result = mysqli_query($this->dbcon, "SELECT *
+        $result = mysqli_query($this->dbcon, "SELECT *,
+        CASE 
+            WHEN title = 1 THEN นาย
+            WHEN title = 2 THEN นาง
+            WHEN title = 3 THEN นางสาว
+            END as title 
+        
+       
         FROM personal_document pd
       
         LEFT JOIN   user_status_keep uk ON uk.pd_id = pd.pd_id
