@@ -13,8 +13,8 @@ require '../../core/session.php';
     <?php require '../../core/loadscript.php' ?>
 
     <!-- <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
-    <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-    <link rel="stylesheet" href="../../plugins/bootstrap-datepicker-thai/css/datepicker.css"> -->
+    <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">-->
+    <link rel="stylesheet" href="../../plugins/bootstrap-datepicker-thai/css/datepicker.css"> 
     <link rel="stylesheet" href="../../../assets/custom_style.css">
 
 </head>
@@ -90,6 +90,20 @@ require '../../core/session.php';
                                             </div>
                                         </div>
                                         <div class="d-md-flex d-sm-block form-row p-2">
+                                        <div class="col-md-6 p-1">
+                                                <div class="form-group">
+                                                    <label class="small mb-1">บัตรประชาชน</label>
+                                                    <input class="form-control py-2" id="id_card" name="id_card" type="tel" autocomplete="off" placeholder="X-XXXX-XXXXX-XX-X" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 p-1">
+                                                <div class="form-group">
+                                                    <label class="small mb-1">วันเดือนปีเกิด</label>
+                                                    <input class="form-control py-2" id="birthday" name="birthday" type="text" autocomplete="off" placeholder="วันเดินปีเกิด" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-md-flex d-sm-block form-row p-2">
                                             <div class="col-md-4 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">อายุ</label>
@@ -98,25 +112,56 @@ require '../../core/session.php';
                                             </div>
                                             <div class="col-md-8 p-1">
                                                 <div class="form-group">
-                                                    <label class="small mb-1">วันเดือนปีเกิด</label>
-                                                    <input class="form-control py-2" id="birthday" name="birthday" type="text" autocomplete="off" placeholder="วันเดินปีเกิด" required>
+                                                    <label class="small mb-1">การศึกษา</label>
+                                                    <select class="form-select" id="education" name="education" autocomplete="off" placeholder="ชื่อ" required>
+
+                                                        <?= select_data('education') ?>
+
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="d-md-flex d-sm-block form-row p-2">
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">
-                                                    <label class="small mb-1">บัตรประชาชน</label>
-                                                    <input class="form-control py-2" id="id_card" name="id_card" type="tel" autocomplete="off" placeholder="X-XXXX-XXXXX-XX-X" required>
+                                                    <label class="small mb-1">สถานะภาพ</label>
+                                                    <select class="form-select" id="pd_status" name="pd_status" autocomplete="off" placeholder="ชื่อ" required>
+
+                                                        <?= select_data('pd_status') ?>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 p-1">
+                                                <div class="form-group">
+                                                    <label class="small mb-1">อาชีพปัจจุบัน</label>
+                                                    <select class="form-select" id="occupation" name="occupation" autocomplete="off" placeholder="ชื่อ" required>
+
+                                                        <?= select_data('occupation') ?>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-md-flex d-sm-block form-row p-2">
+                                            <div class="col-md-6 p-1">
+                                                <div class="form-group">
+                                                    <label class="small mb-1">ประเภทที่อยู่อาศัย</label>
+                                                    <select class="form-select" id="housing_type" name="housing_type" autocomplete="off" placeholder="ชื่อ" required>
+
+                                                        <?= select_data('housing_type') ?>
+
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">เบอร์โทร</label>
-                                                    <input class="form-control py-2" id="id_card" name="id_card" type="tel" autocomplete="off" placeholder="เบอร์โทร" required>
+                                                    <input class="form-control py-2" id="phone_number" name="phone_number" maxlength="10" onkeypress="return onlyNumber(event)" type="tel" autocomplete="off" placeholder="เบอร์โทร" required>
                                                 </div>
                                             </div>
                                         </div>
+                                        
                                         <div class=" form-row p-2">
                                             <div class="col-md-12 p-1">
                                                 <div class="form-group">

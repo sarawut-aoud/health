@@ -102,8 +102,24 @@ function select_data($type, $dataset = '')
                 }
             }
         } else {
-            echo '<option value="" selected disabled>---อาชีพ---</option>';
+            echo '<option value="" selected disabled>---อาชีพปัจจุบัน---</option>';
             foreach ($occupation as $key => $val) {
+                echo  "<option value='$key'>$val</option>";
+            }
+        }
+    }
+    if ($type == 'housing_type') {
+        if (!empty($dataset)) {
+            foreach ($housing_type as $key => $val) {
+                if ($dataset == $key) {
+                    echo "<option selected value='$key'>$val</option>";
+                } else {
+                    echo "<option value='$key'>$val</option>";
+                }
+            }
+        } else {
+            echo '<option value="" selected disabled>---ประเภทที่อยู่อาศัย---</option>';
+            foreach ($housing_type as $key => $val) {
                 echo  "<option value='$key'>$val</option>";
             }
         }
