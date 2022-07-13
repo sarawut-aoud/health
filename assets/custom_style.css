@@ -2,7 +2,7 @@
 
 * {
   margin: 0;
-  font-family: 'Itim', cursive;
+  /* font-family: 'Itim', cursive; */
   font-family: 'Mitr', sans-serif;
   font-size: 16px;
   padding: 0;
@@ -163,11 +163,11 @@ body .content-wrapper {
   background-color: #57c5d5 !important;
 }
 
-.select2-container .select2-selection--single {
+#Formregister .select2-container .select2-selection--single {
   height: 42px !important;
 }
 
-.select2-container .select2-selection--single .select2-selection__rendered {
+#Formregister .select2-container .select2-selection--single .select2-selection__rendered {
   padding-top: 8px !important;
   text-align: center !important;
 }
@@ -180,4 +180,32 @@ body .content-wrapper {
 .dropdown-item:focus, .dropdown-item:hover {
 
   background-color: #c2e1ff !important;
+}
+
+.btn-group>.btn-group:not(:last-child)>.btn, .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+  border-radius: 30px 0px 0px 30px !important;
+  width: 50px;
+}
+
+btn-group>.btn-group:not(:first-child)>.btn, .btn-group>.btn:not(:first-child) {
+  border-radius: 0px 30px 30px 00px !important;
+  width: 50px;
+}
+
+.card-footer {
+  background-color: #fff !important;
+}
+
+.page-item:first-child .page-link {
+  border-radius: 30px 0px 0px 30px !important;
+}
+
+.page-item:last-child .page-link {
+  border-radius: 0px 30px 30px 00px !important;
+
+}
+
+.page-item.active .page-link {
+  background-color: #5e5e5e !important;
+  border-color: #5e5e5e !important;
 }
