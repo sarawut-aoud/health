@@ -55,8 +55,6 @@ require '../../core/session.php';
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-
-
                         <div class="col-md-4">
                             <form method="POST" id="register" class="needs-validation" novalidate>
                                 <div class="card shadow-lg border-0 rounded-lg ">
@@ -200,34 +198,32 @@ require '../../core/session.php';
                                                 <button type="reset" class="btn btn-danger ">ยกเลิก</button>
                                             </div>
                                         </div>
-
-                            </form>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="card shadow-lg border-0 rounded-lg ">
-                        <div class="card-header  text-center bg-info bg-gradient   ">
-                            <h5 class="card-title text-black">ข้อมูลผู้สูงอายุ</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="example" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr align="center">
-                                            <td>บัตรประชาชน</td>
-                                            <td>ชื่อ – สกุล</td>
-                                            <td>อายุ</td>
-                                            <td>วันเดือนปีเกิด</td>
-                                            <td>การศึกษา</td>
-                                            <td>สถานะภาพ</td>
-                                            <td>อาชีพ</td>
-                                            <td>ประเภทที่อยู่อาศัย</td>
-                                            <td>ที่อยู่ปัจจุบัน</td>
-                                            <td>เบอร์โทร</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                    </div>
+                        <div class="col-md-8">
+                            <div class="card shadow-lg border-0 rounded-lg ">
+                                <div class="card-header  text-center bg-info bg-gradient   ">
+                                    <h5 class="card-title text-black">ข้อมูลผู้สูงอายุ</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="example" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr align="center">
+                                                    <td>บัตรประชาชน</td>
+                                                    <td>ชื่อ – สกุล</td>
+                                                    <td>อายุ</td>
+                                                    <td>วันเดือนปีเกิด</td>
+                                                    <td>การศึกษา</td>
+                                                    <td>สถานะภาพ</td>
+                                                    <td>อาชีพ</td>
+                                                    <td>ประเภทที่อยู่อาศัย</td>
+                                                    <td>ที่อยู่ปัจจุบัน</td>
+                                                    <td>เบอร์โทร</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
                                     </tbody>
                                 </table>
@@ -239,7 +235,6 @@ require '../../core/session.php';
             </div>
             </section>
         </div>
-
         <?php require '../footer.php'; ?>
     </div>
     <input type="hidden" id="personal_id" value="<?= $_SESSION['pd_id'] ?>">
