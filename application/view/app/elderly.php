@@ -1,7 +1,7 @@
-<?php 
+<?php
 require '../../core/path.php';
 require '../../core/session.php';
- ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +14,7 @@ require '../../core/session.php';
 
     <!-- <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">-->
-    <link rel="stylesheet" href="../../plugins/bootstrap-datepicker-thai/css/datepicker.css"> 
+    <link rel="stylesheet" href="../../plugins/bootstrap-datepicker-thai/css/datepicker.css">
     <link rel="stylesheet" href="../../../assets/custom_style.css">
 
 </head>
@@ -67,7 +67,7 @@ require '../../core/session.php';
                                             <div class="col-md-2 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">คำนำหน้า</label>
-                                                    <select class="form-select" id="title" name="title" autocomplete="off"  required>
+                                                    <select class="form-select" id="title" name="title" autocomplete="off" required>
 
                                                         <?= select_data('title') ?>
 
@@ -88,7 +88,7 @@ require '../../core/session.php';
                                             </div>
                                         </div>
                                         <div class="d-md-flex d-sm-block form-row p-2">
-                                        <div class="col-md-6 p-1">
+                                            <div class="col-md-6 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">บัตรประชาชน</label>
                                                     <input class="form-control py-2" id="id_card" name="id_card" type="tel" autocomplete="off" placeholder="X-XXXX-XXXXX-XX-X" required>
@@ -111,7 +111,7 @@ require '../../core/session.php';
                                             <div class="col-md-8 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">การศึกษา</label>
-                                                    <select class="form-select" id="title" name="title" autocomplete="off"  required>
+                                                    <select class="form-select" id="title" name="title" autocomplete="off" required>
 
                                                         <?= select_data('title') ?>
 
@@ -123,7 +123,7 @@ require '../../core/session.php';
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">สถานะภาพ</label>
-                                                    <select class="form-select" id="pd_status" name="pd_status" autocomplete="off"  required>
+                                                    <select class="form-select" id="pd_status" name="pd_status" autocomplete="off" required>
 
                                                         <?= select_data('pd_status') ?>
 
@@ -133,7 +133,7 @@ require '../../core/session.php';
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">อาชีพปัจจุบัน</label>
-                                                    <select class="form-select" id="occupation" name="occupation" autocomplete="off"  required>
+                                                    <select class="form-select" id="occupation" name="occupation" autocomplete="off" required>
 
                                                         <?= select_data('occupation') ?>
 
@@ -145,7 +145,7 @@ require '../../core/session.php';
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">ประเภทที่อยู่อาศัย</label>
-                                                    <select class="form-select" id="housing_type" name="housing_type" autocomplete="off"  required>
+                                                    <select class="form-select" id="housing_type" name="housing_type" autocomplete="off" required>
 
                                                         <?= select_data('housing_type') ?>
 
@@ -159,7 +159,7 @@ require '../../core/session.php';
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div class=" form-row p-2">
                                             <div class="col-md-12 p-1">
                                                 <div class="form-group">
@@ -198,9 +198,10 @@ require '../../core/session.php';
                                                 <button type="reset" class="btn btn-danger ">ยกเลิก</button>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </div>
-                    </div>
                         <div class="col-md-8">
                             <div class="card shadow-lg border-0 rounded-lg ">
                                 <div class="card-header  text-center bg-info bg-gradient   ">
@@ -225,17 +226,17 @@ require '../../core/session.php';
                                             </thead>
                                             <tbody>
 
-                                    </tbody>
-                                </table>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                </div>
-            </div>
             </section>
         </div>
-        <?php require '../footer.php'; ?>
+    <?php require '../footer.php'; ?>
     </div>
     <input type="hidden" id="personal_id" value="<?= $_SESSION['pd_id'] ?>">
     <!-- ส่วนของ Modal เปลี่ยนตำแหน่ง -->
