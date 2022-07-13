@@ -8,16 +8,16 @@ class status_model extends Database_set
     {
         $result = mysqli_query($this->dbcon, "SELECT
         CONCAT( pd.first_name, ' ', pd.last_name ) AS fullname,
-        pd.pd_id 
-    FROM
-        user_status_keep uk
-        INNER JOIN personal_document pd ON pd.pd_id = uk.pd_id
-        INNER JOIN user_status us ON us.id = uk.status_id 
+        pd.pd_id
+    
+    FROM personal_document pd
+      
+        LEFT JOIN   user_status_keep uk ON uk.pd_id = pd.pd_id
+        LEFT JOIN user_status us ON us.id = uk.status_id 
     WHERE
         pd.`status` = 'active' 
-        AND us.user_rate NOT IN ( '5' ) AND pd.pd_id NOT IN ( SELECT MIN( pdid.pd_id ) FROM personal_document AS pdid ORDER BY
-        pdid.pd_id ASC  ) 
-    
+         AND pd.pd_id NOT IN ( SELECT MIN( pdid.pd_id ) FROM personal_document AS pdid ORDER BY
+        pdid.pd_id ASC  )
     GROUP BY
         pd.pd_id
     
@@ -79,7 +79,7 @@ class status_model extends Database_set
         FROM
             user_status AS us 
         GROUP BY
-            us.id 
+            us.id ,check_id 
         ORDER BY
             us.id ASC
             ");
@@ -87,10 +87,42 @@ class status_model extends Database_set
         }
     }
 
-    public function save_form_status()
+    public function save_form_status($pd_id, $status_id)
     {
-    }
+        $select = mysqli_query($this->dbcon, "SELECT pd_id ,status_id FROM user_status_keep WHERE pd_id = '$pd_id' ")->fetch_object();
 
+        foreach ($status_id as $val) {
+            if ($select->status_id != $val) {
+                $result = mysqli_query($this->dbcon, "INSERT INTO user_status_keep(pd_id,status_id) VALUES ('$pd_id','$val')");
+            }
+        }
+        return $result;
+    }
+    public function update_form_status($pd_id, $status_id)
+    {
+        $select2 = mysqli_query($this->dbcon, "SELECT pd_id ,status_id FROM user_status_keep WHERE pd_id = '$pd_id' ");
+        $i = 1;
+        while ($row = $select2->fetch_object()) {
+            $select = mysqli_query($this->dbcon, "SELECT pd_id ,status_id FROM user_status_keep 
+            WHERE status_id = '$row->status_id' 
+            AND pd_id = '$row->pd_id'")->fetch_object();
+            if (!empty($status_id)) {
+
+
+                if ($select->status_id != $status_id[$i]) {
+                    echo $select->status_id;
+                    mysqli_query($this->dbcon, "INSERT INTO user_status_keep(pd_id,status_id) VALUES ('$pd_id','$status_id[$i]')");
+                }
+
+                $result2 = mysqli_query($this->dbcon, "UPDATE  user_status_keep SET set_status = '1' WHERE pd_id ='$pd_id' AND status_id = '5' ");
+            } else {
+                $result = mysqli_query($this->dbcon, "DELETE FROM user_status_keep WHERE pd_id ='$pd_id' AND status_id !='5' ");
+            }
+            $i++;
+            die;
+        }
+        return 'success';
+    }
     public function delete_form_status($pd_id)
     {
         $result = mysqli_query($this->dbcon, "UPDATE  user_status_keep SET set_status = '1' WHERE pd_id ='$pd_id' AND status_id = '5' ");

@@ -30,14 +30,44 @@ var status_js = {
   },
   Save_status: function () {
     var fdata = $("#frmstatus").serialize();
-    fdata += "&func=insert";
+
     $.ajax({
       type: "POST",
       dataType: "json",
       url: "../../controller/admin/status.php",
-      data: fdata,
+      data: { frmdata: fdata, func: "insert" },
       success: function (results) {
-        if (result.is_successful == true) {
+        if (results.is_successful == true) {
+          Swal.fire({
+            icon: "success",
+            title: results.message,
+            showConfirmButton: false,
+            timer: 1500,
+          }).then(function () {
+            location.reload();
+          });
+        } else {
+          Swal.fire({
+            icon: "info",
+            title: "เกิดข้อผิดพลาด",
+            html: results.message,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      },
+    });
+  },
+  update_status: function () {
+    var fdata = $("#frmstatus").serialize();
+
+    $.ajax({
+      type: "POST",
+      dataType: "json",
+      url: "../../controller/admin/status.php",
+      data: { frmdata: fdata, func: "update" },
+      success: function (results) {
+        if (results.is_successful == true) {
           Swal.fire({
             icon: "success",
             title: results.message,
@@ -109,12 +139,15 @@ var status_js = {
       success: function (result) {
         var data = "";
         for (i in result) {
+          var chk_dis = result[i].check_id == "5" ? " disabled" : "";
           var chk = result[i].check_id != null ? "checked" : "";
           data += '<div class="custom-control custom-checkbox mt-2 ms-5">';
           data +=
             "<input  " +
             chk +
-            '   class="custom-control-input" type="checkbox" target="status_id" id="status_name' +
+            '   class="custom-control-input"  ' +
+            chk_dis +
+            '  type="checkbox" target="status_id" id="status_name' +
             result[i].id +
             '" name="status_name[' +
             result[i].id +
@@ -140,7 +173,10 @@ $(document).ready(function () {
     e.preventDefault();
     status_js.Save_status();
   });
-
+  $(document).on("click", "#updateStatus", function (e) {
+    e.preventDefault();
+    status_js.update_status();
+  });
   $(document).on("change", "#pd_id", function (e) {
     e.preventDefault();
     status_js.load_status($(this).val());

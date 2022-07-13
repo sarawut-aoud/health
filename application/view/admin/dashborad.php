@@ -1,5 +1,6 @@
 <?php
-require '../../core/path.php';
+require_once '../../core/data_utllities.php';
+
 
 require '../../core/session.php';
 ?>

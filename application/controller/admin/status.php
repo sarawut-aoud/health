@@ -31,16 +31,20 @@ if ($func == 'getdata') {
     }
     echo json_encode($data);
 }
-if ($func == 'insert') {
+
+
+if ($_POST['func'] == 'insert') {
     parse_str($_POST["frmdata"], $_POST);
     $pd_id = $_POST['pd_id'];
     $status_id = $_POST['status_name'];
-    if (empty($pd_id) || empty($status_id)) {
+
+    if (empty($pd_id)) {
         echo json_encode(array(
             "is_successful" => false,
             "message" => "กรุณาเลือกข้อมูล",
         ));
     } else {
+
         $sql = $class->save_form_status($pd_id, $status_id);
         if (!empty($sql)) {
             echo json_encode(array(
@@ -56,6 +60,30 @@ if ($func == 'insert') {
     }
 }
 if ($func == 'update') {
+    parse_str($_POST["frmdata"], $_POST);
+    $pd_id = $_POST['pd_id'];
+    $status_id = $_POST['status_name'];
+
+    if (empty($pd_id)) {
+        echo json_encode(array(
+            "is_successful" => false,
+            "message" => "กรุณาเลือกข้อมูล",
+        ));
+    } else {
+
+        $sql = $class->update_form_status($pd_id, $status_id);
+        if (!empty($sql)) {
+            echo json_encode(array(
+                "is_successful" => true,
+                "message" => "บันทึกข้อมูลสำเร็จ",
+            ));
+        } else {
+            echo json_encode(array(
+                "is_successful" => false,
+                "message" => "เกิดข้อผิดพลาด",
+            ));
+        }
+    }
 }
 if ($func == 'delete') {
     $pd_id = $_REQUEST['pd_id'];
