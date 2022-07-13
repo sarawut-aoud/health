@@ -33,9 +33,9 @@ class addelderly extends Database_set
     {
         $result = mysqli_query($this->dbcon, "SELECT *,
         CASE 
-            WHEN title = 1 THEN นาย
-            WHEN title = 2 THEN นาง
-            WHEN title = 3 THEN นางสาว
+            WHEN title = 1 THEN 'นาย'
+            WHEN title = 2 THEN 'นาง'
+            WHEN title = 3 THEN 'นางสาว'
             END as title 
         
        
@@ -50,15 +50,15 @@ class addelderly extends Database_set
         return $result;
     }
 
-    // /** สว่นของการลงทะเบียน */
+    /** สว่นของการลงทะเบียน */
 
-    // public function register_model($title, $fname, $lname, $address, $ampher, $tumbon, $province, $id_card, $username, $password, $age, $birthday, $phone_number)
-    // {
+    public function addelderly_model($title, $fname, $lname, $address, $ampher, $tumbon, $province, $id_card, $age, $birthday, $phone_number,$education,$pd_status,$occupation,$housing_type)
+    {
 
-    //     $result = mysqli_query($this->dbcon, "INSERT INTO personal_document ( title, first_name, last_name, address, ampher_id, tumbon_id, province_id, id_card, username, `password`, age, birthday, phone_number )
-    //     VALUES ('$title','$fname','$lname','$address','$ampher','$tumbon','$province','$id_card','$username','$password','$age','$birthday','$phone_number')");
-    //     return $result;
-    // }
+        $result = mysqli_query($this->dbcon, "INSERT INTO personal_document ( title, first_name, last_name, address, ampher_id, tumbon_id, province_id, id_card, username, `password`, age, birthday, phone_number,education,pd_status,occupation,housing_type )
+        VALUES ('$title','$fname','$lname','$address','$ampher','$tumbon','$province','$id_card','$age','$birthday','$phone_number','$education','$pd_status','$occupation','$housing_type')");
+        return $result;
+    }
 
     // public function check_username($username)
     // {

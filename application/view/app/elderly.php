@@ -2,6 +2,7 @@
 require_once '../../core/path.php';
 require '../../core/session.php';
 require_once '../../core/data_utllities.php';
+require_once '../../model/user/elderly.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +21,7 @@ require_once '../../core/data_utllities.php';
 
 </head>
 <style>
-    #Formregister label span {
+    #Formelderly label span {
         color: red;
     }
 </style>
@@ -38,7 +39,7 @@ require_once '../../core/data_utllities.php';
 
             <div class="content-header">
                 <div class="container-fluid">
-                    <div class="row mb-2">
+                    <div class="row mb-3">
                         <div class="col-sm-6">
                             <h1 class="m-0">จัดการข้อมูลผู้สูงอายุ</h1>
                         </div>
@@ -56,8 +57,8 @@ require_once '../../core/data_utllities.php';
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-4">
-                            <form method="POST" id="register" class="needs-validation" novalidate>
+                        <div class="col-md-5">
+                            <form method="POST" id="Formelderly" class="needs-validation" novalidate>
                                 <div class="card shadow-lg border-0 rounded-lg ">
                                     <div class="card-header  text-center bg-info bg-gradient   ">
                                         <h5 class="card-title text-black">เพิ่มข้อมูลผู้สูงอายุ</h5>
@@ -65,13 +66,13 @@ require_once '../../core/data_utllities.php';
 
                                     <div class="card-body">
                                         <div class="d-md-flex d-sm-block form-row p-2">
-                                            <div class="col-md-2 p-1">
+                                            <div class="col-md-3 p-1">
                                                 <div class="form-group">
-                                                    <label class="small mb-1">คำนำหน้า</label>
+                                                    <label class="small mb-1">คำนำหน้า <span>*<span></label>
                                                     <select class="form-select" id="title" name="title" autocomplete="off" required>
 
                                                         <?php
-                                                        echo '<option value="" selected disabled>---คำนำหน้า---</option>';
+                                                        echo '<option value="" selected disabled>เลือกคำนำหน้า</option>';
                                                         foreach ($title_name as $key => $val) {
                                                             if ($dataset == $key) {
                                                                 echo "<option selected value='$key'>$val</option>";
@@ -84,29 +85,29 @@ require_once '../../core/data_utllities.php';
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-5 p-1">
+                                            <div class="col-md-4 p-1">
                                                 <div class="form-group">
-                                                    <label class="small mb-1">ชื่อ</label>
+                                                    <label class="small mb-1">ชื่อ <span>*<span></label>
                                                     <input class="form-control py-2" id="fname" name="fname" type="text" autocomplete="off" placeholder="ชื่อ" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-5 p-1">
                                                 <div class="form-group">
-                                                    <label class="small mb-1">นามสกุล</label>
-                                                    <input class="form-control py-2" id="fname" name="fname" type="text" autocomplete="off" placeholder="นามสกุล" required>
+                                                    <label class="small mb-1">นามสกุล <span>*<span></label>
+                                                    <input class="form-control py-2" id="lname" name="lname" type="text" autocomplete="off" placeholder="นามสกุล" required>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="d-md-flex d-sm-block form-row p-2">
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">
-                                                    <label class="small mb-1">บัตรประชาชน</label>
+                                                    <label class="small mb-1">บัตรประชาชน <span>*<span></label>
                                                     <input class="form-control py-2" id="id_card" name="id_card" type="tel" autocomplete="off" placeholder="X-XXXX-XXXXX-XX-X" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">
-                                                    <label class="small mb-1">วันเดือนปีเกิด</label>
+                                                    <label class="small mb-1">วันเดือนปีเกิด <span>*<span></label>
                                                     <input class="form-control py-2" id="birthday" name="birthday" type="text" autocomplete="off" placeholder="วันเดินปีเกิด" required>
                                                 </div>
                                             </div>
@@ -114,19 +115,22 @@ require_once '../../core/data_utllities.php';
                                         <div class="d-md-flex d-sm-block form-row p-2">
                                             <div class="col-md-4 p-1">
                                                 <div class="form-group">
-                                                    <label class="small mb-1">อายุ</label>
-                                                    <input class="form-control py-2" id="fname" name="fname" type="text" autocomplete="off" placeholder="อายุ" required>
+                                                    <label class="small mb-1">อายุ <span>*<span></label>
+                                                    <input class="form-control py-2" id="age" name="age" type="text" autocomplete="off" placeholder="อายุ" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-8 p-1">
                                                 <div class="form-group">
-                                                    <label class="small mb-1">การศึกษา</label>
+                                                    <label class="small mb-1">การศึกษา <span>*<span></label>
                                                     <select class="form-select" id="education" name="education" autocomplete="off" required>
-
                                                         <?php
-                                                        echo '<option value="" selected disabled>---การศึกษา---</option>';
-                                                        foreach ($education2 as $e => $v) {
-                                                            echo  "<option value=' $e '>$v</option>";
+                                                        echo '<option value="" selected disabled>เลือกการศึกษา</option>';
+                                                        foreach ($education2 as $keye => $vale) {
+                                                            if ($dataset == $keye) {
+                                                                echo "<option selected value='$keye'>$vale</option>";
+                                                            } else {
+                                                                echo "<option value='$keye'>$vale</option>";
+                                                            }
                                                         }
                                                         ?>
 
@@ -137,20 +141,36 @@ require_once '../../core/data_utllities.php';
                                         <div class="d-md-flex d-sm-block form-row p-2">
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">
-                                                    <label class="small mb-1">สถานะภาพ</label>
+                                                    <label class="small mb-1">สถานะภาพ <span>*<span></label>
                                                     <select class="form-select" id="pd_status" name="pd_status" autocomplete="off" required>
-
-                                                        <?= select_add('pd_status') ?>
-
+                                                        <?php
+                                                        echo '<option value="" selected disabled>เลือกสถานะภาพ</option>';
+                                                        foreach ($pd_status as $key => $val) {
+                                                            if ($dataset == $key) {
+                                                                echo "<option selected value='$key'>$val</option>";
+                                                            } else {
+                                                                echo "<option value='$key'>$val</option>";
+                                                            }
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">
-                                                    <label class="small mb-1">อาชีพปัจจุบัน</label>
+                                                    <label class="small mb-1">อาชีพปัจจุบัน <span>*<span></label>
                                                     <select class="form-select" id="occupation" name="occupation" autocomplete="off" required>
 
-                                                        <?= select_data('occupation') ?>
+                                                        <?php
+                                                        echo '<option value="" selected disabled>เลือกอาชีพปัจจุบัน</option>';
+                                                        foreach ($occupation as $key => $val) {
+                                                            if ($dataset == $key) {
+                                                                echo "<option selected value='$key'>$val</option>";
+                                                            } else {
+                                                                echo "<option value='$key'>$val</option>";
+                                                            }
+                                                        }
+                                                        ?>
 
                                                     </select>
                                                 </div>
@@ -159,17 +179,26 @@ require_once '../../core/data_utllities.php';
                                         <div class="d-md-flex d-sm-block form-row p-2">
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">
-                                                    <label class="small mb-1">ประเภทที่อยู่อาศัย</label>
+                                                    <label class="small mb-1">ประเภทที่อยู่อาศัย <span>*<span></label>
                                                     <select class="form-select" id="housing_type" name="housing_type" autocomplete="off" required>
 
-                                                        <?= select_data('housing_type') ?>
+                                                        <?php
+                                                        echo '<option value="" selected disabled>เลือกประเภทที่อยู่อาศัย</option>';
+                                                        foreach ($housing_type as $key => $val) {
+                                                            if ($dataset == $key) {
+                                                                echo "<option selected value='$key'>$val</option>";
+                                                            } else {
+                                                                echo "<option value='$key'>$val</option>";
+                                                            }
+                                                        }
+                                                        ?>
 
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">
-                                                    <label class="small mb-1">เบอร์โทร</label>
+                                                    <label class="small mb-1">เบอร์โทร <span>*<span></label>
                                                     <input class="form-control py-2" id="phone_number" name="phone_number" maxlength="10" onkeypress="return onlyNumber(event)" type="tel" autocomplete="off" placeholder="เบอร์โทร" required>
                                                 </div>
                                             </div>
@@ -178,7 +207,7 @@ require_once '../../core/data_utllities.php';
                                         <div class=" form-row p-2">
                                             <div class="col-md-12 p-1">
                                                 <div class="form-group">
-                                                    <label class="small mb-1">ที่อยู่ปัจจุบัน</label>
+                                                    <label class="small mb-1">ที่อยู่ปัจจุบัน <span>*<span></label>
                                                     <textarea class="form-control py-2" id="id_card" name="id_card" type="tel" autocomplete="off" placeholder="ที่อยู่ปัจจุบัน" rows="4" required></textarea>
                                                 </div>
                                             </div>
@@ -208,14 +237,14 @@ require_once '../../core/data_utllities.php';
                                         </div>
 
                                         <div class="card-footer text-end">
-                                            <button type="reset" class="btn btn-sm btn-secondary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm">ยกเลิก</button>
-                                            <button type="submit" id="register" name="register" class="btn btn-sm btn-primary  rounded-pill ">ยืนยันการเพิ่มข้อมูล</button>
+                                            <button type="reset" class="btn btn-sm btn-secondary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm mt-3">ยกเลิก</button>
+                                            <button  id="elderly" name="elderly" class="btn btn-sm btn-primary  rounded-pill col col-xxl-4 col-xl-4 col-lg-4 col-md col-sm mt-3">ยืนยันการเพิ่มข้อมูล</button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-7">
                             <div class="card shadow-lg border-0 rounded-lg ">
                                 <div class="card-header  text-center bg-info bg-gradient   ">
                                     <h5 class="card-title text-black">ข้อมูลผู้สูงอายุ</h5>
@@ -229,31 +258,23 @@ require_once '../../core/data_utllities.php';
                                                     <td>ชื่อ – สกุล</td>
                                                     <td>อายุ</td>
                                                     <td>วันเดือนปีเกิด</td>
-                                                    <td>การศึกษา</td>
-                                                    <td>สถานะภาพ</td>
-                                                    <td>อาชีพ</td>
-                                                    <td>ประเภทที่อยู่อาศัย</td>
                                                     <td>ที่อยู่ปัจจุบัน</td>
                                                     <td>เบอร์โทร</td>
                                                 </tr>
                                             </thead>
-                                            <!-- <?php
-                                                    $class = new addelderly();
-                                                    $sql = $class->Get_table();
-                                                    while ($row = $sql->fetch_object()) { ?>
-                                                <tbody>
+                                            <?php
+                                            $class = new addelderly();
+                                            $sql = $class->Get_table();
+                                            while ($row = $sql->fetch_object()) { ?>
+                                                <tbody align="center">
                                                     <td><?= $row->id_card ?></td>
-                                                    <td><?= $row->first_name."  ".$row->last_name ?></td>
+                                                    <td><?= $row->title . $row->first_name . "  " . $row->last_name ?></td>
                                                     <td><?= $row->age ?></td>
-                                                    <td><?= $row->birthday?></td>
-                                                    <td><?= $row->education ?></td>
-                                                    <td><?= $row->pd_status ?></td>
-                                                    <td><?= $row->occupation ?></td>
-                                                    <td><?= $row->occupation ?></td>
+                                                    <td><?= $row->birthday ?></td>
                                                     <td><?= $row->address ?></td>
                                                     <td><?= $row->phone_number ?></td>
                                                 </tbody>
-                                            <?php } ?> -->
+                                            <?php } ?>
                                         </table>
                                     </div>
                                 </div>

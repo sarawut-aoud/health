@@ -67,7 +67,38 @@ var addelderly = {
         },
       });
     },
-    
+    Save_elderly: function () {
+      var fdata = $("#Formelderly").serialize();
+  
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "../../controller/user/elderly.php",
+        data: { Formelderly: fdata, func: "elderly" },
+        success: function (result) {
+          if (result.is_successful == true) {
+            Swal.fire({
+              icon: "success",
+              title: result.message,
+              showConfirmButton: false,
+              timer: 1500,
+            }).then(function () {
+              location.href = "../../app/elderly.php";
+            });
+          } else {
+            Swal.fire({
+              icon: "info",
+              title: "เกิดข้อผิดพลาด",
+              html: result.message,
+              showConfirmButton: false,
+              timer: 1500,
+            }).then(function () {
+              $(".swal2-modal").modal("hide");
+            });
+          }
+        },
+      });
+    },
 };
 
 $(document).ready(function () {
@@ -92,5 +123,9 @@ $(document).ready(function () {
       e.preventDefault();
       var id = $(this).val(); // $(this).val() value ของ id form select ชุดนี้
       addelderly.add_tumbon(id);
+    });
+    $(document).on("click", "#elderly", function (e) {
+      e.preventDefault();
+      register.Save_elderly();
     });
 });
