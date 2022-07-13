@@ -1,6 +1,7 @@
 <?php
-require '../../core/path.php';
+require_once '../../core/path.php';
 require '../../core/session.php';
+require_once '../../core/data_utllities.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +70,16 @@ require '../../core/session.php';
                                                     <label class="small mb-1">คำนำหน้า</label>
                                                     <select class="form-select" id="title" name="title" autocomplete="off" required>
 
-                                                        <?= select_data('title') ?>
+                                                        <?php
+                                                        echo '<option value="" selected disabled>---คำนำหน้า---</option>';
+                                                        foreach ($title_name as $key => $val) {
+                                                            if ($dataset == $key) {
+                                                                echo "<option selected value='$key'>$val</option>";
+                                                            } else {
+                                                                echo "<option value='$key'>$val</option>";
+                                                            }
+                                                        }
+                                                        ?>
 
                                                     </select>
                                                 </div>
@@ -111,9 +121,14 @@ require '../../core/session.php';
                                             <div class="col-md-8 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">การศึกษา</label>
-                                                    <select class="form-select" id="title" name="title" autocomplete="off" required>
+                                                    <select class="form-select" id="education" name="education" autocomplete="off" required>
 
-                                                        <?= select_data('title') ?>
+                                                        <?php
+                                                        echo '<option value="" selected disabled>---การศึกษา---</option>';
+                                                        foreach ($education2 as $e => $v) {
+                                                            echo  "<option value=' $e '>$v</option>";
+                                                        }
+                                                        ?>
 
                                                     </select>
                                                 </div>
@@ -125,7 +140,7 @@ require '../../core/session.php';
                                                     <label class="small mb-1">สถานะภาพ</label>
                                                     <select class="form-select" id="pd_status" name="pd_status" autocomplete="off" required>
 
-                                                        <?= select_data('pd_status') ?>
+                                                        <?= select_add('pd_status') ?>
 
                                                     </select>
                                                 </div>
@@ -193,8 +208,8 @@ require '../../core/session.php';
                                         </div>
 
                                         <div class="card-footer text-end">
-                                                <button type="reset" class="btn btn-sm btn-secondary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm">ยกเลิก</button>
-                                                <button type="submit" id="register" name="register" class="btn btn-sm btn-primary  rounded-pill ">ยืนยันการเพิ่มข้อมูล</button>
+                                            <button type="reset" class="btn btn-sm btn-secondary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm">ยกเลิก</button>
+                                            <button type="submit" id="register" name="register" class="btn btn-sm btn-primary  rounded-pill ">ยืนยันการเพิ่มข้อมูล</button>
                                         </div>
                                     </div>
                                 </div>
@@ -222,13 +237,13 @@ require '../../core/session.php';
                                                     <td>เบอร์โทร</td>
                                                 </tr>
                                             </thead>
-                                            <?php 
-                                            $class = new addelderly();
-                                            $sql = $class->Get_table();
-                                            while ($row = $sql->fetch_object()) { ?>
+                                            <!-- <?php
+                                                    $class = new addelderly();
+                                                    $sql = $class->Get_table();
+                                                    while ($row = $sql->fetch_object()) { ?>
                                                 <tbody>
                                                     <td><?= $row->id_card ?></td>
-                                                    <td><?= $row->first_name.$row->last_name ?></td>
+                                                    <td><?= $row->first_name . $row->last_name ?></td>
                                                     <td><?= $row->age ?></td>
                                                     <td><?= $row->education ?></td>
                                                     <td><?= $row->pd_status ?></td>
@@ -237,7 +252,7 @@ require '../../core/session.php';
                                                     <td><?= $row->address ?></td>
                                                     <td><?= $row->phone_number ?></td>
                                                 </tbody>
-                                            <?php } ?>
+                                            <?php } ?> -->
                                         </table>
                                     </div>
                                 </div>
@@ -247,7 +262,7 @@ require '../../core/session.php';
                 </div>
             </section>
         </div>
-    <?php require '../footer.php'; ?>
+        <?php require '../footer.php'; ?>
     </div>
     <input type="hidden" id="personal_id" value="<?= $_SESSION['pd_id'] ?>">
     <!-- ส่วนของ Modal เปลี่ยนตำแหน่ง -->
