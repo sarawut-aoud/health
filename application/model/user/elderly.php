@@ -38,7 +38,7 @@ class addelderly extends Database_set
         LEFT JOIN user_status us ON us.id = uk.status_id 
     WHERE
         pd.`status` = 'active'
-        -- AND uk.status_id = '5' 
+        AND uk.status_id = '5' 
         ");
         return $result;
     }

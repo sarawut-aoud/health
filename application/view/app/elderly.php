@@ -1,6 +1,7 @@
 <?php
-require '../../core/path.php';
-require '../../core/session.php';
+require_once '../../core/path.php';
+require_once '../../core/session.php';
+require_once '../../model/user/elderly.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -228,8 +229,9 @@ require '../../core/session.php';
                                             while ($row = $sql->fetch_object()) { ?>
                                                 <tbody>
                                                     <td><?= $row->id_card ?></td>
-                                                    <td><?= $row->first_name.$row->last_name ?></td>
+                                                    <td><?= $row->first_name."  ".$row->last_name ?></td>
                                                     <td><?= $row->age ?></td>
+                                                    <td><?= $row->birthday?></td>
                                                     <td><?= $row->education ?></td>
                                                     <td><?= $row->pd_status ?></td>
                                                     <td><?= $row->occupation ?></td>

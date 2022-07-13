@@ -1,7 +1,7 @@
 <?php
 require_once '../../core/path.php';
 require_once '../../model/user/dashborad_model.php';
-require '../../core/session.php';
+require_once '../../core/session.php';
 
 // $username = $_REQUEST['username'];
 $sql = new dashboard();

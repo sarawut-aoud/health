@@ -1,5 +1,5 @@
 <?php
-require '../../model/user/elderly.php';
+require_once '../../model/user/elderly.php';
 
 $class = new addelderly();
 
