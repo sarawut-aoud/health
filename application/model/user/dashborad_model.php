@@ -6,8 +6,20 @@ class dashboard extends Database_set
 
   public function personal()
   {
-    $pd_id =  mysqli_query($this->dbcon, "SELECT * FROM personal_document  ");
-    return $pd_id;
+    $pd_id = $_SESSION['pd_id'];
+    $result = mysqli_query($this->dbcon, "SELECT
+          *
+        FROM
+            personal_document pd
+            LEFT JOIN user_status_keep uk ON uk.pd_id = pd.pd_id
+            LEFT JOIN user_status us ON us.id = uk.status_id
+        WHERE
+            pd.`status` = 'active' 
+            AND pd.pd_id = '$pd_id'  
+             ");
+
+        return $result;
+    
   }
 
 
