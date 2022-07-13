@@ -102,6 +102,7 @@ class status_model extends Database_set
     {
         $select2 = mysqli_query($this->dbcon, "SELECT pd_id ,status_id FROM user_status_keep WHERE pd_id = '$pd_id' ");
         $i = 1;
+        die;
         while ($row = $select2->fetch_object()) {
             $select = mysqli_query($this->dbcon, "SELECT pd_id ,status_id FROM user_status_keep 
             WHERE status_id = '$row->status_id' 
@@ -119,7 +120,7 @@ class status_model extends Database_set
                 $result = mysqli_query($this->dbcon, "DELETE FROM user_status_keep WHERE pd_id ='$pd_id' AND status_id !='5' ");
             }
             $i++;
-            die;
+            
         }
         return 'success';
     }
