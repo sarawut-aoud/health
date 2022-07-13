@@ -69,9 +69,9 @@ require '../../core/session.php';
                                             <div class="col-md-2 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">คำนำหน้า</label>
-                                                    <select class="form-select" id="title" name="title" autocomplete="off" placeholder="ชื่อ" required>
+                                                    <select class="form-select" id="housing_type" name="housing_type" autocomplete="off" placeholder="ชื่อ" required>
 
-                                                        <?= select_data('title') ?>
+                                                        <?= select_data('housing_type') ?>
 
                                                     </select>
                                                 </div>
@@ -113,9 +113,9 @@ require '../../core/session.php';
                                             <div class="col-md-8 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">การศึกษา</label>
-                                                    <select class="form-select" id="education" name="education" autocomplete="off" placeholder="ชื่อ" required>
+                                                    <select class="form-select" id="title" name="title" autocomplete="off" placeholder="ชื่อ" required>
 
-                                                        <?= select_data('education') ?>
+                                                        <?= select_data('title') ?>
 
                                                     </select>
                                                 </div>
