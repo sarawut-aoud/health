@@ -69,9 +69,9 @@ require '../../core/session.php';
                                             <div class="col-md-2 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">คำนำหน้า</label>
-                                                    <select class="form-select" id="housing_type" name="housing_type" autocomplete="off" placeholder="ชื่อ" required>
+                                                    <select class="form-select" id="title" name="title" autocomplete="off"  required>
 
-                                                        <?= select_data('housing_type') ?>
+                                                        <?= select_data('title') ?>
 
                                                     </select>
                                                 </div>
@@ -113,7 +113,7 @@ require '../../core/session.php';
                                             <div class="col-md-8 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">การศึกษา</label>
-                                                    <select class="form-select" id="title" name="title" autocomplete="off" placeholder="ชื่อ" required>
+                                                    <select class="form-select" id="title" name="title" autocomplete="off"  required>
 
                                                         <?= select_data('title') ?>
 
@@ -125,7 +125,7 @@ require '../../core/session.php';
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">สถานะภาพ</label>
-                                                    <select class="form-select" id="pd_status" name="pd_status" autocomplete="off" placeholder="ชื่อ" required>
+                                                    <select class="form-select" id="pd_status" name="pd_status" autocomplete="off"  required>
 
                                                         <?= select_data('pd_status') ?>
 
@@ -135,7 +135,7 @@ require '../../core/session.php';
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">อาชีพปัจจุบัน</label>
-                                                    <select class="form-select" id="occupation" name="occupation" autocomplete="off" placeholder="ชื่อ" required>
+                                                    <select class="form-select" id="occupation" name="occupation" autocomplete="off"  required>
 
                                                         <?= select_data('occupation') ?>
 
@@ -147,7 +147,7 @@ require '../../core/session.php';
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">ประเภทที่อยู่อาศัย</label>
-                                                    <select class="form-select" id="housing_type" name="housing_type" autocomplete="off" placeholder="ชื่อ" required>
+                                                    <select class="form-select" id="housing_type" name="housing_type" autocomplete="off"  required>
 
                                                         <?= select_data('housing_type') ?>
 
@@ -194,18 +194,6 @@ require '../../core/session.php';
                                             </div>
                                         </div>
 
-
-                                        <div class="d-md-flex d-sm-block form-row p-2">
-                                            <!-- <div class="col-md-6 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">ยันยันรหัสผ่าน</label>
-                                                    <div class="input-group">
-                                                        <input class=" form-control py-2" type="password" id="confirm_password" name="confirm_password"  autocomplete="off" placeholder="ยินยันรหัสผ่าน" maxlength="20" required />
-
-                                                    </div>
-                                                </div>
-                                            </div> -->
-                                        </div>
                                         <div class="d-flex justify-content-center">
                                             <div class="form-group mt-4 mb-0">
                                                 <button type="submit" id="register" name="register" class="btn btn-info ">บันทึก</button>
@@ -226,17 +214,17 @@ require '../../core/session.php';
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="example" width="100%" cellspacing="0">
                                     <thead>
-                                        <tr>
-                                            <td align="center">บัตรประชาชน</td>
-                                            <td align="center">ชื่อ – สกุล</td>
-                                            <td align="center">อายุ</td>
-                                            <td align="center">วันเดือนปีเกิด</td>
-                                            <td align="center">การศึกษา</td>
-                                            <td align="center">สถานะภาพ</td>
-                                            <td align="center">อาชีพ</td>
-                                            <td align="center">ประเภทที่อยู่อาศัย</td>
-                                            <td align="center">ที่อยู่ปัจจุบัน</td>
-                                            <td align="center">เบอร์โทร</td>
+                                        <tr align="center">
+                                            <td>บัตรประชาชน</td>
+                                            <td>ชื่อ – สกุล</td>
+                                            <td>อายุ</td>
+                                            <td>วันเดือนปีเกิด</td>
+                                            <td>การศึกษา</td>
+                                            <td>สถานะภาพ</td>
+                                            <td>อาชีพ</td>
+                                            <td>ประเภทที่อยู่อาศัย</td>
+                                            <td>ที่อยู่ปัจจุบัน</td>
+                                            <td>เบอร์โทร</td>
                                         </tr>
                                     </thead>
                                     <tbody>
