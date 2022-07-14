@@ -38,7 +38,7 @@ $data = mysqli_fetch_object($query);
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">โปรไฟล์</h1>
+                            <h1 class="m-0">แบบบันทึกตรวจสุขภาพ</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -60,14 +60,25 @@ $data = mysqli_fetch_object($query);
                                     <div class="card-body">
                                         <ul class="nav nav-tabs nav-primary mb-0" data-bs-toggle="tabs">
                                             <li class="nav-item">
-                                                <a class="nav-link active" href="#">ข้อมูลส่วนตัว</a>
+                                                <a class="nav-link active" href="#">ตรวจร่างกาย คัดกรอง</a>
                                             </li>
                                         </ul>
                                         <div class="d-md-flex d-sm-block form-row p-2">
                                             <div class="col-md-2 p-1">
                                                 <div class="form-group">
-                                                    <label class="small mb-1">คำนำหน้า</label>
-                                                    <input class="form-control py-2" id="title" name="title" type="text" value="<?php echo $data->title;  ?>" disabled>
+                                                    <label class="small mb-1">การคลุมกำเนิด</label>
+                                                    <select class="form-select" id="education" name="education" autocomplete="off" required>
+                                                        <?php
+                                                        echo '<option value="" selected disabled>เลือกการคลุมกำเนิด</option>';
+                                                        foreach ($contraceptive as $keye => $vale) {
+                                                            if ($dataset == $keye) {
+                                                                echo "<option selected value='$keye'>$vale</option>";
+                                                            } else {
+                                                                echo "<option value='$keye'>$vale</option>";
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </select>
 
                                                 </div>
                                             </div>
