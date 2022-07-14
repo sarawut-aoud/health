@@ -1,4 +1,4 @@
-<?php require "./application/core/path.php"; ?>
+<?php require "./application/core/data_utllities.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
