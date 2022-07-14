@@ -261,7 +261,7 @@ $class = new addelderly();
                                                     <td>วันเดือนปีเกิด</td>
                                                     <td>ที่อยู่ปัจจุบัน</td>
                                                     <td>เบอร์โทร</td>
-                                                    <td></td>
+                                                    <!-- <td></td> -->
                                                 </tr>
                                             </thead>
                                             <?php
@@ -275,12 +275,12 @@ $class = new addelderly();
                                                     <td><?= $row->birthday ?></td>
                                                     <td><?= $row->address ?></td>
                                                     <td><?= $row->phone_number ?></td>
-                                                    <td>
+                                                    <!-- <td>
                                                         <div class="btn-group btn-group-toggle">
                                                             <button value="<?= $row->pd_id ?>" id="edit" class="btn  btn-outline-warning  "><i class="fas fa-cog"></i></button>
                                                             <button value="<?= $row->pd_id ?>" id="delete" class="btn  btn-outline-danger  "><i class="fas fa-trash-alt"></i></button>
                                                         </div>
-                                                    </td>
+                                                    </td> -->
                                                 </tbody>
                                             <?php } ?>
                                         </table>
