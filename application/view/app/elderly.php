@@ -180,11 +180,11 @@ $class = new addelderly();
                                         <div class="d-md-flex d-sm-block form-row p-2">
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">
-                                                    <label class="small mb-1">ประเภทที่อยู่อาศัย <span>*<span></label>
+                                                    <label class="small mb-1">ประเภทที่พักอาศัย <span>*<span></label>
                                                     <select class="form-select" id="housing_type" name="housing_type" autocomplete="off" required>
 
                                                         <?php
-                                                        echo '<option value="" selected disabled>เลือกประเภทที่อยู่อาศัย</option>';
+                                                        echo '<option value="" selected disabled>เลือกประเภทที่พักอาศัย</option>';
                                                         foreach ($housing_type as $key => $val) {
                                                             if ($dataset == $key) {
                                                                 echo "<option selected value='$key'>$val</option>";
@@ -261,6 +261,7 @@ $class = new addelderly();
                                                     <td>วันเดือนปีเกิด</td>
                                                     <td>ที่อยู่ปัจจุบัน</td>
                                                     <td>เบอร์โทร</td>
+                                                    <td></td>
                                                 </tr>
                                             </thead>
                                             <?php
@@ -274,6 +275,12 @@ $class = new addelderly();
                                                     <td><?= $row->birthday ?></td>
                                                     <td><?= $row->address ?></td>
                                                     <td><?= $row->phone_number ?></td>
+                                                    <td>
+                                                        <div class="btn-group btn-group-toggle">
+                                                            <button value="<?= $row->pd_id ?>" id="edit" class="btn  btn-outline-warning  "><i class="fas fa-cog"></i></button>
+                                                            <button value="<?= $row->pd_id ?>" id="delete" class="btn  btn-outline-danger  "><i class="fas fa-trash-alt"></i></button>
+                                                        </div>
+                                                    </td>
                                                 </tbody>
                                             <?php } ?>
                                         </table>

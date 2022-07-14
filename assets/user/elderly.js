@@ -99,6 +99,36 @@ var addelderly = {
         },
       });
     },
+    update_elderly: function () {
+      var fdata = $("#Formelderly").serialize();
+  
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "../../controller/user/elderly.php",
+        data: { frmdata: fdata, func: "update" },
+        success: function (results) {
+          if (results.is_successful == true) {
+            Swal.fire({
+              icon: "success",
+              title: results.message,
+              showConfirmButton: false,
+              timer: 1500,
+            }).then(function () {
+              location.reload();
+            });
+          } else {
+            Swal.fire({
+              icon: "info",
+              title: "เกิดข้อผิดพลาด",
+              html: results.message,
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        },
+      });
+    },
 };
 
 $(document).ready(function () {
@@ -127,5 +157,17 @@ $(document).ready(function () {
     $(document).on("click", "#elderly", function (e) {
       e.preventDefault();
       addelderly.Save_elderly();
+    });
+    $(document).on("click", "#edit", function (e) {
+      e.preventDefault();
+      $("#saveStatus").hide();
+      $("#updateStatus,#cancle").show();
+  
+      status_js.load_user($(this).val());
+      status_js.load_status($(this).val());
+    });
+    $(document).on("click", "#updateStatus", function (e) {
+      e.preventDefault();
+      addelderly.update_elderly();
     });
 });
