@@ -1,7 +1,6 @@
 <?php
 require_once '../../core/data_utllities.php';
-
-
+require_once '../../model/admin/application_model.php';
 require '../../core/session.php';
 ?>
 <!DOCTYPE html>
@@ -17,7 +16,7 @@ require '../../core/session.php';
 
 </head>
 <style>
-    #frmstatus span {
+    #frmapplication label span {
         color: red;
     }
 </style>
@@ -58,37 +57,25 @@ require '../../core/session.php';
                                 <div class="card-header  bg-gradient-blue">
                                     <h5 class="card-title">กำหนดสิทธิ์การเข้าถึง</h5>
                                 </div>
-                                <form action="" id="frmstatus" method="post">
+                                <form action="" id="frmapplication" method="post">
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-5 p-1">
+                                            <div class="col-md-4 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">เลือกผู้ใช้งาน <span>*<span></label>
-                                                    <select class="form-control py-2" id="pd_id" name="pd_id" required>
+                                                    <select class="form-control py-2 select2" id="pd_id" name="pd_id" required>
 
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-7 p-1">
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-8 p-1">
                                                 <div class="form-group ">
-                                                    <label class="small mb-1">เลือกสถานะ <span>*<span></label>
-                                                    <div class="d-flex">
-                                                        <div class="custom-control custom-checkbox mt-2 ms-5">
-                                                            <input class="custom-control-input" type="checkbox" id="status_name1" name="status_name" value="1">
-                                                            <label for="status_name1" class="custom-control-label">Admin</label>
-                                                        </div>
-                                                        <div class="custom-control custom-checkbox mt-2 ms-5">
-                                                            <input class="custom-control-input" type="checkbox" id="status_name2" name="status_name" value="2">
-                                                            <label for="status_name2" class="custom-control-label">แพทย์</label>
-                                                        </div>
-                                                        <div class="custom-control custom-checkbox mt-2 ms-5">
-                                                            <input class="custom-control-input" type="checkbox" id="status_name3" name="status_name" value="3">
-                                                            <label for="status_name3" class="custom-control-label">เจ้าหน้าที่สาธารณะสุข</label>
-                                                        </div>
-                                                        <div class="custom-control custom-checkbox mt-2 ms-5">
-                                                            <input class="custom-control-input" type="checkbox" id="status_name4" name="status_name" value="4">
-                                                            <label for="status_name4" class="custom-control-label">อสม.</label>
-                                                        </div>
+                                                    <label class="small mb-1">เลือกสิทธิ์ที่ให้เข้าถึง <span>*<span></label>
+                                                    <div class="d-flex" id="application_show">
+
                                                     </div>
 
                                                 </div>
@@ -112,13 +99,13 @@ require '../../core/session.php';
                                             <thead>
                                                 <tr align="center">
                                                     <td>ชื่อ – สกุล</td>
-                                                    <td>สถานะ</td>
+                                                    <td>สิทธิ์ที่เข้าถึง</td>
                                                     <td></td>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <td>ชื่อ – สกุล</td>
-                                                <td>สถานะ</td>
+                                                <td></td>
+                                                <td></td>
                                                 <td align="center" style="width: 20% ;">
                                                     <div class="btn-group btn-group-toggle">
                                                         <button id="edit" class="btn  btn-outline-warning  "><i class="fas fa-cog"></i></button>
@@ -173,7 +160,7 @@ require '../../core/session.php';
     </div>
 
 
-    <script src="../../../assets/admin/dashborad.js"></script>
+    <script src="../../../assets/admin/application.js"></script>
     <script src="../../../assets/h_template.js"></script>
 </body>
 

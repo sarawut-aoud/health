@@ -1,4 +1,4 @@
-<?php require_once '../../core/data_utllities.php';
+<?php require_once '../core/data_utllities.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +44,16 @@
                                         <label class="small mb-1">คำนำหน้า <span>*<span></label>
                                         <select class="form-select py-2" id="title" name="title" autocomplete="off" placeholder="ชื่อ" required>
 
-                                            <?= select_data('title') ?>
+                                            <?php
+                                            echo '<option value="" selected disabled>เลือกคำนำหน้า</option>';
+                                            foreach ($title_name as $key => $val) {
+                                                if ($dataset == $key) {
+                                                    echo "<option selected value='$key'>$val</option>";
+                                                } else {
+                                                    echo "<option value='$key'>$val</option>";
+                                                }
+                                            }
+                                            ?>
 
                                         </select>
                                     </div>
