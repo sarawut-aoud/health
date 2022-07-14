@@ -79,7 +79,6 @@ $data = mysqli_fetch_object($query);
                                                         }
                                                         ?>
                                                     </select>
-
                                                 </div>
                                             </div>
                                             <div class="col-md-5 p-1">
