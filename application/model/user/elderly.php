@@ -44,6 +44,8 @@ class addelderly extends Database_set
     WHERE
         pd.`status` = 'active'
         AND uk.status_id = '5' 
+        AND pd.pd_id NOT IN ( SELECT MIN( pdid.pd_id ) FROM personal_document AS pdid ORDER BY
+        pdid.pd_id ASC  )
         ");
         return $result;
     }
@@ -52,11 +54,11 @@ class addelderly extends Database_set
 
     public function addelderly_model($title, $fname, $lname, $address, $ampher, $tumbon, $province, $id_card, $age, $birthday, $phone_number,$education,$pd_status,$occupation,$housing_type)
     {
-
+       
         $result = mysqli_query($this->dbcon, "INSERT INTO personal_document (title, first_name, last_name, address, ampher_id, tumbon_id, province_id, id_card, age, birthday, phone_number,education,pd_status,occupation,type_live )
         VALUES ('$title','$fname','$lname','$address','$ampher','$tumbon','$province','$id_card','$age','$birthday','$phone_number','$education','$pd_status','$occupation','$housing_type')");
         
-        $last_id = $result->insert_id;
+        $last_id = mysqli_insert_id($this->dbcon);
         $this->set_user($last_id);
 
         return $result;

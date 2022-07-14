@@ -57,7 +57,7 @@ if ($func == 'elderly') {
     $fname =  $_POST['fname'] != "" ? $_POST['fname'] : "";
     $lname =  $_POST['lname'] != "" ? $_POST['lname'] : "";
     $age =  $_POST['age'] != "" ? $_POST['age'] : "";
-    $birthday =  $_POST['birthday'] != '' ? date('Y-m-d', strtotime($_POST['birthday'] . "-543 year")) : "";
+    $birthday =  $_POST['birthday'] != '' ? date('Y-m-d', strtotime($_POST['birthday'] . "-543 year")) : date("Y-m-d");
     $id_card =  $_POST['id_card'] != '' ? preg_replace('/[-]/i', '', $_POST['id_card']) : "";
     $phone_number =  $_POST['phone_number'] != "" ? $_POST['phone_number'] : "";
     $address =  $_POST['address'] != "" ? $_POST['address'] : "";
@@ -83,7 +83,8 @@ if ($func == 'elderly') {
             "message" => "กรอกข้อมูลไม่ครบกรุณาตรวจสอบ",
         ));
     } else {
-        $query = $class->addelderly_model($title, $fname, $lname, $address, $ampher, $tumbon, $province, $id_card, $age, $birthday, $phone_number,$education,$pd_status,$occupation,$housing_type);
+        $query = $class->addelderly_model($title, $fname, $lname, $address, $ampher_id, $tumbon_id, $province_id, $id_card, 
+        $age, $birthday, $phone_number,$education,$pd_status,$occupation,$housing_type);
 
         echo json_encode(array(
             "is_successful" => true,
