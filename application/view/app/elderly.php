@@ -1,8 +1,9 @@
 <?php
-require_once '../../core/path.php';
+
 require '../../core/session.php';
 require_once '../../core/data_utllities.php';
 require_once '../../model/user/elderly.php';
+$class = new addelderly();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -208,7 +209,7 @@ require_once '../../model/user/elderly.php';
                                             <div class="col-md-12 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">ที่อยู่ปัจจุบัน <span>*<span></label>
-                                                    <textarea class="form-control py-2" id="id_card" name="id_card" type="tel" autocomplete="off" placeholder="ที่อยู่ปัจจุบัน" rows="4" required></textarea>
+                                                    <textarea class="form-control py-2" id="address" name="address" type="tel" autocomplete="off" placeholder="ที่อยู่ปัจจุบัน" rows="4" required></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -238,7 +239,7 @@ require_once '../../model/user/elderly.php';
 
                                         <div class="card-footer text-end">
                                             <button type="reset" class="btn btn-sm btn-secondary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm mt-3">ยกเลิก</button>
-                                            <button  id="elderly" name="elderly" class="btn btn-sm btn-primary  rounded-pill col col-xxl-4 col-xl-4 col-lg-4 col-md col-sm mt-3">ยืนยันการเพิ่มข้อมูล</button>
+                                            <a  id="elderly" name="elderly" class="btn btn-sm btn-primary  rounded-pill col col-xxl-4 col-xl-4 col-lg-4 col-md col-sm mt-3">ยืนยันการเพิ่มข้อมูล</a>
                                         </div>
                                     </div>
                                 </div>
@@ -263,7 +264,7 @@ require_once '../../model/user/elderly.php';
                                                 </tr>
                                             </thead>
                                             <?php
-                                            $class = new addelderly();
+                                           
                                             $sql = $class->Get_table();
                                             while ($row = $sql->fetch_object()) { ?>
                                                 <tbody align="center">

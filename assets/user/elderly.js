@@ -83,7 +83,7 @@ var addelderly = {
               showConfirmButton: false,
               timer: 1500,
             }).then(function () {
-              location.href = "../../app/elderly.php";
+              location.href = "../../view/app/elderly.php";
             });
           } else {
             Swal.fire({
@@ -126,6 +126,6 @@ $(document).ready(function () {
     });
     $(document).on("click", "#elderly", function (e) {
       e.preventDefault();
-      register.Save_elderly();
+      addelderly.Save_elderly();
     });
 });

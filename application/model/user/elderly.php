@@ -53,16 +53,20 @@ class addelderly extends Database_set
     public function addelderly_model($title, $fname, $lname, $address, $ampher, $tumbon, $province, $id_card, $age, $birthday, $phone_number,$education,$pd_status,$occupation,$housing_type)
     {
 
-        $result = mysqli_query($this->dbcon, "INSERT INTO personal_document ( title, first_name, last_name, address, ampher_id, tumbon_id, province_id, id_card, username, `password`, age, birthday, phone_number,education,pd_status,occupation,housing_type )
+        $result = mysqli_query($this->dbcon, "INSERT INTO personal_document (title, first_name, last_name, address, ampher_id, tumbon_id, province_id, id_card, age, birthday, phone_number,education,pd_status,occupation,type_live )
         VALUES ('$title','$fname','$lname','$address','$ampher','$tumbon','$province','$id_card','$age','$birthday','$phone_number','$education','$pd_status','$occupation','$housing_type')");
+        
+        $last_id = $result->insert_id;
+        $this->set_user($last_id);
+
         return $result;
     }
 
-    // public function check_username($username)
-    // {
-
-    //     $result = mysqli_query($this->dbcon, "SELECT username FROM personal_document WHERE username='$username' ");
-
-    //     return $result;
-    // }
+    private function set_user($last_id)
+    {
+        $result = mysqli_query($this->dbcon, "INSERT INTO `user_status_keep` ( `pd_id`, `status_id`, `set_status` )
+        VALUES
+            ('$last_id','5','1') ");
+        return $result;
+    }
 }
