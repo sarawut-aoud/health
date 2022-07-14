@@ -55,7 +55,7 @@ require '../../core/session.php';
                     <div class="row justify-content-center">
                         <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-10 col-sm col">
                             <div class="card card-shadow  ">
-                                <div class="card-header  bg-gradient-blue">
+                                <div class="card-header  bg-gradient-info">
                                     <h5 class="card-title">กำหนดสถานะ</h5>
                                 </div>
                                 <form action="" id="frmstatus" method="post">
