@@ -1,8 +1,10 @@
 <?php
 require_once '../../model/left_sidebar_model.php';
+require_once '../../core/path.php';
 $left  = new left_sidemodel();
 $query = $left->Get_application();
 $row = $query->fetch_object();
+
 ?>
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -29,8 +31,8 @@ $row = $query->fetch_object();
                 if ($row->user_rate == '5') {
                 ?>
                     <li class="nav-header">Setting</li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active">
+                    <li class="nav-item ">
+                        <a href="#" class="nav-link active ">
                             <i class=" nav-icon far fa-cog"></i>
                             <p>
                                 ตั้งค่า
@@ -38,20 +40,20 @@ $row = $query->fetch_object();
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="../admin/status.php" class="nav-link">
+                            <li class="nav-item ">
+                                <a href="../admin/status.php" class="nav-link ">
                                     <i class="far fa-user-cog nav-icon"></i>
                                     <span>กำหนดสถานะ</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="../admin/application.php" class="nav-link">
+                            <li class="nav-item ">
+                                <a href="../admin/application.php" class="nav-link ">
                                     <i class="fas fa-shield-check nav-icon"></i>
                                     <span>กำหนดสิทธิ์การเข้าถึงแอป</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link">
+                            <li class="nav-item ">
+                                <a href="../admin/add_user.php" class="nav-link ">
                                     <i class="far fa-user nav-icon"></i>
                                     <span>ผู้ใช้งานระบบ</span>
                                 </a>

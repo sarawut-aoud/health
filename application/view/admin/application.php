@@ -54,7 +54,7 @@ require '../../core/session.php';
                     <div class="row justify-content-center">
                         <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-10 col-sm col">
                             <div class="card card-shadow  ">
-                                <div class="card-header  bg-gradient-blue">
+                                <div class="card-header  bg-gradient-info">
                                     <h5 class="card-title">กำหนดสิทธิ์การเข้าถึง</h5>
                                 </div>
                                 <form action="" id="frmapplication" method="post">
@@ -71,10 +71,10 @@ require '../../core/session.php';
 
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-8 p-1">
+                                            <div class="col-md-12 p-1">
                                                 <div class="form-group ">
                                                     <label class="small mb-1">เลือกสิทธิ์ที่ให้เข้าถึง <span>*<span></label>
-                                                    <div class="d-flex" id="application_show">
+                                                    <div class="d-flex d-sm-block d-xxl-flex d-xl-flex" id="application_show">
 
                                                     </div>
 
@@ -84,7 +84,10 @@ require '../../core/session.php';
 
                                     </div>
                                     <div class="card-footer text-end">
-                                        <button id="saveStatus" class="btn btn-sm btn-primary  rounded-pill col-2">ยืนยันการเพิ่มข้อมูล</button>
+                                        <a id="cancle" class="btn btn-sm btn-secondary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm">ยกเลิก</a>
+
+                                        <a id="updateStatus" class="btn btn-sm btn-warning  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm">ยืนยันการแก้ไขข้อมูล</a>
+                                        <a id="saveStatus" class="btn btn-sm btn-primary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm">ยืนยันการเพิ่มข้อมูล</a>
                                     </div>
                                 </form>
                             </div>
@@ -98,22 +101,48 @@ require '../../core/session.php';
                                         <table class="table table-bordered" id="example" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr align="center">
-                                                    <td>ชื่อ – สกุล</td>
+                                                    <td style="width: 30%;">ชื่อ – สกุล</td>
                                                     <td>สิทธิ์ที่เข้าถึง</td>
-                                                    <td></td>
+                                                    <td style="width: 20%;"></td>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <td></td>
-                                                <td></td>
-                                                <td align="center" style="width: 20% ;">
-                                                    <div class="btn-group btn-group-toggle">
-                                                        <button id="edit" class="btn  btn-outline-warning  "><i class="fas fa-cog"></i></button>
-                                                        <button id="delete" class="btn  btn-outline-danger  "><i class="fas fa-trash-alt"></i></button>
-                                                    </div>
 
-                                                </td>
-                                            </tbody>
+                                            <?php
+                                            function set_input($name)
+                                            {
+                                                if ($name != null) {
+                                                    echo '<div class="custom-control custom-checkbox ms-3 ">';
+                                                    echo '<input class="custom-control-input" type="checkbox" checked="checked" disabled >';
+                                                    echo '<label  class="custom-control-label">' . $name . '</label>';
+                                                    echo '</div>';
+                                                }
+                                            }
+                                            $class = new application_model();
+                                            $sql = $class->Get_table();
+                                            while ($row = $sql->fetch_object()) { ?>
+                                                <tbody>
+                                                    <td><?= $row->fullname ?></td>
+                                                    <td>
+                                                        <div class="d-sm-block d-xxl-blcok d-xl-blcok ">
+                                                            <?php
+                                                            foreach ($class->Get_table_status($row->pd_id) as $status) {
+
+                                                                set_input($status['application_name']);
+                                                            }
+                                                            ?>
+                                                        </div>
+                                                    </td>
+                                                    <td align="center">
+                                                        <div class="btn-group btn-group-toggle">
+                                                            <button value="<?= $row->pd_id ?>" id="edit" class="btn  btn-outline-warning  "><i class="fas fa-cog"></i></button>
+                                                            <button value="<?= $row->pd_id ?>" id="delete" class="btn  btn-outline-danger  "><i class="fas fa-trash-alt"></i></button>
+                                                        </div>
+
+                                                    </td>
+
+                                                </tbody>
+                                            <?php } ?>
+
                                         </table>
                                     </div>
                                 </div>
