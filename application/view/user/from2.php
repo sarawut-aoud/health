@@ -22,6 +22,11 @@ $data = mysqli_fetch_object($query);
     <?php require '../../core/loadscript.php' ?>
     <link rel="stylesheet" href="../../../assets/custom_style.css">
 </head>
+<style>
+    #Formscreening label span {
+        color: red;
+    }
+</style>
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -55,7 +60,7 @@ $data = mysqli_fetch_object($query);
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-                            <form method="POST" id="register" class="needs-validation" novalidate>
+                            <form method="POST" id="Formscreening" class="needs-validation" novalidate>
                                 <div class="card shadow-lg border-0 rounded-lg ">
                                     <div class="card-body">
                                         <ul class="nav nav-tabs nav-primary mb-0" data-bs-toggle="tabs">
@@ -64,9 +69,41 @@ $data = mysqli_fetch_object($query);
                                             </li>
                                         </ul>
                                         <div class="d-md-flex d-sm-block form-row p-2">
+                                            <div class="col-md-5 p-1">
+                                                <div class="form-group">
+                                                    <label class="small mb-1">ความดันโลหิตครั้งที่ 1 <span>*<span></label>
+                                                    <input class="form-control py-2" id="fname" name="fname" type="text" placeholder="ความดันโลหิตครั้งที่ 1">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5 p-1">
+                                                <div class="form-group">
+                                                    <label class="small mb-1">ความดันโลหิตครั้งที่ 2 <span>*<span></label>
+                                                    <input class="form-control py-2" id="fname" name="fname" type="text" placeholder="โรคประจำตัว">
+                                                </div>
+                                            </div>
                                             <div class="col-md-2 p-1">
                                                 <div class="form-group">
-                                                    <label class="small mb-1">การคลุมกำเนิด</label>
+                                                    <label class="small mb-1">น้ำหนัก <span>*<span></label>
+                                                    <input class="form-control py-2" id="lname" name="lname" type="text" placeholder="น้ำหนัก">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-md-flex d-sm-block form-row p-2">
+                                            <div class="col-md-3 p-1">
+                                                <div class="form-group">
+                                                    <label class="small mb-1">ส่วนสูง <span>*<span></label>
+                                                    <input class="form-control py-2" id="fname" name="fname" type="text" placeholder="ส่วนสูง">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 p-1">
+                                                <div class="form-group">
+                                                    <label class="small mb-1">รอบเอว <span>*<span></label>
+                                                    <input class="form-control py-2" id="fname" name="fname" type="text" placeholder="รอบเอว">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 p-1">
+                                                <div class="form-group">
+                                                    <label class="small mb-1">การคลุมกำเนิด <span>*<span></label>
                                                     <select class="form-select" id="education" name="education" autocomplete="off" required>
                                                         <?php
                                                         echo '<option value="" selected disabled>เลือกการคลุมกำเนิด</option>';
@@ -81,16 +118,18 @@ $data = mysqli_fetch_object($query);
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-5 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">ชื่อ</label>
-                                                    <input class="form-control py-2" id="fname" name="fname" type="text" value="<?php echo $data->first_name; ?>" placeholder="ชื่อ" disabled>
+                                        </div>
+                                        <div class="d-md-flex d-sm-block form-row p-2">
+                                            <div class="row mb-1 col-md-5 p-1">
+                                                <label class="col-sm-2 col-form-label col-form-label-sm mb-1">โรคประจำตัว 1</label>
+                                                <div class="col-10 ">
+                                                    <input class="form-control py-2" id="lname" name="lname" type="text" placeholder="โรคประจำตัว 1">
                                                 </div>
                                             </div>
-                                            <div class="col-md-5 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">นามสกุล</label>
-                                                    <input class="form-control py-2" id="lname" name="lname" type="text" value="<?php echo $data->last_name; ?>" placeholder="นามสกุล" disabled>
+                                            <div class="row mb-1 col-md-5 p-1">
+                                                <label class="col-sm-2 col-form-label col-form-label-sm mb-1">โรคประจำตัว 1</label>
+                                                <div class="col-10 ">
+                                                    <input class="form-control py-2" id="lname" name="lname" type="text" placeholder="โรคประจำตัว 1">
                                                 </div>
                                             </div>
                                         </div>
