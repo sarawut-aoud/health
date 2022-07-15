@@ -72,19 +72,19 @@ $data = mysqli_fetch_object($query);
                                             <div class="col-md-5 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">ความดันโลหิตครั้งที่ 1 <span>*<span></label>
-                                                    <input class="form-control py-2" id="fname" name="fname" type="text" placeholder="ความดันโลหิตครั้งที่ 1">
+                                                    <input class="form-control py-2" id="fname" name="fname" type="text" placeholder="ความดันโลหิตครั้งที่ 1" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-5 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">ความดันโลหิตครั้งที่ 2 <span>*<span></label>
-                                                    <input class="form-control py-2" id="fname" name="fname" type="text" placeholder="โรคประจำตัว">
+                                                    <input class="form-control py-2" id="fname" name="fname" type="text" placeholder="โรคประจำตัว" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-2 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">น้ำหนัก <span>*<span></label>
-                                                    <input class="form-control py-2" id="lname" name="lname" type="text" placeholder="น้ำหนัก">
+                                                    <input class="form-control py-2" id="lname" name="lname" type="text" placeholder="น้ำหนัก" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -92,13 +92,13 @@ $data = mysqli_fetch_object($query);
                                             <div class="col-md-3 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">ส่วนสูง <span>*<span></label>
-                                                    <input class="form-control py-2" id="fname" name="fname" type="text" placeholder="ส่วนสูง">
+                                                    <input class="form-control py-2" id="fname" name="fname" type="text" placeholder="ส่วนสูง" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-3 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">รอบเอว <span>*<span></label>
-                                                    <input class="form-control py-2" id="fname" name="fname" type="text" placeholder="รอบเอว">
+                                                    <input class="form-control py-2" id="fname" name="fname" type="text" placeholder="รอบเอว" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 p-1">
@@ -120,78 +120,193 @@ $data = mysqli_fetch_object($query);
                                             </div>
                                         </div>
                                         <div class="d-md-flex d-sm-block form-row p-2">
-                                            <div class="row mb-1 col-md-5 p-1">
-                                                <label class="col-sm-2 col-form-label col-form-label-sm mb-1">โรคประจำตัว 1</label>
-                                                <div class="col-10 ">
-                                                    <input class="form-control py-2" id="lname" name="lname" type="text" placeholder="โรคประจำตัว 1">
+                                            <div class="row g-6  align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">โรคประจำตัว 1</label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="โรคประจำตัว 1">
                                                 </div>
                                             </div>
-                                            <div class="row mb-1 col-md-5 p-1">
-                                                <label class="col-sm-2 col-form-label col-form-label-sm mb-1">โรคประจำตัว 1</label>
-                                                <div class="col-10 ">
-                                                    <input class="form-control py-2" id="lname" name="lname" type="text" placeholder="โรคประจำตัว 1">
+                                            <div class="row g-3 align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">เป็นมานาน</label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="เป็นมานาน">
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="d-md-flex d-sm-block form-row p-2">
-                                            <div class="col-md-4 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">อายุ</label>
-                                                    <input class="form-control py-2" id="age" name="age" type="text" value="<?php echo $data->age; ?>" placeholder="อายุ" disabled>
+                                            <div class="row g-3 align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">ปี รพ.รักษาประจำ</label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="รพ.รักษาประจำ">
                                                 </div>
                                             </div>
-                                            <div class="col-md-8 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">วันเดือนปีเกิด</label>
-                                                    <input class="form-control py-2" id="birthday" name="birthday" type="text" value="<?php echo $data->birthday; ?>" placeholder="วันเดินปีเกิด" disabled>
+                                            <div class="row g-3 align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">รพ.ที่ตรวจพบครั้งแรก</label>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="d-md-flex d-sm-block form-row p-2">
-                                            <div class="col-md-6 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">บัตรประชาชน</label>
-                                                    <input class="form-control py-2" id="id_card" name="id_card" type="tel" value="<?php echo $data->id_card; ?>" placeholder="X-XXXX-XXXXX-XX-X" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">เบอร์โทร</label>
-                                                    <input class="form-control py-2" id="phone_number" name="phone_number" type="tel" value="<?php echo $data->phone_number; ?>" placeholder="เบอร์โทร" disabled>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class=" form-row p-2">
-                                            <div class="col-md-12 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">ที่อยู่ปัจจุบัน</label>
-                                                    <input class="form-control py-2" id="address" name="address" type="text" value="<?php echo $data->address; ?>" placeholder="ที่อยู่ปัจจุบัน" rows="4" disabled></input>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="รพ.ที่ตรวจพบครั้งแรก">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="d-md-flex d-sm-block form-row p-2">
-                                            <div class="col-md-4 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">ตำบล</label>
-                                                    <input class="form-control py-2" id="tumbon_id" name="tumbon_id" type="text" disabled>
-                                                    <input type="hidden" id="tumbon" value="<?php echo $data->tumbon_id; ?>">
-
+                                            <div class="row g-6  align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">โรคประจำตัว 2</label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="โรคประจำตัว 2">
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">อำเภอ</label>
-                                                    <input class="form-control py-2" id="amphoe_id" name="amphoe_id" type="text" disabled>
-                                                    <input type="hidden" id="amphoe" value="<?php echo $data->ampher_id; ?>">
-
+                                            <div class="row g-3 align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">เป็นมานาน</label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="เป็นมานาน">
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">จังหวัด</label>
-                                                    <input class="form-control py-2" id="province_id" name="province_id" type="text" disabled>
-                                                    <input type="hidden" id="province" value="<?php echo $data->province_id; ?>">
-
+                                            <div class="row g-3 align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">ปี รพ.รักษาประจำ</label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="รพ.รักษาประจำ">
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">รพ.ที่ตรวจพบครั้งแรก</label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="รพ.ที่ตรวจพบครั้งแรก">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-md-flex d-sm-block form-row p-2">
+                                            <div class="row g-6  align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">โรคประจำตัว 3</label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="โรคประจำตัว 3">
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">เป็นมานาน</label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="เป็นมานาน">
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">ปี รพ.รักษาประจำ</label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="รพ.รักษาประจำ">
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">รพ.ที่ตรวจพบครั้งแรก</label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="รพ.ที่ตรวจพบครั้งแรก">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-md-flex d-sm-block form-row p-2">
+                                            <div class="row g-6  align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">โรคประจำตัว 4</label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="โรคประจำตัว 4">
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">เป็นมานาน</label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="เป็นมานาน">
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">ปี รพ.รักษาประจำ</label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="รพ.รักษาประจำ">
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">รพ.ที่ตรวจพบครั้งแรก</label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="รพ.ที่ตรวจพบครั้งแรก">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-md-flex d-sm-block form-row p-2">
+                                            <div class="row g-6  align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">โรคประจำตัว 5</label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="โรคประจำตัว 5">
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">เป็นมานาน</label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="เป็นมานาน">
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">ปี รพ.รักษาประจำ</label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="รพ.รักษาประจำ">
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">รพ.ที่ตรวจพบครั้งแรก</label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="รพ.ที่ตรวจพบครั้งแรก">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-md-flex d-sm-block form-row p-2">
+                                            <div class="row g-6  align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">ถ้าอายุ 35 ปีขึ้นและไม่ป่วยเบาหวานความดัน ให้ตรวจระดับน้ำตาลในเลือดหลังอดอาหาร ผลตรวจครั้งนี้เท่ากับ</label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="ผลตรวจ">
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center p-2">
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">mg% หรือเคยตรวจครั้งสุดท้ายภายใน 1 ปี ผลตรวจเท่ากับ </label>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="ผลตรวจ">
+                                                </div>
+                                                <div class="col-auto">
+                                                    <label class="small mb-1">mg% </label>
                                                 </div>
                                             </div>
                                         </div>
