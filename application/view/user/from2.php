@@ -195,7 +195,6 @@ $data = mysqli_fetch_object($query);
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </form>
