@@ -267,6 +267,7 @@ $data = mysqli_fetch_object($query);
                                                     </select>
                                                 </div>
                                             </div>
+
                                             <div class="form-group  align-items-center py-3">
                                                 <label class="mb-1">จำนวนมวนต่อวัน <span>*<span></label>
                                                 <div class="form-check form-check-inline">
@@ -332,7 +333,7 @@ $data = mysqli_fetch_object($query);
                                         <div class="d-md-flex d-sm-block form-row p-2">
                                             <div class="row g-6  align-items-center p-2">
                                                 <div class="col-auto">
-                                                    <label class="mb-1">ชนิดของสุรา  <span>*<span></label>
+                                                    <label class="mb-1">ชนิดของสุรา <span>*<span></label>
                                                 </div>
                                                 <div class="col-auto">
                                                     <select class="form-select" id="alcohol" name="alcohol" autocomplete="off" required>
@@ -349,18 +350,87 @@ $data = mysqli_fetch_object($query);
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group  align-items-center py-3">
-                                                <div class="row g-6  align-items-center p-2">
+                                            <div class="row g-6  align-items-center p-2">
                                                 <div class="col-auto">
-                                                <label class="mb-1">ปริมาณที่ดื่มต่อครั้ง <span>*<span></label>
+                                                    <label class="mb-1">ปริมาณที่ดื่มต่อครั้ง <span>*<span></label>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="โรคประจำตัว 2">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="ปริมาณที่ดื่มต่อครั้ง">
                                                 </div>
                                                 <div class="col-auto">
                                                     <label class="mb-1">ก๊ง กั๊ก แบน ขวด </label>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="d-md-flex d-sm-block form-row p-2">
+                                            <div class="form-group">
+                                                <label class="mb-1 p-2">ผลการตรวจคัดกรองสารเคมีในเลือด</label>
+                                                <div class="row g-6  align-items-center p-2">
+                                                    <div class="col-auto">
+                                                        <label class="mb-1">ตรวจครั้งสุดท้ายเมื่อปี พ.ศ. <span>*<span></label>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="ตรวจครั้งสุดท้ายเมื่อปี พ.ศ.">
+                                                    </div>
+                                                    <div class="col-auto ">
+                                                        <label class="mb-1 py-2">ผลการตรวจ</label>
+                                                        <div class="form-check form-check-inline py-2">
+                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
+                                                            <label class="form-check-label" for="inlineRadio3">ปกติ</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4">
+                                                            <label class="form-check-label" for="inlineRadio4">ปลอดภัย</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4">
+                                                            <label class="form-check-label" for="inlineRadio4">เสี่ยง</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4">
+                                                            <label class="form-check-label" for="inlineRadio4">ไม่ปลอดภัย</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4">
+                                                            <label class="form-check-label" for="inlineRadio4">ไม่เคยตรวจ</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-md-flex d-sm-block form-row p-2">
+                                            <div class="col-md-12 p-1">
+                                                <div class="form-group">
+                                                    <label class="mb-1">การดูแลสุขภาพช่องปากเหงือก <span>*<span></label>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
+                                                        <label class="form-check-label" for="inlineRadio3">ปกติ</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4">
+                                                        <label class="form-check-label" for="inlineRadio4">บวม</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+                                                        <label class="form-check-label" for="inlineRadio2">หนอง</label>
+                                                    </div>
+                                                    <label class="mb-1">หินปูน <span>*<span></label>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
+                                                        <label class="form-check-label" for="inlineRadio3">มี</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
+                                                        <label class="form-check-label" for="inlineRadio3">ไม่มี</label>
+                                                    </div>
+                                                    <label class="md-4">จำนวนฟันแท้ผุ </label>
+                                                    <div class="form-check form-check-inline">
+                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="ผลตรวจ">
+                                                        <label class="mb-2 p-2">ซี่ </label>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
