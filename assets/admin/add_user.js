@@ -279,6 +279,7 @@ var adduser = {
  * --------------------------------- document Ready ---------------------------------
  */
 $(document).ready(function () {
+  
   $(".select2").select2();
   $("#birthday").datepicker({
     language: "th-th",
@@ -301,24 +302,24 @@ $(document).ready(function () {
     var id = $(this).val(); // $(this).val() value ของ id form select ชุดนี้
     adduser.add_tumbon(id, "");
   });
-
+  $("#cancle,#update").hide();
   // ---------insert
-  $(document).on("click", ".Save", function (e) {
+  $(document).on("click", "#btnsave", function (e) {
     e.preventDefault();
+    adduser.saveFormdata();
   });
   // ---------update
 
   $(document).on("click", "#edit", function (e) {
     e.preventDefault();
     adduser.Get_data($(this).val());
-    $("#adduser").removeClass("btn-primary Save");
-    $("#adduser").addClass("btn-warning Updatedata").html("ยืนยันการแก้ไข");
-    $(".Updatedata").attr("value", $(this).val());
+    $("#cancle,#update").show();
+    $("#update").attr("data-id", $(this).val());
+    $("#btnsave").hide();
   });
-  $(document).on("click", ".Updatedata", function (e) {
+  $(document).on("click", "#update", function (e) {
     e.preventDefault();
-    $("#adduser").removeClass("btn-warning Updatedata");
-    $("#adduser").addClass("btn-primary Save").html("ยืนยันการเพิ่มข้อมูล");
+    adduser.updateFormdata($(this).attr("data-id"));
   });
 
   // ---------delete
@@ -331,8 +332,8 @@ $(document).ready(function () {
   $(document).on("click", "#cancle", function (e) {
     e.preventDefault();
     $("#FormUser")[0].reset();
-    $("#adduser").removeClass("btn-warning Updatedata");
-    $("#adduser").addClass("btn-primary").html("ยืนยันการเพิ่มข้อมูล");
+    $("#btnsave").show();
+    $("#cancle,#update").hide();
     $("#province_id,#ampher_id,#tumbon_id,#title").val("").trigger("change");
   });
 });

@@ -43,7 +43,7 @@ class addusermodel extends Database_set
         LEFT JOIN user_status us ON us.id = uk.status_id 
     WHERE
         pd.`status` = 'active'
-        AND us.user_rate != '1' AND uk.set_status ='1' 
+        AND uk.set_status ='1' 
         AND pd.pd_id NOT IN ( SELECT MIN( pdid.pd_id ) FROM personal_document AS pdid ORDER BY
         pdid.pd_id ASC  )
     GROUP BY 

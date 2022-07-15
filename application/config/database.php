@@ -29,4 +29,12 @@ class Database_set
         $password = hash_hmac("sha256", $str, $key);
         return $password;
     }
+    function decode($string)
+    {
+        $key = 'key@_health';
+        $str = strrev($string);
+        $base64 = base64_decode(base64_decode($str));
+        $url = urldecode($base64);
+        return $url;
+    }
 }

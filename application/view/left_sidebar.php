@@ -88,14 +88,17 @@ $row = $query->fetch_object();
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                            <?php foreach ($query as $menu) { ?>
-                                <li class="nav-item">
-                                    <a href="<?= '..' . $menu['href_module'] ?>" class="nav-link">
-                                        <i class="<?= $menu['app_icon'] ?> nav-icon"></i>
-                                        <span><?= $menu['application_name'] ?></span>
-                                    </a>
-                                </li>
-                            <?php } ?>
+                            <?php foreach ($query as $menu) {
+                                if ($menu['href_module'] != "") {
+                            ?>
+                                    <li class="nav-item">
+                                        <a href="<?= '..' . $menu['href_module'] ?>" class="nav-link">
+                                            <i class="<?= $menu['app_icon'] ?> nav-icon"></i>
+                                            <span><?= $menu['application_name'] ?></span>
+                                        </a>
+                                    </li>
+                            <?php }
+                            } ?>
                         </ul>
                     </li>
                 <?php } ?>
