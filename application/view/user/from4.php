@@ -425,23 +425,89 @@ $data = mysqli_fetch_object($query);
                                                     </div>
                                                     <label class="md-4">จำนวนฟันแท้ผุ </label>
                                                     <div class="form-check form-check-inline">
-                                                    <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="ผลตรวจ">
+                                                        <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="จำนวนฟันแท้ผุ">
                                                         <label class="mb-2 p-2">ซี่ </label>
-                                                        </div>
                                                     </div>
-                                                    
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="d-md-flex d-sm-block form-row p-2">
+                                            <div class="col-md-12 p-1">
+                                                <div class="form-group">
+                                                    <label class="mb-1">การตรวจเต้านม ในสตรีอายุ 30 ปีขึ้นไปตรวจด้วย <span>*<span></label>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
+                                                        <label class="form-check-label" for="inlineRadio3">ตนเอง</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4">
+                                                        <label class="form-check-label" for="inlineRadio4">บุคลากรสาธารณสุข</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-md-flex d-sm-block form-row p-2">
+                                            <div class="form-group">
+                                                
+                                                <div class="row g-6  align-items-center p-2">
+                                                    <div class="col-auto">
+                                                        <label class="mb-1">ตรวจครั้งสุดท้ายเมื่อ<span>*<span></label>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="ตรวจครั้งสุดท้ายเมื่อปี พ.ศ.">
+                                                    </div>
+                                                    <div class="col-auto ">
+                                                        <label class="mb-1 py-2">ผลการตรวจ</label>
+                                                        <div class="form-check form-check-inline py-2">
+                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
+                                                            <label class="form-check-label" for="inlineRadio3">ปกติ</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4">
+                                                            <label class="form-check-label" for="inlineRadio4">ผิดปกติ</label>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-md-flex d-sm-block form-row p-2">
+                                            <div class="form-group">
+                                                <label class="mb-1 p-2">การตรวจคัดกรองมะเร็งปากมดลูกในสตรีอายุ 30 ปีขึ้นไป</label>
+                                                <div class="row g-6  align-items-center p-2">
+                                                    <div class="col-auto">
+                                                        <label class="mb-1">ตรวจครั้งสุดท้ายเมื่อปี พ.ศ. <span>*<span></label>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="ตรวจครั้งสุดท้ายเมื่อปี พ.ศ.">
+                                                    </div>
+                                                    <div class="col-auto ">
+                                                        <label class="mb-1 py-2">ผลการตรวจ</label>
+                                                        <div class="form-check form-check-inline py-2">
+                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
+                                                            <label class="form-check-label" for="inlineRadio3">ปกติ</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4">
+                                                            <label class="form-check-label" for="inlineRadio4">ผิดปกติ</label>
+                                                        </div>
+                                                        
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
                         </div>
                     </div>
+                    </form>
                 </div>
-            </section>
         </div>
-        <?php require '../footer.php'; ?>
+    </div>
+    </section>
+    </div>
+    <?php require '../footer.php'; ?>
     </div>
     <input type="hidden" id="personal_id" value="<?= $_SESSION['pd_id'] ?>">
     <!-- ส่วนของ Modal เปลี่ยนตำแหน่ง -->
