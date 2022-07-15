@@ -60,13 +60,13 @@ $row = $query->fetch_object();
 
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a href="../admin/health_main.php" class="nav-link">
                                     <i class="far fa-file-contract nav-icon"></i>
                                     <span>หัวข้อข้อมูลพฤติกรรม</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a href="../admin/health_sub.php" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <span>รายละเอียดข้อมูลพฤติกรรม</span>
                                 </a>

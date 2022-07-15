@@ -2,8 +2,9 @@
 
 require '../../core/session.php';
 require_once '../../core/data_utllities.php';
-require_once '../../model/user/elderly.php';
-$class = new addelderly();
+require_once '../../model/admin/add_user_model.php';
+$class = new addusermodel();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +23,7 @@ $class = new addelderly();
 
 </head>
 <style>
-    #Formelderly label span {
+    #FormUser label span {
         color: red;
     }
 </style>
@@ -58,8 +59,8 @@ $class = new addelderly();
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-5">
-                            <form method="POST" id="Formelderly" class="needs-validation" novalidate>
+                        <div class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <form method="POST" id="FormUser" class="needs-validation" novalidate>
                                 <div class="card shadow-lg border-0 rounded-lg ">
                                     <div class="card-header  text-center bg-info bg-gradient   ">
                                         <h5 class="card-title text-black">เพิ่มข้อมูลผู้ใช้งาน</h5>
@@ -71,18 +72,6 @@ $class = new addelderly();
                                                 <div class="form-group">
                                                     <label class="small mb-1">คำนำหน้า <span>*<span></label>
                                                     <select class="form-select py-2" id="title" name="title" autocomplete="off" placeholder="ชื่อ" required>
-
-                                                        <?php
-                                                        echo '<option value="" selected disabled>เลือกคำนำหน้า</option>';
-                                                        foreach ($title_name as $key => $val) {
-                                                            if ($dataset == $key) {
-                                                                echo "<option selected value='$key'>$val</option>";
-                                                            } else {
-                                                                echo "<option value='$key'>$val</option>";
-                                                            }
-                                                        }
-                                                        ?>
-
                                                     </select>
                                                 </div>
                                             </div>
@@ -199,14 +188,14 @@ $class = new addelderly();
                                         </div>
 
                                         <div class="card-footer text-end">
-                                            <button type="reset" class="btn btn-sm btn-secondary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm mt-3">ยกเลิก</button>
-                                            <a id="elderly" name="elderly" class="btn btn-sm btn-primary  rounded-pill col col-xxl-4 col-xl-4 col-lg-4 col-md col-sm mt-3">ยืนยันการเพิ่มข้อมูล</a>
+                                            <a id='cancle' class="btn btn-sm btn-secondary  rounded-pill col col-xxl-2 col-xl-2 col-lg-2 col-md col-sm mt-3">ยกเลิก</a>
+                                            <a id="adduser" class="btn btn-sm btn-primary Save rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm mt-3">ยืนยันการเพิ่มข้อมูล</a>
                                         </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
-                        <div class="col-md-7">
+                        <div class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <div class="card shadow-lg border-0 rounded-lg ">
                                 <div class="card-header  text-center bg-info bg-gradient   ">
                                     <h5 class="card-title text-black">ข้อมูลผู้งานระบบ</h5>
@@ -216,11 +205,10 @@ $class = new addelderly();
                                         <table class="table table-bordered" id="example" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr align="center">
+                                                    <td>สถานะ</td>
                                                     <td>บัตรประชาชน</td>
                                                     <td>ชื่อ – สกุล</td>
                                                     <td>อายุ</td>
-                                                    <td>วันเดือนปีเกิด</td>
-                                                    <td>ที่อยู่ปัจจุบัน</td>
                                                     <td>เบอร์โทร</td>
                                                     <td></td>
                                                 </tr>
@@ -230,10 +218,10 @@ $class = new addelderly();
                                             $sql = $class->Get_table();
                                             while ($row = $sql->fetch_object()) { ?>
                                                 <tbody align="center">
+                                                    <td><?= $row->status_name ?></td>
                                                     <td><?= $row->id_card ?></td>
                                                     <td><?= $row->title . $row->first_name . "  " . $row->last_name ?></td>
-                                                    <td><?= $row->age ?></td>
-                                                    <td><?= $row->birthday ?></td>
+
                                                     <td><?= $row->address ?></td>
                                                     <td><?= $row->phone_number ?></td>
                                                     <td>
@@ -293,7 +281,7 @@ $class = new addelderly();
 
     <script src="../../plugins/bootstrap-datepicker-thai/js/locales/bootstrap-datepicker.th.js"></script>
 
-    <!-- <script src="../../../assets/admin/elderly.js"></script> -->
+    <script src="../../../assets/admin/add_user.js"></script>
     <script src="../../../assets/numlock.js"></script>
     <script src="../../../assets/id_card.js"></script>
     <script src="../../../assets/h_template.js"></script>

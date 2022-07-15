@@ -1,4 +1,4 @@
-<?php require_once '../../core/data_utllities.php';
+<?php require_once '../core/data_utllities.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
