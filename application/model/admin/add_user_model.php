@@ -89,6 +89,7 @@ class addusermodel extends Database_set
 
         $last_id = mysqli_insert_id($this->dbcon);
         $this->set_user($last_id, $status_id);
+        $this->set_application($last_id, $status_id);
 
         return $result;
     }
@@ -128,14 +129,62 @@ class addusermodel extends Database_set
             $results = mysqli_query($this->dbcon, "UPDATE `user_status_keep` SET  `status_id`  ='$status_id' WHERE pd_id = '$pd_id') ");
         } else {
             $results = mysqli_query($this->dbcon, "DELETE FROM  `user_status_keep` WHERE pd_id = '$pd_id'");
+            if ($results) {
+                $results_2 = mysqli_query($this->dbcon, "DELETE FROM  `permission_status` WHERE pd_id = '$pd_id'");
+            }
         }
-        return $results;
+        return $results_2;
     }
     private function set_user($last_id, $status_id)
     {
         $result = mysqli_query($this->dbcon, "INSERT INTO `user_status_keep` ( `pd_id`, `status_id`, `set_status` )
         VALUES
             ('$last_id','$status_id','1') ");
+        return $result;
+    }
+    private function set_application($last_id, $status_id)
+    {
+
+        if ($status_id == '1') {
+            $result = mysqli_query($this->dbcon, "SELECT id  FROM application   ");
+            while ($row = $result->fetch_object()) {
+
+                $add_app = $this->set_userapp($last_id, $row->id);
+            }
+        }
+        if ($status_id == '2') {
+            $result = mysqli_query($this->dbcon, "SELECT id  FROM application WHERE id = '7'   ");
+
+            while ($row = $result->fetch_object()) {
+
+                $add_app = $this->set_userapp($last_id, $row->id);
+            }
+        }
+        if ($status_id == '3') {
+            $result = mysqli_query($this->dbcon, "SELECT id  FROM application WHERE id NOT IN   ('7')   ");
+
+            while ($row = $result->fetch_object()) {
+
+                $add_app = $this->set_userapp($last_id, $row->id);
+            }
+        }
+        if ($status_id == '4') {
+
+            $result = mysqli_query($this->dbcon, "SELECT id  FROM application WHERE id NOT IN   ( '7','5')   ");
+
+            while ($row = $result->fetch_object()) {
+
+                $add_app = $this->set_userapp($last_id, $row->id);
+            }
+        }
+        return $add_app;
+    }
+
+
+    private function set_userapp($last_id, $id)
+    {
+        $result = mysqli_query($this->dbcon, "INSERT INTO `permission_status` ( `pd_id`, `appplication_id`)
+        VALUES ('$last_id','$id') ");
         return $result;
     }
 }

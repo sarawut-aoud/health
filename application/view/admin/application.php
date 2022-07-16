@@ -106,43 +106,45 @@ require '../../core/session.php';
                                                     <td style="width: 20%;"></td>
                                                 </tr>
                                             </thead>
-
-                                            <?php
-                                            function set_input($name)
-                                            {
-                                                if ($name != null) {
-                                                    echo '<div class="custom-control custom-checkbox ms-3 ">';
-                                                    echo '<input class="custom-control-input" type="checkbox" checked="checked" disabled >';
-                                                    echo '<label  class="custom-control-label">' . $name . '</label>';
-                                                    echo '</div>';
+                                            <tbody>
+                                                <?php
+                                                function set_input($name)
+                                                {
+                                                    if ($name != null) {
+                                                        echo '<div class="custom-control custom-checkbox ms-3 ">';
+                                                        echo '<input class="custom-control-input" type="checkbox" checked="checked" disabled >';
+                                                        echo '<label  class="custom-control-label">' . $name . '</label>';
+                                                        echo '</div>';
+                                                    }
                                                 }
-                                            }
-                                            $class = new application_model();
-                                            $sql = $class->Get_table();
-                                            while ($row = $sql->fetch_object()) { ?>
-                                                <tbody>
-                                                    <td><?= $row->fullname ?></td>
-                                                    <td>
-                                                        <div class="d-sm-block d-xxl-blcok d-xl-blcok ">
-                                                            <?php
-                                                            foreach ($class->Get_table_status($row->pd_id) as $status) {
+                                                $class = new application_model();
+                                                $sql = $class->Get_table();
+                                                while ($row = $sql->fetch_object()) { ?>
+                                                    <tr>
+                                                        <td><?= $row->fullname ?></td>
+                                                        <td>
+                                                            <div class="d-sm-block d-xxl-blcok d-xl-blcok ">
+                                                                <?php
+                                                                foreach ($class->Get_table_status($row->pd_id) as $status) {
 
-                                                                set_input($status['application_name']);
-                                                            }
-                                                            ?>
-                                                        </div>
-                                                    </td>
-                                                    <td align="center">
-                                                        <div class="btn-group btn-group-toggle">
-                                                            <button value="<?= $row->pd_id ?>" id="edit" class="btn  btn-outline-warning  "><i class="fas fa-cog"></i></button>
-                                                            <button value="<?= $row->pd_id ?>" id="delete" class="btn  btn-outline-danger  "><i class="fas fa-trash-alt"></i></button>
-                                                        </div>
+                                                                    set_input($status['application_name']);
+                                                                }
+                                                                ?>
+                                                            </div>
+                                                        </td>
+                                                        <td align="center">
+                                                            <div class="btn-group btn-group-toggle">
+                                                                <button value="<?= $row->pd_id ?>" id="edit" class="btn  btn-outline-warning  "><i class="fas fa-cog"></i></button>
+                                                                <button value="<?= $row->pd_id ?>" id="delete" class="btn  btn-outline-danger  "><i class="fas fa-trash-alt"></i></button>
+                                                            </div>
 
-                                                    </td>
+                                                        </td>
 
-                                                </tbody>
-                                            <?php } ?>
 
+
+                                                    </tr>
+                                                <?php } ?>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>

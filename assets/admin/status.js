@@ -204,4 +204,5 @@ $(document).ready(function () {
     e.preventDefault();
     status_js.delete($(this).val());
   });
+ 
 });
