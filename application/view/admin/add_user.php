@@ -198,9 +198,7 @@ $class = new addusermodel();
                         </div>
                         <div class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <div class="card shadow-lg border-0 rounded-lg ">
-                                <div class="card-header  text-center bg-info bg-gradient   ">
-                                    <h5 class="card-title text-black">ข้อมูลผู้งานระบบ</h5>
-                                </div>
+
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table table-bordered" id="example" width="100%" cellspacing="0">
@@ -214,25 +212,28 @@ $class = new addusermodel();
                                                     <td></td>
                                                 </tr>
                                             </thead>
-                                            <?php
+                                            <tbody align="center">
+                                                <?php
 
-                                            $sql = $class->Get_table();
-                                            while ($row = $sql->fetch_object()) { ?>
-                                                <tbody align="center">
-                                                    <td><?= $row->status_name ?></td>
-                                                    <td><?= $row->id_card ?></td>
-                                                    <td><?= $row->title . $row->first_name . "  " . $row->last_name ?></td>
+                                                $sql = $class->Get_table();
+                                                while ($row = $sql->fetch_object()) { ?>
+                                                    <tr>
+                                                        <td><?= $row->status_name ?></td>
+                                                        <td><?= $row->id_card ?></td>
+                                                        <td><?= $row->title . $row->first_name . "  " . $row->last_name ?></td>
 
-                                                    <td><?= $row->address ?></td>
-                                                    <td><?= $row->phone_number ?></td>
-                                                    <td>
-                                                        <div class="btn-group btn-group-toggle">
-                                                            <button value="<?= $row->pd_id ?>" id="edit" class="btn  btn-outline-warning  "><i class="fas fa-cog"></i></button>
-                                                            <button value="<?= $row->pd_id ?>" id="delete" class="btn  btn-outline-danger  "><i class="fas fa-trash-alt"></i></button>
-                                                        </div>
-                                                    </td>
-                                                </tbody>
-                                            <?php } ?>
+                                                        <td><?= $row->age . ' ปี' ?></td>
+                                                        <td><?= $row->phone_number ?></td>
+                                                        <td>
+                                                            <div class="btn-group btn-group-toggle">
+                                                                <button value="<?= $row->pd_id ?>" id="edit" class="btn  btn-outline-warning  "><i class="fas fa-cog"></i></button>
+                                                                <button value="<?= $row->pd_id ?>" id="delete" class="btn  btn-outline-danger  "><i class="fas fa-trash-alt"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                <?php } ?>
+                                            </tbody>
+
                                         </table>
                                     </div>
                                 </div>

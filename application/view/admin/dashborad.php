@@ -39,7 +39,7 @@ require '../../core/session.php';
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="dashborad.php">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item active">หน้าแรก</li>
                             </ol>
                         </div>
                     </div>

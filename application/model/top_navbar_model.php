@@ -27,7 +27,7 @@ class top_nav extends Database_set
              ")->fetch_object();
 
             if ($row->user_rate == '5') {
-                $path = '../admin/dashborad.php';
+                $path = '../admin/information.php';
             } else {
                 $path = '../user/dashborad.php';
             }
