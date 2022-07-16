@@ -31,18 +31,4 @@ if ($func == 'getuser') {
 //         ));
 //     } else {
 
-//         $sql = $class->save_form_status($pd_id, $status_id);
-//         if (!empty($sql)) {
-//             echo json_encode(array(
-//                 "is_successful" => true,
-//                 "message" => "บันทึกข้อมูลสำเร็จ",
-//             ));
-//         } else {
-//             echo json_encode(array(
-//                 "is_successful" => false,
-//                 "message" => "เกิดข้อผิดพลาด",
-//             ));
-//         }
-//     }
-// }
 

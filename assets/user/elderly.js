@@ -138,7 +138,6 @@ $(document).ready(function () {
       format: "dd/mm/yyyy",
       autoclose: true,
     });
-  
     addelderly.add_province();
   
     // เลือกจังหวัด แล้วส่ง id ไปหา อำเภอ
