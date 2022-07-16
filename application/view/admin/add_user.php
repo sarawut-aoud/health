@@ -282,10 +282,11 @@ $class = new addusermodel();
     <script src="../../plugins/bootstrap-datepicker-thai/js/bootstrap-datepicker-thai.js"></script>
 
     <script src="../../plugins/bootstrap-datepicker-thai/js/locales/bootstrap-datepicker.th.js"></script>
-
+    <!-- Input mask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.3.0/imask.min.js"></script>
     <script src="../../../assets/admin/add_user.js"></script>
     <script src="../../../assets/numlock.js"></script>
-    <script src="../../../assets/id_card.js"></script>
+    <script src="../../../assets/id_card_admin.js"></script>
     <script src="../../../assets/h_template.js"></script>
 
 </body>

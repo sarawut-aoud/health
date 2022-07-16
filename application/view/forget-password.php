@@ -32,11 +32,14 @@
                     <h5 class="card-title ">ขอรหัสผ่านใหม่</h5>
                 </div>
                 <div class="card-body">
+
                     <div class="col-12">
                         <!-- Form -->
+
                         <form method="" id="frmLogin" class="needs-validation" novalidate>
 
                             <div role="alert" id="alertcheck"></div>
+
 
 
                             <div class="  form-floating mb-3 mt-3">

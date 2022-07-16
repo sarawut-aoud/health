@@ -16,6 +16,12 @@ parse_str($components['query'], $results);
     <link rel="icon" href="../../assets/icon.ico" type="image/x-icon" />
 
     <link rel="stylesheet" href="../../assets/bootstrap5/css/bootstrap.min.css">
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <!-- <link rel="stylesheet" href="../plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css"> -->
+    <link rel="stylesheet" href="../plugins/sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet" href="../../assets/bootstrap5/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/custom_style.css">
 </head>
 <style>
@@ -48,7 +54,7 @@ parse_str($components['query'], $results);
                                 <div class="form-group">
                                     <label class="small mb-1">ยันยันรหัสผ่าน</label>
                                     <div class="input-group">
-                                        <input class=" form-control py-2" type="password" id="confirm_password" name="confirm_password" aria-describedby="passwordHelp" placeholder="ยินยันรหัสผ่าน" maxlength="20" required />
+                                        <input class=" form-control py-2 " type="password" id="confirm_password" name="confirm_password" aria-describedby="passwordHelp" placeholder="ยินยันรหัสผ่าน" maxlength="20" required />
 
                                     </div>
                                 </div>
@@ -79,9 +85,14 @@ parse_str($components['query'], $results);
 
     </div>
 
-
+    <script src="../plugins/jquery/jquery.js"></script>
     <script src="../../assets/bootstrap5/js/bootstrap.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="../plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script src="../../assets/forget_pass.js"></script>
+    <script>
 
+    </script>
 </body>
 
 

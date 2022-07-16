@@ -224,3 +224,22 @@ if ($func == 'delete') {
         ));
     }
 }
+// ส่วนของการเช็ค username
+if ($func == 'username_check') {
+
+    $username = $_REQUEST['username_check'];
+    $query = $class->check_username($username);
+
+    $row = $query->fetch_object();
+    if (!empty($row)) {
+        echo json_encode(array(
+            "is_successful" => false,
+            "message" => "**********  ชื่อเข้าใช้งานซ้ำ **********",
+        ));
+    } else {
+        echo json_encode(array(
+            "is_successful" => true,
+            "message" => "",
+        ));
+    }
+}

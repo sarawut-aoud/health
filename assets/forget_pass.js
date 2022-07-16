@@ -54,8 +54,25 @@ var forget = {
         pd_id: $("#pd_id").val(),
       },
       success: function (result) {
-        if (result.is_success) {
+        if (result.is_success == true) {
+          Swal.fire({
+            icon: "success",
+            title: result.message,
+            showConfirmButton: false,
+            timer: 1500,
+          }).then(function () {
+            location.href = "../../index.php";
+          });
         } else {
+          Swal.fire({
+            icon: "info",
+            title: "เกิดข้อผิดพลาด",
+            html: result.message,
+            showConfirmButton: false,
+            timer: 1500,
+          }).then(function () {
+            $(".swal2-modal").modal("hide");
+          });
         }
       },
     });
@@ -68,5 +85,33 @@ $(document).ready(function () {
   });
   $(document).on("click", ".reset", function (e) {
     e.preventDefault();
+    forget.reset_pass();
+  });
+
+  $(document).on("keyup", "#confirm_password", function (e) {
+    e.preventDefault();
+
+    if ($(this).val() == "") {
+      $("#confirm_password").removeClass();
+      $("#confirm_password").addClass("form-control py-2 ");
+    } else if ($(this).val() != $("#password-input").val()) {
+      $("#confirm_password").removeClass();
+      $("#confirm_password").addClass("form-control py-2 is-invalid");
+    } else {
+      $("#confirm_password").removeClass();
+      $("#confirm_password").addClass("form-control py-2 is-valid");
+    }
+  });
+
+  $(document).on("keyup", "#password-input", function (e) {
+    e.preventDefault();
+
+    if ($(this).val() == "") {
+      $("#confirm_password").removeClass();
+      $("#confirm_password").addClass("form-control py-2 ");
+    } else if ($(this).val() != $("#confirm_password").val()) {
+      $("#confirm_password").removeClass();
+      $("#confirm_password").addClass("form-control py-2 is-invalid");
+    }
   });
 });

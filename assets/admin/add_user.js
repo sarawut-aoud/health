@@ -273,13 +273,35 @@ var adduser = {
       }
     });
   },
+  check_username: function (data) {
+    let frmdata = "../../controller/admin/add_user.php";
+    $.ajax({
+      type: "get",
+      dataType: "json",
+      url: frmdata,
+      data: {
+        func: "username_check",
+        username_check: data,
+      },
+      success: function (result) {
+        if (result.is_successful == false) {
+          $("#show_username").html(result.message).css("color", "red");
+          $("#username").addClass("is-invalid");
+        } else {
+          $("#show_username").html("");
+          $("#username").removeClass("is-invalid");
+
+          $("#username").addClass("is-valid");
+        }
+      },
+    });
+  },
 };
 
 /**
  * --------------------------------- document Ready ---------------------------------
  */
 $(document).ready(function () {
-  
   $(".select2").select2();
   $("#birthday").datepicker({
     language: "th-th",
@@ -335,5 +357,39 @@ $(document).ready(function () {
     $("#btnsave").show();
     $("#cancle,#update").hide();
     $("#province_id,#ampher_id,#tumbon_id,#title").val("").trigger("change");
+  });
+  $(document).on("keyup", "#username", function (e) {
+    e.preventDefault();
+    if ($(this).val() != "") {
+      adduser.check_username($(this).val());
+    } else {
+      $("#username").removeClass("is-valid");
+    }
+  });
+  $(document).on("keyup", "#confirm_password", function (e) {
+    e.preventDefault();
+
+    if ($(this).val() == "") {
+      $("#confirm_password").removeClass();
+      $("#confirm_password").addClass("form-control py-2 ");
+    } else if ($(this).val() != $("#password-input").val()) {
+      $("#confirm_password").removeClass();
+      $("#confirm_password").addClass("form-control py-2 is-invalid");
+    } else {
+      $("#confirm_password").removeClass();
+      $("#confirm_password").addClass("form-control py-2 is-valid");
+    }
+  });
+
+  $(document).on("keyup", "#password-input", function (e) {
+    e.preventDefault();
+
+    if ($(this).val() == "") {
+      $("#confirm_password").removeClass();
+      $("#confirm_password").addClass("form-control py-2 ");
+    } else if ($(this).val() != $("#confirm_password").val()) {
+      $("#confirm_password").removeClass();
+      $("#confirm_password").addClass("form-control py-2 is-invalid");
+    }
   });
 });

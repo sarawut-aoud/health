@@ -179,7 +179,13 @@ class addusermodel extends Database_set
         }
         return $add_app;
     }
+    public function check_username($username)
+    {
 
+        $result = mysqli_query($this->dbcon, "SELECT username FROM personal_document WHERE username='$username' AND `status`='active' ");
+
+        return $result;
+    }
 
     private function set_userapp($last_id, $id)
     {

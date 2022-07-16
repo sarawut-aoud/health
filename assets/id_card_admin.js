@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("id_card");
-  const btn = document.getElementById("register");
+  const btn = document.getElementById("update");
 
   const mask = new IMask(input, { mask: "0-0000-00000-00-0" });
 
