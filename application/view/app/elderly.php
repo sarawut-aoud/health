@@ -43,12 +43,12 @@ $class = new addelderly();
                 <div class="container-fluid">
                     <div class="row mb-3">
                         <div class="col-sm-6">
-                            <h1 class="m-0">จัดการข้อมูลผู้สูงอายุ</h1>
+                            <h1 class="m-0">แบบบันทึกข้อมูล</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item active">แบบบันทึกข้อมูล</li>
                             </ol>
                         </div>
                     </div>
@@ -666,6 +666,7 @@ $class = new addelderly();
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <button class="btn btn-primary">ถัดไป</button>
 
                                                 </div>
                                                 <div id="test-nl-5" role="tabpanel" class="bs-stepper-pane " aria-labelledby="stepper2trigger5">
