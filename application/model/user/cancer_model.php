@@ -23,18 +23,6 @@ class cancer_model extends Database_set
         ");
         return $result;
     }
-    
-    // public function save_form_cancer($pd_id, $status_id)
-    // {
-    //     $select = mysqli_query($this->dbcon, "SELECT pd_id ,status_id FROM user_status_keep WHERE pd_id = '$pd_id' ")->fetch_object();
-
-    //     foreach ($status_id as $val) {
-    //         if ($select->status_id != $val) {
-    //             $result = mysqli_query($this->dbcon, "INSERT INTO user_status_keep(pd_id,status_id) VALUES ('$pd_id','$val')");
-    //         }
-    //     }
-    //     return $result;
-    // }
     public function save_form_cancer($pd_id, $chk1, $chk2, $chk3, $chk4, $chk5, $chk6)
     {
        
