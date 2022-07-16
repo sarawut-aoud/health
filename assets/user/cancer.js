@@ -28,38 +28,41 @@ var cancer_js = {
         },
       });
     },
-    // Save_status: function () {
-    //   var fdata = $("#frmstatus").serialize();
+    Save_cancer: function () {
+      var fdata = $("#Formcancer").serialize();
   
-    //   $.ajax({
-    //     type: "POST",
-    //     dataType: "json",
-    //     url: "../../controller/admin/status.php",
-    //     data: { frmdata: fdata, func: "insert" },
-    //     success: function (results) {
-    //       if (results.is_successful == true) {
-    //         Swal.fire({
-    //           icon: "success",
-    //           title: results.message,
-    //           showConfirmButton: false,
-    //           timer: 1500,
-    //         }).then(function () {
-    //           location.reload();
-    //         });
-    //       } else {
-    //         Swal.fire({
-    //           icon: "info",
-    //           title: "เกิดข้อผิดพลาด",
-    //           html: results.message,
-    //           showConfirmButton: false,
-    //           timer: 1500,
-    //         });
-    //       }
-    //     },
-    //   });
-    // },
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "../../controller/user/cancer.php",
+        data: { frmdata: fdata, func: "insert" },
+        success: function (result) {
+            if (result.is_successful == true) {
+              Swal.fire({
+                icon: "success",
+                title: result.messchk3,
+                showConfirmButton: false,
+                timer: 1500,
+              }).then(function () {
+                location.href = "../../view/user/cancer.php";
+              });
+            } else {
+              Swal.fire({
+                icon: "info",
+                title: "เกิดข้อผิดพลาด",
+                html: result.messchk3,
+                showConfirmButton: false,
+                timer: 1500,
+              }).then(function () {
+                $(".swal2-modal").modal("hide");
+              });
+            }
+          },
+        });
+    },
     
   };
+  
     $(document).ready(function () {
         cancer_js.load_user("");
     $(document).on("change", "#chk1", function (e) {
@@ -111,10 +114,10 @@ var cancer_js = {
         e.preventDefault();
         $("#chk11").prop("checked", false);
       });
-    // $(document).on("click", "#saveStatus", function (e) {
-    //   e.preventDefault();
-    //   status_js.Save_status();
-    // });
+     $(document).on("click", "#savecancer", function (e) {
+      e.preventDefault();
+      cancer_js.Save_cancer();
+    });
 
   });
   

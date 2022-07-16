@@ -24,7 +24,7 @@ class cancer_model extends Database_set
         return $result;
     }
     
-    // public function save_form_status($pd_id, $status_id)
+    // public function save_form_cancer($pd_id, $status_id)
     // {
     //     $select = mysqli_query($this->dbcon, "SELECT pd_id ,status_id FROM user_status_keep WHERE pd_id = '$pd_id' ")->fetch_object();
 
@@ -35,4 +35,12 @@ class cancer_model extends Database_set
     //     }
     //     return $result;
     // }
+    public function save_form_cancer($pd_id, $chk1, $chk2, $chk3, $chk4, $chk5, $chk6)
+    {
+       
+        $result = mysqli_query($this->dbcon, "INSERT INTO cancer (pd_id, alcohol, cancer_1, cancer_2, cancer_3, cancer_4, cancer_5 )
+        VALUES ('$pd_id','$chk1','$chk2','$chk3','$chk4','$chk5','$chk6')");
+
+        return $result;
+    }
 }

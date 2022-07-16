@@ -19,16 +19,24 @@ if ($func == 'getuser') {
     echo json_encode($data);
 }
 
-// if ($_POST['func'] == 'insert') {
-//     parse_str($_POST["frmdata"], $_POST);
-//     $pd_id = $_POST['pd_id'];
-//     $status_id = $_POST['status_name'];
+// ส่วนของลงทะเบียน
+if ($func == 'insert') {
+    parse_str($_POST["frmdata"], $_POST);
 
-//     if (empty($pd_id)) {
-//         echo json_encode(array(
-//             "is_successful" => false,
-//             "message" => "กรุณาเลือกข้อมูล",
-//         ));
-//     } else {
+    $pd_id =  $_POST['pd_id'] != "" ? $_POST['pd_id'] : "";
+    $chk1 =  $_POST['chk1'] != "" ? $_POST['chk1'] : "";
+    $chk2 =  $_POST['chk2'] != "" ? $_POST['chk2'] : "";
+    $chk3 =  $_POST['chk3'] != "" ? $_POST['chk3'] : "";
+    $chk4 =  $_POST['chk4'] != "" ? $_POST['chk4'] : "";
+    $chk5 =  $_POST['chk5'] != "" ? $_POST['chk5'] : "";
+    $chk6 =  $_POST['chk6'] != "" ? $_POST['chk6'] : "";
+   
+    $query = $class->save_form_cancer($pd_id, $chk1, $chk2, $chk3, $chk4, $chk5, $chk6);
+
+    echo json_encode(array(
+                "is_successful" => true,
+                "messchk3" => "ลงทะเบียนสำเร็จ",
+            ));
+}
 
 

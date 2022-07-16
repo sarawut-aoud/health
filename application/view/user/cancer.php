@@ -2,7 +2,7 @@
 // require_once '../../core/path.php';
 require_once '../../core/data_utllities.php';
 
-require_once '../../model/user/dashborad_model.php';
+require_once '../../model/user/cancer_model.php';
 require_once '../../core/session.php';
 
 
@@ -20,7 +20,7 @@ require_once '../../core/session.php';
     <link rel="stylesheet" href="../../../assets/custom_style.css">
 </head>
 <style>
-    #Formscreening label span {
+    #Formcancer label span {
         color: red;
     }
 </style>
@@ -45,7 +45,7 @@ require_once '../../core/session.php';
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard v1</li>
+                                <li class="breadcrumb-item active">แบบบันทึกตรวจสุขภาพ</li>
                             </ol>
                         </div>
                     </div>
@@ -57,7 +57,7 @@ require_once '../../core/session.php';
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-                            <form method="POST" id="Formscreening" class="needs-validation" novalidate>
+                            <form method="POST" id="Formcancer" class="needs-validation" novalidate>
                                 <div class="card shadow-lg border-0 rounded-lg ">
                                     <div class="card-body">
                                         <ul class="nav nav-tabs nav-primary mb-0" data-bs-toggle="tabs">
@@ -80,68 +80,72 @@ require_once '../../core/session.php';
                                                 <div class="form-group">
                                                     <label class="mb-1">ดื่มสุราเป็นประจำ <span>*<span></label>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk1" id="chk1" value="1" target="check">
+                                                        <input class="form-check-input" type="checkbox" name="chk1" id="chk1" value="0" target="check">
                                                         <label class="form-check-label" for="inlineRadio1">ใช่</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk1" id="chk2" value="2" target="check">
+                                                        <input class="form-check-input" type="checkbox" name="chk1" id="chk2" value="1" target="check">
                                                         <label class="form-check-label" for="inlineRadio2">ไม่ใช่</label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="mb-1">รับประทานอาหารที่มีสารก่อมะเร็ง เช่น ปลาร้า ปลาจ่อม แหนม ไส้กรอก อาหารปิ้งย่างจนไหม้เกรียม <span>*<span></label>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk2" id="chk3" value="1">
+                                                        <input class="form-check-input" type="checkbox" name="chk2" id="chk3" value="0">
                                                         <label class="form-check-label" for="inlineRadio1">ใช่</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk2" id="chk4" value="2">
+                                                        <input class="form-check-input" type="checkbox" name="chk2" id="chk4" value="1">
                                                         <label class="form-check-label" for="inlineRadio2">ไม่ใช่</label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="mb-1">รับปรัทานอาหารที่มีราใน ถั่ว ข้าวโพด กระเทียม เต้าเจี้ยว เต้าหู้ยี้ พริกป่น พริกแห้ง  <span>*<span></label>
+                                                    <label class="mb-1">รับปรัทานอาหารที่มีราใน ถั่ว ข้าวโพด กระเทียม เต้าเจี้ยว เต้าหู้ยี้ พริกป่น พริกแห้ง <span>*<span></label>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk3" id="chk5" value="1">
+                                                        <input class="form-check-input" type="checkbox" name="chk3" id="chk5" value="0">
                                                         <label class="form-check-label" for="inlineRadio1">ใช่</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk3" id="chk6" value="2">
+                                                        <input class="form-check-input" type="checkbox" name="chk3" id="chk6" value="1">
                                                         <label class="form-check-label" for="inlineRadio2">ไม่ใช่</label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="mb-1">มีประวัติครอบครัว โดยเฉพาะญาติสายตรง เป็นมะเร็งตับ  <span>*<span></label>
+                                                    <label class="mb-1">มีประวัติครอบครัว โดยเฉพาะญาติสายตรง เป็นมะเร็งตับ <span>*<span></label>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk4" id="chk7" value="1">
+                                                        <input class="form-check-input" type="checkbox" name="chk4" id="chk7" value="0">
                                                         <label class="form-check-label" for="inlineRadio1">ใช่</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk4" id="chk8" value="2">
+                                                        <input class="form-check-input" type="checkbox" name="chk4" id="chk8" value="1">
                                                         <label class="form-check-label" for="inlineRadio2">ไม่ใช่</label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="mb-1">มีภาวะตับอักเสบ หรือมีการติดเชื้อของไวรัสตับอักเสบชนิด บี ซี  <span>*<span></label>
+                                                    <label class="mb-1">มีภาวะตับอักเสบ หรือมีการติดเชื้อของไวรัสตับอักเสบชนิด บี ซี <span>*<span></label>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk5" id="chk9" value="1">
+                                                        <input class="form-check-input" type="checkbox" name="chk5" id="chk9" value="0">
                                                         <label class="form-check-label" for="inlineRadio1">ใช่</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk5" id="chk10" value="2">
-                                                        <label class="form-check-label" for="inlineRadio2">ไม่ใช่</label>
-                                                    </div>
-                                                    <label class="mb-1">มีพยาธิใบไม้ในตับ  <span>*<span></label>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk6" id="chk11" value="1">
-                                                        <label class="form-check-label" for="inlineRadio1">ใช่</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk6" id="chk12" value="2">
+                                                        <input class="form-check-input" type="checkbox" name="chk5" id="chk10" value="1">
                                                         <label class="form-check-label" for="inlineRadio2">ไม่ใช่</label>
                                                     </div>
                                                 </div>
-                                                
+                                                <div class="form-group">
+                                                    <label class="mb-1">มีพยาธิใบไม้ในตับ <span>*<span></label>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="checkbox" name="chk6" id="chk11" value="0">
+                                                        <label class="form-check-label" for="inlineRadio1">ใช่</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="checkbox" name="chk6" id="chk12" value="1">
+                                                        <label class="form-check-label" for="inlineRadio2">ไม่ใช่</label>
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer text-end">
+                                                    <a id="savecancer" class="btn btn-sm btn-primary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm">ยืนยันการเพิ่มข้อมูล</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
