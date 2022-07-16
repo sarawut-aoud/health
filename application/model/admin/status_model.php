@@ -18,9 +18,19 @@ class status_model extends Database_set
         pd.`status` = 'active' 
          AND pd.pd_id NOT IN ( SELECT MIN( pdid.pd_id ) FROM personal_document AS pdid ORDER BY
         pdid.pd_id ASC  )
+    GROUP BY
+        pd.pd_id
+    
         ");
         return $result;
     }
+    public function Get_table()
+    {
+        $result = mysqli_query($this->dbcon, "SELECT
+        CONCAT( pd.first_name, ' ', pd.last_name ) AS fullname,
+        pd.pd_id,
+        us.id
+    FROM personal_document pd
       
         LEFT JOIN   user_status_keep uk ON uk.pd_id = pd.pd_id
         LEFT JOIN user_status us ON us.id = uk.status_id 
@@ -55,14 +65,10 @@ class status_model extends Database_set
     public function Get_status($pd_id)
     {
 
-    //     foreach ($status_id as $val) {
-    //         if ($select->status_id != $val) {
-    //             $result = mysqli_query($this->dbcon, "INSERT INTO user_status_keep(pd_id,status_id) VALUES ('$pd_id','$val')");
-    //         }
-    //     }
-    //     return $result;
-    // }
-
+        if (empty($pd_id)) {
+            $result = mysqli_query($this->dbcon, "SELECT id , status_name
+            FROM user_status 
+    
             ");
             return $result;
         } else {
