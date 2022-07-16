@@ -184,7 +184,6 @@
     </div>
 
 
-    <script src="../../assets/h_template.js"></script>
 
     <script src="../plugins/jquery/jquery.js"></script>
 
@@ -201,6 +200,8 @@
     <script src="../../assets/register.js"></script>
     <script src="../../assets/numlock.js"></script>
     <script src="../../assets/id_card.js"></script>
+    <script src="../../assets/h_template.js"></script>
+
 
 </body>
 

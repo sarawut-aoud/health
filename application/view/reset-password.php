@@ -1,4 +1,7 @@
 <?php require_once '../core/data_utllities.php';
+$components = parse_url($_SERVER["REQUEST_URI"]);
+parse_str($components['query'], $results);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,11 +33,8 @@
                 <div class="card-body">
                     <div class="col-12">
                         <!-- Form -->
-                        <form method="POST" id="frmLogin" class="needs-validation" novalidate>
-
-                            <div role="alert" id="loginAlert"></div>
-
-
+                        <form method="" id="frmLogin" class="needs-validation" novalidate>
+                            <input type="hidden" id="pd_id" value="<?php echo $results['pd_id']; ?>">
                             <div class="col-md-12 p-1">
                                 <div class="form-group">
                                     <label class="small mb-1">รหัสผ่าน</label>
@@ -56,7 +56,7 @@
 
                             <center>
                                 <div class="col-12 mt-4 mb-0">
-                                    <button type="submit" id="btnLogin" name="btnLogin" class="btn btn-info ">บันทึกรหัสผ่าน</button>
+                                    <a id="btnLogin" name="btnLogin" class="btn btn-info reset">บันทึกรหัสผ่าน</a>
                                 </div>
                             </center>
 
@@ -81,7 +81,6 @@
 
 
     <script src="../../assets/bootstrap5/js/bootstrap.min.js"></script>
-    <script src="../../assets/javascript/h_tempalt.js"></script>
 
 </body>
 
