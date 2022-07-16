@@ -34,12 +34,12 @@ require '../../core/session.php';
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">กำหนดสิทธิ์การเข้าถึงแอป </h1>
+                            <h1 class="m-0">หัวข้อข้อมูลพฤติกรรม </h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="dashborad.php">Home</a></li>
-                                <li class="breadcrumb-item active">กำหนดสิทธิ์การเข้าถึง</li>
+                                <li class="breadcrumb-item active">หัวข้อข้อมูลพฤติกรรม</li>
                             </ol>
                         </div>
                     </div>
@@ -50,58 +50,44 @@ require '../../core/session.php';
             <section class="content">
                 <div class="container-fluid">
 
-                    <div class="row justify-content-center">
-                        <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-10 col-sm col">
+                    <div class="row ">
+                        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md col-sm col">
                             <div class="card card-shadow  ">
                                 <div class="card-header  bg-gradient-info">
-                                    <h5 class="card-title">กำหนดสิทธิ์การเข้าถึง</h5>
+                                    <h5 class="card-title">หัวข้อข้อมูลพฤติกรรม</h5>
                                 </div>
                                 <form action="" id="frmapplication" method="post">
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-4 p-1">
+                                            <div class="col-xxl col-xl col-lg col-md col-sm col p-1">
                                                 <div class="form-group">
-                                                    <label class="small mb-1">เลือกผู้ใช้งาน <span>*<span></label>
-                                                    <select class="form-control py-2 select2" id="pd_id" name="pd_id" required>
+                                                    <label class="small mb-1">หัวข้อข้อมูลพฤติกรรม <span>*<span></label>
+                                                    <input class="form-control py-2 " id="pd_id" name="pd_id" required>
 
-                                                    </select>
+                                                    </input>
                                                 </div>
                                             </div>
 
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-12 p-1">
-                                                <div class="form-group ">
-                                                    <label class="small mb-1">เลือกสิทธิ์ที่ให้เข้าถึง <span>*<span></label>
-                                                    <div class="d-flex d-sm-block d-xxl-flex d-xl-flex" id="application_show">
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
                                     </div>
                                     <div class="card-footer text-end">
-                                        <a id="cancle" class="btn btn-sm btn-secondary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm">ยกเลิก</a>
+                                        <a id="cancle" class="btn btn-sm btn-secondary  rounded-pill mt-2 col col-xxl-4 col-xl-4 col-lg col-md col-sm">ยกเลิก</a>
 
-                                        <a id="updateStatus" class="btn btn-sm btn-warning  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm">ยืนยันการแก้ไขข้อมูล</a>
-                                        <a id="saveStatus" class="btn btn-sm btn-primary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm">ยืนยันการเพิ่มข้อมูล</a>
+                                        <a id="updateStatus" class="btn btn-sm btn-warning  rounded-pill mt-2 col col-xxl-4 col-xl-4 col-lg col-md col-sm">ยืนยันการแก้ไขข้อมูล</a>
+                                        <a id="saveStatus" class="btn btn-sm btn-primary  rounded-pill mt-2 col col-xxl-4 col-xl-4 col-lg col-md col-sm">ยืนยันการเพิ่มข้อมูล</a>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-center mt-4">
-                        <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm col">
+                        <div class="col-xxl-8 col-xl-8 col-lg-8 col-md col-sm col">
                             <div class="card card-shadow">
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table table-bordered" id="example" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr align="center">
-                                                    <td style="width: 30%;">ชื่อ – สกุล</td>
-                                                    <td>สิทธิ์ที่เข้าถึง</td>
+                                                    <td style="width: 30%;">หัวข้อที่</td>
+                                                    <td></td>
                                                     <td style="width: 20%;"></td>
                                                 </tr>
                                             </thead>
@@ -115,6 +101,7 @@ require '../../core/session.php';
                             </div>
                         </div>
                     </div>
+
                 </div>
             </section>
         </div>

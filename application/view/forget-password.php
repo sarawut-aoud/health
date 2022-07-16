@@ -10,6 +10,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=tis-620">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= $title_path ?></title>
+    <link rel="icon" href="../../assets/icon.ico" type="image/x-icon" />
+
     <link rel="stylesheet" href="../../assets/bootstrap5/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/custom_style.css">
 </head>
