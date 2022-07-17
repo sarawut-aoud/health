@@ -189,8 +189,8 @@ $class = new addusermodel();
 
                                         <div class="card-footer text-end">
                                             <a id='cancle' class="btn btn-sm btn-secondary  rounded-pill col col-xxl-2 col-xl-2 col-lg-2 col-md col-sm mt-3">ยกเลิก</a>
-                                            <a id="btnsave" class="btn btn-sm btn-primary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm mt-3">ยืนยันการเพิ่มข้อมูล</a>
-                                            <a id="update" class="btn btn-sm btn-warning  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm mt-3">ยืนยันการแก้ไขข้อมูล</a>
+                                            <a id="btnsave" class="btn btn-sm btn-primary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm mt-3"><i class="fas fa-save"></i>  ยืนยันการเพิ่มข้อมูล</a>
+                                            <a id="update" class="btn btn-sm btn-warning  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm mt-3"><i class="fas fa-edit"></i> ยืนยันการแก้ไขข้อมูล</a>
                                         </div>
                                     </div>
                                 </div>

@@ -68,61 +68,74 @@ $class = new addelderly();
                                 <div class="mb-5 p-4 bg-white shadow-sm">
 
                                     <div id="stepper2" class="bs-stepper">
-                                        <div class="bs-stepper-header" role="tablist">
-                                            <div class="step" data-target="#test-nl-1">
-                                                <button type="button" class="step-trigger" role="tab" id="stepper2trigger1" aria-controls="test-nl-1">
-                                                    <span class="bs-stepper-circle">
-                                                        <span class="fas fa-user" aria-hidden="true"></span>
-                                                    </span>
-                                                    <span class="bs-stepper-label">เพิ่มข้อมูลผู้สูงอายุ</span>
-                                                </button>
-                                            </div>
-                                            <div class="bs-stepper-line"></div>
-                                            <div class="step" data-target="#test-nl-2">
-                                                <button type="button" class="step-trigger" role="tab" id="stepper2trigger2" aria-controls="test-nl-2">
-                                                    <span class="bs-stepper-circle">
-                                                        <span class="fas fa-clipboard-list-check" aria-hidden="true"></span>
-                                                    </span>
-                                                    <span class="bs-stepper-label">ตรวจร่างกาย คัดกรอง</span>
-                                                </button>
-                                            </div>
-                                            <div class="bs-stepper-line"></div>
-                                            <div class="step" data-target="#test-nl-3">
-                                                <button type="button" class="step-trigger" role="tab" id="stepper2trigger3" aria-controls="test-nl-3">
-                                                    <span class="bs-stepper-circle">
-                                                        <span class="fas fa-file-user" aria-hidden="true"></span>
-                                                    </span>
-                                                    <span class="bs-stepper-label">คัดกรองโรคซึมเศร้า</span>
-                                                </button>
-                                            </div>
-                                            <div class="bs-stepper-line"></div>
-                                            <div class="step" data-target="#test-nl-4">
-                                                <button type="button" class="step-trigger" role="tab" id="stepper2trigger4" aria-controls="test-nl-4">
-                                                    <span class="bs-stepper-circle">
-                                                        <span class="fas fa-file-medical" aria-hidden="true"></span>
-                                                    </span>
-                                                    <span class="bs-stepper-label">บันทึกข้อมูลสุขภาพ</span>
-                                                </button>
-                                            </div>
-                                            <div class="bs-stepper-line"></div>
-                                            <div class="step" data-target="#test-nl-5">
-                                                <button type="button" class="step-trigger" role="tab" id="stepper2trigger5" aria-controls="test-nl-5">
-                                                    <span class="bs-stepper-circle">
-                                                        <span class="fas fa-file-medical" aria-hidden="true"></span>
-                                                    </span>
-                                                    <span class="bs-stepper-label">บันทึกข้อมูลสุขภาพ (ต่อ)</span>
-                                                </button>
+                                        <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12">
+                                            <div class="bs-stepper-header d-block  d-sm-block  d-md-flex " role="tablist">
+                                                <div class="step" data-target="#test-nl-1">
+                                                    <button type="button" class="step-trigger" role="tab" id="stepper2trigger1" aria-controls="test-nl-1">
+                                                        <span class="bs-stepper-circle">
+                                                            <span class="fas fa-user" aria-hidden="true"></span>
+                                                        </span>
+                                                        <span class="bs-stepper-label">เพิ่มข้อมูลผู้สูงอายุ</span>
+                                                    </button>
+                                                </div>
+                                                <div class="bs-stepper-line"></div>
+                                                <div class="step" data-target="#test-nl-2">
+                                                    <button type="button" class="step-trigger" role="tab" id="stepper2trigger2" aria-controls="test-nl-2">
+                                                        <span class="bs-stepper-circle">
+                                                            <span class="fas fa-clipboard-list-check" aria-hidden="true"></span>
+                                                        </span>
+                                                        <span class="bs-stepper-label">ตรวจร่างกาย คัดกรอง</span>
+                                                    </button>
+                                                </div>
+                                                <div class="bs-stepper-line"></div>
+                                                <div class="step " data-target="#test-nl-3">
+                                                    <button type="button" class="step-trigger" role="tab" id="stepper2trigger3" aria-controls="test-nl-3">
+                                                        <span class="bs-stepper-circle">
+                                                            <span class="fas fa-file-user" aria-hidden="true"></span>
+                                                        </span>
+                                                        <span class="bs-stepper-label">คัดกรองโรคซึมเศร้า</span>
+                                                    </button>
+                                                </div>
+                                                <div class="bs-stepper-line "></div>
+                                                <div class="step " data-target="#test-nl-4">
+                                                    <button type="button" class="step-trigger" role="tab" id="stepper2trigger4" aria-controls="test-nl-4">
+                                                        <span class="bs-stepper-circle">
+                                                            <span class="fas fa-file-medical" aria-hidden="true"></span>
+                                                        </span>
+                                                        <span class="bs-stepper-label">บันทึกข้อมูลสุขภาพ</span>
+                                                    </button>
+                                                </div>
+                                                <div class="bs-stepper-line"></div>
+                                                <div class="step" data-target="#test-nl-5">
+                                                    <button type="button" class="step-trigger" role="tab" id="stepper2trigger5" aria-controls="test-nl-5">
+                                                        <span class="bs-stepper-circle">
+                                                            <span class="fas fa-file-medical" aria-hidden="true"></span>
+                                                        </span>
+                                                        <span class="bs-stepper-label">บันทึกข้อมูลสุขภาพ (ต่อ)</span>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="bs-stepper-content">
                                             <form onSubmit="return false" id="form_health">
+
                                                 <!-- ส่วนของเพิ่มข้อมูลผู้สูงอายุ -->
                                                 <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper2trigger1">
                                                     <div class="d-md-flex d-sm-block form-row p-2">
                                                         <div class="col-md-2 p-1">
                                                             <div class="form-group">
                                                                 <label class="small mb-1">คำนำหน้า <span>*<span></label>
-                                                                <select class="form-select py-2" id="title" name="title" autocomplete="off" placeholder="ชื่อ" required>
+                                                                <select class="form-select py-2" id="title" name="title" autocomplete="off" placeholder="ชื่อ">
+                                                                    <?php
+                                                                    echo '<option value="" selected disabled>เลือกคำนำหน้า</option>';
+                                                                    foreach ($title_name as $keye => $vale) {
+                                                                        if ($dataset == $keye) {
+                                                                            echo "<option selected value='$keye'>$vale</option>";
+                                                                        } else {
+                                                                            echo "<option value='$keye'>$vale</option>";
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -199,8 +212,12 @@ $class = new addelderly();
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <button class="btn btn-primary">ถัดไป</button>
+                                                    <div class="d-flex justify-content-center">
+                                                        <button class="btn btn-primary rounded-pill col-xxl-1 col-xl-1 col-lg-2 col-md-2 col-sm-2">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
+
+                                                    </div>
                                                 </div>
+
                                                 <!-- ส่วนของตรวจร่างกายคัดกรอง -->
                                                 <div id="test-nl-2" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper2trigger2">
                                                     <div class="d-md-flex d-sm-block form-row p-2">
@@ -447,7 +464,12 @@ $class = new addelderly();
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <button class="btn btn-primary">ถัดไป</button>
+                                                    <div class="d-flex justify-content-center ">
+                                                        <button class="btn btn-secondary rounded-pill col-xxl-1 col-xl-1  col-lg-2 col-md-2 col-sm-2 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button>
+
+                                                        <button class="btn btn-primary rounded-pill col-xxl-1 col-xl-1  col-lg-2 col-md-2 col-sm-2 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
+
+                                                    </div>
                                                 </div>
                                                 <!-- ส่วนของคัดกรองโรคซึมเศร้า -->
 
@@ -482,7 +504,10 @@ $class = new addelderly();
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <button class="btn btn-primary">ถัดไป</button>
+                                                    <div class="d-flex justify-content-center ">
+                                                        <button class="btn btn-secondary rounded-pill col-1 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button>
+                                                        <button class="btn btn-primary rounded-pill col-1 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
+                                                    </div>
                                                 </div>
 
                                                 <!-- ส่วนของบันทึกข้อมูลสุขภาพ -->
@@ -666,9 +691,16 @@ $class = new addelderly();
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <button class="btn btn-primary">ถัดไป</button>
+                                                    <div class="d-flex justify-content-center ">
+                                                        <button class="btn btn-secondary rounded-pill col-xxl-1 col-xl-1  col-lg-2 col-md-2 col-sm-2 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button>
+
+                                                        <button class="btn btn-primary rounded-pill col-xxl-1 col-xl-1  col-lg-2 col-md-2 col-sm-2 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
+
+                                                    </div>
 
                                                 </div>
+
+                                                <!-- ส่วนของบันทึกข้อมูลสุขภาพ -->
                                                 <div id="test-nl-5" role="tabpanel" class="bs-stepper-pane " aria-labelledby="stepper2trigger5">
                                                     <div class="d-md-flex d-sm-block form-row p-2">
                                                         <div class="row g-6  align-items-center p-2">
@@ -920,6 +952,12 @@ $class = new addelderly();
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="d-flex justify-content-center ">
+                                                        <!-- <button class="btn btn-primary rounded-pill col-xxl-1 col-xl-1  col-lg-2 col-md-2 col-sm-2 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button> -->
+
+                                                        <button class="btn btn-primary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 next"><i class="fas fa-save"></i> บันทึกข้อมูล </button>
+
+                                                    </div>
                                                 </div>
                                             </form>
                                         </div>
@@ -985,10 +1023,12 @@ $class = new addelderly();
                     stepper: '.bs-stepper'
                 }
             })
-            $(document).on('click', '.bs-stepper-content button', function(e) {
+            $(document).on('click', '.bs-stepper-content button.next', function(e) {
                 stepper.next();
             })
-
+            $(document).on('click', '.bs-stepper-content button.previous', function(e) {
+                stepper.previous(-1);
+            })
             // stepper.to(2)
 
         })

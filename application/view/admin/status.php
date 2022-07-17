@@ -84,8 +84,8 @@ require '../../core/session.php';
                                     <div class="card-footer text-end">
                                         <a id="cancle" class="btn btn-sm btn-secondary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm">ยกเลิก</a>
 
-                                        <a id="updateStatus" class="btn btn-sm btn-warning  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm">ยืนยันการแก้ไขข้อมูล</a>
-                                        <a id="saveStatus" class="btn btn-sm btn-primary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm">ยืนยันการเพิ่มข้อมูล</a>
+                                        <a id="updateStatus" class="btn btn-sm btn-warning  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm"><i class="fas fa-edit"></i> ยืนยันการแก้ไขข้อมูล</a>
+                                        <a id="saveStatus" class="btn btn-sm btn-primary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm"><i class="fas fa-save"></i> ยืนยันการเพิ่มข้อมูล</a>
                                     </div>
                                 </form>
                             </div>

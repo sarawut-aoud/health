@@ -16,6 +16,11 @@ require '../../core/session.php';
     <link rel="stylesheet" href="../../../assets/custom_style.css">
 
 </head>
+<style>
+    a.accordion-button:not(.collapsed)::after>i {
+        transform: rotate(-180deg);
+    }
+</style>
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -55,13 +60,17 @@ require '../../core/session.php';
 
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>150</h3>
-                                    <p>New Orders</p>
+                                    <h3>150 <span>คน</span></h3>
+                                    <p>แพทย์</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-bag"></i>
+                                    <i class="fas fa-hospital-user"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+
+                                <a class="accordion-button small-box-footer collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    ดูรายละเอียด <i class="fas fa-arrow-circle-right"></i>
+                                </a>
+
                             </div>
                         </div>
 
@@ -69,27 +78,34 @@ require '../../core/session.php';
 
                             <div class="small-box bg-success">
                                 <div class="inner">
-                                    <h3>53<sup style="font-size: 20px">%</sup></h3>
-                                    <p>Bounce Rate</p>
+                                    <h3>150 <span>คน</span></h3>
+                                    <p>เจ้าหน้าที่สาธารณะสุข</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-stats-bars"></i>
+                                    <i class="fas  fa-user-md"></i>
+
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a class="accordion-button collapsed small-box-footer" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    ดูรายละเอียด <i class="fas fa-arrow-circle-right"></i>
+                                </a>
+                                <!-- <a href="#" class="small-box-footer">ดูรายละเอียด <i class="fas fa-arrow-circle-right"></i></a> -->
                             </div>
                         </div>
 
                         <div class="col-lg-3 col-6">
 
-                            <div class="small-box bg-warning">
+                            <div class="small-box bg-warning ">
                                 <div class="inner">
-                                    <h3>44</h3>
-                                    <p>User Registrations</p>
+                                    <h3>150 <span>คน</span></h3>
+                                    <p>อสม</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="far fa-user-nurse"></i>
+
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a class="accordion-button collapsed small-box-footer" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                    ดูรายละเอียด <span class=" "><i class="fas fa-arrow-circle-right "></i></span>
+                                </a>
                             </div>
                         </div>
 
@@ -97,16 +113,45 @@ require '../../core/session.php';
 
                             <div class="small-box bg-danger">
                                 <div class="inner">
-                                    <h3>65</h3>
-                                    <p>Unique Visitors</p>
+                                    <h3>150 <span>คน</span></h3>
+                                    <p>ผู้สูงอายุ</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-pie-graph"></i>
+                                    <i class="far fa-user-injured"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a class="accordion-button collapsed small-box-footer" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                    ดูรายละเอียด <i class="fas fa-arrow-circle-right"></i>
+                                </a>
                             </div>
                         </div>
 
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                    </div>
+                                </div>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                    </div>
+                                </div>
+                                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                    </div>
+                                </div>
+                                <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
 
                 </div>
