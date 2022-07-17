@@ -946,6 +946,7 @@ $class = new addelderly();
                                                                     <div class="form-check form-check-inline">
                                                                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4">
                                                                         <label class="form-check-label" for="inlineRadio4">ผิดปกติ</label>
+                                                                        <input type="text" id="inputPassword6" name="fname" class="form-control py-2" placeholder="คือ">
                                                                     </div>
 
                                                                 </div>
