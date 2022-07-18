@@ -120,11 +120,11 @@ $(document).ready(function () {
       },
       language: {
         buttons: {
-          colvis: "Change columns",
+          colvis: "เลือกดูคอลัมน์",
         },
       },
     })
     .buttons()
     .container()
-    .appendTo("#example1_wrapper .col-md-6:eq(0)");
+    .appendTo("#example_wrapper .col-md-6:eq(0)");
 });

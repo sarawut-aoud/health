@@ -23,7 +23,11 @@ $class = new addelderly();
 
 </head>
 <style>
-    #form_health label span {
+    #form1 label span,
+    #form2 label span,
+    #form3 label span,
+    #form4 label span,
+    #form5 label span {
         color: red;
     }
 </style>
@@ -117,7 +121,7 @@ $class = new addelderly();
                                             </div>
                                         </div>
                                         <div class="bs-stepper-content">
-                                            <form onSubmit="return false" id="form_health">
+                                            <form onSubmit="return false" id="form1">
 
                                                 <!-- ส่วนของเพิ่มข้อมูลผู้สูงอายุ -->
                                                 <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper2trigger1">
@@ -217,7 +221,8 @@ $class = new addelderly();
 
                                                     </div>
                                                 </div>
-
+                                            </form>
+                                            <form onSubmit="return false" id="form2">
                                                 <!-- ส่วนของตรวจร่างกายคัดกรอง -->
                                                 <div id="test-nl-2" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper2trigger2">
                                                     <div class="d-md-flex d-sm-block form-row p-2">
@@ -472,7 +477,8 @@ $class = new addelderly();
                                                     </div>
                                                 </div>
                                                 <!-- ส่วนของคัดกรองโรคซึมเศร้า -->
-
+                                            </form>
+                                            <form onSubmit="return false" id="form3">
                                                 <div id="test-nl-3" role="tabpanel" class="bs-stepper-pane " aria-labelledby="stepper2trigger3">
                                                     <div class="d-md-flex d-sm-block form-row p-2">
                                                         <div class="col-md-12 p-1">
@@ -509,7 +515,8 @@ $class = new addelderly();
                                                         <button class="btn btn-primary rounded-pill col-1 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
                                                     </div>
                                                 </div>
-
+                                            </form>
+                                            <form onSubmit="return false" id="form4">
                                                 <!-- ส่วนของบันทึกข้อมูลสุขภาพ -->
                                                 <div id="test-nl-4" role="tabpanel" class="bs-stepper-pane " aria-labelledby="stepper2trigger4">
                                                     <div class="d-md-flex d-sm-block form-row p-2">
@@ -699,7 +706,8 @@ $class = new addelderly();
                                                     </div>
 
                                                 </div>
-
+                                            </form>
+                                            <form onSubmit="return false" id="form5">
                                                 <!-- ส่วนของบันทึกข้อมูลสุขภาพ -->
                                                 <div id="test-nl-5" role="tabpanel" class="bs-stepper-pane " aria-labelledby="stepper2trigger5">
                                                     <div class="d-md-flex d-sm-block form-row p-2">
@@ -1015,21 +1023,7 @@ $class = new addelderly();
     <script>
         $(document).ready(function() {
 
-            var stepper = new Stepper($('.bs-stepper')[0], {
-                linear: false,
-                animation: true,
-                selectors: {
-                    steps: '.step',
-                    trigger: '.step-trigger',
-                    stepper: '.bs-stepper'
-                }
-            })
-            $(document).on('click', '.bs-stepper-content button.next', function(e) {
-                stepper.to(2);
-            })
-            $(document).on('click', '.bs-stepper-content button.previous', function(e) {
-                stepper.previous(-1);
-            })
+
             // stepper.to(2)
 
         })
