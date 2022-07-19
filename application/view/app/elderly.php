@@ -121,7 +121,7 @@ $class = new addelderly();
                                             </div>
                                         </div>
                                         <div class="bs-stepper-content">
-                                            <form onSubmit="return false" id="form1">
+                                            <form  id="form1">
 
                                                 <!-- ส่วนของเพิ่มข้อมูลผู้สูงอายุ -->
                                                 <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper2trigger1">
@@ -222,7 +222,7 @@ $class = new addelderly();
                                                     </div>
                                                 </div>
                                             </form>
-                                            <form onSubmit="return false" id="form2">
+                                            <form id="form2">
                                                 <!-- ส่วนของตรวจร่างกายคัดกรอง -->
                                                 <div id="test-nl-2" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper2trigger2">
                                                     <div class="d-md-flex d-sm-block form-row p-2">
@@ -470,27 +470,27 @@ $class = new addelderly();
                                                         </div>
                                                     </div>
                                                     <div class="d-flex justify-content-center ">
-                                                        <button class="btn btn-secondary rounded-pill col-xxl-1 col-xl-1  col-lg-2 col-md-2 col-sm-2 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button>
+                                                        <button class="btn btn-secondary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button>
 
-                                                        <button class="btn btn-primary rounded-pill col-xxl-1 col-xl-1  col-lg-2 col-md-2 col-sm-2 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
+                                                        <button class="btn btn-primary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
 
                                                     </div>
                                                 </div>
                                                 <!-- ส่วนของคัดกรองโรคซึมเศร้า -->
                                             </form>
-                                            <form onSubmit="return false" id="form3">
+                                            <form id="form3">
                                                 <div id="test-nl-3" role="tabpanel" class="bs-stepper-pane " aria-labelledby="stepper2trigger3">
                                                     <div class="d-md-flex d-sm-block form-row p-2">
                                                         <div class="col-md-12 p-1">
                                                             <div class="form-group">
                                                                 <label class="small mb-1">ในเดือนที่ผ่านมารวมมื่อนี่เจ้า(โต) มีอาการมูนี่จักหน่อยบ่ อุกอั่ง หนหวย บ่เป็นตายอยู่ มีแต่อยากให้บ่ <span>*<span></label>
                                                                 <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" type="checkbox" name="symptom1" id="symptom1" value="0">
-                                                                    <label class="form-check-label" for="inlinecheckbox1">มี</label>
+                                                                    <input class="form-check-input" type="checkbox" name="symptom1" id="symptom1" value="0" required>
+                                                                    <label class="form-check-label" for="symptom1">มี</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" type="checkbox" name="symptom1" id="symptom2" value="1">
-                                                                    <label class="form-check-label" for="inlinecheckbox2">บ่อมี๊</label>
+                                                                    <input class="form-check-input" type="checkbox" name="symptom1" id="symptom2" value="1" required>
+                                                                    <label class="form-check-label" for="symptom2">บ่อมี๊</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -501,22 +501,22 @@ $class = new addelderly();
                                                                 <label class="small mb-1">ในเดือนที่ผ่านมารวมมื่อนี่เจ้า(โต) มีอาการมูนี่จักหน่อยบ่ บ่สนใจหยัง บ่อยากเฮ้ดหยัง บ่ม่วนซื้น <span>*<span></label>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="symptom2" id="symptom3" value="0">
-                                                                    <label class="form-check-label" for="inlinecheckbox3">มี</label>
+                                                                    <label class="form-check-label" for="symptom3">มี</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="symptom2" id="symptom4" value="1">
-                                                                    <label class="form-check-label" for="inlinecheckbox4">บ่อมี๊</label>
+                                                                    <label class="form-check-label" for="symptom4">บ่อมี๊</label>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="d-flex justify-content-center ">
-                                                        <button class="btn btn-secondary rounded-pill col-1 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button>
-                                                        <button class="btn btn-primary rounded-pill col-1 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
+                                                        <button type="submit" class="btn btn-secondary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button>
+                                                        <button type="submit" class="btn btn-primary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
                                                     </div>
                                                 </div>
                                             </form>
-                                            <form onSubmit="return false" id="form4">
+                                            <form id="form4">
                                                 <!-- ส่วนของบันทึกข้อมูลสุขภาพ -->
                                                 <div id="test-nl-4" role="tabpanel" class="bs-stepper-pane " aria-labelledby="stepper2trigger4">
                                                     <div class="d-md-flex d-sm-block form-row p-2">
@@ -525,15 +525,15 @@ $class = new addelderly();
                                                                 <label class="md-12">ทานกินผัก 5 ทัพพีต่อวันอย่างไร <span>*<span></label>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="veget" id="veget1" value="0">
-                                                                    <label class="form-check-label" for="inlinecheckbox1">0-1 วันต่อสัปดาห์</label>
+                                                                    <label class="form-check-label" for="veget1">0-1 วันต่อสัปดาห์</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="veget" id="veget2" value="1">
-                                                                    <label class="form-check-label" for="inlinecheckbox2">3-6 วันต่อสัปดาห์</label>
+                                                                    <label class="form-check-label" for="veget2">3-6 วันต่อสัปดาห์</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="veget" id="veget3" value="2">
-                                                                    <label class="form-check-label" for="inlinecheckbox2">7 วันต่อสัปดาห์</label>
+                                                                    <label class="form-check-label" for="veget3">7 วันต่อสัปดาห์</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -544,15 +544,15 @@ $class = new addelderly();
                                                                 <label class="mb-1">ท่านเติมเครื่องปรุงรสเค็มในอาหารที่กินหรือไม่ <span>*<span></label>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="condiment" id="condiment1" value="0">
-                                                                    <label class="form-check-label" for="inlinecheckbox3">ไม่เติม</label>
+                                                                    <label class="form-check-label" for="condiment1">ไม่เติม</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="condiment" id="condiment2" value="1">
-                                                                    <label class="form-check-label" for="inlinecheckbox4">เติมบางครั้ง</label>
+                                                                    <label class="form-check-label" for="condiment2">เติมบางครั้ง</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="condiment" id="condiment3" value="2">
-                                                                    <label class="form-check-label" for="inlinecheckbox2">เติมทุกครั้ง</label>
+                                                                    <label class="form-check-label" for="condiment3">เติมทุกครั้ง</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -563,15 +563,15 @@ $class = new addelderly();
                                                                 <label class="mb-1">ท่านเติมน้ำตาลในอาหารหรือเครื่องดื่มรสหวานหรือไม่ <span>*<span></label>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="sweet" id="sweet1" value="0">
-                                                                    <label class="form-check-label" for="inlinecheckbox3">ไม่เติม</label>
+                                                                    <label class="form-check-label" for="sweet1">ไม่เติม</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="sweet" id="sweet2" value="1">
-                                                                    <label class="form-check-label" for="inlinecheckbox4">เติมบางครั้ง</label>
+                                                                    <label class="form-check-label" for="sweet2">เติมบางครั้ง</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="sweet" id="sweet3" value="2">
-                                                                    <label class="form-check-label" for="inlinecheckbox2">เติมทุกครั้ง/ดื่มทุกวัน</label>
+                                                                    <label class="form-check-label" for="sweet3">เติมทุกครั้ง/ดื่มทุกวัน</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -582,15 +582,15 @@ $class = new addelderly();
                                                                 <label class="mb-1">ท่านได้ออกกำลังกายจนรู้สึกเหนื่อยกว่าปกติหรือไม่ <span>*<span></label>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="exercise" id="exercise1" value="0">
-                                                                    <label class="form-check-label" for="inlinecheckbox3">ไม่ออกกำลังกายหรือออกกำลังกายไม่ถึงวันละ 30 นาที</label>
+                                                                    <label class="form-check-label" for="exercise1">ไม่ออกกำลังกายหรือออกกำลังกายไม่ถึงวันละ 30 นาที</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="exercise" id="exercise2" value="1">
-                                                                    <label class="form-check-label" for="inlinecheckbox4">ออกกำลังกายวันละ 30 นาทีแต่ไม่ถึง 5 วันต่อสัปดาห์</label>
+                                                                    <label class="form-check-label" for="exercise2">ออกกำลังกายวันละ 30 นาทีแต่ไม่ถึง 5 วันต่อสัปดาห์</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="exercise" id="exercise3" value="2">
-                                                                    <label class="form-check-label" for="inlinecheckbox2">ออกกำลังกายวันละ 30 นาทีมากกว่า 5 วันต่อสัปดาห์</label>
+                                                                    <label class="form-check-label" for="exercise3">ออกกำลังกายวันละ 30 นาทีมากกว่า 5 วันต่อสัปดาห์</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -601,15 +601,15 @@ $class = new addelderly();
                                                                 <label class="mb-1">ท่านนั่งหรือเอนกายเฉยๆ ติดต่อกันเกิน 4 ชั่วโมงหรือไม่ <span>*<span></label>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="loll" id="loll1" value="0">
-                                                                    <label class="form-check-label" for="inlinecheckbox3">นั่งหรือเอนกายเฉยๆ นานเกินกว่า 4 ชั่วโมงทุกวัน</label>
+                                                                    <label class="form-check-label" for="loll1">นั่งหรือเอนกายเฉยๆ นานเกินกว่า 4 ชั่วโมงทุกวัน</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="loll" id="loll2" value="1">
-                                                                    <label class="form-check-label" for="inlinecheckbox4">นั่งหรือเอนกายเฉยๆ นานเกินกว่า 4 ชั่วโมงบางวัน</label>
+                                                                    <label class="form-check-label" for="loll2">นั่งหรือเอนกายเฉยๆ นานเกินกว่า 4 ชั่วโมงบางวัน</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="loll" id="loll3" value="2">
-                                                                    <label class="form-check-label" for="inlinecheckbox2">ในแต่ละวัน นั่งหรือเอนกายเฉยๆ น้อยกว่า 4 ชั่วโมง</label>
+                                                                    <label class="form-check-label" for="loll3">ในแต่ละวัน นั่งหรือเอนกายเฉยๆ น้อยกว่า 4 ชั่วโมง</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -620,15 +620,15 @@ $class = new addelderly();
                                                                 <label class="mb-1">ท่านนอนเกิน 7 ชั่วโมงหรือไม่ <span>*<span></label>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="sleep" id="sleep1" value="0">
-                                                                    <label class="form-check-label" for="inlinecheckbox3">นอนไม่ถึงทุกวัน</label>
+                                                                    <label class="form-check-label" for="sleep1">นอนไม่ถึงทุกวัน</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="sleep" id="sleep2" value="1">
-                                                                    <label class="form-check-label" for="inlinecheckbox4">นอนไม่ถึงบางวัน</label>
+                                                                    <label class="form-check-label" for="sleep2">นอนไม่ถึงบางวัน</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="sleep" id="sleep3" value="2">
-                                                                    <label class="form-check-label" for="inlinecheckbox2">นอนเกิน 7 ชั่วโมงทุกวัน</label>
+                                                                    <label class="form-check-label" for="sleep3">นอนเกิน 7 ชั่วโมงทุกวัน</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -639,15 +639,15 @@ $class = new addelderly();
                                                                 <label class="mb-1">ท่านแปรงฟันก่อนนอนทุกวันหรือไม่ <span>*<span></label>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="brush" id="brush1" value="0">
-                                                                    <label class="form-check-label" for="inlinecheckbox3">แปรง 0-2 วันต่อสัปดาห์</label>
+                                                                    <label class="form-check-label" for="brush1">แปรง 0-2 วันต่อสัปดาห์</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="brush" id="brush2" value="1">
-                                                                    <label class="form-check-label" for="inlinecheckbox4">แปรง 3-6 วันต่อสัปดาห์</label>
+                                                                    <label class="form-check-label" for="brush2">แปรง 3-6 วันต่อสัปดาห์</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="brush" id="brush3" value="2">
-                                                                    <label class="form-check-label" for="inlinecheckbox2">แปรง 7 วันต่อสัปดาห์</label>
+                                                                    <label class="form-check-label" for="brush3">แปรง 7 วันต่อสัปดาห์</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -658,15 +658,15 @@ $class = new addelderly();
                                                                 <label class="mb-1">ท่านใช้เวลาแปรงฟันอย่างน้อยนานกี่นาที <span>*<span></label>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="brushlong" id="brushlong1" value="0">
-                                                                    <label class="form-check-label" for="inlinecheckbox3">น้อยกว่า 2 นาที</label>
+                                                                    <label class="form-check-label" for="brushlong1">น้อยกว่า 2 นาที</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="brushlong" id="brushlong2" value="1">
-                                                                    <label class="form-check-label" for="inlinecheckbox4">2 นาที</label>
+                                                                    <label class="form-check-label" for="brushlong2">2 นาที</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="brushlong" id="brushlong3" value="2">
-                                                                    <label class="form-check-label" for="inlinecheckbox2">2 นาทีขึ้นไป</label>
+                                                                    <label class="form-check-label" for="brushlong3">2 นาทีขึ้นไป</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -677,37 +677,37 @@ $class = new addelderly();
                                                                 <label class="mb-1">การสูบบุหรี่ <span>*<span></label>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="cigarette" id="cigarette1" value="0">
-                                                                    <label class="form-check-label" for="inlinecheckbox3">ไม่สูบ</label>
+                                                                    <label class="form-check-label" for="cigarette1">ไม่สูบ</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="cigarette" id="cigarette2" value="1">
-                                                                    <label class="form-check-label" for="inlinecheckbox4">สูบนานๆ ครั้ง(เดือนละ 1-2 ครั้ง)</label>
+                                                                    <label class="form-check-label" for="cigarette2">สูบนานๆ ครั้ง(เดือนละ 1-2 ครั้ง)</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="cigarette" id="cigarette3" value="2">
-                                                                    <label class="form-check-label" for="inlinecheckbox2">สูบเป็นครั้งคราว (อาทิตย์ละ 1-2 ครั้ง)</label>
+                                                                    <label class="form-check-label" for="cigarette3">สูบเป็นครั้งคราว (อาทิตย์ละ 1-2 ครั้ง)</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="cigarette" id="cigarette4" value="3">
-                                                                    <label class="form-check-label" for="inlinecheckbox2">สูบเป็นประจำทุกวัน</label>
+                                                                    <label class="form-check-label" for="cigarette4">สูบเป็นประจำทุกวัน</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="cigarette" id="cigarette5" value="4">
-                                                                    <label class="form-check-label" for="inlinecheckbox2">เคยสูบแต่เลิกแล้ว</label>
+                                                                    <label class="form-check-label" for="cigarette5">เคยสูบแต่เลิกแล้ว</label>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="d-flex justify-content-center ">
-                                                        <button class="btn btn-secondary rounded-pill col-xxl-1 col-xl-1  col-lg-2 col-md-2 col-sm-2 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button>
+                                                        <button class="btn btn-secondary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button>
 
-                                                        <button class="btn btn-primary rounded-pill col-xxl-1 col-xl-1  col-lg-2 col-md-2 col-sm-2 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
+                                                        <button class="btn btn-primary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
 
                                                     </div>
 
                                                 </div>
                                             </form>
-                                            <form onSubmit="return false" id="form5">
+                                            <form id="form5">
                                                 <!-- ส่วนของบันทึกข้อมูลสุขภาพ -->
                                                 <div id="test-nl-5" role="tabpanel" class="bs-stepper-pane " aria-labelledby="stepper2trigger5">
                                                     <div class="d-md-flex d-sm-block form-row p-2">
@@ -735,15 +735,15 @@ $class = new addelderly();
                                                             <label class="mb-1">จำนวนมวนต่อวัน <span>*<span></label>
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="checkbox" name="num" id="num1" value="0">
-                                                                <label class="form-check-label" for="inlinecheckbox3">1-10 มวน/วัน</label>
+                                                                <label class="form-check-label" for="num1">1-10 มวน/วัน</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="checkbox" name="num" id="num2" value="1">
-                                                                <label class="form-check-label" for="inlinecheckbox4">11-19 มวน/วัน</label>
+                                                                <label class="form-check-label" for="num2">11-19 มวน/วัน</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="checkbox" name="num" id="num3" value="2">
-                                                                <label class="form-check-label" for="inlinecheckbox2">20 มวน/วันขึ้นไป</label>
+                                                                <label class="form-check-label" for="num3">20 มวน/วันขึ้นไป</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -753,15 +753,15 @@ $class = new addelderly();
                                                                 <label class="mb-1">พฤติกรรมสูบมวนแรกหลังตื่นนอน <span>*<span></label>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="after" id="after1" value="0">
-                                                                    <label class="form-check-label" for="inlinecheckbox3">ไม่เกินครึ่ง ซม.หลังตื่น</label>
+                                                                    <label class="form-check-label" for="after1">ไม่เกินครึ่ง ซม.หลังตื่น</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="after" id="after2" value="1">
-                                                                    <label class="form-check-label" for="inlinecheckbox4">ไม่เกิน 1 ซม.หลังตื่น</label>
+                                                                    <label class="form-check-label" for="after2">ไม่เกิน 1 ซม.หลังตื่น</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="after" id="after3" value="2">
-                                                                    <label class="form-check-label" for="inlinecheckbox2">สูบหลังตื่นมากกว่า 1 ซม.</label>
+                                                                    <label class="form-check-label" for="after3">สูบหลังตื่นมากกว่า 1 ซม.</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -772,23 +772,23 @@ $class = new addelderly();
                                                                 <label class="mb-1">การดื่มสุรา <span>*<span></label>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="drink" id="drink1" value="0">
-                                                                    <label class="form-check-label" for="inlinecheckbox3">ไม่ดื่ม</label>
+                                                                    <label class="form-check-label" for="drink1">ไม่ดื่ม</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="drink" id="drink2" value="1">
-                                                                    <label class="form-check-label" for="inlinecheckbox4">ดื่มนานๆ ครั้ง(เดือนละ 1-2 ครั้ง)</label>
+                                                                    <label class="form-check-label" for="drink2">ดื่มนานๆ ครั้ง(เดือนละ 1-2 ครั้ง)</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="drink" id="drink3" value="2">
-                                                                    <label class="form-check-label" for="inlinecheckbox2">ดื่มเป็นครั้งคราว (อาทิตย์ละ 1-2 ครั้ง)</label>
+                                                                    <label class="form-check-label" for="drink3">ดื่มเป็นครั้งคราว (อาทิตย์ละ 1-2 ครั้ง)</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="drink" id="drink4" value="3">
-                                                                    <label class="form-check-label" for="inlinecheckbox2">ดื่มเป็นประจำทุกวัน</label>
+                                                                    <label class="form-check-label" for="drink4">ดื่มเป็นประจำทุกวัน</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="drink" id="drink5" value="4">
-                                                                    <label class="form-check-label" for="inlinecheckbox2">เคยดื่มแต่เลิกแล้ว</label>
+                                                                    <label class="form-check-label" for="drink5">เคยดื่มแต่เลิกแล้ว</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -839,23 +839,23 @@ $class = new addelderly();
                                                                     <label class="mb-1 py-2">ผลการตรวจ</label>
                                                                     <div class="form-check form-check-inline py-2">
                                                                         <input class="form-check-input" type="checkbox" name="result" id="result1" value="0">
-                                                                        <label class="form-check-label" for="inlinecheckbox3">ปกติ</label>
+                                                                        <label class="form-check-label" for="result1">ปกติ</label>
                                                                     </div>
                                                                     <div class="form-check form-check-inline">
                                                                         <input class="form-check-input" type="checkbox" name="result" id="result2" value="1">
-                                                                        <label class="form-check-label" for="inlinecheckbox4">ปลอดภัย</label>
+                                                                        <label class="form-check-label" for="result2">ปลอดภัย</label>
                                                                     </div>
                                                                     <div class="form-check form-check-inline">
                                                                         <input class="form-check-input" type="checkbox" name="result" id="result3" value="2">
-                                                                        <label class="form-check-label" for="inlinecheckbox4">เสี่ยง</label>
+                                                                        <label class="form-check-label" for="result3">เสี่ยง</label>
                                                                     </div>
                                                                     <div class="form-check form-check-inline">
                                                                         <input class="form-check-input" type="checkbox" name="result" id="result4" value="3">
-                                                                        <label class="form-check-label" for="inlinecheckbox4">ไม่ปลอดภัย</label>
+                                                                        <label class="form-check-label" for="result4">ไม่ปลอดภัย</label>
                                                                     </div>
                                                                     <div class="form-check form-check-inline">
                                                                         <input class="form-check-input" type="checkbox" name="result" id="result5" value="4">
-                                                                        <label class="form-check-label" for="inlinecheckbox4">ไม่เคยตรวจ</label>
+                                                                        <label class="form-check-label" for="result5">ไม่เคยตรวจ</label>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -867,24 +867,24 @@ $class = new addelderly();
                                                                 <label class="mb-1">การดูแลสุขภาพช่องปากเหงือก <span>*<span></label>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="gum" id="gum1" value="0">
-                                                                    <label class="form-check-label" for="inlinecheckbox3">ปกติ</label>
+                                                                    <label class="form-check-label" for="gum1">ปกติ</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="gum" id="gum2" value="1">
-                                                                    <label class="form-check-label" for="inlinecheckbox4">บวม</label>
+                                                                    <label class="form-check-label" for="gum2">บวม</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="gum" id="gum3" value="2">
-                                                                    <label class="form-check-label" for="inlinecheckbox2">หนอง</label>
+                                                                    <label class="form-check-label" for="gum3">หนอง</label>
                                                                 </div>
                                                                 <label class="mb-1">หินปูน <span>*<span></label>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="limestone" id="limestone1" value="0">
-                                                                    <label class="form-check-label" for="inlinecheckbox3">มี</label>
+                                                                    <label class="form-check-label" for="limestone1">มี</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="limestone" id="limestone2" value="1">
-                                                                    <label class="form-check-label" for="inlinecheckbox3">ไม่มี</label>
+                                                                    <label class="form-check-label" for="limestone2">ไม่มี</label>
                                                                 </div>
                                                                 <label class="md-4">จำนวนฟันแท้ผุ </label>
                                                                 <div class="form-check form-check-inline">
@@ -901,11 +901,11 @@ $class = new addelderly();
                                                                 <label class="mb-1">การตรวจเต้านม ในสตรีอายุ 30 ปีขึ้นไปตรวจด้วย <span>*<span></label>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="breast" id="breast1" value="0">
-                                                                    <label class="form-check-label" for="inlinecheckbox3">ตนเอง</label>
+                                                                    <label class="form-check-label" for="breast1">ตนเอง</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="checkbox" name="breast" id="breast2" value="1">
-                                                                    <label class="form-check-label" for="inlinecheckbox4">บุคลากรสาธารณสุข</label>
+                                                                    <label class="form-check-label" for="breast2">บุคลากรสาธารณสุข</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -924,11 +924,11 @@ $class = new addelderly();
                                                                     <label class="mb-1 py-2">ผลการตรวจ</label>
                                                                     <div class="form-check form-check-inline py-2">
                                                                         <input class="form-check-input" type="checkbox" name="breastre" id="breastre1" value="0">
-                                                                        <label class="form-check-label" for="inlinecheckbox3">ปกติ</label>
+                                                                        <label class="form-check-label" for="breastre1">ปกติ</label>
                                                                     </div>
                                                                     <div class="form-check form-check-inline">
                                                                         <input class="form-check-input" type="checkbox" name="breastre" id="breastre2" value="1">
-                                                                        <label class="form-check-label" for="inlinecheckbox4">ผิดปกติ</label>
+                                                                        <label class="form-check-label" for="breastre2">ผิดปกติ</label>
                                                                     </div>
 
                                                                 </div>
@@ -949,11 +949,11 @@ $class = new addelderly();
                                                                     <label class="mb-1 py-2">ผลการตรวจ</label>
                                                                     <div class="form-check form-check-inline py-2">
                                                                         <input class="form-check-input" type="checkbox" name="cervixre" id="cervixre1" value="0">
-                                                                        <label class="form-check-label" for="inlinecheckbox3">ปกติ</label>
+                                                                        <label class="form-check-label" for="cervixre1">ปกติ</label>
                                                                     </div>
                                                                     <div class="form-check form-check-inline">
                                                                         <input class="form-check-input" type="checkbox" name="cervixre" id="cervixre2" value="0">
-                                                                        <label class="form-check-label" for="inlinecheckbox4">ผิดปกติ</label>
+                                                                        <label class="form-check-label" for="cervixre2">ผิดปกติ</label>
                                                                         <input type="text" id="cervixsub" name="cervixsub" class="form-control py-2" placeholder="คือ">
                                                                     </div>
 
@@ -1022,10 +1022,28 @@ $class = new addelderly();
     <script src="../../../assets/h_template.js"></script>
     <script>
         $(document).ready(function() {
+            (function() {
+                "use strict";
 
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.querySelectorAll(".needs-validation");
 
-            // stepper.to(2)
+                // Loop over them and prevent submission
+                Array.prototype.slice.call(forms).forEach(function(form) {
+                    form.addEventListener(
+                        "submit",
+                        function(event) {
+                            if (!form.checkValidity()) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
 
+                            form.classList.add("was-validated");
+                        },
+                        false
+                    );
+                });
+            });
         })
     </script>
 </body>
