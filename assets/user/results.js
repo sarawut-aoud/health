@@ -65,26 +65,100 @@ var results_js = {
 
    $(document).on("click", "#saveresults", function (e) {
      e.preventDefault();
-     results_js.Save_cancer();
+     results_js.Save_results();
    });
     $(document).ready(function () {
         results_js.load_user("");
-    $(document).on("change", "#chk1", function (e) {
-        e.preventDefault();
-        $("#chk2").prop("checked", false);
-        $("#chk8").prop("checked", false);
+    $(document).on("change", "#chk3", function (e) {
+      if($(this).is(':checked') === true){
+        $("#chk4").prop("checked", false);
+        $("#chk5").prop("checked", false);
+        $("#chk6").prop("checked", false);
+        $("#chk7").prop("checked", false);
+        $('#found_sub').prop('disabled',true);
+      }
       });
-      $(document).on("change", "#chk2", function (e) {
-        e.preventDefault();
-        $("#chk1").prop("checked", false);
-        $("#chk8").prop("checked", false);
-        
-      });
-      $(document).on("change", "#chk8", function (e) {
-        e.preventDefault();
-        $("#chk1").prop("checked", false);
-        $("#chk2").prop("checked", false);
-      });
+      $(document).on("change", "#chk4", function (e) {
+        if($(this).is(':checked') === true){
+          $("#chk3").prop("checked", false);
+          $("#chk5").prop("checked", false);
+          $("#chk6").prop("checked", false);
+          $("#chk7").prop("checked", false);
+          $('#found_sub').prop('disabled',true);
+        }
+        });
+      $(document).on("change", "#chk5", function (e) {
+        if($(this).is(':checked') === true){
+          $("#chk3").prop("checked", false);
+          $("#chk4").prop("checked", false);
+          $("#chk6").prop("checked", false);
+          $("#chk7").prop("checked", false);
+          $('#found_sub').prop('disabled',true);
+        }
+        });
+      $(document).on("change", "#chk6", function (e) {
+        if($(this).is(':checked') === true){
+          $("#chk3").prop("checked", false);
+          $("#chk4").prop("checked", false);
+          $("#chk5").prop("checked", false);
+          $("#chk7").prop("checked", false);
+          $('#found_sub').prop('disabled',true);
+        }
+        });
+      $(document).on("change", "#chk7", function (e) {
+        if($(this).is(':checked') === true){
+          $("#chk3").prop("checked", false);
+          $("#chk4").prop("checked", false);
+          $("#chk5").prop("checked", false);
+          $("#chk6").prop("checked", false);
+          $('#found_sub').prop('disabled',false);
+        }
+        });
+      $(document).on("change", "#chk9", function (e) {
+        if($(this).is(':checked') === true){
+          $("#chk10").prop("checked", false);
+          $("#chk11").prop("checked", false);
+          $("#chk12").prop("checked", false);
+          $("#chk13").prop("checked", false);
+          $('#found_sub2').prop('disabled',true);
+        }
+        });
+      $(document).on("change", "#chk10", function (e) {
+        if($(this).is(':checked') === true){
+          $("#chk9").prop("checked", false);
+          $("#chk11").prop("checked", false);
+          $("#chk12").prop("checked", false);
+          $("#chk13").prop("checked", false);
+          $('#found_sub2').prop('disabled',true);
+        }
+        });
+      $(document).on("change", "#chk11", function (e) {
+        if($(this).is(':checked') === true){
+          $("#chk9").prop("checked", false);
+          $("#chk10").prop("checked", false);
+          $("#chk12").prop("checked", false);
+          $("#chk13").prop("checked", false);
+          $('#found_sub2').prop('disabled',true);
+        }
+        });
+      $(document).on("change", "#chk12", function (e) {
+        if($(this).is(':checked') === true){
+          $("#chk9").prop("checked", false);
+          $("#chk10").prop("checked", false);
+          $("#chk11").prop("checked", false);
+          $("#chk13").prop("checked", false);
+          $('#found_sub2').prop('disabled',true);
+        }
+        });
+      $(document).on("change", "#chk13", function (e) {
+        if($(this).is(':checked') === true){
+          $("#chk9").prop("checked", false);
+          $("#chk11").prop("checked", false);
+          $("#chk12").prop("checked", false);
+          $("#chk10").prop("checked", false);
+          $('#found_sub2').prop('disabled',false);
+        }
+        });
       $(document).on("change", "#chk14", function (e) {
         e.preventDefault();
         $("#chk15").prop("checked", false);
@@ -100,7 +174,76 @@ var results_js = {
         $("#chk14").prop("checked", false);
         $("#chk15").prop("checked", false);
       });
- 
-
+      $(document).on('change','#chk1',function(e){
+        if($(this).is(':checked') === true){
+          $('#chk2').prop('disabled',true);
+          $('#chk3').prop('disabled',true);
+          $('#chk4').prop('disabled',true);
+          $('#chk5').prop('disabled',true);
+          $('#chk6').prop('disabled',true);
+          $('#chk8').prop('disabled',true);
+          $('#found_sub').prop('disabled',true);
+        }
+        });
+      $(document).on('change','#chk1',function(e){
+        if($(this).is(':checked') === false){
+          $('#chk2').prop('disabled',false);
+          $('#chk3').prop('disabled',false);
+          $('#chk4').prop('disabled',false);
+          $('#chk5').prop('disabled',false);
+          $('#chk6').prop('disabled',false);
+          $('#chk7').prop('disabled',false);
+          $('#chk8').prop('disabled',false);
+          $('#found_sub').prop('disabled',false);
+        }
+        });
+      $(document).on('change','#chk2',function(e){
+        if($(this).is(':checked') === true){
+          $('#chk1').prop('disabled',true);
+          $('#chk8').prop('disabled',true);
+          $('#chk9').prop('disabled',true);
+          $('#chk10').prop('disabled',true);
+          $('#chk11').prop('disabled',true);
+          $('#chk12').prop('disabled',true);
+          $('#chk13').prop('disabled',true);
+          $('#found_sub2').prop('disabled',true);
+        }
+        });
+      $(document).on('change','#chk2',function(e){
+        if($(this).is(':checked') === false){
+          $('#chk1').prop('disabled',false);
+          $('#chk8').prop('disabled',false);
+          $('#chk9').prop('disabled',false);
+          $('#chk10').prop('disabled',false);
+          $('#chk11').prop('disabled',false);
+          $('#chk12').prop('disabled',false);
+          $('#chk13').prop('disabled',false);
+          $('#found_sub2').prop('disabled',false);
+        }
+        });
+      $(document).on('change','#chk8',function(e){
+        if($(this).is(':checked') === true){
+          $('#chk1').prop('disabled',true);
+          $('#chk2').prop('disabled',true);
+          $('#chk3').prop('disabled',true);
+          $('#chk4').prop('disabled',true);
+          $('#chk5').prop('disabled',true);
+          $('#chk6').prop('disabled',true);
+          $('#chk7').prop('disabled',true);
+          $('#found_sub').prop('disabled',true);
+        }
+        });
+      $(document).on('change','#chk8',function(e){
+        if($(this).is(':checked') === false){
+          $('#chk1').prop('disabled',false);
+          $('#chk2').prop('disabled',false);
+          $('#chk3').prop('disabled',false);
+          $('#chk4').prop('disabled',false);
+          $('#chk5').prop('disabled',false);
+          $('#chk6').prop('disabled',false);
+          $('#chk7').prop('disabled',false);
+          $('#found_sub').prop('disabled',false);
+        }
+        });
   });
   
