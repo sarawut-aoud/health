@@ -1,8 +1,9 @@
 <?php
 require_once '../../core/data_utllities.php';
 
-
+require_once '../../model/admin/dashborad_model.php';
 require '../../core/session.php';
+$class =  new dashboard_model();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +61,7 @@ require '../../core/session.php';
 
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>150 <span>คน</span></h3>
+                                    <h3 id="dash1"> </h3>
                                     <p>แพทย์</p>
                                 </div>
                                 <div class="icon">
@@ -78,7 +79,7 @@ require '../../core/session.php';
 
                             <div class="small-box bg-success">
                                 <div class="inner">
-                                    <h3>150 <span>คน</span></h3>
+                                    <h3 id="dash2"></h3>
                                     <p>เจ้าหน้าที่สาธารณะสุข</p>
                                 </div>
                                 <div class="icon">
@@ -96,7 +97,7 @@ require '../../core/session.php';
 
                             <div class="small-box bg-warning ">
                                 <div class="inner">
-                                    <h3>150 <span>คน</span></h3>
+                                    <h3 id="dash3"></h3>
                                     <p>อสม</p>
                                 </div>
                                 <div class="icon">
@@ -113,7 +114,7 @@ require '../../core/session.php';
 
                             <div class="small-box bg-danger">
                                 <div class="inner">
-                                    <h3>150 <span>คน</span></h3>
+                                    <h3  id="dash4"></h3>
                                     <p>ผู้สูงอายุ</p>
                                 </div>
                                 <div class="icon">
@@ -131,30 +132,105 @@ require '../../core/session.php';
                             <div class="card">
                                 <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="example1" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr align="center">
+                                                        <td style="width: 30%;">ชื่อ – สกุล</td>
+                                                        <td>เบอร์โทร</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $sql = $class->get_table_1();
+                                                    while ($row = $sql->fetch_object()) { ?>
+                                                        <tr>
+                                                            <td><?= $row->title . $row->fullname; ?></td>
+                                                            <td><?= $row->phone_number; ?></td>
+                                                        </tr>
+                                                    <?php } ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="example2" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr align="center">
+                                                        <td style="width: 30%;">ชื่อ – สกุล</td>
+                                                        <td>เบอร์โทร</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $sql = $class->get_table_2();
+                                                    while ($row = $sql->fetch_object()) { ?>
+                                                        <tr>
+                                                            <td><?= $row->title . $row->fullname; ?></td>
+                                                            <td><?= $row->phone_number; ?></td>
+                                                        </tr>
+                                                    <?php } ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                                 <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="example3" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr align="center">
+                                                        <td style="width: 30%;">ชื่อ – สกุล</td>
+                                                        <td>เบอร์โทร</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $sql = $class->get_table_3();
+                                                    while ($row = $sql->fetch_object()) { ?>
+                                                        <tr>
+                                                            <td><?= $row->title . $row->fullname; ?></td>
+                                                            <td><?= $row->phone_number; ?></td>
+                                                        </tr>
+                                                    <?php } ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                                 <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="example4" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr align="center">
+                                                        <td style="width: 30%;">ชื่อ – สกุล</td>
+                                                        <td>เบอร์โทร</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $sql = $class->get_table_4();
+                                                    while ($row = $sql->fetch_object()) { ?>
+                                                        <tr>
+                                                            <td><?= $row->title . $row->fullname; ?></td>
+                                                            <td><?= $row->phone_number; ?></td>
+                                                        </tr>
+                                                    <?php } ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
-
                         </div>
-                    </div>
 
-                </div>
+                    </div>
             </section>
         </div>
 
@@ -194,6 +270,116 @@ require '../../core/session.php';
 
     <script src="../../../assets/admin/dashborad.js"></script>
     <script src="../../../assets/h_template.js"></script>
+    <script>
+        $("#example1")
+            .DataTable({
+                // "searching": true,
+                responsive: true,
+                lengthChange: false,
+                autoWidth: false,
+                // dom: "Btrip",
+                buttons: {
+                    dom: {
+                        button: {
+                            className: "btn btn-light  ",
+                        },
+                    },
+                    buttons: [{
+                        extend: "colvis",
+                        className: "btn btn-outline-info",
+                    }, ],
+                },
+                language: {
+                    buttons: {
+                        colvis: "เลือกดูคอลัมน์",
+                    },
+                },
+            })
+            .buttons()
+            .container()
+            .appendTo("#example1_wrapper .col-md-6:eq(0)");
+        $("#example2")
+            .DataTable({
+                // "searching": true,
+                responsive: true,
+                lengthChange: false,
+                autoWidth: false,
+                // dom: "Btrip",
+                buttons: {
+                    dom: {
+                        button: {
+                            className: "btn btn-light  ",
+                        },
+                    },
+                    buttons: [{
+                        extend: "colvis",
+                        className: "btn btn-outline-success",
+                    }, ],
+                },
+                language: {
+                    buttons: {
+                        colvis: "เลือกดูคอลัมน์",
+                    },
+                },
+            })
+            .buttons()
+            .container()
+            .appendTo("#example2_wrapper .col-md-6:eq(0)");
+        $("#example3")
+            .DataTable({
+                // "searching": true,
+                responsive: true,
+                lengthChange: false,
+                autoWidth: false,
+                // dom: "Btrip",
+                buttons: {
+                    dom: {
+                        button: {
+                            className: "btn btn-light  ",
+                        },
+                    },
+                    buttons: [{
+                        extend: "colvis",
+                        className: "btn btn-outline-warning",
+                    }, ],
+                },
+                language: {
+                    buttons: {
+                        colvis: "เลือกดูคอลัมน์",
+                    },
+                },
+            })
+            .buttons()
+            .container()
+            .appendTo("#example3_wrapper .col-md-6:eq(0)");
+        $("#example4")
+            .DataTable({
+                // "searching": true,
+                responsive: true,
+                lengthChange: false,
+                autoWidth: false,
+                // dom: "Btrip",
+                buttons: {
+                    dom: {
+                        button: {
+                            className: "btn btn-light  ",
+                        },
+                    },
+                    buttons: [{
+                        extend: "colvis",
+                        className: "btn btn-outline-danger",
+                    }, ],
+                },
+                language: {
+                    buttons: {
+                        colvis: "เลือกดูคอลัมน์",
+                    },
+                },
+            })
+            .buttons()
+            .container()
+            .appendTo("#example4_wrapper .col-md-6:eq(0)");
+    </script>
 </body>
 
 </html>
