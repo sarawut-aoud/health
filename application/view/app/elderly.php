@@ -121,7 +121,7 @@ $class = new addelderly();
                                             </div>
                                         </div>
                                         <div class="bs-stepper-content">
-                                            <form  id="form1">
+                                            <form id="form1">
 
                                                 <!-- ส่วนของเพิ่มข้อมูลผู้สูงอายุ -->
                                                 <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper2trigger1">
@@ -217,7 +217,7 @@ $class = new addelderly();
                                                         </div>
                                                     </div>
                                                     <div class="d-flex justify-content-center">
-                                                        <button class="btn btn-primary rounded-pill col-xxl-1 col-xl-1 col-lg-2 col-md-2 col-sm-2">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
+                                                        <button type="submit" class="btn btn-primary rounded-pill col-xxl-1 col-xl-1 col-lg-2 col-md-2 col-sm-2">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
 
                                                     </div>
                                                 </div>
@@ -485,7 +485,7 @@ $class = new addelderly();
                                                             <div class="form-group">
                                                                 <label class="small mb-1">ในเดือนที่ผ่านมารวมมื่อนี่เจ้า(โต) มีอาการมูนี่จักหน่อยบ่ อุกอั่ง หนหวย บ่เป็นตายอยู่ มีแต่อยากให้บ่ <span>*<span></label>
                                                                 <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" type="checkbox" name="symptom1" id="symptom1" value="0" required>
+                                                                    <input  class="form-check-input" type="checkbox" name="symptom1" id="symptom1" value="0" required>
                                                                     <label class="form-check-label" for="symptom1">มี</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
@@ -511,8 +511,8 @@ $class = new addelderly();
                                                         </div>
                                                     </div>
                                                     <div class="d-flex justify-content-center ">
-                                                        <button type="submit" class="btn btn-secondary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button>
-                                                        <button type="submit" class="btn btn-primary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
+                                                        <button  class="btn btn-secondary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button>
+                                                        <button  class="btn btn-primary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -1022,28 +1022,7 @@ $class = new addelderly();
     <script src="../../../assets/h_template.js"></script>
     <script>
         $(document).ready(function() {
-            (function() {
-                "use strict";
 
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.querySelectorAll(".needs-validation");
-
-                // Loop over them and prevent submission
-                Array.prototype.slice.call(forms).forEach(function(form) {
-                    form.addEventListener(
-                        "submit",
-                        function(event) {
-                            if (!form.checkValidity()) {
-                                event.preventDefault();
-                                event.stopPropagation();
-                            }
-
-                            form.classList.add("was-validated");
-                        },
-                        false
-                    );
-                });
-            });
         })
     </script>
 </body>
