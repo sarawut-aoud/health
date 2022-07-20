@@ -54,17 +54,15 @@ require_once '../../core/session.php';
 
 
             <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
+                <div class="container p-1">
+                    <div class="row  justify-content-center">
+                        <div class="col-md-10">
                             <form method="POST" id="Formcancer" class="needs-validation" novalidate>
                                 <div class="card shadow-lg border-0 rounded-lg ">
+                                    <div class="card-header bg-info bg-gradient">
+                                        <h5 class="card-title ">ประเมินความเสี่ยงโรคมะเร็ง</h5>
+                                    </div>
                                     <div class="card-body">
-                                        <ul class="nav nav-tabs nav-primary mb-0" data-bs-toggle="tabs">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" href="#">ประเมินความเสี่ยงโรคมะเร็ง</a>
-                                            </li>
-                                        </ul>
                                         <div class="d-md-flex d-sm-block form-row p-2">
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">

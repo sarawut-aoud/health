@@ -54,17 +54,15 @@ require_once '../../core/session.php';
 
 
             <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
+                <div class="container p-1">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10">
                             <form method="POST" id="Formresults" class="needs-validation" novalidate>
                                 <div class="card shadow-lg border-0 rounded-lg ">
+                                    <div class="card-header bg-info bg-gradient">
+                                        <h5 class="card-title ">สรุปผลการตรวจคัดกรองยืนยัน</h5>
+                                    </div>
                                     <div class="card-body">
-                                        <ul class="nav nav-tabs nav-primary mb-0" data-bs-toggle="tabs">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" href="#">สรุปผลการตรวจคัดกรองยืนยัน</a>
-                                            </li>
-                                        </ul>
                                         <div class="d-md-flex d-sm-block form-row p-2">
                                             <div class="col-md-6 p-1">
                                                 <div class="form-group">
@@ -134,7 +132,7 @@ require_once '../../core/session.php';
                                                     </div>
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="checkbox" name="chk7" id="chk13" value="0">
-                                                        <input type="text" class="form-control md-2" name="found_sub2" id="found_sub2" aria-label="Text input with checkbox">
+                                                        <input type="text" class="form-control md-2" name="found_sub2" id="found_sub2" required>
                                                     </div>
                                                 </div>
                                             </div>
