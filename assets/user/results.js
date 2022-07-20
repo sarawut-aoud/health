@@ -182,7 +182,13 @@ var results_js = {
           $('#chk5').prop('disabled',true);
           $('#chk6').prop('disabled',true);
           $('#chk8').prop('disabled',true);
+          $('#chk9').prop('disabled',true);
+          $('#chk10').prop('disabled',true);
+          $('#chk11').prop('disabled',true);
+          $('#chk12').prop('disabled',true);
+          $('#chk13').prop('disabled',true);
           $('#found_sub').prop('disabled',true);
+          $('#found_sub2').prop('disabled',true);
         }
         });
       $(document).on('change','#chk1',function(e){
@@ -194,7 +200,13 @@ var results_js = {
           $('#chk6').prop('disabled',false);
           $('#chk7').prop('disabled',false);
           $('#chk8').prop('disabled',false);
+          $('#chk9').prop('disabled',false);
+          $('#chk10').prop('disabled',false);
+          $('#chk11').prop('disabled',false);
+          $('#chk12').prop('disabled',false);
+          $('#chk13').prop('disabled',false);
           $('#found_sub').prop('disabled',false);
+          $('#found_sub2').prop('disabled',false);
         }
         });
       $(document).on('change','#chk2',function(e){
