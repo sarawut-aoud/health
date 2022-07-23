@@ -63,15 +63,28 @@ require_once '../../core/session.php';
                                         <h5 class="card-title ">สรุปผลการตรวจคัดกรองยืนยัน</h5>
                                     </div>
                                     <div class="card-body">
-                                        <div class="d-md-flex d-sm-block form-row p-2">
-                                            <div class="col-md-6 p-1">
-                                                <div class="form-group">
-                                                    <label class="mb-1">เลือกผู้สูงอายุ <span>*<span></label>
-                                                    <select class="form-control py-2 select2 " id="pd_id" name="pd_id" required>
+                                        <div class="row">
+                                            <div class="d-flex ">
 
-                                                    </select>
+                                                <div class="col-md-10 p-1">
+                                                    <div class="form-group">
+                                                        <label class="mb-1">เลือกผู้สูงอายุ <span>*<span></label>
+                                                        <select class="form-control py-2 select2 " id="pd_id" name="pd_id" required>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div id="show_iframe" class="col-md-2 p-1 mt-2">
+                                                    <div class="form-group mt-1">
+                                                        <div class="input-group ">
+                                                            <a class="btn btn-outline-info mt-3" id="btn_show"><i class="fas fa-eye"></i></a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
+
+
+
                                             <div class="col-md-12 p-1">
                                                 <div class="form-group">
                                                     <div class="form-check form-check-inline">
@@ -205,6 +218,22 @@ require_once '../../core/session.php';
         </div>
     </div>
 
+    <div class="modal fade" id="show_iframe_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                    <h5 class="modal-title ">ข้อมูลแบบปันทึกสุขภาพ</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body mt-3 ms-4 me-4">
+                    <div class="ratio ratio-16x9">
+                        <iframe  title="PDF" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="../../../assets/user/results.js"></script>
     <script src="../../../assets/h_template.js"></script>
