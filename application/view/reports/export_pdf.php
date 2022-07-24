@@ -2,6 +2,9 @@
 
 require_once './tcpdf/tcpdf.php';
 // include("tcpdf/class/class_curl.php");
+require_once '../../core/data_utllities.php';
+require_once '../../model/user/dashborad_model.php';
+require_once '../../core/session.php';
 
 header ("Content-Type: application/pdf");
 
@@ -12,11 +15,13 @@ $pdf->SetCreator(PDF_CREATOR);
 
 $pdf->SetTitle('แบบบันทึกข้อมูล');
 
-
+$sql = new dashboard();
+$query = $sql->personal();
+$data = mysqli_fetch_object($query);
 
 // set default header data
-$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE . ' 001', PDF_HEADER_STRING, array(0, 64, 255), array(0, 64, 128));
-$pdf->setFooterData(array(0, 64, 0), array(0, 64, 128));
+// $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE . ' 002', PDF_HEADER_STRING, array(0, 64, 255), array(0, 64, 128));
+// $pdf->setFooterData(array(0, 64, 0), array(0, 64, 128));
 
 
 
@@ -34,7 +39,7 @@ $pdf->setFontSubsetting(true);
 
 // Set font
 
-$pdf->SetFont('dejavusans', '', 14, '', true);
+$pdf->SetFont('thsarabun', '', 16, '', true);
 
 // Add a page
 // This method has several options, check the source code documentation for more information.
@@ -45,16 +50,24 @@ $pdf->setTextShadow(array('enabled' => true, 'depth_w' => 0.2, 'depth_h' => 0.2,
 
 // ส่วนของ body html
 $html = <<<EOD
-<h1>Welcome to
- <a style="text-decoration:none;background-color:#CC0000;color:black;">&nbsp;
- <span style="color:black;">TC</span>
- <span style="color:white;">PDF</span>&nbsp;</a>!
- </h1>
-<i>This is the first example of TCPDF library.</i>
-<p>This text is printed using the <i>writeHTMLCell()</i> method but you can also use: <i>Multicell(), writeHTML(), Write(), Cell() and Text()</i>.</p>
-<p>Please check the source code documentation and other examples for further information.</p>
-EOD;
+<h5>1.ข้อมูลทั่วไป</h5>
+<h6>ชื่อ-สกุล.<?php echo $data->first_name; ?>อายุปี &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันเดือนปีเกิด</h6>
+<h6>เลขบัตรประชาชน.ที่อยู่บ้านเลขที่หมู่ถนน</h6>
+<h6>ตรอก/ซอย.ตำบลอำเภอจังหวัดโทร</h6>
+<h6>สถานภาพ.การศึกษาประเภทพักอาศัย</h6>
+<h6>อาชีพหลักในปัจจุบัน.</h6>
+<h6>โรคประจำตัว 1เป็นมานาน ปีรพ.รักษาประจำ รพ.ที่ตรวจพบครั้งแรก.</h6>
+<h5>2.ตรวจร่างกาย คัดกรอง</h5>
+<h6>ความดันโลหิตครั้งที่ 1มม.ปรอท ความดันโลหิตครั้งที่ 2มม.ปรอท. น้ำหนัก กก. ส่วนสูง ซม. รอบเอล ซม.</h6>
+<h6>ถ้าอายุ 35 ปีขึ้นและไม่ป่วยเบาหวานความดัน ให้ตรวจระดับน้ำตาลในเลือดหลังอดอาหาร ผลตรวจครั้งนี้เท่ากับ mg% 
+หรือเคยตรวจครั้งสุดท้ายภายใน 1 ปี ผลตรวจเท่ากับ mg%</h6>
+<h5>3.คัดกรองโรคซึมเศร้า</h5>
+<h6>3.1 ในเดือนที่ผ่านมารวมมื่อนี่เจ้า(โต) มีอาการมูนี่จักหน่อยบ่ อุกอั่ง หนหวย บ่เป็นตายอยู่ มีแต่อยากให้บ่ .</h6>
+<h6>3.2 ในเดือนที่ผ่านมารวมมื่อนี่เจ้า(โต) มีอาการมูนี่จักหน่อยบ่ บ่สนใจหยัง บ่อยากเฮ้ดหยัง บ่ม่วนซื้น .</h6>
+<h5>4.พฤติกรรมสุขภาพ</h5>
 
+EOD;
+// <p>Please check the source code documentation and other examples for further information.</p>
 
 
 // $path_info = pathinfo($_SERVER['REQUEST_URI']);
