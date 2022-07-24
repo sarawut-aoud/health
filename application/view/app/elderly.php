@@ -118,6 +118,15 @@ $class = new addelderly();
                                                         <span class="bs-stepper-label">บันทึกข้อมูลสุขภาพ (ต่อ)</span>
                                                     </button>
                                                 </div>
+                                                <div class="bs-stepper-line"></div>
+                                                <div class="step" data-target="#test-nl-6">
+                                                    <button type="button" class="step-trigger" role="tab" id="stepper2trigger6" aria-controls="test-nl-6">
+                                                        <span class="bs-stepper-circle">
+                                                            <span class="fas fa-file-medical" aria-hidden="true"></span>
+                                                        </span>
+                                                        <span class="bs-stepper-label">คำถามเพิ่มเติม (ถ้ามี)</span>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="bs-stepper-content">
@@ -485,7 +494,7 @@ $class = new addelderly();
                                                             <div class="form-group">
                                                                 <label class="small mb-1">ในเดือนที่ผ่านมารวมมื่อนี่เจ้า(โต) มีอาการมูนี่จักหน่อยบ่ อุกอั่ง หนหวย บ่เป็นตายอยู่ มีแต่อยากให้บ่ <span>*<span></label>
                                                                 <div class="form-check form-check-inline">
-                                                                    <input  class="form-check-input" type="checkbox" name="symptom1" id="symptom1" value="0" required>
+                                                                    <input class="form-check-input" type="checkbox" name="symptom1" id="symptom1" value="0" required>
                                                                     <label class="form-check-label" for="symptom1">มี</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
@@ -511,8 +520,8 @@ $class = new addelderly();
                                                         </div>
                                                     </div>
                                                     <div class="d-flex justify-content-center ">
-                                                        <button  class="btn btn-secondary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button>
-                                                        <button  class="btn btn-primary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
+                                                        <button class="btn btn-secondary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button>
+                                                        <button class="btn btn-primary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -960,6 +969,138 @@ $class = new addelderly();
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-center ">
+                                                        <button class="btn btn-secondary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button>
+
+                                                        <button class="btn btn-primary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
+
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <form id="form6">
+                                                <!-- ส่วนของบันทึกข้อมูลสุขภาพ -->
+                                                <div id="test-nl-6" role="tabpanel" class="bs-stepper-pane " aria-labelledby="stepper2trigger6">
+                                                    <div class="d-md-flex d-sm-block form-row p-2">
+                                                        <div class="col-md-2 p-1">
+                                                            <div class="form-group">
+                                                                <label class="small mb-1">ตรวจน้ำตาลครั้งสุดท้าย </label>
+                                                                <input class="form-control py-2" id="sugar" name="sugar" type="text" placeholder="mg%" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2 p-1">
+                                                            <div class="form-group">
+                                                                <label class="small mb-1">ค่าไต (Cr) </label>
+                                                                <input class="form-control py-2" id="kidney" name="kidney" type="text" placeholder="ค่าไต (Cr)" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2 p-1">
+                                                            <div class="form-group">
+                                                                <label class="small mb-1">โคเลสเตอรอล (Cho) </label>
+                                                                <input class="form-control py-2" id="choles" name="choles" type="text" placeholder="โคเลสเตอรอล (Cho) " required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2 p-1">
+                                                            <div class="form-group">
+                                                                <label class="small mb-1">ไตรกลีเซอไรด์ (Tri) </label>
+                                                                <input class="form-control py-2" id="tri" name="tri" type="text" placeholder="ไตรกลีเซอไรด์ (Tri)" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 p-1">
+
+                                                            <div class="row">
+
+                                                                <label class="small ">ไขมัน</label>
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <input type="text" id="fat1" name="fat" class="form-control py-2" placeholder="DHL">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <input type="text" id="fat2" name="fat" class="form-control py-2" placeholder="LDL">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="d-md-flex d-sm-block form-row p-2">
+                                                        <div class="form-group  align-items-center py-3">
+                                                            <label class="mb-1">ผลตรวจตา </label>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" name="eye" id="eye1" value="0">
+                                                                <label class="form-check-label" for="eye1">ปกติ</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" name="eye" id="eye2" value="1">
+                                                                <label class="form-check-label" for="eye2">เป็นต้อหิน</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" name="eye" id="eye3" value="2">
+                                                                <label class="form-check-label" for="eye3">เป็นต้อกระจก</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" name="eye" id="eye4" value="4">
+                                                                <label class="form-check-label" for="eye4">สายตาสั้น</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" name="eye" id="eye5" value="5">
+                                                                <label class="form-check-label" for="eye5">สายตายาว</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" name="eye" id="eye6" value="6">
+                                                                <label class="form-check-label" for="eye6">สายตาเอียง</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-md-flex d-sm-block form-row p-2">
+                                                        <div class="form-group  align-items-center py-3">
+                                                            <label class="mb-1">ชนิดเครื่องตรวจตา </label>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" name="type_eye" id="type_eye1" value="0">
+                                                                <label class="form-check-label" for="type_eye1">เครื่องส่องตา</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" name="type_eye" id="type_eye2" value="1">
+                                                                <label class="form-check-label" for="type_eye2">เครื่องถ่ายจอประสาทตาด้วยคอมพิวเตอร์</label>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-md-flex d-sm-block form-row p-2">
+                                                        <div class="form-group  align-items-center py-3">
+                                                            <label class="mb-1">ผลตรวจเท้า </label>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" name="eye" id="foot1" value="0">
+                                                                <label class="form-check-label" for="foot1">ปกติ</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" name="eye" id="foot2" value="1">
+                                                                <label class="form-check-label" for="foot2">เสี่ยงต่ำ</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" name="eye" id="foot3" value="2">
+                                                                <label class="form-check-label" for="foot3">เสี่ยงปานกลาง</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" name="eye" id="foot4" value="3">
+                                                                <label class="form-check-label" for="foot4">เสี่ยงสูง</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" name="eye" id="foot5" value="4">
+                                                                <label class="form-check-label" for="foot5">เป็นแผล</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" name="eye" id="foot6" value="5">
+                                                                <label class="form-check-label" for="foot6">ถูกตัดเท้า</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-center p-3 ">
+
+                                                        <span style="font-size: 20px;">****** ถ้าไม่มีข้อมูลในหัวข้อนี้ท่านสามารถกด <span class="text-blue">บันทึกข้อมูล</span> ได้ทันที ******</span>
+
                                                     </div>
                                                     <div class="d-flex justify-content-center ">
                                                         <!-- <button class="btn btn-primary rounded-pill col-xxl-1 col-xl-1  col-lg-2 col-md-2 col-sm-2 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button> -->

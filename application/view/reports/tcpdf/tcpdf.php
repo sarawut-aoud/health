@@ -3512,7 +3512,7 @@ class TCPDF {
 			$this->setX($header_x);
 			$this->MultiCell($cw, $cell_height, $headerdata['string'], 0, '', 0, 1, '', '', true, 0, false, true, 0, 'T', false);
 			// print an ending header line
-			$this->setLineStyle(array('width' => 0.85 / $this->k, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => $headerdata['line_color']));
+			$this->setLineStyle(array('width' => 0.5 / $this->k, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => $headerdata['line_color']));
 			$this->setY((2.835 / $this->k) + max($imgy, $this->y));
 			if ($this->rtl) {
 				$this->setX($this->original_rMargin);
@@ -5127,6 +5127,7 @@ class TCPDF {
 		}
 		$this->cell_padding = $prev_cell_padding;
 		$this->cell_margin = $prev_cell_margin;
+		
 	}
 
 	/**

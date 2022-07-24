@@ -11,13 +11,12 @@ $(document).ready(function () {
   });
   $(document).on("click", ".bs-stepper-content button.next", function (e) {
     e.preventDefault();
-    $(this).on("click", function () {
-      if ($("#symptom1:checked").length <= 0) {
-        alert("You must check at least 1 box");
-      } else {
-        stepper.next();
-      }
-    });
+
+    if ($('#from3 input[type="checkbox"]')== false) {
+      alert("1");
+    } else {
+      stepper.next();
+    }
   });
   $(document).on("click", ".bs-stepper-content button.previous", function (e) {
     e.preventDefault();
@@ -51,15 +50,14 @@ $(document).ready(function () {
       $("#symptom3").prop("checked", false);
     }
   });
-  $("input[name='veget']")
-    //บันทึกสุขภาพ 1
-    .$(document)
-    .on("change", "input[name='veget']", function (e) {
-      e.preventDefault();
-      if ($(this).is(":checked") == true) {
-        $("input[name='veget']").not(this).prop("checked", false);
-      }
-    });
+
+  //บันทึกสุขภาพ 1
+  $(document).on("change", "input[name='veget']", function (e) {
+    e.preventDefault();
+    if ($(this).is(":checked") == true) {
+      $("input[name='veget']").not(this).prop("checked", false);
+    }
+  });
   $(document).on("change", " input[name='condiment']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
@@ -160,6 +158,24 @@ $(document).ready(function () {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
       $("input[name='cervixre']").not(this).prop("checked", false);
+    }
+  });
+  $(document).on("change", " input[name='eye']", function (e) {
+    e.preventDefault();
+    if ($(this).is(":checked") == true) {
+      $("input[name='eye']").not(this).prop("checked", false);
+    }
+  });
+  $(document).on("change", " input[name='type_eye']", function (e) {
+    e.preventDefault();
+    if ($(this).is(":checked") == true) {
+      $("input[name='type_eye']").not(this).prop("checked", false);
+    }
+  });
+  $(document).on("change", " input[name='foot']", function (e) {
+    e.preventDefault();
+    if ($(this).is(":checked") == true) {
+      $("input[name='foot']").not(this).prop("checked", false);
     }
   });
 });

@@ -6,25 +6,30 @@ require_once '../../core/data_utllities.php';
 require_once '../../model/user/dashborad_model.php';
 require_once '../../core/session.php';
 
-header ("Content-Type: application/pdf");
+header("Content-Type: application/pdf");
 
-$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
-// set document information
-$pdf->SetCreator(PDF_CREATOR);
-
-$pdf->SetTitle('แบบบันทึกข้อมูล');
 
 $sql = new dashboard();
 $query = $sql->personal();
 $data = mysqli_fetch_object($query);
 
+$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+// set document information
+$pdf->SetCreator(PDF_CREATOR);
+
+$pdf->SetTitle('แบบบันทึกข้อมูล');
+
 // set default header data
-// $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE . ' 002', PDF_HEADER_STRING, array(0, 64, 255), array(0, 64, 128));
-// $pdf->setFooterData(array(0, 64, 0), array(0, 64, 128));
+$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
+// set header and footer fonts
+
+// set default header data
 $pdf->setHeaderFont(array('thsarabun', 'B', 20));
-$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, '', 'แบบบันทึกตรวจสุขภาพ', array (0, 64, 255), array (0, 64, 128));
-$pdf->setFooterData(array (0, 64, 0), array (0, 64, 128));
+$pdf->setFooterFont(array('thsarabun', 'B', 9));
+
+$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, 'แบบบันทึกตรวจสุขภาพ', $header, array(0, 0, 0), array(0, 0, 0));
+$pdf->setFooterData(array(0, 0, 0), array(0, 0, 0));
 
 // set default monospaced font
 $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
@@ -39,11 +44,9 @@ $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 $pdf->setFontSubsetting(true);
 
 // Set font
-
 $pdf->SetFont('thsarabun', '', 16, '', true);
 
 // Add a page
-// This method has several options, check the source code documentation for more information.
 $pdf->AddPage();
 
 // set text shadow effect
@@ -52,8 +55,8 @@ $pdf->setTextShadow(array('enabled' => true, 'depth_w' => 0.2, 'depth_h' => 0.2,
 // ส่วนของ body html
 $html = <<<EOD
 
-<h5>1.ข้อมูลทั่วไป</h5>
-<h6>ชื่อ-สกุล.<?php echo $data->first_name; ?>อายุปี &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันเดือนปีเกิด</h6>
+<div style="align=text-center;">1.ข้อมูลทั่วไป</div>
+<h6>ชื่อ-สกุล $data->first_name อายุปี &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันเดือนปีเกิด</h6>
 <h6>เลขบัตรประชาชน.ที่อยู่บ้านเลขที่หมู่ถนน</h6>
 <h6>ตรอก/ซอย.ตำบลอำเภอจังหวัดโทร</h6>
 <h6>สถานภาพ.การศึกษาประเภทพักอาศัย</h6>
@@ -81,7 +84,7 @@ $html = <<<EOD
 <h6>4.12 พฤติกรรมสูบมวนแรกหลังตื่นนอน.</h6>
 <h6>4.13 การดื่มสุรา.</h6>
 <h6>4.14 ชนิดของสุรา.</h6>
-<h6>4.15 ปริมาณที่ดื่มต่อครั้ง</h6>
+<h6>4.15 222 ปริมาณที่ดื่มต่อครั้ง</h6>
 <h5>ผลการตรวจคัดกรองสารเคมีในเลือด.</h5>
 <h6>ตรวจครั้งสุดท้ายเมื่อปี พ.ศ.</h6>
 <h6>ผลการตรวจ.</h6>
@@ -92,7 +95,6 @@ $html = <<<EOD
 <h5>การตรวจคัดกรองมะเร็งปากมดลูกในสตรีอายุ 30 ปีขึ้นไป.</h5>
 <h6>ตรวจครั้งสุดท้ายเมื่อปี พ.ศ.</h6>
 <h6>ผลการตรวจ.</h6>
-
 
 EOD;
 // <p>Please check the source code documentation and other examples for further information.</p>
