@@ -11,12 +11,8 @@ $(document).ready(function () {
   });
   $(document).on("click", ".bs-stepper-content button.next", function (e) {
     e.preventDefault();
+    stepper.next();
 
-    if ($('#from3 input[type="checkbox"]')== false) {
-      alert("1");
-    } else {
-      stepper.next();
-    }
   });
   $(document).on("click", ".bs-stepper-content button.previous", function (e) {
     e.preventDefault();

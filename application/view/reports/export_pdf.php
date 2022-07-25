@@ -13,8 +13,39 @@ header("Content-Type: application/pdf");
 $sql = new dashboard();
 $query = $sql->personal();
 $data = mysqli_fetch_object($query);
+class MYPDF extends TCPDF
+{
 
-$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+    //Page header
+    public function Header()
+    {
+        // Logo
+        // Set font
+        // Title
+        $html = 'วันเดือนปีที่ให้บริการ.....................................................    อสม.....................................................';
+        $this->SetFont('thsarabun', 'B', 14);
+        $this->writeHTMLCell($w = 0, $h = 0, $x = '', $y = '', $html, $border = 0, $ln = 1, $fill = 0, $reseth = true, $align = 'C', $autopadding = true);
+        $this->SetFont('thsarabun', 'B', 20);
+        $html1 = 'แบบตรวจบันทึกข้อมูลสุขภาพ';
+
+        $this->writeHTMLCell($w = 0, $h = 0, $x = '', $y = 15, $html1, $border = 0, $ln = 1, $fill = 0, $reseth = true, $align = 'C', $autopadding = true);
+    }
+
+    // Page footer
+    public function Footer()
+    {
+        // Position at 15 mm from bottom
+        $this->SetY(-15);
+        // Set font
+        $this->SetFont('thsarabun', 'I', 8);
+        // Page number
+        $this->Cell(0, 10, 'Page ' . $this->getAliasNumPage() . '/' . $this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
+    }
+}
+
+// create new PDF document
+$pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+// $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
 
