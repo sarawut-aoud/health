@@ -3,49 +3,18 @@
 require_once './tcpdf/tcpdf.php';
 // include("tcpdf/class/class_curl.php");
 require_once '../../core/data_utllities.php';
-require_once '../../model/user/dashborad_model.php';
+require_once '../../model/user/results_model.php';
 require_once '../../core/session.php';
-
+require_once  '../../config/database.php';
 header("Content-Type: application/pdf");
 
 
-
-$sql = new dashboard();
-$query = $sql->personal();
+$pd_id = $_REQUEST['pd_id'];
+$sql = new results_model();
+$query = $sql->personal($pd_id);
 $data = mysqli_fetch_object($query);
-class MYPDF extends TCPDF
-{
 
-    //Page header
-    public function Header()
-    {
-        // Logo
-        // Set font
-        // Title
-        $html = 'วันเดือนปีที่ให้บริการ.....................................................    อสม.....................................................';
-        $this->SetFont('thsarabun', 'B', 14);
-        $this->writeHTMLCell($w = 0, $h = 0, $x = '', $y = '', $html, $border = 0, $ln = 1, $fill = 0, $reseth = true, $align = 'C', $autopadding = true);
-        $this->SetFont('thsarabun', 'B', 20);
-        $html1 = 'แบบตรวจบันทึกข้อมูลสุขภาพ';
-
-        $this->writeHTMLCell($w = 0, $h = 0, $x = '', $y = 15, $html1, $border = 0, $ln = 1, $fill = 0, $reseth = true, $align = 'C', $autopadding = true);
-    }
-
-    // Page footer
-    public function Footer()
-    {
-        // Position at 15 mm from bottom
-        $this->SetY(-15);
-        // Set font
-        $this->SetFont('thsarabun', 'I', 8);
-        // Page number
-        $this->Cell(0, 10, 'Page ' . $this->getAliasNumPage() . '/' . $this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
-    }
-}
-
-// create new PDF document
-$pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
-// $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
 
@@ -85,10 +54,92 @@ $pdf->setTextShadow(array('enabled' => true, 'depth_w' => 0.2, 'depth_h' => 0.2,
 
 // ส่วนของ body html
 $html = <<<EOD
+<style>.mt-4,
+        .my-4 {
+            margin-top: 1.5rem !important;
+        }
 
-<div style="align=text-center;">1.ข้อมูลทั่วไป</div>
-<h6>ชื่อ-สกุล $data->first_name อายุปี &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันเดือนปีเกิด</h6>
-<h6>เลขบัตรประชาชน.ที่อยู่บ้านเลขที่หมู่ถนน</h6>
+        .mb-4,
+        .mx-4 {
+            margin-bottom: 1.5rem !important;
+        }
+
+        .px-5 {
+            padding-left: 3rem !important;
+            padding-right: 3rem !important;
+        }
+
+        .p-0 {
+            padding: 0 !important;
+            margin: 0 !important;
+            line-height: 0 !important;
+        }
+
+        h1,
+        .h1 {
+            font-size: 2.5rem;
+        }
+
+        h2,
+        .h2 {
+            font-size: 2rem;
+        }
+
+        h3,
+        .h3 {
+            font-size: 1.75rem;
+        }
+
+        h4,
+        .h4 {
+            font-size: 1.5rem;
+        }
+
+        h5,
+        .h5 {
+            font-size: 1.25rem;
+        }
+
+        h6,
+        .h6 {
+            font-size: 1rem;
+        }
+
+        .h1,
+        .h2,
+        .h3,
+        .h4,
+        .h5,
+        .h6,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .tr_black {
+            background-color: rgba(0, 0, 0, 0.475) !important
+        }
+
+        .text-start {
+            text-align: left !important;
+        }
+
+        .text-end {
+            text-align: right !important;
+        }
+
+        .text-center {
+            text-align: center !important;
+        }</style>
+<div class="mb-4">1.ข้อมูลทั่วไป</div>
+<h6>ชื่อ-สกุล $data->first_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$data->last_name อายุปี $data->age &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันเดือนปีเกิด $data->birthday</h6>
+<h6>เลขบัตรประชาชน $data->id_card .ที่อยู่บ้านเลขที่ $data->address หมู่ ถนน</h6>
 <h6>ตรอก/ซอย.ตำบลอำเภอจังหวัดโทร</h6>
 <h6>สถานภาพ.การศึกษาประเภทพักอาศัย</h6>
 <h6>อาชีพหลักในปัจจุบัน.</h6>
