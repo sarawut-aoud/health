@@ -273,7 +273,7 @@ $(document).ready(function () {
   $(document).on('click', "#btn_show", function (e) {
     e.preventDefault();
     var id = $(this).attr('data-id');
-    $('#show_iframe_modal iframe').attr('src', '../../view/reports/export_pdf.php')
+    $('#show_iframe_modal iframe').attr('src', '../../view/reports/export_pdf.php?pd_id='+id)
     $('#show_iframe_modal').modal('show');
 
   })
