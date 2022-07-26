@@ -33,7 +33,38 @@ class results_model extends Database_set
     public function personal($pd_id)
     {
   //    $pd_id = $_REQUEST['pd_id'];
-      $result = mysqli_query($this->dbcon, "SELECT *
+      $result = mysqli_query($this->dbcon, "SELECT *,
+      CASE 
+          WHEN 	pd_status = 1 THEN 'โสด'
+          WHEN 	pd_status = 2 THEN 'มีคู่สมรส'
+          WHEN 	pd_status = 3 THEN 'หม้าย'
+          WHEN 	pd_status = 4 THEN 'หย่า'
+          WHEN 	pd_status = 5 THEN 'แยกทาง'
+          END as pd_status ,
+      CASE 
+          WHEN 	education = 1 THEN 'ประถม'
+          WHEN 	education = 2 THEN 'มัธยมศึกษาตอนต้น'
+          WHEN 	education = 3 THEN 'มัธยมศึกษาตอนปลาย'
+          WHEN 	education = 4 THEN 'ปวช.'
+          WHEN 	education = 5 THEN 'ปวส.'
+          WHEN 	education = 6 THEN 'อนุปริญญา'
+          WHEN 	education = 7 THEN 'ปริญญา'
+          END as education,
+      CASE 
+          WHEN 	type_live = 1 THEN 'พักตรงกับทะเบียนบ้าน'
+          WHEN 	type_live = 2 THEN 'ทะเบียนบ้านไปๆ มาๆ /ทำงานที่อื่น'
+          WHEN 	type_live = 3 THEN 'ทะเบียนบ้านอยู่ที่อื่น แต่นอนที่บ้านหลังนี้'
+          END as type_live,
+      CASE 
+          WHEN 	occupation = 1 THEN 'รับราชการ / รัฐวิสาหกิจ'
+          WHEN 	occupation = 2 THEN 'รับจ้างทั่วไป'
+          WHEN 	occupation = 3 THEN 'พนักงานเอกชน'
+          WHEN 	occupation = 4 THEN 'อาชีพอิสระ / ค้าขาย'
+          WHEN 	occupation = 5 THEN 'นักเรียน นิสิต นักศึกษา'
+          WHEN 	occupation = 6 THEN 'เจ้าของธุรกิจ / ธุรกิจส่วนตัว'
+          WHEN 	occupation = 7 THEN 'อื่น ๆ '
+          END as occupation
+         
           FROM
               personal_document pd
               LEFT JOIN user_status_keep uk ON uk.pd_id = pd.pd_id

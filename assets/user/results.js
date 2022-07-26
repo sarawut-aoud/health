@@ -32,7 +32,7 @@ var results_js = {
     $.ajax({
       type: "get",
       dataType: "json",
-      url: "../../controller/user/dashborad.php",
+      url: "../../controller/user/results.php",
       data: {
         province: id,
         func: "province",
@@ -46,7 +46,7 @@ var results_js = {
     $.ajax({
       type: "get",
       dataType: "json",
-      url: "../../controller/user/dashborad.php",
+      url: "../../controller/user/results.php",
       data:{
         tumbon: id,
         func: "tumbon",
@@ -60,7 +60,7 @@ var results_js = {
     $.ajax({
       type: "get",
       dataType: "json",
-      url: "../../controller/user/dashborad.php",
+      url: "../../controller/user/results.php",
       data:{
         amphoe: id,
         func: "amphoe",
