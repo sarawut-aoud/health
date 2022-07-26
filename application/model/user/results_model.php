@@ -4,7 +4,6 @@ require_once  '../../config/database.php';
 
 class results_model extends Database_set
 {
-
     public function Get_user()
     {
         $result = mysqli_query($this->dbcon, "SELECT
