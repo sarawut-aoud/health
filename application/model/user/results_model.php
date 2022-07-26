@@ -30,4 +30,21 @@ class results_model extends Database_set
 
         return $result;
     }
+    public function personal($pd_id)
+    {
+  //    $pd_id = $_REQUEST['pd_id'];
+      $result = mysqli_query($this->dbcon, "SELECT *
+          FROM
+              personal_document pd
+              LEFT JOIN user_status_keep uk ON uk.pd_id = pd.pd_id
+              LEFT JOIN user_status us ON us.id = uk.status_id
+              LEFT JOIN darily_keep dk ON pd.pd_id = pd.pd_id
+          WHERE
+              pd.`status` = 'active' 
+              AND pd.pd_id = '$pd_id'  
+               ");
+  
+          return $result;
+      
+    }
 }
