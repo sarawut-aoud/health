@@ -9,7 +9,7 @@ require_once  '../../config/database.php';
 header("Content-Type: application/pdf");
 
 
-$pd_id = $_REQUEST['pd_id'];
+// $pd_id = $_REQUEST['pd_id'];
 $sql = new results_model();
 $query = $sql->personal($pd_id);
 $data = mysqli_fetch_object($query);
@@ -19,9 +19,7 @@ class MYPDF extends TCPDF
     //Page header
     public function Header()
     {
-        // Logo
-        // Set font
-        // Title
+
         $html = 'วันเดือนปีที่ให้บริการ.....................................................    อสม.....................................................';
         $this->SetFont('thsarabun', 'B', 14);
         $this->writeHTMLCell($w = 0, $h = 0, $x = '', $y = '', $html, $border = 0, $ln = 1, $fill = 0, $reseth = true, $align = 'C', $autopadding = true);
@@ -39,7 +37,7 @@ class MYPDF extends TCPDF
         // Set font
         $this->SetFont('thsarabun', 'I', 8);
         // Page number
-        $this->Cell(0, 10, 'Page ' . $this->getAliasNumPage() . '/' . $this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
+        $this->Cell(0, 10, 'หน้า ' . $this->getAliasNumPage() . '/' . $this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
     }
 }
 
@@ -58,9 +56,6 @@ $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PD
 // set default header data
 $pdf->setHeaderFont(array('thsarabun', 'B', 20));
 $pdf->setFooterFont(array('thsarabun', 'B', 9));
-
-$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, 'แบบบันทึกตรวจสุขภาพ', $header, array(0, 0, 0), array(0, 0, 0));
-$pdf->setFooterData(array(0, 0, 0), array(0, 0, 0));
 
 // set default monospaced font
 $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
@@ -337,7 +332,12 @@ EOD;
 // $pathDir = $path_info['dirname'] . "/";
 // $url = $http . $host . $pathDir;
 $pdf->WriteHTML($html, true, false, true, false);
-$this->pdf = $pdf->Output(null, 'I');
+$filename = time() . "pdf";
+$filelocation = "./uploadpdf/";
+$fileNL = $filelocation . "/" . $filename;
+$pdf->Output($fileNL, 'I');
+// $pdf->Output($filename, 'S');
+// $pdf->Output('sandbox/pdf/example.pdf', 'F');
 
 // ---------------------------------------------------------
 

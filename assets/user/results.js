@@ -42,30 +42,30 @@ var results_js = {
       },
     });
   },
-  load_tumbon_info: function (id){
+  load_tumbon_info: function (id) {
     $.ajax({
       type: "get",
       dataType: "json",
       url: "../../controller/user/results.php",
-      data:{
+      data: {
         tumbon: id,
         func: "tumbon",
       },
-      success: function (result){
+      success: function (result) {
         $("#tumbon_id").val(result.tumbon_name)
       },
     });
   },
-  load_amphoe_info: function (id){
+  load_amphoe_info: function (id) {
     $.ajax({
       type: "get",
       dataType: "json",
       url: "../../controller/user/results.php",
-      data:{
+      data: {
         amphoe: id,
         func: "amphoe",
       },
-      success: function (result){
+      success: function (result) {
         $("#amphoe_id").val(result.amphoe_name)
       },
     });
@@ -315,7 +315,7 @@ $(document).ready(function () {
   $(document).on('click', "#btn_show", function (e) {
     e.preventDefault();
     var id = $(this).attr('data-id');
-    $('#show_iframe_modal iframe').attr('src', '../../view/reports/export_pdf.php?pd_id='+id)
+    $('#show_iframe_modal iframe').attr('src', '../../view/reports/export_pdf.php');
     $('#show_iframe_modal').modal('show');
 
   })

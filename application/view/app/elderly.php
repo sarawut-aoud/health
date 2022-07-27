@@ -69,7 +69,7 @@ $class = new addelderly();
                                     <h5 class="card-title ">แบบบันทึกข้อมูล</h5>
                                 </div>
 
-                                <div class="mb-5 p-4 bg-white shadow-sm">
+                                <div class=" p-4 bg-white shadow-sm">
 
                                     <div id="stepper2" class="bs-stepper">
                                         <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12">
@@ -179,6 +179,8 @@ $class = new addelderly();
                                                             </div>
                                                         </div>
                                                     </div>
+
+
                                                     <div class="d-md-flex d-sm-block form-row p-2">
                                                         <div class="col-md-6 p-1">
                                                             <div class="form-group">
@@ -193,11 +195,47 @@ $class = new addelderly();
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="d-md-flex d-sm-block form-row p-2">
+                                                        <div class="col-md-4 p-1">
+                                                            <div class="form-group">
+                                                                <label class="small mb-1">สถานะภาพ <span>*<span></label>
+                                                                <select class="form-select py-2" id="title" name="title" autocomplete="off" placeholder="ชื่อ">
+                                                                    <?php
+                                                                    echo '<option value="" selected disabled>เลือกสถานะภาพ</option>';
+                                                                    foreach ($pd_status as $keye => $vale) {
+                                                                        if ($dataset == $keye) {
+                                                                            echo "<option selected value='$keye'>$vale</option>";
+                                                                        } else {
+                                                                            echo "<option value='$keye'>$vale</option>";
+                                                                        }
+                                                                    }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-8 p-1">
+                                                            <div class="form-group">
+                                                                <label class="small mb-1">ประเภทพักอาศัย </label>
+                                                                <select class="form-select py-2" id="title" name="title" autocomplete="off" placeholder="ชื่อ">
+                                                                    <?php
+                                                                    echo '<option value="" selected disabled>เลือกประเภทพักอาศัย</option>';
+                                                                    foreach ($housing_type as $keye => $vale) {
+                                                                        if ($dataset == $keye) {
+                                                                            echo "<option selected value='$keye'>$vale</option>";
+                                                                        } else {
+                                                                            echo "<option value='$keye'>$vale</option>";
+                                                                        }
+                                                                    }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class=" form-row p-2">
                                                         <div class="col-md-12 p-1">
                                                             <div class="form-group">
                                                                 <label class="small mb-1">ที่อยู่ปัจจุบัน <span>*<span></label>
-                                                                <textarea class="form-control py-2" id="address" name="address" type="tel" autocomplete="off" placeholder="ที่อยู่ปัจจุบัน" rows="4" required></textarea>
+                                                                <textarea class="form-control py-2" id="address" name="address" type="tel" autocomplete="off" placeholder="ที่อยู่ปัจจุบัน / หมู่ที่ / ถนน / ตรอก/ซอย" rows="4" required></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1113,12 +1151,14 @@ $class = new addelderly();
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
+            </section>
         </div>
-        </section>
+
     </div>
     <?php require '../footer.php'; ?>
     </div>
