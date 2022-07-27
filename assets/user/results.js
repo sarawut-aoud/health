@@ -28,6 +28,48 @@ var results_js = {
       },
     });
   },
+  load_province_info: function (id) {
+    $.ajax({
+      type: "get",
+      dataType: "json",
+      url: "../../controller/user/results.php",
+      data: {
+        province: id,
+        func: "province",
+      },
+      success: function (result) {
+        $("#province_id").val(result.province_name);
+      },
+    });
+  },
+  load_tumbon_info: function (id){
+    $.ajax({
+      type: "get",
+      dataType: "json",
+      url: "../../controller/user/results.php",
+      data:{
+        tumbon: id,
+        func: "tumbon",
+      },
+      success: function (result){
+        $("#tumbon_id").val(result.tumbon_name)
+      },
+    });
+  },
+  load_amphoe_info: function (id){
+    $.ajax({
+      type: "get",
+      dataType: "json",
+      url: "../../controller/user/results.php",
+      data:{
+        amphoe: id,
+        func: "amphoe",
+      },
+      success: function (result){
+        $("#amphoe_id").val(result.amphoe_name)
+      },
+    });
+  },
   Save_results: function () {
     var fdata = $("#Formresults").serialize();
 
@@ -273,8 +315,13 @@ $(document).ready(function () {
   $(document).on('click', "#btn_show", function (e) {
     e.preventDefault();
     var id = $(this).attr('data-id');
-    $('#show_iframe_modal iframe').attr('src', '../../view/reports/export_pdf.php')
+    $('#show_iframe_modal iframe').attr('src', '../../view/reports/export_pdf.php?pd_id='+id)
     $('#show_iframe_modal').modal('show');
 
+  })
+  $(document).ready(function () {
+    results_js.load_tumbon_info($("#tumbon").val());
+    results_js.load_province_info($("#province").val());
+    results_js.load_amphoe_info($("#amphoe").val());
   })
 });
