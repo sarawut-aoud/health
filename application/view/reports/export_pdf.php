@@ -32,7 +32,7 @@ class MYPDF extends TCPDF
     }
 
     // Page footer
-    public function Footer()
+    public function Footer() 
     {
         // Position at 15 mm from bottom
         $this->SetY(-15);
