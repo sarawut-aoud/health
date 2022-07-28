@@ -30,6 +30,20 @@ function province($id)
     $result = $query->fetch_object();
     return $result->nameTh;
 }
+function amphoe($id)
+{
+    $sql = new results_model();
+    $query = $sql->load_amphoe_info($id);
+    $result = $query->fetch_object();
+    return $result->nameTh;
+}
+function tumbon($id)
+{
+    $sql = new results_model();
+    $query = $sql->load_tumbon_info($id);
+    $result = $query->fetch_object();
+    return $result->district_name_local	;
+}
 class MYPDF extends TCPDF
 {
     //Page header
@@ -95,6 +109,8 @@ $pdf->setTextShadow(array('enabled' => true, 'depth_w' => 0.2, 'depth_h' => 0.2,
 
 // ส่วนของ body html
 $provice = province($data->province_id);
+$amphoe = amphoe($data->ampher_id);
+$tumbon = tumbon($data->tumbon_id);
 $html = <<<EOD
 <style>.mt-4,
         .my-4 {
@@ -187,9 +203,9 @@ $html = <<<EOD
           }
         </style>
 <div class="mt-4">1.ข้อมูลทั่วไป</div>
-<h6>ชื่อ-สกุล &nbsp;&nbsp; $data->first_name&nbsp;&nbsp;&nbsp;&nbsp;$data->last_name&nbsp;&nbsp;  อายุปี $data->age &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันเดือนปีเกิด $data->birthday</h6>
+<h6>ชื่อ-สกุล &nbsp;&nbsp;&nbsp; $data->first_name&nbsp;&nbsp;&nbsp;&nbsp;$data->last_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  อายุ&nbsp;&nbsp;&nbsp; $data->age&nbsp; &nbsp;&nbsp;ปี  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันเดือนปีเกิด&nbsp;&nbsp;&nbsp; $data->birthday</h6>
 <h6>เลขบัตรประชาชน $data->id_card .ที่อยู่บ้านเลขที่ $data->address หมู่ ถนน</h6>
-<h6>ตรอก/ซอย.ตำบล $data->tumbon_id อำเภอ $data->ampher_id จังหวัด $provice  โทร $data->phone_number   </h6>
+<h6>ตรอก/ซอย.ตำบล $tumbon อำเภอ $amphoe จังหวัด $provice  โทร $data->phone_number   </h6>
 <h6>สถานภาพ $data->pd_status การศึกษา $data->education ประเภทพักอาศัย $data->type_live </h6>
 <h6>อาชีพหลักในปัจจุบัน $data->occupation </h6>
 <h6>โรคประจำตัว 1 $data->hospital เป็นมานาน $data->hospital ปีรพ.รักษาประจำ $data->hospital รพ.ที่ตรวจพบครั้งแรก $data->hospital </h6>
