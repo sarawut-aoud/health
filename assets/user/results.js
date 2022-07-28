@@ -86,7 +86,7 @@ var results_js = {
             showConfirmButton: false,
             timer: 1500,
           }).then(function () {
-            location.href = "../../view/user/results.php";
+            location.href = "../../view/app/results.php";
           });
         } else {
           Swal.fire({
