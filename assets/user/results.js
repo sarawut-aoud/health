@@ -112,53 +112,106 @@ $(document).ready(function () {
 
   $(document).on("click", "#saveresults", function (e) {
     e.preventDefault();
-    results_js.Save_results();
+    var forms = document.querySelectorAll('.needs-validation')
+    var form = $(this).parents('form')[0];
+    // Array.prototype.slice.call(forms)
+    // .forEach(function (target) {
+
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+
+    } else {
+      results_js.Save_results();  //? seve
+    }
+    form.classList.add('was-validated');
+    // }, false)
+
   });
 
 
   $(document).on("change", "#chk3", function (e) {
     if ($(this).is(':checked') === true) {
-      $("#chk4").prop("checked", false);
-      $("#chk5").prop("checked", false);
-      $("#chk6").prop("checked", false);
-      $("#chk7").prop("checked", false);
+      $("#chk4").prop("checked", false).prop("required", false);
+      $("#chk5").prop("checked", false).prop("required", false);
+      $("#chk6").prop("checked", false).prop("required", false);
+      $("#chk7").prop("checked", false).prop("required", false);
+      $("#chk7").prop('disabled', true);
       $('#found_sub').prop('disabled', true);
+    } else {
+      $("#chk7").prop('disabled', false);
+
+      $("#chk4").prop("required", true);
+      $("#chk5").prop("required", true);
+      $("#chk6").prop("required", true);
+      $("#chk7").prop("required", true);
     }
   });
   $(document).on("change", "#chk4", function (e) {
     if ($(this).is(':checked') === true) {
-      $("#chk3").prop("checked", false);
-      $("#chk5").prop("checked", false);
-      $("#chk6").prop("checked", false);
-      $("#chk7").prop("checked", false);
+      $("#chk3").prop("checked", false).prop("required", false);
+      $("#chk5").prop("checked", false).prop("required", false);
+      $("#chk6").prop("checked", false).prop("required", false);
+      $("#chk7").prop("checked", false).prop("required", false);
+      $("#chk7").prop('disabled', true);
+
       $('#found_sub').prop('disabled', true);
+    } else {
+      $("#chk7").prop('disabled', false);
+
+      $("#chk3").prop("required", true);
+      $("#chk5").prop("required", true);
+      $("#chk6").prop("required", true);
+      $("#chk7").prop("required", true);
     }
   });
   $(document).on("change", "#chk5", function (e) {
     if ($(this).is(':checked') === true) {
-      $("#chk3").prop("checked", false);
-      $("#chk4").prop("checked", false);
-      $("#chk6").prop("checked", false);
-      $("#chk7").prop("checked", false);
+      $("#chk3").prop("checked", false).prop("required", false);
+      $("#chk4").prop("checked", false).prop("required", false);
+      $("#chk6").prop("checked", false).prop("required", false);
+      $("#chk7").prop("checked", false).prop("required", false);
       $('#found_sub').prop('disabled', true);
+      $("#chk7").prop('disabled', true);
+
+    } else {
+      $("#chk7").prop('disabled', false);
+
+      $("#chk3").prop("required", true);
+      $("#chk4").prop("required", true);
+      $("#chk6").prop("required", true);
+      $("#chk7").prop("required", true);
     }
   });
   $(document).on("change", "#chk6", function (e) {
     if ($(this).is(':checked') === true) {
-      $("#chk3").prop("checked", false);
-      $("#chk4").prop("checked", false);
-      $("#chk5").prop("checked", false);
-      $("#chk7").prop("checked", false);
+      $("#chk3").prop("checked", false).prop("required", false);
+      $("#chk4").prop("checked", false).prop("required", false);
+      $("#chk5").prop("checked", false).prop("required", false);
+      $("#chk7").prop("checked", false).prop("required", false);
+      $("#chk7").prop('disabled', true);
       $('#found_sub').prop('disabled', true);
+    } else {
+      $("#chk7").prop('disabled', false);
+
+      $("#chk3").prop("required", true);
+      $("#chk4").prop("required", true);
+      $("#chk5").prop("required", true);
+      $("#chk7").prop("required", true);
     }
   });
   $(document).on("change", "#chk7", function (e) {
     if ($(this).is(':checked') === true) {
-      $("#chk3").prop("checked", false);
-      $("#chk4").prop("checked", false);
-      $("#chk5").prop("checked", false);
-      $("#chk6").prop("checked", false);
+      $("#chk3").prop("checked", false).prop("required", false);
+      $("#chk4").prop("checked", false).prop("required", false);
+      $("#chk5").prop("checked", false).prop("required", false);
+      $("#chk6").prop("checked", false).prop("required", false);
       $('#found_sub').prop('disabled', false);
+    } else {
+      $("#chk3").prop("required", true);
+      $("#chk4").prop("required", true);
+      $("#chk5").prop("required", true);
+      $("#chk6").prop("required", true);
     }
   });
   $(document).on("change", "#chk9", function (e) {
@@ -229,6 +282,7 @@ $(document).ready(function () {
       $('#chk5').prop('disabled', true);
       $('#chk6').prop('disabled', true);
       $('#chk8').prop('disabled', true);
+      $('#chk7').prop('disabled', true);
       $('#chk9').prop('disabled', true);
       $('#chk10').prop('disabled', true);
       $('#chk11').prop('disabled', true);
@@ -236,6 +290,21 @@ $(document).ready(function () {
       $('#chk13').prop('disabled', true);
       $('#found_sub').prop('disabled', true);
       $('#found_sub2').prop('disabled', true);
+    } else {
+      $('#chk2').prop('required', true);
+      $('#chk3').prop('required', true);
+      $('#chk4').prop('required', true);
+      $('#chk5').prop('required', true);
+      $('#chk6').prop('required', true);
+      $('#chk7').prop('required', true);
+      $('#chk8').prop('required', true);
+      $('#chk9').prop('required', true);
+      $('#chk10').prop('required', true);
+      $('#chk11').prop('required', true);
+      $('#chk12').prop('required', true);
+      $('#chk13').prop('required', true);
+      $('#found_sub').prop('required', true);
+      $('#found_sub2').prop('required', true);
     }
   });
   $(document).on('change', '#chk1', function (e) {

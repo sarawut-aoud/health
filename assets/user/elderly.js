@@ -85,9 +85,18 @@ var elderly = {
   },
 }
 
+
+
 //**************************************************************  DOCUMENT READY ********************************************** */
 $(document).ready(function () {
   $(".select2").select2();
+  $("#birthday").datepicker({
+    language: "th-th",
+    format: "dd/mm/yyyy",
+    autoclose: true,
+  });
+  $('#id_card').inputmask("9-9999-99999-99-9");
+  $('#phone_number').inputmask("099-999-9999");
 
   elderly.loadprovince();
   elderly.loadampher();
@@ -97,7 +106,6 @@ $(document).ready(function () {
   $(document).on("change", "#province_id", function (e) {
     e.preventDefault();
     var id = $(this).val();
-    // $(this).val() value ของ id form select ชุดนี้  id from select id="province_id" เรียกใช้ #province_id
     elderly.loadampher(id);
   });
   // เลือกอำเภอ แล้วส่ง id ไปหา ตำบล
@@ -116,10 +124,24 @@ $(document).ready(function () {
       stepper: ".bs-stepper",
     },
   });
-  $(document).on("click", "#form1 .bs-stepper-content button.next", function (e) {
+ 
+  $(document).on("click", ".bs-stepper-content button.next", function (e) {
     e.preventDefault();
-    let fdata = new FormData($('#form1')[0]);
-    stepper.next();
+    let bt = $(this);
+    var forms = document.querySelectorAll('.needs-validation')
+    var form = bt.parents('form')[0];
+    Array.prototype.slice.call(forms)
+      .forEach(function (target) {
+
+        if (form.checkValidity() === false) {
+          e.preventDefault();
+          e.stopPropagation();
+
+        } else {
+          stepper.next();
+        }
+        target.classList.add('was-validated');
+      }, false)
 
   });
   $(document).on("click", ".bs-stepper-content button.previous", function (e) {
@@ -127,31 +149,46 @@ $(document).ready(function () {
     stepper.previous(-1);
   });
 
+
+
+  
   // คัดกรองโรคซึมเศร้า
 
   $(document).on("change", " #symptom1", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("#symptom2").prop("checked", false);
+      $("#symptom2").prop("checked", false).prop("required", false);
+    } else {
+      $(this).prop("required", true)
+      $("#symptom2").prop("required", true);
     }
   });
   $(document).on("change", " #symptom2", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("#symptom1").prop("checked", false);
+      $("#symptom1").prop("checked", false).prop("required", false);
+    } else {
+      $(this).prop("required", true)
+      $("#symptom1").prop("required", true);
     }
   });
   $(document).on("change", " #symptom3", function (e) {
     e.preventDefault();
 
     if ($(this).is(":checked") == true) {
-      $("#symptom4").prop("checked", false);
+      $("#symptom4").prop("checked", false).prop("required", false);
+    } else {
+      $(this).prop("required", true)
+      $("#symptom4").prop("required", true);
     }
   });
   $(document).on("change", " #symptom4", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("#symptom3").prop("checked", false);
+      $("#symptom3").prop("checked", false).prop("required", false);
+    } else {
+      $(this).prop("required", true)
+      $("#symptom3").prop("required", true);
     }
   });
 
@@ -159,127 +196,169 @@ $(document).ready(function () {
   $(document).on("change", "input[name='veget']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='veget']").not(this).prop("checked", false);
+      $("input[name='veget']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='veget']").prop("required", true);
     }
   });
   $(document).on("change", " input[name='condiment']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='condiment']").not(this).prop("checked", false);
+      $("input[name='condiment']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='condiment']").prop("required", true);
     }
   });
   $(document).on("change", " input[name='sweet']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='sweet']").not(this).prop("checked", false);
+      $("input[name='sweet']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='sweet']").prop("required", true);
     }
   });
   $(document).on("change", " input[name='exercise']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='exercise']").not(this).prop("checked", false);
+      $("input[name='exercise']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='exercise']").prop("required", true);
     }
   });
   $(document).on("change", " input[name='loll']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='loll']").not(this).prop("checked", false);
+      $("input[name='loll']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='loll']").prop("required", true);
     }
   });
   $(document).on("change", " input[name='sleep']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='sleep']").not(this).prop("checked", false);
+      $("input[name='sleep']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='sleep']").prop("required", true);
     }
   });
   $(document).on("change", " input[name='brush']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='brush']").not(this).prop("checked", false);
+      $("input[name='brush']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='brush']").prop("required", true);
     }
   });
   $(document).on("change", " input[name='brushlong']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='brushlong']").not(this).prop("checked", false);
+      $("input[name='brushlong']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='brushlong']").prop("required", true);
     }
   });
   $(document).on("change", " input[name='cigarette']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='cigarette']").not(this).prop("checked", false);
+      $("input[name='cigarette']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='cigarette']").prop("required", true);
     }
   });
   $(document).on("change", " input[name='num']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='num']").not(this).prop("checked", false);
+      $("input[name='num']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='num']").prop("required", true);
     }
   });
   $(document).on("change", " input[name='after']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='after']").not(this).prop("checked", false);
+      $("input[name='after']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='after']").prop("required", true);
     }
   });
   $(document).on("change", " input[name='drink']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='drink']").not(this).prop("checked", false);
+      $("input[name='drink']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='drink']").prop("required", true);
     }
   });
   $(document).on("change", " input[name='result']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='result']").not(this).prop("checked", false);
+      $("input[name='result']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='result']").prop("required", true);
     }
   });
   $(document).on("change", " input[name='gum']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='gum']").not(this).prop("checked", false);
+      $("input[name='gum']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='gum']").prop("required", true);
     }
   });
   $(document).on("change", " input[name='limestone']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='limestone']").not(this).prop("checked", false);
+      $("input[name='limestone']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='limestone']").prop("required", true);
     }
   });
   $(document).on("change", " input[name='breast']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='breast']").not(this).prop("checked", false);
+      $("input[name='breast']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='breast']").prop("required", true);
     }
   });
   $(document).on("change", " input[name='breastre']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='breastre']").not(this).prop("checked", false);
+      $("input[name='breastre']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='breastre']").prop("required", true);
     }
   });
   $(document).on("change", " input[name='cervixre']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='cervixre']").not(this).prop("checked", false);
+      $("input[name='cervixre']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='cervixre']").prop("required", true);
     }
   });
   $(document).on("change", " input[name='eye']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='eye']").not(this).prop("checked", false);
+      $("input[name='eye']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='eye']").prop("required", true);
     }
   });
   $(document).on("change", " input[name='type_eye']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='type_eye']").not(this).prop("checked", false);
+      $("input[name='type_eye']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='type_eye']").prop("required", true);
     }
   });
   $(document).on("change", " input[name='foot']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='foot']").not(this).prop("checked", false);
+      $("input[name='foot']").not(this).prop("checked", false).prop("required", false);
+    } else {
+      $("input[name='foot']").prop("required", true);
     }
   });
 });

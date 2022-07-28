@@ -88,7 +88,7 @@ require_once '../../core/session.php';
                                             <div class="col-md-12 p-1">
                                                 <div class="form-group">
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk1" id="chk1" value="0" target="check">
+                                                        <input class="form-check-input" type="checkbox" name="chk1" id="chk1" value="0" target="check" required>
                                                         <label class="mb-1 ms-2">ไม่พบความเสี่ยง </label>
                                                     </div>
                                                 </div>
@@ -96,55 +96,55 @@ require_once '../../core/session.php';
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk2" id="chk2" value="0">
+                                                        <input class="form-check-input" type="checkbox" name="chk2" id="chk2" value="0" required>
                                                         <label class="mb-1 ms-2">พบความเสี่ยงเบื้องต้นต่อโรค</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk3" id="chk3" value="0">
+                                                        <input class="form-check-input" type="checkbox" name="chk3" id="chk3" value="0" required>
                                                         <label class="form-check-label" for="inlineRadio2">DM</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk3" id="chk4" value="1">
+                                                        <input class="form-check-input" type="checkbox" name="chk3" id="chk4" value="1" required>
                                                         <label class="form-check-label" for="inlineRadio2">HT</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk3" id="chk5" value="2">
+                                                        <input class="form-check-input" type="checkbox" name="chk3" id="chk5" value="2" required>
                                                         <label class="form-check-label" for="inlineRadio2">Stroke</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk3" id="chk6" value="3">
+                                                        <input class="form-check-input" type="checkbox" name="chk3" id="chk6" value="3" required>
                                                         <label class="form-check-label" for="inlineRadio2">Obesity</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk4" id="chk7" value="0">
-                                                        <input type="text" class="form-control md-2" name="found_sub" id="found_sub" aria-label="Text input with checkbox">
+                                                        <input class="form-check-input" type="checkbox" name="chk4" id="chk7" value="0" required>
+                                                        <input type="text" class="form-control md-2" name="found_sub" id="found_sub" required aria-label="Text input with checkbox">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk5" id="chk8" value="0">
+                                                        <input class="form-check-input" type="checkbox" name="chk5" id="chk8" value="0" required>
                                                         <label class="mb-1 ms-2">ป่วยด้วยโรคเรื้อรัง</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk6" id="chk9" value="0">
+                                                        <input class="form-check-input" type="checkbox" name="chk6" id="chk9" value="0" required>
                                                         <label class="form-check-label" for="inlineRadio2">DM</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk6" id="chk10" value="1">
+                                                        <input class="form-check-input" type="checkbox" name="chk6" id="chk10" value="1" required>
                                                         <label class="form-check-label" for="inlineRadio2">HT</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk6" id="chk11" value="2">
+                                                        <input class="form-check-input" type="checkbox" name="chk6" id="chk11" value="2" required>
                                                         <label class="form-check-label" for="inlineRadio2">Stroke</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk6" id="chk12" value="3">
+                                                        <input class="form-check-input" type="checkbox" name="chk6" id="chk12" value="3" required>
                                                         <label class="form-check-label" for="inlineRadio2">Obesity</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk7" id="chk13" value="0">
+                                                        <input class="form-check-input" type="checkbox" name="chk7" id="chk13" value="0" required>
                                                         <input type="text" class="form-control md-2" name="found_sub2" id="found_sub2" required>
                                                     </div>
                                                 </div>
@@ -228,7 +228,7 @@ require_once '../../core/session.php';
 
                 <div class="modal-body mt-3 ms-4 me-4">
                     <div class="ratio ratio-16x9">
-                        <iframe  title="PDF" allowfullscreen></iframe>
+                        <iframe title="PDF" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
