@@ -19,7 +19,7 @@ class results_model extends Database_set
     WHERE
         pd.`status` = 'active'
         AND uk.status_id = '5' 
-        AND em.pd_id IS NULL
+        -- AND em.pd_id IS NULL
         -- AND dk.pd_id_hk IS NOT NULL
         AND pd.pd_id NOT IN ( SELECT MIN( pdid.pd_id ) FROM personal_document AS pdid ORDER BY
         pdid.pd_id ASC  )

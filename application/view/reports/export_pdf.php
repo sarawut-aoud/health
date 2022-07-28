@@ -14,22 +14,28 @@ $sql = new results_model();
 $query = $sql->personal($pd_id);
 $data = mysqli_fetch_object($query);
 function DateThai($datetoday)
-	{
-		$strYear = date("Y",strtotime($datetoday))+543;
-		$strMonth= date("n",strtotime($datetoday));
-		$strDay= date("j",strtotime($datetoday));
-		
-		$strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");
-		$strMonthThai=$strMonthCut[$strMonth];
-		return "$strDay $strMonthThai $strYear";
-	}
+{
+    $strYear = date("Y", strtotime($datetoday)) + 543;
+    $strMonth = date("n", strtotime($datetoday));
+    $strDay = date("j", strtotime($datetoday));
 
+    $strMonthCut = array("", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
+    $strMonthThai = $strMonthCut[$strMonth];
+    return "$strDay $strMonthThai $strYear";
+}
+function province($id)
+{
+    $sql = new results_model();
+    $query = $sql->load_province_info($id);
+    $result = $query->fetch_object();
+    return $result->nameTh;
+}
 class MYPDF extends TCPDF
 {
     //Page header
     public function Header()
     {
-        $html = 'วันเดือนปีที่ให้บริการ  '.DateThai(date("Y-m-d")).'     อสม.....................................................';
+        $html = 'วันเดือนปีที่ให้บริการ  ' . DateThai(date("Y-m-d")) . '     อสม.....................................................';
         $this->SetFont('thsarabun', 'B', 14);
         $this->writeHTMLCell($w = 0, $h = 0, $x = '', $y = '', $html, $border = 0, $ln = 1, $fill = 0, $reseth = true, $align = 'C', $autopadding = true);
         $this->SetFont('thsarabun', 'B', 20);
@@ -88,6 +94,7 @@ $pdf->AddPage();
 $pdf->setTextShadow(array('enabled' => true, 'depth_w' => 0.2, 'depth_h' => 0.2, 'color' => array(196, 196, 196), 'opacity' => 1, 'blend_mode' => 'Normal'));
 
 // ส่วนของ body html
+$provice = province($data->province_id);
 $html = <<<EOD
 <style>.mt-4,
         .my-4 {
@@ -182,7 +189,7 @@ $html = <<<EOD
 <div class="mt-4">1.ข้อมูลทั่วไป</div>
 <h6>ชื่อ-สกุล &nbsp;&nbsp; $data->first_name&nbsp;&nbsp;&nbsp;&nbsp;$data->last_name&nbsp;&nbsp;  อายุปี $data->age &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันเดือนปีเกิด $data->birthday</h6>
 <h6>เลขบัตรประชาชน $data->id_card .ที่อยู่บ้านเลขที่ $data->address หมู่ ถนน</h6>
-<h6>ตรอก/ซอย.ตำบล $data->tumbon_id อำเภอ $data->ampher_id จังหวัด $data->province_id  โทร $data->phone_number   </h6>
+<h6>ตรอก/ซอย.ตำบล $data->tumbon_id อำเภอ $data->ampher_id จังหวัด $provice  โทร $data->phone_number   </h6>
 <h6>สถานภาพ $data->pd_status การศึกษา $data->education ประเภทพักอาศัย $data->type_live </h6>
 <h6>อาชีพหลักในปัจจุบัน $data->occupation </h6>
 <h6>โรคประจำตัว 1 $data->hospital เป็นมานาน $data->hospital ปีรพ.รักษาประจำ $data->hospital รพ.ที่ตรวจพบครั้งแรก $data->hospital </h6>
@@ -332,14 +339,7 @@ $html = <<<EOD
  </tr>
  </table>
 EOD;
-// <p>Please check the source code documentation and other examples for further information.</p>
 
-
-// $path_info = pathinfo($_SERVER['REQUEST_URI']);
-// $http = ($_SERVER['REQUEST_SCHEME']) ? $_SERVER['REQUEST_SCHEME'] . "://" : "http://";
-// $host = $_SERVER['SERVER_NAME'];
-// $pathDir = $path_info['dirname'] . "/";
-// $url = $http . $host . $pathDir;
 $pdf->WriteHTML($html, true, false, true, false);
 
 $pdf->Output(NULL, 'I');
