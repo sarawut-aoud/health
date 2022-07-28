@@ -216,47 +216,81 @@ $(document).ready(function () {
   });
   $(document).on("change", "#chk9", function (e) {
     if ($(this).is(':checked') === true) {
-      $("#chk10").prop("checked", false);
-      $("#chk11").prop("checked", false);
-      $("#chk12").prop("checked", false);
-      $("#chk13").prop("checked", false);
+      $("#chk10").prop("checked", false).prop("required", false);
+      $("#chk11").prop("checked", false).prop("required", false);
+      $("#chk12").prop("checked", false).prop("required", false);
+      $("#chk13").prop("checked", false).prop("required", false);
+      $("#chk13").prop("disabled", true);
       $('#found_sub2').prop('disabled', true);
+    } else {
+      $("#chk10").prop("required", true);
+      $("#chk11").prop("required", true);
+      $("#chk12").prop("required", true);
+      $("#chk13").prop("required", true);
+      $("#chk13").prop("disabled", false);
     }
   });
   $(document).on("change", "#chk10", function (e) {
     if ($(this).is(':checked') === true) {
-      $("#chk9").prop("checked", false);
-      $("#chk11").prop("checked", false);
-      $("#chk12").prop("checked", false);
-      $("#chk13").prop("checked", false);
+      $("#chk9").prop("checked", false).prop("required", false);
+      $("#chk11").prop("checked", false).prop("required", false);
+      $("#chk12").prop("checked", false).prop("required", false);
+      $("#chk13").prop("checked", false).prop("required", false);
       $('#found_sub2').prop('disabled', true);
+      $("#chk13").prop("disabled", true);
+    } else {
+      $("#chk9").prop("required", true);
+      $("#chk11").prop("required", true);
+      $("#chk12").prop("required", true);
+      $("#chk13").prop("required", true);
+      $("#chk13").prop("disabled", false);
     }
   });
   $(document).on("change", "#chk11", function (e) {
     if ($(this).is(':checked') === true) {
-      $("#chk9").prop("checked", false);
-      $("#chk10").prop("checked", false);
-      $("#chk12").prop("checked", false);
-      $("#chk13").prop("checked", false);
+      $("#chk9").prop("checked", false).prop("required", false);
+      $("#chk10").prop("checked", false).prop("required", false);
+      $("#chk12").prop("checked", false).prop("required", false);
+      $("#chk13").prop("checked", false).prop("required", false);
       $('#found_sub2').prop('disabled', true);
+      $("#chk13").prop("disabled", true);
+    } else {
+      $("#chk9").prop("required", true);
+      $("#chk10").prop("required", true);
+      $("#chk12").prop("required", true);
+      $("#chk13").prop("required", true);
+      $("#chk13").prop("disabled", false);
     }
   });
   $(document).on("change", "#chk12", function (e) {
     if ($(this).is(':checked') === true) {
-      $("#chk9").prop("checked", false);
-      $("#chk10").prop("checked", false);
-      $("#chk11").prop("checked", false);
-      $("#chk13").prop("checked", false);
+      $("#chk9").prop("checked", false).prop("required", false);
+      $("#chk10").prop("checked", false).prop("required", false);
+      $("#chk11").prop("checked", false).prop("required", false);
+      $("#chk13").prop("checked", false).prop("required", false);
       $('#found_sub2').prop('disabled', true);
+      $("#chk13").prop("disabled", true);
+
+    } else {
+      $("#chk9").prop("required", true);
+      $("#chk10").prop("required", true);
+      $("#chk11").prop("required", true);
+      $("#chk13").prop("required", true);
+      $("#chk13").prop("disabled", false);
     }
   });
   $(document).on("change", "#chk13", function (e) {
     if ($(this).is(':checked') === true) {
-      $("#chk9").prop("checked", false);
-      $("#chk11").prop("checked", false);
-      $("#chk12").prop("checked", false);
-      $("#chk10").prop("checked", false);
+      $("#chk9").prop("checked", false).prop("required", false);
+      $("#chk11").prop("checked", false).prop("required", false);
+      $("#chk12").prop("checked", false).prop("required", false);
+      $("#chk10").prop("checked", false).prop("required", false);
       $('#found_sub2').prop('disabled', false);
+    } else {
+      $("#chk9").prop("required", true);
+      $("#chk11").prop("required", true);
+      $("#chk12").prop("required", true);
+      $("#chk10").prop("required", true);
     }
   });
   $(document).on("change", "#chk14", function (e) {

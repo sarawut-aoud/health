@@ -83,6 +83,38 @@ var elderly = {
       },
     });
   },
+  Save_form: async function (fdata) {
+    let frm = "../../controller/user/elderly.php"
+    $.ajax({
+      type: "POST",
+      dataType: "json",
+      url: frm,
+      data: { frmdata: fdata, func: "insert" },
+      success: function (result) {
+        if (result.is_successful == true) {
+          Swal.fire({
+            icon: "success",
+            title: result.messchk3,
+            showConfirmButton: false,
+            timer: 1500,
+          }).then(function () {
+            location.reload()
+            stepper.to(1);
+          });
+        } else {
+          Swal.fire({
+            icon: "info",
+            title: "เกิดข้อผิดพลาด",
+            html: result.messchk3,
+            showConfirmButton: false,
+            timer: 1500,
+          }).then(function () {
+            $(".swal2-modal").modal("hide");
+          });
+        }
+      },
+    });
+  }
 }
 
 
@@ -124,7 +156,7 @@ $(document).ready(function () {
       stepper: ".bs-stepper",
     },
   });
- 
+
   $(document).on("click", ".bs-stepper-content button.next", function (e) {
     e.preventDefault();
     let bt = $(this);
@@ -149,9 +181,18 @@ $(document).ready(function () {
     stepper.previous(-1);
   });
 
+  $(document).on("click", ".bs-stepper-content button.save", function (e) {
+    e.preventDefault();
+    let frmdata = $('#form1').serialize();
+    frmdata += $('#form2').serialize();
+    frmdata += $('#form3').serialize();
+    frmdata += $('#form4').serialize();
+    frmdata += $('#form5').serialize();
+    frmdata += $('#form6').serialize();
+    elderly.Save_form(frmdata);
 
+  });
 
-  
   // คัดกรองโรคซึมเศร้า
 
   $(document).on("change", " #symptom1", function (e) {

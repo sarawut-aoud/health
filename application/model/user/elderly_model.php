@@ -50,48 +50,63 @@ class addelderly extends Database_set
         return $result;
     }
 
+
+
+    //? ตรวจร่างกายคัดกรอง
+    public function save_formdata($post)
+    {
+        parse_str($_POST["frmdata"], $post);
+        $title =  $_POST['title'] != "" ? $_POST['title'] : "";
+        $fname =  $_POST['fname'] != "" ? $_POST['fname'] : "";
+        $lname =  $_POST['lname'] != "" ? $_POST['lname'] : "";
+        $age =  $_POST['age'] != "" ? $_POST['age'] : "";
+        $birthday =  $_POST['birthday'] != '' ? date('Y-m-d', strtotime($_POST['birthday'] . "-543 year")) : date("Y-m-d");
+        $id_card =  $_POST['id_card'] != '' ? preg_replace('/[-]/i', '', $_POST['id_card']) : "";
+        $phone_number =  $_POST['phone_number'] != "" ? $_POST['phone_number'] : "";
+        $address =  $_POST['address'] != "" ? $_POST['address'] : "";
+        $province_id =  $_POST['province_id'] != "" ? $_POST['province_id'] : "";
+        $ampher_id =  $_POST['ampher_id'] != "" ? $_POST['ampher_id'] : "";
+        $tumbon_id =  $_POST['tumbon_id'] != "" ? $_POST['tumbon_id'] : "";
+        $education =  $_POST['education'] != "" ? $_POST['education'] : "";
+        $pd_status =  $_POST['pd_status'] != "" ? $_POST['pd_status'] : "";
+        $occupation =  $_POST['occupation'] != "" ? $_POST['occupation'] : "";
+        $housing_type =  $_POST['housing_type'] != "" ? $_POST['housing_type'] : "";
+    }
+
+
     /** สว่นของการลงทะเบียน */
 
     public function addelderly_model($title, $fname, $lname, $address, $ampher, $tumbon, $province, $id_card, $age, $birthday, $phone_number, $education, $pd_status, $occupation, $housing_type)
     {
 
         $result = mysqli_query($this->dbcon, "INSERT INTO personal_document (title, 
-        first_name, 
-        last_name, 
-        address, 
-        ampher_id, 
-        tumbon_id, 
-        province_id, 
-        id_card, 
-        age, 
-        birthday, 
-        phone_number,
-        education,
-        pd_status,
-        occupation,
-        type_live )
-        VALUES ('$title',
-        '$fname',
-        '$lname',
-        '$address',
-        '$ampher',
-        '$tumbon',
-        '$province','$id_card','$age','$birthday','$phone_number','$education','$pd_status','$occupation','$housing_type')");
+     first_name, 
+     last_name, 
+     address, 
+     ampher_id, 
+     tumbon_id, 
+     province_id, 
+     id_card, 
+     age, 
+     birthday, 
+     phone_number,
+     education,
+     pd_status,
+     occupation,
+     type_live )
+     VALUES ('$title',
+     '$fname',
+     '$lname',
+     '$address',
+     '$ampher',
+     '$tumbon',
+     '$province','$id_card','$age','$birthday','$phone_number','$education','$pd_status','$occupation','$housing_type')");
 
         $last_id = mysqli_insert_id($this->dbcon);
         $this->set_user($last_id);
 
         return $result;
     }
-
-    //? ตรวจร่างกายคัดกรอง
-    private function insert_2(){
-
-        // $result = mysqli_query($this->dbcon,"INSERT INTO ")
-    }
-
-
-
 
     private function set_user($last_id)
     {

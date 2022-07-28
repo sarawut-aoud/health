@@ -67,52 +67,114 @@ $(document).ready(function () {
   cancer_js.load_user("");
   $(document).on("change", "#chk1", function (e) {
     e.preventDefault();
-    $("#chk2").prop("checked", false);
+    if ($(this).is(':checked') === true) {
+      $("#chk2").prop("checked", false).prop("required", false);
+    } else {
+      $("#chk2").prop("checked", false).prop("required", true);
+      $("#chk1").prop("checked", false).prop("required", true);
+    }
+
   });
   $(document).on("change", "#chk2", function (e) {
     e.preventDefault();
-    $("#chk1").prop("checked", false);
+    if ($(this).is(':checked') === true) {
+      $("#chk1").prop("checked", false).prop("required", false);
+    } else {
+      $("#chk1").prop("checked", false).prop("required", true);
+      $("#chk2").prop("checked", false).prop("required", true);
+    }
   });
 
   $(document).on("change", "#chk3", function (e) {
     e.preventDefault();
-    $("#chk4").prop("checked", false);
+    if ($(this).is(':checked') === true) {
+      $("#chk4").prop("checked", false).prop("required", false);
+    } else {
+      $("#chk4").prop("checked", false).prop("required", true);
+      $("#chk3").prop("checked", false).prop("required", true);
+    }
   });
   $(document).on("change", "#chk4", function (e) {
     e.preventDefault();
-    $("#chk3").prop("checked", false);
+    if ($(this).is(':checked') === true) {
+      $("#chk3").prop("checked", false).prop("required", false);
+    } else {
+      $("#chk3").prop("checked", false).prop("required", true);
+      $("#chk4").prop("checked", false).prop("required", true);
+    }
   });
   $(document).on("change", "#chk5", function (e) {
     e.preventDefault();
-    $("#chk6").prop("checked", false);
+    if ($(this).is(':checked') === true) {
+      $("#chk6").prop("checked", false).prop("required", false);
+    } else {
+      $("#chk6").prop("checked", false).prop("required", true);
+      $("#chk5").prop("checked", false).prop("required", true);
+    }
   });
   $(document).on("change", "#chk6", function (e) {
     e.preventDefault();
-    $("#chk5").prop("checked", false);
+    if ($(this).is(':checked') === true) {
+      $("#chk5").prop("checked", false).prop("required", false);
+    } else {
+      $("#chk5").prop("checked", false).prop("required", true);
+      $("#chk6").prop("checked", false).prop("required", true);
+    }
   });
   $(document).on("change", "#chk7", function (e) {
     e.preventDefault();
-    $("#chk8").prop("checked", false);
+    if ($(this).is(':checked') === true) {
+      $("#chk8").prop("checked", false).prop("required", false);
+    } else {
+      $("#chk8").prop("checked", false).prop("required", true);
+      $("#chk7").prop("checked", false).prop("required", true);
+    }
   });
   $(document).on("change", "#chk8", function (e) {
     e.preventDefault();
-    $("#chk7").prop("checked", false);
+    if ($(this).is(':checked') === true) {
+      $("#chk7").prop("checked", false).prop("required", false);
+    } else {
+      $("#chk7").prop("checked", false).prop("required", true);
+      $("#chk8").prop("checked", false).prop("required", true);
+    }
   });
   $(document).on("change", "#chk9", function (e) {
     e.preventDefault();
-    $("#chk10").prop("checked", false);
+    if ($(this).is(':checked') === true) {
+      $("#chk10").prop("checked", false).prop("required", false);
+    } else {
+      $("#chk10").prop("checked", false).prop("required", true);
+      $("#chk9").prop("checked", false).prop("required", true);
+    }
   });
   $(document).on("change", "#chk10", function (e) {
     e.preventDefault();
-    $("#chk9").prop("checked", false);
+    if ($(this).is(':checked') === true) {
+      $("#chk9").prop("checked", false).prop("required", false);
+    } else {
+      $("#chk9").prop("checked", false).prop("required", true);
+      $("#chk10").prop("checked", false).prop("required", true);
+    }
   });
   $(document).on("change", "#chk11", function (e) {
     e.preventDefault();
-    $("#chk12").prop("checked", false);
+    if ($(this).is(':checked') === true) {
+      $("#chk12").prop("checked", false).prop("required", false);
+    } else {
+      $("#chk11").prop("checked", false).prop("required", true);
+      $("#chk12").prop("checked", false).prop("required", true);
+    }
   });
   $(document).on("change", "#chk12", function (e) {
     e.preventDefault();
-    $("#chk11").prop("checked", false);
+    if ($(this).is(':checked') === true) {
+      $("#chk11").prop("checked", false).prop("required", false);
+    } else {
+      $("#chk11").prop("checked", false).prop("required", true);
+      $("#chk12").prop("checked", false).prop("required", true);
+
+    }
   });
   $(document).on("click", "#savecancer", function (e) {
     e.preventDefault();
