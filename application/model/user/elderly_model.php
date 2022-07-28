@@ -54,15 +54,44 @@ class addelderly extends Database_set
 
     public function addelderly_model($title, $fname, $lname, $address, $ampher, $tumbon, $province, $id_card, $age, $birthday, $phone_number, $education, $pd_status, $occupation, $housing_type)
     {
-       
-        $result = mysqli_query($this->dbcon, "INSERT INTO personal_document (title, first_name, last_name, address, ampher_id, tumbon_id, province_id, id_card, age, birthday, phone_number,education,pd_status,occupation,type_live )
-        VALUES ('$title','$fname','$lname','$address','$ampher','$tumbon','$province','$id_card','$age','$birthday','$phone_number','$education','$pd_status','$occupation','$housing_type')");
+
+        $result = mysqli_query($this->dbcon, "INSERT INTO personal_document (title, 
+        first_name, 
+        last_name, 
+        address, 
+        ampher_id, 
+        tumbon_id, 
+        province_id, 
+        id_card, 
+        age, 
+        birthday, 
+        phone_number,
+        education,
+        pd_status,
+        occupation,
+        type_live )
+        VALUES ('$title',
+        '$fname',
+        '$lname',
+        '$address',
+        '$ampher',
+        '$tumbon',
+        '$province','$id_card','$age','$birthday','$phone_number','$education','$pd_status','$occupation','$housing_type')");
 
         $last_id = mysqli_insert_id($this->dbcon);
         $this->set_user($last_id);
 
         return $result;
     }
+
+    //? ตรวจร่างกายคัดกรอง
+    private function insert_2(){
+
+        // $result = mysqli_query($this->dbcon,"INSERT INTO ")
+    }
+
+
+
 
     private function set_user($last_id)
     {
@@ -71,8 +100,4 @@ class addelderly extends Database_set
             ('$last_id','5','1') ");
         return $result;
     }
-
-
-
-    
 }

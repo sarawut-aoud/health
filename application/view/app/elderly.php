@@ -264,7 +264,7 @@ $class = new addelderly();
                                                         </div>
                                                     </div>
                                                     <div class="d-flex justify-content-center">
-                                                        <button type="submit" class="btn btn-primary rounded-pill col-xxl-1 col-xl-1 col-lg-2 col-md-2 col-sm-2">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
+                                                        <button disabled class="btn btn-primary rounded-pill col-xxl-1 col-xl-1 col-lg-2 col-md-2 col-sm-2">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
 
                                                     </div>
                                                 </div>
@@ -329,7 +329,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">โรคประจำตัว 1</label>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <input type="text" id="congen1" name="congen1" class="form-control py-2" placeholder="โรคประจำตัว 1">
+                                                                <input type="text" id="congen1" name="congen[]" class="form-control py-2" placeholder="โรคประจำตัว 1">
                                                             </div>
                                                         </div>
                                                         <div class="row g-3 align-items-center p-2">
@@ -337,7 +337,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">เป็นมานาน</label>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <input type="text" id="long1" name="long1" class="form-control py-2" placeholder="เป็นมานาน">
+                                                                <input type="text" id="long1" name="long[]" class="form-control py-2" placeholder="เป็นมานาน">
                                                             </div>
                                                         </div>
                                                         <div class="row g-3 align-items-center p-2">
@@ -345,7 +345,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">ปี รพ.รักษาประจำ</label>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <input type="text" id="hospi1" name="hospi1" class="form-control py-2" placeholder="รพ.รักษาประจำ">
+                                                                <input type="text" id="hospi1" name="hospi[]" class="form-control py-2" placeholder="รพ.รักษาประจำ">
                                                             </div>
                                                         </div>
                                                         <div class="row g-3 align-items-center p-2">
@@ -353,7 +353,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">รพ.ที่ตรวจพบครั้งแรก</label>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <input type="text" id="hosfirst1" name="hosfirst1" class="form-control py-2" placeholder="รพ.ที่ตรวจพบครั้งแรก">
+                                                                <input type="text" id="hosfirst1" name="hosfirst[]" class="form-control py-2" placeholder="รพ.ที่ตรวจพบครั้งแรก">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -363,7 +363,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">โรคประจำตัว 2</label>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <input type="text" id="congen2" name="congen2" class="form-control py-2" placeholder="โรคประจำตัว 2">
+                                                                <input type="text" id="congen2" name="congen[]" class="form-control py-2" placeholder="โรคประจำตัว 2">
                                                             </div>
                                                         </div>
                                                         <div class="row g-3 align-items-center p-2">
@@ -371,7 +371,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">เป็นมานาน</label>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <input type="text" id="long2" name="long2" class="form-control py-2" placeholder="เป็นมานาน">
+                                                                <input type="text" id="long2" name="long[]" class="form-control py-2" placeholder="เป็นมานาน">
                                                             </div>
                                                         </div>
                                                         <div class="row g-3 align-items-center p-2">
@@ -379,7 +379,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">ปี รพ.รักษาประจำ</label>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <input type="text" id="hospi2" name="hospi2" class="form-control py-2" placeholder="รพ.รักษาประจำ">
+                                                                <input type="text" id="hospi2" name="hospi[]" class="form-control py-2" placeholder="รพ.รักษาประจำ">
                                                             </div>
                                                         </div>
                                                         <div class="row g-3 align-items-center p-2">
@@ -387,7 +387,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">รพ.ที่ตรวจพบครั้งแรก</label>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <input type="text" id="hosfirst2" name="hosfirst2" class="form-control py-2" placeholder="รพ.ที่ตรวจพบครั้งแรก">
+                                                                <input type="text" id="hosfirst2" name="hosfirst[]" class="form-control py-2" placeholder="รพ.ที่ตรวจพบครั้งแรก">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -397,7 +397,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">โรคประจำตัว 3</label>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <input type="text" id="congen3" name="congen3" class="form-control py-2" placeholder="โรคประจำตัว 3">
+                                                                <input type="text" id="congen3" name="congen[]" class="form-control py-2" placeholder="โรคประจำตัว 3">
                                                             </div>
                                                         </div>
                                                         <div class="row g-3 align-items-center p-2">
@@ -405,7 +405,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">เป็นมานาน</label>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <input type="text" id="long3" name="long3" class="form-control py-2" placeholder="เป็นมานาน">
+                                                                <input type="text" id="long3" name="long[]" class="form-control py-2" placeholder="เป็นมานาน">
                                                             </div>
                                                         </div>
                                                         <div class="row g-3 align-items-center p-2">
@@ -413,7 +413,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">ปี รพ.รักษาประจำ</label>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <input type="text" id="hospi3" name="hospi3" class="form-control py-2" placeholder="รพ.รักษาประจำ">
+                                                                <input type="text" id="hospi3" name="hospi[]" class="form-control py-2" placeholder="รพ.รักษาประจำ">
                                                             </div>
                                                         </div>
                                                         <div class="row g-3 align-items-center p-2">
@@ -421,7 +421,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">รพ.ที่ตรวจพบครั้งแรก</label>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <input type="text" id="hosfirst3" name="hosfirst3" class="form-control py-2" placeholder="รพ.ที่ตรวจพบครั้งแรก">
+                                                                <input type="text" id="hosfirst3" name="hosfirst[]" class="form-control py-2" placeholder="รพ.ที่ตรวจพบครั้งแรก">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -431,7 +431,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">โรคประจำตัว 4</label>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <input type="text" id="congen4" name="congen4" class="form-control py-2" placeholder="โรคประจำตัว 4">
+                                                                <input type="text" id="congen4" name="congen[]" class="form-control py-2" placeholder="โรคประจำตัว 4">
                                                             </div>
                                                         </div>
                                                         <div class="row g-3 align-items-center p-2">
@@ -439,7 +439,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">เป็นมานาน</label>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <input type="text" id="long4" name="long4" class="form-control py-2" placeholder="เป็นมานาน">
+                                                                <input type="text" id="long4" name="long[]" class="form-control py-2" placeholder="เป็นมานาน">
                                                             </div>
                                                         </div>
                                                         <div class="row g-3 align-items-center p-2">
@@ -447,7 +447,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">ปี รพ.รักษาประจำ</label>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <input type="text" id="hospi4" name="hospi4" class="form-control py-2" placeholder="รพ.รักษาประจำ">
+                                                                <input type="text" id="hospi4" name="hospi[]" class="form-control py-2" placeholder="รพ.รักษาประจำ">
                                                             </div>
                                                         </div>
                                                         <div class="row g-3 align-items-center p-2">
@@ -455,7 +455,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">รพ.ที่ตรวจพบครั้งแรก</label>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <input type="text" id="hosfirst4" name="hosfirst4" class="form-control py-2" placeholder="รพ.ที่ตรวจพบครั้งแรก">
+                                                                <input type="text" id="hosfirst4" name="hosfirst[]" class="form-control py-2" placeholder="รพ.ที่ตรวจพบครั้งแรก">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -465,7 +465,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">โรคประจำตัว 5</label>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <input type="text" id="congen5" name="congen5" class="form-control py-2" placeholder="โรคประจำตัว 5">
+                                                                <input type="text" id="congen5" name="congen[]" class="form-control py-2" placeholder="โรคประจำตัว 5">
                                                             </div>
                                                         </div>
                                                         <div class="row g-3 align-items-center p-2">
@@ -473,7 +473,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">เป็นมานาน</label>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <input type="text" id="long5" name="long5" class="form-control py-2" placeholder="เป็นมานาน">
+                                                                <input type="text" id="long5" name="long[]" class="form-control py-2" placeholder="เป็นมานาน">
                                                             </div>
                                                         </div>
                                                         <div class="row g-3 align-items-center p-2">
@@ -481,7 +481,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">ปี รพ.รักษาประจำ</label>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <input type="text" id="hospi5" name="hospi5" class="form-control py-2" placeholder="รพ.รักษาประจำ">
+                                                                <input type="text" id="hospi5" name="hospi[]" class="form-control py-2" placeholder="รพ.รักษาประจำ">
                                                             </div>
                                                         </div>
                                                         <div class="row g-3 align-items-center p-2">
@@ -489,7 +489,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">รพ.ที่ตรวจพบครั้งแรก</label>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <input type="text" id="hosfirst5" name="hosfirst5" class="form-control py-2" placeholder="รพ.ที่ตรวจพบครั้งแรก">
+                                                                <input type="text" id="hosfirst5" name="hosfirst[]" class="form-control py-2" placeholder="รพ.ที่ตรวจพบครั้งแรก">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -519,7 +519,7 @@ $class = new addelderly();
                                                     <div class="d-flex justify-content-center ">
                                                         <button class="btn btn-secondary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button>
 
-                                                        <button class="btn btn-primary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
+                                                        <button disabled class="btn btn-primary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
 
                                                     </div>
                                                 </div>
@@ -559,7 +559,7 @@ $class = new addelderly();
                                                     </div>
                                                     <div class="d-flex justify-content-center ">
                                                         <button class="btn btn-secondary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button>
-                                                        <button class="btn btn-primary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
+                                                        <button disabled class="btn btn-primary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -748,7 +748,7 @@ $class = new addelderly();
                                                     <div class="d-flex justify-content-center ">
                                                         <button class="btn btn-secondary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button>
 
-                                                        <button class="btn btn-primary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
+                                                        <button disabled class="btn btn-primary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
 
                                                     </div>
 
@@ -1011,7 +1011,7 @@ $class = new addelderly();
                                                     <div class="d-flex justify-content-center ">
                                                         <button class="btn btn-secondary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button>
 
-                                                        <button class="btn btn-primary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
+                                                        <button disabled class="btn btn-primary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 next">ถัดไป <i class="far fa-arrow-circle-right"></i></button>
 
                                                     </div>
                                                 </div>
@@ -1198,14 +1198,13 @@ $class = new addelderly();
 
     <!-- bt-steper -->
     <script src="../../plugins/bs-stepper/js/bs-stepper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.3.0/imask.min.js"></script>
+    
     <script src="../../../assets/user/elderly.js"></script>
-
+    <script src="../../../assets/numlock.js"></script>
+    <script src="../../../assets/id_card.js"></script>
     <script src="../../../assets/h_template.js"></script>
-    <script>
-        $(document).ready(function() {
 
-        })
-    </script>
 </body>
 
 </html>

@@ -1,7 +1,114 @@
+var elderly = {
+  loadtumbon: function (id) {
+    let frm = "../../controller/user/elderly.php"
+    $("#tumbon_id").html('<option value="">----ตำบล-----</option>');
+
+    if (id) {
+      $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: frm,
+        data: {
+          func: "tumbon",
+          id: id,
+        },
+        success: function (result) {
+          var data = '<option value="">----ตำบล-----</option>';
+          for (i in result) {
+            data +=
+              '<option value="' +
+              result[i].tumbon_id +
+              '">' +
+              result[i].tumbon_name +
+              "</option>";
+          }
+          $("#tumbon_id").html(data);
+        },
+      });
+    }
+
+  },
+  loadampher: function (id) {
+    let frm = "../../controller/user/elderly.php"
+    $("#ampher_id").html('<option value="">----อำเภอ-----</option>');
+
+    if (id) {
+      $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: frm,
+
+        data: {
+          func: "ampher",
+          id: id,
+        },
+        success: function (result) {
+          var data = '<option value="">----อำเภอ-----</option>';
+          for (i in result) {
+            data +=
+              '<option value="' +
+              result[i].ampher_id +
+              '">' +
+              result[i].ampher_name +
+              "</option>";
+          }
+          $("#ampher_id").html(data);
+        },
+      });
+    }
+
+  },
+  loadprovince: function () {
+    let frm = "../../controller/user/elderly.php"
+    $("#province_id").html('<option value="">----จังหวัด-----</option>');
+
+    $.ajax({
+      type: "GET",
+      dataType: "json",
+      url: frm,
+      data: {
+        func: "province",
+      },
+      success: function (result) {
+        var data = '<option value="">----จังหวัด-----</option>';
+        for (i in result) {
+          data +=
+            '<option value="' +
+            result[i].province_id +
+            '">' +
+            result[i].province_name +
+            "</option>";
+        }
+        $("#province_id").html(data);
+      },
+    });
+  },
+}
+
+//**************************************************************  DOCUMENT READY ********************************************** */
 $(document).ready(function () {
   $(".select2").select2();
+
+  elderly.loadprovince();
+  elderly.loadampher();
+
+  elderly.loadtumbon();
+
+  $(document).on("change", "#province_id", function (e) {
+    e.preventDefault();
+    var id = $(this).val();
+    // $(this).val() value ของ id form select ชุดนี้  id from select id="province_id" เรียกใช้ #province_id
+    elderly.loadampher(id);
+  });
+  // เลือกอำเภอ แล้วส่ง id ไปหา ตำบล
+  $(document).on("change", "#ampher_id", function (e) {
+    e.preventDefault();
+    var id = $(this).val(); // $(this).val() value ของ id form select ชุดนี้
+    elderly.loadtumbon(id);
+  });
+
   var stepper = new Stepper($(".bs-stepper")[0], {
-    linear: false,
+    linear: true,
     animation: true,
     selectors: {
       steps: ".step",
@@ -9,8 +116,9 @@ $(document).ready(function () {
       stepper: ".bs-stepper",
     },
   });
-  $(document).on("click", ".bs-stepper-content button.next", function (e) {
+  $(document).on("click", "#form1 .bs-stepper-content button.next", function (e) {
     e.preventDefault();
+    let fdata = new FormData($('#form1')[0]);
     stepper.next();
 
   });

@@ -9,7 +9,7 @@ require_once  '../../config/database.php';
 header("Content-Type: application/pdf");
 
 
-// $pd_id = $_REQUEST['pd_id'];
+$pd_id = $_REQUEST['pd_id'];
 $sql = new results_model();
 $query = $sql->personal($pd_id);
 $data = mysqli_fetch_object($query);
@@ -332,12 +332,9 @@ EOD;
 // $pathDir = $path_info['dirname'] . "/";
 // $url = $http . $host . $pathDir;
 $pdf->WriteHTML($html, true, false, true, false);
-$filename = time() . "pdf";
-$filelocation = "./uploadpdf/";
-$fileNL = $filelocation . "/" . $filename;
-$pdf->Output($fileNL, 'I');
-// $pdf->Output($filename, 'S');
-// $pdf->Output('sandbox/pdf/example.pdf', 'F');
+
+$pdf->Output(NULL, 'I');
+
 
 // ---------------------------------------------------------
 
