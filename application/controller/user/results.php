@@ -34,28 +34,28 @@ if ($func == 'tumbon') {
     echo json_encode($data);
 }
 if ($func == 'province') {
-    $province =$_REQUEST['province'];
+    $province = $_REQUEST['province'];
     $query = $class->load_province_info($province);
-    
+
     $i = 0;
-    while($row = $query->fetch_object()){
+    while ($row = $query->fetch_object()) {
         $data = array(
-            "province_id" =>intval($row->province_id),
-            "province_name"=>$row->nameTh,
+            "province_id" => intval($row->province_id),
+            "province_name" => $row->nameTh,
         );
         $i++;
     }
     echo json_encode($data);
 }
 if ($func == 'amphoe') {
-    $amphoe =$_REQUEST['amphoe'];
+    $amphoe = $_REQUEST['amphoe'];
     $query = $class->load_amphoe_info($amphoe);
-    
+
     $i = 0;
-    while($row = $query->fetch_object()){
+    while ($row = $query->fetch_object()) {
         $data = array(
-            "amphoe_id" =>intval($row->amphoe_id),
-            "amphoe_name"=>$row->nameTh,
+            "amphoe_id" => intval($row->amphoe_id),
+            "amphoe_name" => $row->nameTh,
         );
         $i++;
     }
@@ -67,22 +67,27 @@ if ($func == 'amphoe') {
 if ($func == 'insert') {
     parse_str($_POST["frmdata"], $_POST);
 
-    $pd_id =  $_POST['pd_id'] != "" ? $_POST['pd_id'] : "";
-    $chk1 =  $_POST['chk1'] != "" ? $_POST['chk1'] : "";
-    $chk2 =  $_POST['chk2'] != "" ? $_POST['chk2'] : "";
-    $chk3 =  $_POST['chk3'] != "" ? $_POST['chk3'] : "";
-    $chk4 =  $_POST['chk4'] != "" ? $_POST['chk4'] : "";
-    $chk5 =  $_POST['chk5'] != "" ? $_POST['chk5'] : "";
-    $chk6 =  $_POST['chk6'] != "" ? $_POST['chk6'] : "";
-    $chk7 =  $_POST['chk7'] != "" ? $_POST['chk7'] : "";
-    $chk8 =  $_POST['chk8'] != "" ? $_POST['chk8'] : "";
-   
-    $query = $class->save_form_results($pd_id, $chk1, $chk2, $chk3, $chk4, $chk5, $chk6, $chk7, $chk8);
+    $pd_id =  $_POST['pd_id'] != "" ? $_POST['pd_id'] : NULL;
+    $chk1 =  $_POST['chk1'] != "" ? $_POST['chk1'] : NULL;
+    $chk2 =  $_POST['chk2'] != "" ? $_POST['chk2'] : NULL;
+    $chk3 =  $_POST['chk3'] != "" ? $_POST['chk3'] : NULL;
+    $chk4 =  $_POST['chk4'] != "" ? $_POST['chk4'] : NULL;
+    $chk5 =  $_POST['chk5'] != "" ? $_POST['chk5'] : NULL;
+    $chk6 =  $_POST['chk6'] != "" ? $_POST['chk6'] : NULL;
+    $chk7 =  $_POST['chk7'] != "" ? $_POST['chk7'] : NULL;
+    $chk8 =  $_POST['chk8'] != "" ? $_POST['chk8'] : NULL;
 
-    echo json_encode(array(
-                "is_successful" => true,
-                "messchk3" => "ลงทะเบียนสำเร็จ",
-            ));
+    if (empty($pd_id) || $chk1 == NULL) {
+        echo json_encode(array(
+            "is_successful" => false,
+            "messchk3" => "เกิดข้อผิดพลาด",
+        ));
+    } else {
+        $query = $class->save_form_results($pd_id, $chk1, $chk2, $chk3, $chk4, $chk5, $chk6, $chk7, $chk8);
+
+        echo json_encode(array(
+            "is_successful" => true,
+            "messchk3" => "บันทึกสรุปผลตรวจสำเร็จ",
+        ));
+    }
 }
-
-
