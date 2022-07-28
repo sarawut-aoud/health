@@ -13,14 +13,23 @@ $pd_id = $_REQUEST['pd_id'];
 $sql = new results_model();
 $query = $sql->personal($pd_id);
 $data = mysqli_fetch_object($query);
+function DateThai($datetoday)
+	{
+		$strYear = date("Y",strtotime($datetoday))+543;
+		$strMonth= date("n",strtotime($datetoday));
+		$strDay= date("j",strtotime($datetoday));
+		
+		$strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");
+		$strMonthThai=$strMonthCut[$strMonth];
+		return "$strDay $strMonthThai $strYear";
+	}
 
 class MYPDF extends TCPDF
 {
     //Page header
     public function Header()
     {
-
-        $html = 'วันเดือนปีที่ให้บริการ.....................................................    อสม.....................................................';
+        $html = 'วันเดือนปีที่ให้บริการ  '.DateThai(date("Y-m-d")).'     อสม.....................................................';
         $this->SetFont('thsarabun', 'B', 14);
         $this->writeHTMLCell($w = 0, $h = 0, $x = '', $y = '', $html, $border = 0, $ln = 1, $fill = 0, $reseth = true, $align = 'C', $autopadding = true);
         $this->SetFont('thsarabun', 'B', 20);
@@ -171,7 +180,7 @@ $html = <<<EOD
           }
         </style>
 <div class="mt-4">1.ข้อมูลทั่วไป</div>
-<h6>ชื่อ-สกุล $data->first_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$data->last_name อายุปี $data->age &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันเดือนปีเกิด $data->birthday</h6>
+<h6>ชื่อ-สกุล &nbsp;&nbsp; $data->first_name&nbsp;&nbsp;&nbsp;&nbsp;$data->last_name&nbsp;&nbsp;  อายุปี $data->age &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันเดือนปีเกิด $data->birthday</h6>
 <h6>เลขบัตรประชาชน $data->id_card .ที่อยู่บ้านเลขที่ $data->address หมู่ ถนน</h6>
 <h6>ตรอก/ซอย.ตำบล $data->tumbon_id อำเภอ $data->ampher_id จังหวัด $data->province_id  โทร $data->phone_number   </h6>
 <h6>สถานภาพ $data->pd_status การศึกษา $data->education ประเภทพักอาศัย $data->type_live </h6>
