@@ -183,12 +183,12 @@ $(document).ready(function () {
 
   $(document).on("click", ".bs-stepper-content button.save", function (e) {
     e.preventDefault();
-    let frmdata = $('#form1').serialize();
-    frmdata += $('#form2').serialize();
-    frmdata += $('#form3').serialize();
-    frmdata += $('#form4').serialize();
-    frmdata += $('#form5').serialize();
-    frmdata += $('#form6').serialize();
+    var frmdata = $('#form1').serialize();
+    frmdata += '&' + $('#form2').serialize();
+    frmdata += '&' + $('#form3').serialize();
+    frmdata += '&' + $('#form4').serialize();
+    frmdata += '&' + $('#form5').serialize();
+    frmdata += '&' + $('#form6').serialize();
     elderly.Save_form(frmdata);
 
   });
