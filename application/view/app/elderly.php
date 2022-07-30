@@ -1177,7 +1177,7 @@ $class = new addelderly();
 
                                                         </div>
                                                         <div class="d-flex justify-content-center ">
-                                                            <button class="btn btn-primary rounded-pill col-xxl-1 col-xl-1  col-lg-2 col-md-2 col-sm-2 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button>
+                                                            <button class="btn btn-secondary rounded-pill col-xxl-1 col-xl-1  col-lg-2 col-md-2 col-sm-2 m-2 previous"> <i class="far fa-arrow-circle-left"></i> ย้อนกลับ</button>
 
                                                             <button class="btn btn-primary rounded-pill col-xxl-2 col-xl-2  col-lg-3 col-md-3 col-sm-3 m-2 save"><i class="fas fa-save"></i> บันทึกข้อมูล </button>
 

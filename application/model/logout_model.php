@@ -11,5 +11,6 @@ unset($_SESSION['ampher_id']);
 unset($_SESSION['tumbon_id']);
 unset($_SESSION['province_id']);
 unset($_SESSION['status_name']);
+unset($_SESSION['permission']);
 
 echo json_encode(array("is_success" => true));

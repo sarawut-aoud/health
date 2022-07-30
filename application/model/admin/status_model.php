@@ -131,4 +131,22 @@ class status_model extends Database_set
         $result = mysqli_query($this->dbcon, "DELETE FROM user_status_keep WHERE pd_id ='$pd_id' AND status_id !='5' ");
         return $result;
     }
+
+    public function set_report($pd_id)
+    {
+        $result = mysqli_query($this->dbcon, "SELECT
+        pd.first_name,
+        us.status_name,
+        us.user_rate 
+    FROM
+        personal_document pd
+        LEFT JOIN user_status_keep uk ON uk.pd_id = pd.pd_id
+        LEFT JOIN user_status us ON us.id = uk.status_id 
+    WHERE
+        pd.`status` = 'active' 
+        AND pd.pd_id = '$pd_id' 
+        AND uk.set_status = '1'
+             ");
+        return $result;
+    }
 }

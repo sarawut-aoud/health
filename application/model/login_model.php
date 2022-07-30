@@ -49,8 +49,10 @@ class login_model extends Database_set
 
                 if ($row->user_rate == '5') {
                     $module = "application/view/admin/dashborad.php";
+                    $_SESSION['permission'] = 'admin';
                 } else {
                     $module = 'application/view/user/dashborad.php';
+                    $_SESSION['permission'] = 'user';
                 }
 
                 if (isset($module)) {

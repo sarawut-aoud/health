@@ -195,5 +195,23 @@ $(document).ready(function () {
       }, false)
 
   });
+  $('#show_iframe').hide();
+  //------------------------- เพิ่มโดยต้า
+  $(document).on("change", '#pd_id', function (e) {
+    e.preventDefault();
+    var id = $(this).val();
+    if (id != '0') {
+      $('#btn_show').attr('data-id', id);
+      $('#show_iframe').show();
+    } else {
+      $('#show_iframe').hide();
+    }
+  })
+  $(document).on('click', "#btn_show", function (e) {
+    e.preventDefault();
+    var id = $(this).attr('data-id');
+    $('#show_iframe_modal iframe').attr('src', '../../view/reports/export_pdf.php?pd_id=' + id + '&embedded=true#toolbar=0');
+    $('#show_iframe_modal').modal('show');
 
+  })
 });

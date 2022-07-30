@@ -114,7 +114,7 @@ $class =  new dashboard_model();
 
                             <div class="small-box bg-danger">
                                 <div class="inner">
-                                    <h3  id="dash4"></h3>
+                                    <h3 id="dash4"></h3>
                                     <p>ผู้สูงอายุ</p>
                                 </div>
                                 <div class="icon">
@@ -133,6 +133,7 @@ $class =  new dashboard_model();
                                 <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <div class="table-responsive">
+                                            <h3 class="text-center">แพทย์</h3>
                                             <table class="table table-bordered" id="example1" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr align="center">
@@ -157,6 +158,7 @@ $class =  new dashboard_model();
                                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <div class="table-responsive">
+                                            <h3 class="text-center">เจ้าหน้าที่สาธารณะสุข</h3>
                                             <table class="table table-bordered" id="example2" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr align="center">
@@ -181,6 +183,7 @@ $class =  new dashboard_model();
                                 <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <div class="table-responsive">
+                                            <h3 class="text-center">อสม.</h3>
                                             <table class="table table-bordered" id="example3" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr align="center">
@@ -205,11 +208,13 @@ $class =  new dashboard_model();
                                 <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <div class="table-responsive">
+                                            <h3 class="text-center">ผู้สูงอายุ</h3>
                                             <table class="table table-bordered" id="example4" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr align="center">
                                                         <td style="width: 30%;">ชื่อ – สกุล</td>
                                                         <td>เบอร์โทร</td>
+                                                        <td style="width: 10%;">ดูผลการตรวจ</td>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -219,6 +224,10 @@ $class =  new dashboard_model();
                                                         <tr>
                                                             <td><?= $row->title . $row->fullname; ?></td>
                                                             <td><?= $row->phone_number; ?></td>
+                                                            <td align="center">
+                                                                <button id="view_pdf" data-id="<?= $row->pd_id; ?>" class="btn btn-info btn-sm"><i class="fas fa-clipboard-list-check"></i></button>
+
+                                                            </td>
                                                         </tr>
                                                     <?php } ?>
                                                 </tbody>
@@ -267,6 +276,22 @@ $class =  new dashboard_model();
         </div>
     </div>
 
+    <div class="modal fade" id="show_iframe_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                    <h5 class="modal-title ">ข้อมูลแบบปันทึกสุขภาพ</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body mt-3 ms-4 me-4">
+                    <div class="ratio ratio-16x9">
+                        <iframe title="PDF" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="../../../assets/admin/dashborad.js"></script>
     <script src="../../../assets/h_template.js"></script>

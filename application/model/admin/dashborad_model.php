@@ -18,7 +18,7 @@ class dashboard_model extends Database_set
     LEFT JOIN user_status_keep uk ON uk.pd_id = pd.pd_id 
     LEFT JOIN user_status us ON us.id = uk.status_id
     WHERE 
-    pd.`status` = 'active' AND us.user_rate = '4'
+    pd.`status` = 'active' AND us.user_rate = '4' AND uk.set_status ='1'
     AND  pd.pd_id NOT IN ( SELECT MIN( pdid.pd_id ) FROM personal_document AS pdid ORDER BY
         pdid.pd_id ASC  )
     GROUP BY 
@@ -42,7 +42,7 @@ class dashboard_model extends Database_set
     LEFT JOIN user_status_keep uk ON uk.pd_id = pd.pd_id 
     LEFT JOIN user_status us ON us.id = uk.status_id
     WHERE 
-    pd.`status` = 'active' AND us.user_rate = '3'
+    pd.`status` = 'active' AND us.user_rate = '3' AND uk.set_status ='1'
     AND  pd.pd_id NOT IN ( SELECT MIN( pdid.pd_id ) FROM personal_document AS pdid ORDER BY
         pdid.pd_id ASC  )
     GROUP BY 
@@ -63,7 +63,7 @@ class dashboard_model extends Database_set
     LEFT JOIN user_status_keep uk ON uk.pd_id = pd.pd_id 
     LEFT JOIN user_status us ON us.id = uk.status_id
     WHERE 
-    pd.`status` = 'active' AND us.user_rate = '2'
+    pd.`status` = 'active' AND us.user_rate = '2' AND uk.set_status ='1'
     AND  pd.pd_id NOT IN ( SELECT MIN( pdid.pd_id ) FROM personal_document AS pdid ORDER BY
         pdid.pd_id ASC  )
     GROUP BY 
@@ -79,12 +79,13 @@ class dashboard_model extends Database_set
       WHEN pd.title = '3' THEN 'นางสาว'
     END AS title,
       CONCAT(pd.first_name,' ',pd.last_name) As fullname,
-      pd.phone_number
+      pd.phone_number,
+      pd.pd_id
     FROM personal_document pd
     LEFT JOIN user_status_keep uk ON uk.pd_id = pd.pd_id 
     LEFT JOIN user_status us ON us.id = uk.status_id
     WHERE 
-    pd.`status` = 'active' AND us.user_rate = '1'
+    pd.`status` = 'active' AND us.user_rate = '1' AND uk.set_status ='1'
     AND  pd.pd_id NOT IN ( SELECT MIN( pdid.pd_id ) FROM personal_document AS pdid ORDER BY
         pdid.pd_id ASC  )
     GROUP BY 
@@ -100,7 +101,7 @@ class dashboard_model extends Database_set
      INNER JOIN user_status_keep uk ON uk.pd_id = pd.pd_id 
     INNER  JOIN user_status us ON us.id = uk.status_id
     WHERE 
-    pd.`status` = 'active' AND us.user_rate = '$num'
+    pd.`status` = 'active' AND us.user_rate = '$num' AND uk.set_status ='1'
     AND  pd.pd_id NOT IN ( SELECT MIN( pdid.pd_id ) FROM personal_document AS pdid ORDER BY
         pdid.pd_id ASC  )");
     return $result;

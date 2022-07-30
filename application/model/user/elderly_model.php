@@ -166,6 +166,32 @@ class addelderly extends Database_set
     }
     private function darily_keep($last_id, $post)
     {
+
+        $result = $this->health_keep($last_id, $post);
+        $sugar = trim($post["sugar"], "\0");
+        $kidney = trim($post["kidney"], "\0");
+        $choles = trim($post["choles"], "\0");
+        $tri = trim($post["tri"], "\0");
+        $fat1 = trim($post["fat1"], "\0");
+        $fat2 = trim($post["fat2"], "\0");
+        $eye = trim($post["eye"], "\0");
+        $type_eye = trim($post["type_eye"], "\0");
+        $foot = trim($post["foot"], "\0");
+
+        if (!empty($sugar) || !empty($kidney) || !empty($choles) || !empty($tri) || !empty($fat1) || !empty($fat2) || !empty($eye) || !empty($type_eye) || !empty($foot)) {
+            $this->optional($last_id, $sugar, $kidney, $choles, $tri, $fat1, $fat2, $eye, $type_eye, $foot);
+        }
+        return $result;
+    }
+    private function optional($last_id, $sugar, $kidney, $choles, $tri, $fat1, $fat2, $eye, $type_eye, $foot)
+    {
+        $result = mysqli_query($this->dbcon, "INSERT INTO `optional`( `pd_id`, `sugar`, `kidney`, `cholesterol`, `trigly`, `fat_hdl`, `fat_ldl`, `eye`, `type_eye`, `foot`) 
+        VALUES ('$last_id','$sugar','$kidney','$choles','$tri','$fat1','$fat2','$eye','$type_eye','$foot')");
+        return $result;
+    }
+
+    private function health_keep($last_id, $post)
+    {
         $datenow = date('Y-m-d');
         parse_str($post["frmdata"], $post);
         $pd_id_doctor = trim($post["pd_id_doctor"], "\0");
@@ -210,24 +236,19 @@ class addelderly extends Database_set
         $cervixsub = trim($post["cervixsub"], "\0");
         //? -----------------------------------ส่วนที่หก
 
-        $sugar = trim($post["sugar"], "\0");
-        $kidney = trim($post["kidney"], "\0");
-        $choles = trim($post["choles"], "\0");
-        $tri = trim($post["tri"], "\0");
-        $fat1 = trim($post["fat1"], "\0");
-        $fat2 = trim($post["fat2"], "\0");
-        $eye = trim($post["eye"], "\0");
-        $type_eye = trim($post["type_eye"], "\0");
-        $foot = trim($post["foot"], "\0");
+        $result = mysqli_query($this->dbcon, "INSERT INTO `health_kepp`(
+            `date`, `pd_id`, `pd_id_doctor`, `blood1`, `blood2`, `weight`, `height`, `waistline`, `birth`, 
+            `diabetes`, `last`, `symptom1`, `symptom2`, `veget`, `condiment`, `sweet`, `exercise`, `loll`, 
+            `sleep`, `brush`, `brushlong`, `cigarette`, `cigarate`, `num`, `after`, `drink`, `alcohol`, `amount`, 
+            `bloodlast`, `resul`, `gum`, `limestone`, `cavities`, `breast`, `breastlast`, `breastre`, `cervix`, 
+            `cervixre`, `cervixsub`)
+             VALUES ('$datenow','$last_id','$pd_id_doctor','$blood1','$blood2','$weight',
+             '$height','$waistline',' $birth','$diabetes','$last','$symptom1','$symptom2',
+             '$veget','$condiment','$sweet','$exercise','$loll','$sleep','$brush',
+             '$brushlong','$cigarette','$cigarate','$num','$after','$drink','$alcohol',
+             '$amount','$bloodlast','$resul','$gum','$limestone','$cavities ','$breast',
+             '$breastlast','$breastre','$cervix','$cervixre','$cervixsub')");
 
-        if (!empty($sugar) || !empty($kidney) || !empty($choles) || !empty($tri) || !empty($fat1) || !empty($fat2) || !empty($eye) || !empty($type_eye) || !empty($foot)) {
-            $this->optional($last_id, $sugar, $kidney, $choles, $tri, $fat1, $fat2, $eye, $type_eye, $foot);
-        }
-    }
-    private function optional($last_id, $sugar, $kidney, $choles, $tri, $fat1, $fat2, $eye, $type_eye, $foot)
-    {
-        $result = mysqli_query($this->dbcon, "INSERT INTO `optional`( `pd_id`, `sugar`, `kidney`, `cholesterol`, `trigly`, `fat_hdl`, `fat_ldl`, `eye`, `type_eye`, `foot`) 
-        VALUES ('$last_id','$sugar','$kidney','$choles','$tri','$fat1','$fat2','$eye','$type_eye','$foot')");
         return $result;
     }
 }

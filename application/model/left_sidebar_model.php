@@ -15,6 +15,7 @@ class left_sidemodel  extends Database_set
             ap.href_module ,
             ap.app_icon,
             us.user_rate
+            
         FROM
             personal_document pd
             LEFT JOIN permission_status ps ON ps.pd_id = pd.pd_id
