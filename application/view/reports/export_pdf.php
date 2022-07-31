@@ -198,8 +198,6 @@ $html = <<<EOD
         
           table {
             width: 100%;
-            
-        
           }
         </style>
 <div class="mt-4">1.ข้อมูลทั่วไป</div>
