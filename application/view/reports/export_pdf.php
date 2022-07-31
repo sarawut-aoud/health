@@ -43,30 +43,26 @@ function tumbon($id)
     $sql = new results_model();
     $query = $sql->load_tumbon_info($id);
     $result = $query->fetch_object();
-    return $result->district_name_local	;
+    return $result->district_name_local;
 }
-
+function getname()
+{
+    $pd_id = $_REQUEST['pd_id'];
+    $sql = new results_model();
+    $query = $sql->personal($pd_id);
+    $data = mysqli_fetch_object($query);
+    $sql2 = new results_model();
+    $query2 = $sql2->doctor($data->pd_id_doctor);
+    $result2 = $query2->fetch_object();
+    return $result2->first_name . ' ' . $result2->last_name;
+}
 class MYPDF extends TCPDF
 {
-//     public function __construct()
-//   {
-//     $pd_id = $_REQUEST['pd_id'];
-//     $sql = new results_model();
-//     $query = $sql->personal($pd_id);
-//     $data = mysqli_fetch_object($query);
-//     $pd_id_doc = $data->pd_id_doctor;
-//     function doctor($pd_id_doc)
-//     {
-//         $sql = new results_model();
-//         $query = $sql->doctor($pd_id_doc);
-//         $result = $query->fetch_object();
-//         return $result->first_name.' '.$result->last_name	;
-//     }
-//   }
+
     //Page header
     public function Header()
     {
-        $html = 'วัน-เดือน-ปีที่ให้บริการ&nbsp;&nbsp;&nbsp;' . DateThai(date("Y-m-d")) . '  &nbsp;&nbsp;&nbsp;&nbsp;อสม';
+        $html = 'วัน-เดือน-ปีที่ให้บริการ&nbsp;&nbsp;&nbsp;' . DateThai(date("Y-m-d")) . '  &nbsp;&nbsp;&nbsp;&nbsp;อสม ' . getname();
         $this->SetFont('thsarabun', 'B', 14);
         $this->writeHTMLCell($w = 0, $h = 0, $x = '', $y = '', $html, $border = 0, $ln = 1, $fill = 0, $reseth = true, $align = 'C', $autopadding = true);
         $this->SetFont('thsarabun', 'B', 20);
