@@ -247,3 +247,4 @@ $html = <<<EOD
  </tr>
  </table>
 EOD;
+$pdf->WriteHTML($html, true, false, true, false);
