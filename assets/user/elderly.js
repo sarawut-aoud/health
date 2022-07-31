@@ -94,7 +94,7 @@ var elderly = {
         if (result.is_successful == true) {
           Swal.fire({
             icon: "success",
-            title: result.messchk3,
+            title: result.message,
             showConfirmButton: false,
             timer: 1500,
           }).then(function () {
@@ -105,7 +105,7 @@ var elderly = {
           Swal.fire({
             icon: "info",
             title: "เกิดข้อผิดพลาด",
-            html: result.messchk3,
+            html: result.message,
             showConfirmButton: false,
             timer: 1500,
           }).then(function () {

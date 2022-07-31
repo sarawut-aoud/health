@@ -116,7 +116,7 @@ $data = mysqli_fetch_object($query);
                                             <div class="col-md-12 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">ที่อยู่ปัจจุบัน</label>
-                                                    <input class="form-control py-2" id="address" name="address" type="text" value="<?php echo $data->address; ?>" placeholder="ที่อยู่ปัจจุบัน" rows="4" disabled></input>
+                                                    <textarea class="form-control py-2" id="address" name="address" placeholder="ที่อยู่ปัจจุบัน" rows="4" disabled><?php echo $data->address; ?></textarea>
                                                 </div>
                                             </div>
                                         </div>

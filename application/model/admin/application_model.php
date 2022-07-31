@@ -54,7 +54,8 @@ class application_model extends Database_set
         CONCAT( pd.first_name, ' ', pd.last_name ) AS fullname,
         pd.pd_id,
         ps.id,
-        ap.application_name
+        ap.application_name,
+        us.status_name
     FROM personal_document pd
       
         LEFT JOIN   permission_status ps ON ps.pd_id = pd.pd_id

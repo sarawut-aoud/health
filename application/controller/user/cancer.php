@@ -35,7 +35,7 @@ if ($func == 'insert') {
 
     echo json_encode(array(
                 "is_successful" => true,
-                "messchk3" => "ลงทะเบียนสำเร็จ",
+                "messchk3" => "ประเมินความเสี่ยงโรคมะเร็งสำเร็จ",
             ));
 }
 

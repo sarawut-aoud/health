@@ -101,6 +101,7 @@ require '../../core/session.php';
                                         <table class="table table-bordered" id="example" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr align="center">
+                                                    <td style="width:15%;">สถานะ</td>
                                                     <td style="width: 30%;">ชื่อ – สกุล</td>
                                                     <td>สิทธิ์ที่เข้าถึง</td>
                                                     <td style="width: 20%;"></td>
@@ -121,7 +122,9 @@ require '../../core/session.php';
                                                 $sql = $class->Get_table();
                                                 while ($row = $sql->fetch_object()) { ?>
                                                     <tr>
+                                                        <td><?= $row->status_name ?></td>
                                                         <td><?= $row->fullname ?></td>
+
                                                         <td>
                                                             <div class="d-sm-block d-xxl-blcok d-xl-blcok ">
                                                                 <?php

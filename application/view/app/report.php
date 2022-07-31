@@ -1,9 +1,9 @@
 <?php
 require_once '../../core/data_utllities.php';
 
-require_once '../../model/admin/status_model.php';
+require_once '../../model/report_model.php';
 require '../../core/session.php';
-$class = new status_model();
+$class = new report_model();
 $sql = $class->set_report($_SESSION['pd_id']);
 $row = $sql->fetch_object();
 
@@ -16,7 +16,16 @@ if ($_SESSION['permission'] == 'admin') {
         $set = "";
     }
 }
+function DateThai($datetoday)
+{
+    $strYear = date("Y", strtotime($datetoday)) + 543;
+    $strMonth = date("n", strtotime($datetoday));
+    $strDay = date("j", strtotime($datetoday));
 
+    $strMonthCut = array("", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
+    $strMonthThai = $strMonthCut[$strMonth];
+    return "$strDay - $strMonthThai - $strYear";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,7 +85,7 @@ if ($_SESSION['permission'] == 'admin') {
                                         <div class="row">
                                             <div class="col-lg-4 col-12">
 
-                                                <div class="small-box py-4 bg-success">
+                                                <div class="small-box bg-success">
                                                     <div class="inner">
                                                         <h3 id="dash5"> </h3>
                                                         <p>ไม่พบความเสี่ยง</p>
@@ -89,7 +98,7 @@ if ($_SESSION['permission'] == 'admin') {
 
                                             <div class="col-lg-4 col-12">
 
-                                                <div class="small-box py-4 bg-danger">
+                                                <div class="small-box  bg-danger">
                                                     <div class="inner">
                                                         <h3 id="dash6"> </h3>
                                                         <p>พบความเสี่ยง</p>
@@ -101,7 +110,7 @@ if ($_SESSION['permission'] == 'admin') {
                                             </div>
                                             <div class="col-lg-4 col-12">
 
-                                                <div class="small-box py-4 bg-warning">
+                                                <div class="small-box  bg-warning">
                                                     <div class="inner">
                                                         <h3 id="dash7"> </h3>
                                                         <p>ป่วยโรคเรื้อรัง</p>
@@ -129,15 +138,49 @@ if ($_SESSION['permission'] == 'admin') {
                             <table class="table table-bordered" id="example" width="100%" cellspacing="0">
                                 <thead>
                                     <tr align="center">
-                                        <td style="width: 10%;">ครั้งที่</td>
-                                        <td style="width: 18%;">วันที่</td>
+                                        <?php if ($row->user_rate == '1') { ?>
+                                            <td style="width: 10%;">ครั้งที่</td>
+                                        <?php } ?>
+                                        <td style="width: 18%;">วันที่ทำเอกสาร</td>
                                         <td style="width: 30%;">ชื่อ – สกุล</td>
 
                                         <td style="width: 10%;">ดูผลการตรวจ</td>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                                    if ($_SESSION['permission'] == 'admin') {
+                                        $id = '';
+                                    } else {
+                                        if ($row->user_rate == '1') {
+                                            $id = $_SESSION['pd_id'];
+                                        }
+                                    }
+                                    $sql = $class->get_table($id);
 
+                                    while ($row2 = $sql->fetch_object()) {
+                                        $i = 1;
+
+                                    ?>
+                                        <tr>
+                                            <?php if ($_SESSION['permission'] != 'admin') {
+                                                if ($row->user_rate == '1') {
+                                            ?>
+                                                    <td align="center"><?php echo $i ?></td>
+                                            <?php }
+                                            } ?>
+                                            <td><?= Datethai($row2->date) ?></td>
+                                            <td><?= $row2->title . $row2->fullname ?></td>
+
+                                            <td align="center">
+                                                <button id="view_pdf" data-id="<?= $row2->pd_id ?>" class="btn btn-info btn-sm"><i class="fas fa-clipboard-list-check"></i></button>
+
+                                            </td>
+
+                                        </tr>
+                                    <?php
+                                        $i++;
+                                    } ?>
                                 </tbody>
                             </table>
                         </div>
@@ -183,7 +226,7 @@ if ($_SESSION['permission'] == 'admin') {
         </div>
     </div>
 
-    
+
     <div class="modal fade" id="show_iframe_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
             <div class="modal-content">
@@ -202,6 +245,7 @@ if ($_SESSION['permission'] == 'admin') {
     </div>
 
     <script src="../../../assets/h_template.js"></script>
+    <script src="../../../assets/report_view.js"></script>
 </body>
 
 </html>

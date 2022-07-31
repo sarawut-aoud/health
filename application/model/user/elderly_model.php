@@ -56,10 +56,9 @@ class addelderly extends Database_set
     public function save_formdata($post)
     {
 
+        $data = $post;
         parse_str($post["frmdata"], $post);
-        echo '<pre>';
-        print_r($post);
-        die;
+
         $title = trim($post["title"], "\0");
         $fname = trim($post["fname"], "\0");
         $lname =  trim($post["lname"], "\0");
@@ -73,31 +72,36 @@ class addelderly extends Database_set
         $occupation = trim($post["occupation"], "\0");
         $address = trim($post["address"], "\0");
         $province_id = trim($post["province_id"], "\0");
-        $amher_id = trim($post["amher_id"], "\0");
+        $amher_id = trim($post["ampher_id"], "\0");
         $tumbon_id = trim($post["tumbon_id"], "\0");
+        $username = trim($post["username"], "\0");
 
         if (
-            !empty($title) &&  !empty($fname) && !empty($lname) && !empty($age) && !empty($birthday_set) && !empty($id_card_set) && !empty($phone_number_set)
-            && !empty($education) && !empty($pd_status) && !empty($type_live) && !empty($occupation) && !empty($address) && !empty($province_id) && !empty($amher_id) && !empty($tumbon_id)
+            !empty($title) &&  !empty($fname) && !empty($lname) && !empty($age) && !empty($birthday_set) && !empty($id_card_set)
+            && !empty($phone_number_set)
+            && !empty($education) && !empty($pd_status) && !empty($type_live) && !empty($occupation) && !empty($address)
+            && !empty($province_id) && !empty($amher_id) && !empty($tumbon_id && !empty($username))
         ) {
+
             $id_card = preg_replace('/[-]/i', '', $id_card_set);
             $phone_number = preg_replace('/[-]/i', '', $phone_number_set);
             $birthday = date('Y-m-d', strtotime($birthday_set . "-543 year"));
 
-            $personal_last_id = $this->addelderly_model($title, $fname, $lname, $address, $amher_id, $tumbon_id, $province_id, $id_card, $age, $birthday, $phone_number, $education, $pd_status, $occupation, $type_live);
+            $personal_last_id = $this->addelderly_model($title, $fname, $lname, $address, $amher_id, $tumbon_id, $province_id, $id_card, $age, $birthday, $phone_number, $education, $pd_status, $occupation, $type_live, $username);
             if (!empty($personal_last_id)) {
 
                 if (!empty($post["congen"])) {
                     $disease = $this->disease($personal_last_id, $post["congen"], $post["long"], $post["hospi"], $post["hosfirst"]);
                     if (!empty($disease)) {
-                        $darily_keep =   $this->darily_keep($personal_last_id, $post);
+                        $this->health_keep($personal_last_id,  $data);
+                        $this->darily_keep($personal_last_id,  $data);
                     }
                 } else {
-                    $darily_keep = $this->darily_keep($personal_last_id, $post);
+                    $this->health_keep($personal_last_id,  $data);
+                    $this->darily_keep($personal_last_id,  $data);
                 }
-                if ($darily_keep) {
-                    return true;
-                }
+
+                return true;
             } else {
                 return false;
             }
@@ -109,9 +113,10 @@ class addelderly extends Database_set
 
     /** สว่นของการลงทะเบียน */
 
-    private function addelderly_model($title, $fname, $lname, $address, $ampher, $tumbon, $province, $id_card, $age, $birthday, $phone_number, $education, $pd_status, $occupation, $housing_type)
+    private function addelderly_model($title, $fname, $lname, $address, $ampher, $tumbon, $province, $id_card, $age, $birthday, $phone_number, $education, $pd_status, $occupation, $housing_type, $username)
     {
 
+        $password = $this->encode('1234');
         $result = mysqli_query($this->dbcon, "INSERT INTO personal_document (title, 
      first_name, 
      last_name, 
@@ -126,14 +131,16 @@ class addelderly extends Database_set
      education,
      pd_status,
      occupation,
-     type_live )
+     type_live,
+     username,
+     password )
      VALUES ('$title',
      '$fname',
      '$lname',
      '$address',
      '$ampher',
      '$tumbon',
-     '$province','$id_card','$age','$birthday','$phone_number','$education','$pd_status','$occupation','$housing_type')");
+     '$province','$id_card','$age','$birthday','$phone_number','$education','$pd_status','$occupation','$housing_type','$username','$password')");
 
         $last_id = mysqli_insert_id($this->dbcon);
         $set_user = $this->set_user($last_id);
@@ -167,7 +174,8 @@ class addelderly extends Database_set
     private function darily_keep($last_id, $post)
     {
 
-        $result = $this->health_keep($last_id, $post);
+
+        parse_str($post["frmdata"], $post);
         $sugar = trim($post["sugar"], "\0");
         $kidney = trim($post["kidney"], "\0");
         $choles = trim($post["choles"], "\0");
@@ -181,7 +189,7 @@ class addelderly extends Database_set
         if (!empty($sugar) || !empty($kidney) || !empty($choles) || !empty($tri) || !empty($fat1) || !empty($fat2) || !empty($eye) || !empty($type_eye) || !empty($foot)) {
             $this->optional($last_id, $sugar, $kidney, $choles, $tri, $fat1, $fat2, $eye, $type_eye, $foot);
         }
-        return $result;
+        return true;
     }
     private function optional($last_id, $sugar, $kidney, $choles, $tri, $fat1, $fat2, $eye, $type_eye, $foot)
     {
@@ -190,10 +198,12 @@ class addelderly extends Database_set
         return $result;
     }
 
-    private function health_keep($last_id, $post)
+    private function health_keep($last_id, $data)
     {
+
+        parse_str($data["frmdata"], $post);
+
         $datenow = date('Y-m-d');
-        parse_str($post["frmdata"], $post);
         $pd_id_doctor = trim($post["pd_id_doctor"], "\0");
         $blood1 = trim($post["blood1"], "\0");
         $blood2 = trim($post["blood2"], "\0");
@@ -234,6 +244,7 @@ class addelderly extends Database_set
         $cervix = trim($post["cervix"], "\0");
         $cervixre = trim($post["cervixre"], "\0");
         $cervixsub = trim($post["cervixsub"], "\0");
+
         //? -----------------------------------ส่วนที่หก
 
         $result = mysqli_query($this->dbcon, "INSERT INTO `health_kepp`(

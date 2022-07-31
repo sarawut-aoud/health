@@ -69,13 +69,13 @@ if ($func == 'insert') {
 
     $pd_id =  $_POST['pd_id'] != "" ? $_POST['pd_id'] : NULL;
     $chk1 =  $_POST['chk1'] != "" ? $_POST['chk1'] : NULL;
-    $chk2 =  $_POST['chk2'] != "" ? $_POST['chk2'] : NULL;
-    $chk3 =  $_POST['chk3'] != "" ? $_POST['chk3'] : NULL;
-    $chk4 =  $_POST['chk4'] != "" ? $_POST['chk4'] : NULL;
-    $chk5 =  $_POST['chk5'] != "" ? $_POST['chk5'] : NULL;
-    $chk6 =  $_POST['chk6'] != "" ? $_POST['chk6'] : NULL;
-    $chk7 =  $_POST['chk7'] != "" ? $_POST['chk7'] : NULL;
-    $chk8 =  $_POST['chk8'] != "" ? $_POST['chk8'] : NULL;
+    $chk2 =  $_POST['chk2'] ;
+    $chk3 =  $_POST['chk3'] ;
+    $chk4 =  $_POST['chk4'] ;
+    $chk5 =  $_POST['chk5'] ;
+    $chk6 =  $_POST['chk6'];
+    $chk7 =  $_POST['chk7'];
+    $chk8 =  $_POST['chk8'] ;
 
     if (empty($pd_id) || $chk1 == NULL) {
         echo json_encode(array(

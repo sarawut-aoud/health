@@ -34,14 +34,21 @@ $row = $query->fetch_object();
 
             <?php
             if ($cut[4] == 'user') {
+                if ($row->user_rate != '1') {
             ?>
+                    <a href="./dashboradreport.php" class="nav-link active">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                <?php } ?>
                 <a href="./dashborad.php" class="nav-link active">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <i class="nav-icon fas fa-address-card"></i>
                     <p>
-                        Dashboard
+                        ข้อมูลส่วนตัว
                     </p>
                 </a>
-                </li>
             <?php } ?>
             <?php
             if ($cut[4] == 'app') {
@@ -50,6 +57,7 @@ $row = $query->fetch_object();
                 } else {
                     $href = '../user/dashborad.php';
                 }
+                if ($row->user_rate != '1') {
             ?>
                 <a href="<?= $href ?>" class="nav-link active">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -57,7 +65,14 @@ $row = $query->fetch_object();
                         Dashboard
                     </p>
                 </a>
-                </li>
+                <?php } if ($_SESSION['permission'] == 'user') { ?>
+                    <a href="<?= $href ?>" class="nav-link active">
+                        <i class="nav-icon fas fa-address-card"></i>
+                        <p>
+                            ข้อมูลส่วนตัว
+                        </p>
+                    </a>
+                <?php } ?>
             <?php } ?>
             <?php
             if ($row->user_rate == '5') {
