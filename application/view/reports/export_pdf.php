@@ -123,98 +123,97 @@ $pdf->setTextShadow(array('enabled' => true, 'depth_w' => 0.2, 'depth_h' => 0.2,
 $provice = province($data->province_id);
 $amphoe = amphoe($data->ampher_id);
 $tumbon = tumbon($data->tumbon_id);
-$html = <<<EOD
-<style>.mt-4,
-        .my-4 {
-            margin-top: 1.5rem !important;
-        }
+$html = '<style>.mt-4,
+.my-4 {
+    margin-top: 1.5rem !important;
+}
 
-        .mb-4,
-        .mx-4 {
-            margin-bottom: 1.5rem !important;
-        }
+.mb-4,
+.mx-4 {
+    margin-bottom: 1.5rem !important;
+}
 
-        .px-5 {
-            padding-left: 3rem !important;
-            padding-right: 3rem !important;
-        }
+.px-5 {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+}
 
-        .p-0 {
-            padding: 0 !important;
-            margin: 0 !important;
-            line-height: 0 !important;
-        }
+.p-0 {
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 0 !important;
+}
 
-        h1,
-        .h1 {
-            font-size: 2.5rem;
-        }
+h1,
+.h1 {
+    font-size: 2.5rem;
+}
 
-        h2,
-        .h2 {
-            font-size: 2rem;
-        }
+h2,
+.h2 {
+    font-size: 2rem;
+}
 
-        h3,
-        .h3 {
-            font-size: 1.75rem;
-        }
+h3,
+.h3 {
+    font-size: 1.75rem;
+}
 
-        h4,
-        .h4 {
-            font-size: 1.5rem;
-        }
+h4,
+.h4 {
+    font-size: 1.5rem;
+}
 
-        h5,
-        .h5 {
-            font-size: 1.25rem;
-        }
+h5,
+.h5 {
+    font-size: 1.25rem;
+}
 
-        h6,
-        .h6 {
-            font-size: 1rem;
-        }
+h6,
+.h6 {
+    font-size: 1rem;
+}
 
-        .h1,
-        .h2,
-        .h3,
-        .h4,
-        .h5,
-        .h6,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            line-height: 1.2;
-        }
-    
-        .tr_black {
-            background-color: rgba(0, 0, 0, 0.475) !important
-        }
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
 
-        .text-start {
-            text-align: left !important;
-        }
+.tr_black {
+    background-color: rgba(0, 0, 0, 0.475) !important
+}
 
-        .text-end {
-            text-align: right !important;
-        }
+.text-start {
+    text-align: left !important;
+}
 
-        .text-center {
-            text-align: center !important;
-        }
-        
-          .table {
-            width: 100%;
-          }
-          b {
-            font-weight: bold;
-          }
-        </style>
+.text-end {
+    text-align: right !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+  .table {
+    width: 100%;
+  }
+  p.thick {
+    font-weight: bold;
+  }
+</style>
 <div class="mt-4">1.ข้อมูลทั่วไป</div>
 <h6><b>ชื่อ  -  สกุล</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $data->first_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$data->last_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  อายุ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $data->age&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ปี&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วัน / เดือน / ปีเกิด&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $birthday</h6>
 <h6>เลขบัตรประชาชน &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $data->id_card&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ที่อยู่บ้านเลขที่&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $data->address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; หมู่ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ถนน</h6>
@@ -232,77 +231,77 @@ $html = <<<EOD
 หรือเคยตรวจครั้งสุดท้ายภายใน 1 ปี ผลตรวจเท่ากับ $data->last mg%</h6>
 <h5>3.คัดกรองโรคซึมเศร้า</h5>
 <table width="100%">
- <tr>
- <td width="80%;"><h6> 3.1 ในเดือนที่ผ่านมารวมมื่อนี่เจ้า(โต) มีอาการมูนี่จักหน่อยบ่ อุกอั่ง หนหวย บ่เป็นตายอยู่ มีแต่อยากให้บ่.</h6></td>
- <td width="15%;" align="center"><h6>$data->symptom1</h6></td>
- </tr>
- <tr>
- <td width="80%;"><h6> 3.2 ในเดือนที่ผ่านมารวมมื่อนี่เจ้า(โต) มีอาการมูนี่จักหน่อยบ่ บ่สนใจหยัง บ่อยากเฮ้ดหยัง บ่ม่วนซื้น.</h6></td>
- <td width="15%;" align="center"><h6>$data->symptom2</h6></td>
-  </tr>
-  </table>
+<tr>
+<td width="80%;"><h6> 3.1 ในเดือนที่ผ่านมารวมมื่อนี่เจ้า(โต) มีอาการมูนี่จักหน่อยบ่ อุกอั่ง หนหวย บ่เป็นตายอยู่ มีแต่อยากให้บ่.</h6></td>
+<td width="15%;" align="center"><h6>$data->symptom1</h6></td>
+</tr>
+<tr>
+<td width="80%;"><h6> 3.2 ในเดือนที่ผ่านมารวมมื่อนี่เจ้า(โต) มีอาการมูนี่จักหน่อยบ่ บ่สนใจหยัง บ่อยากเฮ้ดหยัง บ่ม่วนซื้น.</h6></td>
+<td width="15%;" align="center"><h6>$data->symptom2</h6></td>
+</tr>
+</table>
 <h5>4.พฤติกรรมสุขภาพ</h5>
 <table width="100%">
- <tr>
- <td width="80%;"><h6> 4.1 ทานกินผัก 5 ทัพพีต่อวันอย่างไร.</h6></td>
- <td width="15%;" align="center"><h6>$data->veget</h6></td>
- </tr>
- <tr>
- <td width="80%;"><h6> 4.2 ท่านเติมเครื่องปรุงรสเค็มในอาหารที่กินหรือไม่.</h6></td>
- <td width="15%;" align="center"><h6>$data->condiment</h6></td>
- </tr>
- <tr>
- <td width="80%;"><h6> 4.3 ท่านเติมน้ำตาลในอาหารหรือเครื่องดื่มรสหวานหรือไม่.</h6></td>
- <td width="15%;" align="center"><h6>$data->sweet</h6></td>
- </tr>
- <tr>
- <td width="80%;"><h6> 4.4 ท่านได้ออกกำลังกายจนรู้สึกเหนื่อยกว่าปกติหรือไม่.</h6></td>
- <td width="15%;" align="center"><h6>$data->exercise</h6></td>
- </tr>
- <tr>
- <td width="80%;"><h6> 4.5 ท่านนั่งหรือเอนกายเฉยๆ ติดต่อกันเกิน 4 ชั่วโมงหรือไม่.</h6></td>
- <td width="15%;" align="center"><h6>$data->loll</h6></td>
- </tr>
- <tr>
- <td width="80%;"><h6> 4.6 ท่านนอนเกิน 7 ชั่วโมงหรือไม่.</h6></td>
- <td width="15%;" align="center"><h6>$data->sleep</h6></td>
- </tr>
- <tr>
- <td width="80%;"><h6> 4.7 ท่านแปรงฟันก่อนนอนทุกวันหรือไม่.</h6></td>
- <td width="15%;" align="center"><h6>$data->brush</h6></td>
- </tr>
- <tr>
- <td width="80%;"><h6> 4.8 ท่านใช้เวลาแปรงฟันอย่างน้อยนานกี่นาที.</h6></td>
- <td width="15%;" align="center"><h6>$data->brushlong</h6></td>
- </tr>
- <tr>
- <td width="80%;"><h6> 4.9 การสูบบุหรี่.</h6></td>
- <td width="15%;" align="center"><h6>$data->cigarette</h6></td>
- </tr>
- <tr>
- <td width="80%;"><h6> 4.10 ชนิดของบุหรี่.</h6></td>
- <td width="15%;" align="center"><h6>$data->cigarate</h6></td>
- </tr>
- <tr>
- <td width="80%;"><h6> 4.11 จำนวนมวนต่อวัน.</h6></td>
- <td width="15%;" align="center"><h6>$data->num</h6></td>
- </tr>
- <tr>
- <td width="80%;"><h6> 4.12 พฤติกรรมสูบมวนแรกหลังตื่นนอน.</h6></td>
- <td width="15%;" align="center"><h6>$data->after</h6></td>
- </tr> <tr>
- <td width="80%;"><h6> 4.13 การดื่มสุรา.</h6></td>
- <td width="15%;" align="center"><h6>$data->drink</h6></td>
- </tr> 
- <tr>
- <td width="80%;"><h6> 4.14 ชนิดของสุรา.</h6></td>
- <td width="15%;" align="center"><h6>$data->alcohol</h6></td>
- </tr>
- <tr>
- <td width="80%;"><h6> 4.15 ปริมาณที่ดื่มต่อครั้ง.</h6></td>
- <td width="15%;" align="center"><h6>$data->amount</h6></td>
- </tr>
-  </table>
+<tr>
+<td width="80%;"><h6> 4.1 ทานกินผัก 5 ทัพพีต่อวันอย่างไร.</h6></td>
+<td width="15%;" align="center"><h6>$data->veget</h6></td>
+</tr>
+<tr>
+<td width="80%;"><h6> 4.2 ท่านเติมเครื่องปรุงรสเค็มในอาหารที่กินหรือไม่.</h6></td>
+<td width="15%;" align="center"><h6>$data->condiment</h6></td>
+</tr>
+<tr>
+<td width="80%;"><h6> 4.3 ท่านเติมน้ำตาลในอาหารหรือเครื่องดื่มรสหวานหรือไม่.</h6></td>
+<td width="15%;" align="center"><h6>$data->sweet</h6></td>
+</tr>
+<tr>
+<td width="80%;"><h6> 4.4 ท่านได้ออกกำลังกายจนรู้สึกเหนื่อยกว่าปกติหรือไม่.</h6></td>
+<td width="15%;" align="center"><h6>$data->exercise</h6></td>
+</tr>
+<tr>
+<td width="80%;"><h6> 4.5 ท่านนั่งหรือเอนกายเฉยๆ ติดต่อกันเกิน 4 ชั่วโมงหรือไม่.</h6></td>
+<td width="15%;" align="center"><h6>$data->loll</h6></td>
+</tr>
+<tr>
+<td width="80%;"><h6> 4.6 ท่านนอนเกิน 7 ชั่วโมงหรือไม่.</h6></td>
+<td width="15%;" align="center"><h6>$data->sleep</h6></td>
+</tr>
+<tr>
+<td width="80%;"><h6> 4.7 ท่านแปรงฟันก่อนนอนทุกวันหรือไม่.</h6></td>
+<td width="15%;" align="center"><h6>$data->brush</h6></td>
+</tr>
+<tr>
+<td width="80%;"><h6> 4.8 ท่านใช้เวลาแปรงฟันอย่างน้อยนานกี่นาที.</h6></td>
+<td width="15%;" align="center"><h6>$data->brushlong</h6></td>
+</tr>
+<tr>
+<td width="80%;"><h6> 4.9 การสูบบุหรี่.</h6></td>
+<td width="15%;" align="center"><h6>$data->cigarette</h6></td>
+</tr>
+<tr>
+<td width="80%;"><h6> 4.10 ชนิดของบุหรี่.</h6></td>
+<td width="15%;" align="center"><h6>$data->cigarate</h6></td>
+</tr>
+<tr>
+<td width="80%;"><h6> 4.11 จำนวนมวนต่อวัน.</h6></td>
+<td width="15%;" align="center"><h6>$data->num</h6></td>
+</tr>
+<tr>
+<td width="80%;"><h6> 4.12 พฤติกรรมสูบมวนแรกหลังตื่นนอน.</h6></td>
+<td width="15%;" align="center"><h6>$data->after</h6></td>
+</tr> <tr>
+<td width="80%;"><h6> 4.13 การดื่มสุรา.</h6></td>
+<td width="15%;" align="center"><h6>$data->drink</h6></td>
+</tr> 
+<tr>
+<td width="80%;"><h6> 4.14 ชนิดของสุรา.</h6></td>
+<td width="15%;" align="center"><h6>$data->alcohol</h6></td>
+</tr>
+<tr>
+<td width="80%;"><h6> 4.15 ปริมาณที่ดื่มต่อครั้ง.</h6></td>
+<td width="15%;" align="center"><h6>$data->amount</h6></td>
+</tr>
+</table>
 <h5>ผลการตรวจคัดกรองสารเคมีในเลือด.</h5>
 <table width="100%">
 <tr>
@@ -311,69 +310,67 @@ $html = <<<EOD
 <td width="25%;"><h6> ผลการตรวจ.</h6></td>
 <td width="10%;" align="center"><h6>$data->resul</h6></td>
 </tr>
- <tr>
- <td width="30%;"><h6> การดูแลสุขภาพช่องปากเหงือก.</h6></td>
- <td width="10%;" align="center"><h6>$data->gum</h6></td>
- <td width="8%;"><h6> หินปูน.</h6></td>
- <td width="8%;" align="center"><h6>$data->limestone</h6></td>
- <td width="25%;"><h6> จำนวนฟันแท้ผุ.</h6></td>
- <td width="10%;" align="center"><h6>$data->cavities</h6></td>
- </tr>
- <tr>
- <td width="80%;"><h6> การตรวจเต้านม ในสตรีอายุ 30 ปีขึ้นไปตรวจด้วย.</h6></td>
- <td width="15%;" align="center"><h6>$data->breast</h6></td>
- </tr>
- <tr>
- <td width="40%;"><h6> ตรวจครั้งสุดท้ายเมื่อ.</h6></td>
- <td width="15%;" align="center"><h6>$data->breastlast</h6></td>
- <td width="25%;"><h6> ผลการตรวจ.</h6></td>
- <td width="10%;" align="center"><h6>$data->breastre</h6></td>
- </tr>
- </table>
+<tr>
+<td width="30%;"><h6> การดูแลสุขภาพช่องปากเหงือก.</h6></td>
+<td width="10%;" align="center"><h6>$data->gum</h6></td>
+<td width="8%;"><h6> หินปูน.</h6></td>
+<td width="8%;" align="center"><h6>$data->limestone</h6></td>
+<td width="25%;"><h6> จำนวนฟันแท้ผุ.</h6></td>
+<td width="10%;" align="center"><h6>$data->cavities</h6></td>
+</tr>
+<tr>
+<td width="80%;"><h6> การตรวจเต้านม ในสตรีอายุ 30 ปีขึ้นไปตรวจด้วย.</h6></td>
+<td width="15%;" align="center"><h6>$data->breast</h6></td>
+</tr>
+<tr>
+<td width="40%;"><h6> ตรวจครั้งสุดท้ายเมื่อ.</h6></td>
+<td width="15%;" align="center"><h6>$data->breastlast</h6></td>
+<td width="25%;"><h6> ผลการตรวจ.</h6></td>
+<td width="10%;" align="center"><h6>$data->breastre</h6></td>
+</tr>
+</table>
 <h5>การตรวจคัดกรองมะเร็งปากมดลูกในสตรีอายุ 30 ปีขึ้นไป.</h5>
 <table width="100%">
- <tr>
- <td width="40%;"><h6> ตรวจครั้งสุดท้ายเมื่อปี พ.ศ.</h6></td>
- <td width="15%;" align="center"><h6>$data->cervix</h6></td>
- <td width="15%;"><h6> ผลการตรวจ.</h6></td>
- <td width="5%;" align="center"><h6>$data->cervixre</h6></td>
- <td width="10%;" align="center"><h6>$data->cervixsub</h6></td>
- </tr>
- </table>
- <h5>คำถามเพิ่มเติมหากท่านรักษาโรคประจำตัวเบาหวาน ความดัน ไขมันสูง.</h5>
- <table width="100%">
- <tr>
- <td width="40%;"><h6> ตรวจน้ำตาลครั้งสุดท้าย</h6></td>
- <td width="20%;" align="center"><h6>$data->sugar</h6></td>
- <td width="25%;"><h6> ค่าไต (Cr)</h6></td>
- <td width="10%;" align="center"><h6>$data->kidney</h6></td>
- </tr>
- <tr>
- <td width="15%;"><h6> โคเลสเตอรอล (Cho)</h6></td>
- <td width="10%;" align="center"><h6>$data->cholesterol</h6></td>
- <td width="15%;"><h6> ไตรกลีเซอไรด์ (Tri)</h6></td>
- <td width="10%;" align="center"><h6>$data->trigly</h6></td>
- <td width="15%;"><h6> ไขมัน</h6></td>
- <td width="10%;" align="center"><h6>$data->fat_hdl</h6></td>
- <td width="10%;" align="center"><h6>$data->fat_ldl</h6></td>
+<tr>
+<td width="40%;"><h6> ตรวจครั้งสุดท้ายเมื่อปี พ.ศ.</h6></td>
+<td width="15%;" align="center"><h6>$data->cervix</h6></td>
+<td width="15%;"><h6> ผลการตรวจ.</h6></td>
+<td width="5%;" align="center"><h6>$data->cervixre</h6></td>
+<td width="10%;" align="center"><h6>$data->cervixsub</h6></td>
+</tr>
+</table>
+<h5>คำถามเพิ่มเติมหากท่านรักษาโรคประจำตัวเบาหวาน ความดัน ไขมันสูง.</h5>
+<table width="100%">
+<tr>
+<td width="40%;"><h6> ตรวจน้ำตาลครั้งสุดท้าย</h6></td>
+<td width="20%;" align="center"><h6>$data->sugar</h6></td>
+<td width="25%;"><h6> ค่าไต (Cr)</h6></td>
+<td width="10%;" align="center"><h6>$data->kidney</h6></td>
+</tr>
+<tr>
+<td width="15%;"><h6> โคเลสเตอรอล (Cho)</h6></td>
+<td width="10%;" align="center"><h6>$data->cholesterol</h6></td>
+<td width="15%;"><h6> ไตรกลีเซอไรด์ (Tri)</h6></td>
+<td width="10%;" align="center"><h6>$data->trigly</h6></td>
+<td width="15%;"><h6> ไขมัน</h6></td>
+<td width="10%;" align="center"><h6>$data->fat_hdl</h6></td>
+<td width="10%;" align="center"><h6>$data->fat_ldl</h6></td>
 
- </tr>
- <tr>
- <td width="80%;"><h6> ผลตรวจตา</h6></td>
- <td width="15%;" align="center"><h6>$data->eye</h6></td>
- </tr>
- <tr>
- <td width="80%;"><h6> ชนิดเครื่องตรวจตา</h6></td>
- <td width="15%;" align="center"><h6>$data->type_eye</h6></td>
- </tr>
- <tr>
- <td width="80%;"><h6> ผลตรวจเท้า</h6></td>
- <td width="15%;" align="center"><h6>$data->foot</h6></td>
- </tr>
- </table>
-EOD;
-
-$pdf->WriteHTML($html, true, false, true, false);
+</tr>
+<tr>
+<td width="80%;"><h6> ผลตรวจตา</h6></td>
+<td width="15%;" align="center"><h6>$data->eye</h6></td>
+</tr>
+<tr>
+<td width="80%;"><h6> ชนิดเครื่องตรวจตา</h6></td>
+<td width="15%;" align="center"><h6>$data->type_eye</h6></td>
+</tr>
+<tr>
+<td width="80%;"><h6> ผลตรวจเท้า</h6></td>
+<td width="15%;" align="center"><h6>$data->foot</h6></td>
+</tr>
+</table>';
+$pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, 'J', true);
 
 $pdf->Output(NULL, 'I');
 
