@@ -12,10 +12,11 @@ class results_model extends Database_set
     
     FROM personal_document pd
       
-        LEFT JOIN   user_status_keep uk ON uk.pd_id = pd.pd_id
+        LEFT JOIN user_status_keep uk ON uk.pd_id = pd.pd_id
         LEFT JOIN user_status us ON us.id = uk.status_id 
         LEFT JOIN darily_keep dk ON dk.pd_id_hk = pd.pd_id
         LEFT JOIN estimate em ON em.pd_id = pd.pd_id
+        
     WHERE
         pd.`status` = 'active'
         AND uk.status_id = '5' 
@@ -73,7 +74,10 @@ class results_model extends Database_set
               personal_document pd
               LEFT JOIN user_status_keep uk ON uk.pd_id = pd.pd_id
               LEFT JOIN user_status us ON us.id = uk.status_id
-              LEFT JOIN darily_keep dk ON pd.pd_id = pd.pd_id
+              LEFT JOIN health_kepp dk ON pd.pd_id = dk.pd_id
+              LEFT JOIN optional op ON pd.pd_id = op.pd_id
+              LEFT JOIN disease d ON pd.pd_id =  d.pd_id
+              
           WHERE
               pd.`status` = 'active' 
               AND pd.pd_id = '$pd_id'  
@@ -111,5 +115,10 @@ class results_model extends Database_set
       $result = mysqli_query($this->dbcon, "SELECT * FROM system_province WHERE province_id ='$province' ");
       return $result;
     }
+  }
+  public function doctor($doctor)
+  {
+      $result = mysqli_query($this->dbcon, "SELECT * FROM personal_document WHERE pd_id ='$doctor' ");
+      return $result;
   }
 }
