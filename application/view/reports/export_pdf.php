@@ -217,7 +217,6 @@ $html = '
         .table, th, td {
             border: 1px solid;
           }
-         
           b {
             font-weight: bold;
           }
