@@ -132,7 +132,7 @@ $(document).ready(function () {
   $(document).on('click', "#view_pdf", function (e) {
     e.preventDefault();
     var id = $(this).attr('data-id');
-    $('#show_iframe_modal iframe').attr('src', '../../view/reports/export_pdf.php?pd_id=' + id + '&embedded=true#toolbar=0');
+    $('#show_iframe_modal iframe').attr('src', '../../view/reports/export_pdf.php?pd_id=' + id + '&embedded=true');
     $('#show_iframe_modal').modal('show');
 
   })

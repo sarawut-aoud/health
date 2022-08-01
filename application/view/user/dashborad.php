@@ -10,6 +10,13 @@ $sql = new dashboard();
 $query = $sql->personal();
 $data = mysqli_fetch_object($query);
 
+$query2 = $sql->set_report($_SESSION['pd_id']);
+$row = $query2->fetch_object();
+if ($row->user_rate != '1') {
+    $chk = '';
+} else {
+    $chk = 'disabled';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +75,7 @@ $data = mysqli_fetch_object($query);
                                                 <div class="col-md-2 p-1">
                                                     <div class="form-group">
                                                         <label class="small mb-1">คำนำหน้า </label>
-                                                        <select class="form-select py-2" id="title" name="title" autocomplete="off" placeholder="ชื่อ" required>
+                                                        <select class="form-select py-2" id="title" name="title" autocomplete="off" placeholder="ชื่อ" required <?= $chk ?>>
 
                                                             <?php
                                                             echo '<option value="" selected disabled>เลือกคำนำหน้า</option>';
@@ -87,13 +94,13 @@ $data = mysqli_fetch_object($query);
                                                 <div class="col-md-5 p-1">
                                                     <div class="form-group">
                                                         <label class="small mb-1">ชื่อ </label>
-                                                        <input class="form-control py-2" id="fname" name="fname" type="text" onkeypress="not_number(event)" value="<?= $data->first_name ?>" autocomplete="off" placeholder="ชื่อ" required>
+                                                        <input class="form-control py-2" id="fname" name="fname" type="text" onkeypress="not_number(event)" value="<?= $data->first_name ?>" <?= $chk ?> autocomplete="off" placeholder="ชื่อ" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5 p-1">
                                                     <div class="form-group">
                                                         <label class="small mb-1">นามสกุล </label>
-                                                        <input class="form-control py-2" id="lname" name="lname" type="text" onkeypress="not_number(event)" value="<?= $data->last_name ?>" autocomplete="off" placeholder="นามสกุล" required>
+                                                        <input class="form-control py-2" id="lname" name="lname" type="text" onkeypress="not_number(event)" value="<?= $data->last_name ?>" <?= $chk ?> autocomplete="off" placeholder="นามสกุล" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -101,13 +108,13 @@ $data = mysqli_fetch_object($query);
                                                 <div class="col-md-4 p-1">
                                                     <div class="form-group">
                                                         <label class="small mb-1">อายุ </label>
-                                                        <input class="form-control py-2" id="age" name="age" type="text" maxlength="2" onkeypress="return onlyNumber(event)" value="<?= $data->age ?>" autocomplete="off" placeholder="อายุ" required>
+                                                        <input class="form-control py-2" id="age" name="age" type="text" maxlength="2" onkeypress="return onlyNumber(event)" value="<?= $data->age ?>" <?= $chk ?> autocomplete="off" placeholder="อายุ" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-8 p-1">
                                                     <div class="form-group">
                                                         <label class="small mb-1">วัน/เดือน/ปีเกิด </label>
-                                                        <input class="form-control py-2" id="birthday" name="birthday" type="text" autocomplete="off" placeholder="วันเดินปีเกิด" value="<?= $data->birthday ?>" required>
+                                                        <input class="form-control py-2" id="birthday" name="birthday" type="text" autocomplete="off" placeholder="วันเดินปีเกิด" value="<?= $data->birthday ?>" <?= $chk ?> required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -115,13 +122,13 @@ $data = mysqli_fetch_object($query);
                                                 <div class="col-md-6 p-1">
                                                     <div class="form-group">
                                                         <label class="small mb-1">บัตรประชาชน </label>
-                                                        <input class="form-control py-2" id="id_card" name="id_card" type="tel" autocomplete="off" placeholder="" value="<?= $data->id_card ?>" required>
+                                                        <input class="form-control py-2" id="id_card" name="id_card" type="tel" autocomplete="off" placeholder="" value="<?= $data->id_card ?>" <?= $chk ?> required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 p-1">
                                                     <div class="form-group">
                                                         <label class="small mb-1">เบอร์โทร </label>
-                                                        <input class="form-control py-2" id="phone_number" name="phone_number" maxlength="10" onkeypress="return onlyNumber(event)" value="<?= $data->phone_number ?>" type="text" autocomplete="off" placeholder="เบอร์โทร" required>
+                                                        <input class="form-control py-2" id="phone_number" name="phone_number" maxlength="10" <?= $chk ?> onkeypress="return onlyNumber(event)" value="<?= $data->phone_number ?>" type="text" autocomplete="off" placeholder="เบอร์โทร" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -129,7 +136,7 @@ $data = mysqli_fetch_object($query);
                                                 <div class="col-md-12 p-1">
                                                     <div class="form-group">
                                                         <label class="small mb-1">ที่อยู่ปัจจุบัน </label>
-                                                        <textarea class="form-control py-2" id="address" name="address" type="tel" autocomplete="off" placeholder="ที่อยู่ปัจจุบัน" rows="4" required><?= $data->address ?></textarea>
+                                                        <textarea class="form-control py-2" id="address" name="address" type="tel" autocomplete="off" placeholder="ที่อยู่ปัจจุบัน" rows="4" <?= $chk ?> required><?= $data->address ?></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -137,21 +144,21 @@ $data = mysqli_fetch_object($query);
                                                 <div class="col-md-4 p-1">
                                                     <div class="form-group">
                                                         <label class="small mb-1">จังหวัด </label>
-                                                        <select class="form-control select2" id="province_id" name="province_id" type="text" required>
+                                                        <select class="form-control select2" id="province_id" name="province_id" type="text" required <?= $chk ?>>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 p-1">
                                                     <div class="form-group">
                                                         <label class="small mb-1">อำเภอ </label>
-                                                        <select class="form-control select2" id="ampher_id" name="ampher_id" type="text" required>
+                                                        <select class="form-control select2" id="ampher_id" name="ampher_id" type="text" required <?= $chk ?>>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 p-1">
                                                     <div class="form-group">
                                                         <label class="small mb-1">ตำบล </label>
-                                                        <select class="form-control select2" id="tumbon_id" name="tumbon_id" type="text" required>
+                                                        <select class="form-control select2" id="tumbon_id" name="tumbon_id" type="text" required <?= $chk ?>>
 
                                                         </select>
                                                     </div>
