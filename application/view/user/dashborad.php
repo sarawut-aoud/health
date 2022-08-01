@@ -27,7 +27,9 @@ if ($row->user_rate != '1') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title_path ?></title>
     <?php require '../../core/loadscript.php' ?>
+    <link rel="stylesheet" href="../../plugins/bootstrap-datepicker-thai/css/datepicker.css">
     <link rel="stylesheet" href="../../../assets/custom_style.css">
+    
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -246,7 +248,10 @@ if ($row->user_rate != '1') {
             </div>
         </div>
     </div>
+    <script src="../../plugins/bootstrap-datepicker-thai/js/bootstrap-datepicker.js"></script>
+    <script src="../../plugins/bootstrap-datepicker-thai/js/bootstrap-datepicker-thai.js"></script>
 
+    <script src="../../plugins/bootstrap-datepicker-thai/js/locales/bootstrap-datepicker.th.js"></script>
 
     <script src="../../../assets/user/infomation.js"></script>
     <script src="../../../assets/h_template.js"></script>

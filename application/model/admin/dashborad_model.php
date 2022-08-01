@@ -80,8 +80,11 @@ class dashboard_model extends Database_set
     END AS title,
       CONCAT(pd.first_name,' ',pd.last_name) As fullname,
       pd.phone_number,
-      pd.pd_id
-    FROM personal_document pd
+      pd.pd_id,
+      hk.date,
+      hk.hk_id
+    FROM  personal_document pd
+    LEFT JOIN   health_kepp hk  ON hk.pd_id =pd.pd_id
     LEFT JOIN user_status_keep uk ON uk.pd_id = pd.pd_id 
     LEFT JOIN user_status us ON us.id = uk.status_id
     WHERE 

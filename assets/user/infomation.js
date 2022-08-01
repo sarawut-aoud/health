@@ -104,7 +104,11 @@ $(document).ready(function () {
   infomation.add_tumbon('', $("#tumbon_set").val());
   infomation.add_ampher('', $("#amphoe_set").val());
 
-
+  $("#birthday").datepicker({
+    language: "th-th",
+    format: "dd/mm/yyyy",
+    autoclose: true,
+  });
   $(document).on("change", "#province_id", function (e) {
     e.preventDefault();
     var id = $(this).val();

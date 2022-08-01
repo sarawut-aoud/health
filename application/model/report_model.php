@@ -41,7 +41,7 @@ class report_model extends Database_set
         LEFT JOIN user_status_keep uk ON uk.pd_id = pd.pd_id 
         LEFT JOIN user_status us ON us.id = uk.status_id
         WHERE 
-        pd.`status` = 'active' AND us.user_rate = '1' AND uk.set_status ='1'  $where 
+        pd.`status` = 'active' AND us.user_rate = '1' AND uk.set_status ='1' AND hk.hk_id IS NOT NULL  $where 
         AND  pd.pd_id NOT IN ( SELECT MIN( pdid.pd_id ) FROM personal_document AS pdid ORDER BY
             pdid.pd_id ASC  )
         GROUP BY 
