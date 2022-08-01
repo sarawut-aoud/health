@@ -225,8 +225,8 @@ $html = '
 
 <h5><b>1.ข้อมูลทั่วไป</b></h5>
 <h6><b>ชื่อ  -  สกุล</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->first_name.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->last_name.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>อายุ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->age.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>ปี</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>วัน / เดือน / ปีเกิด</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '.$birthday.'</h6>
-<h6><b>เลขบัตรประชาชน</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->id_card.'&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>ที่อยู่บ้านเลขที่</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->address.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>หมู่</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>ถนน</b></h6>
-<h6><b>ตรอก/ซอย</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>ตำบล</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '.$tumbon.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>อำเภอ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$amphoe.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>จังหวัด</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '.$provice.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <b>โทร</b>&nbsp;&nbsp;&nbsp; '. $data->phone_number.'   </h6>
+<h6><b>เลขบัตรประชาชน</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->id_card.'&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>ที่อยู่บ้านเลขที่</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->address.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <b>ตำบล</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$tumbon.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>อำเภอ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$amphoe.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h6>
+<h6><b>จังหวัด</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '.$provice.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <b>โทร</b>&nbsp;&nbsp;&nbsp; '. $data->phone_number.' </h6>
 <h6><b>สถานภาพ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->pd_status.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>การศึกษา</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->education.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>ประเภทพักอาศัย</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->type_live.' </h6>
 <h6><b>อาชีพหลักในปัจจุบัน</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->occupation.' </h6>
 <h6><b>โรคประจำตัว 1</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->congen.'&nbsp;&nbsp;&nbsp;&nbsp;<b>เป็นมานาน</b>&nbsp;&nbsp;&nbsp;&nbsp; '. $data->long_time.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>ปีรพ.รักษาประจำ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->hospital.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>รพ.ที่ตรวจพบครั้งแรก</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->hospital_first.' </h6>
@@ -252,72 +252,65 @@ $html = '
 <h5><b>4.พฤติกรรมสุขภาพ</b></h5>
 <table width="100%">
  <tr>
- <td width="60%;"><h6> 4.1 ทานกินผัก 5 ทัพพีต่อวันอย่างไร.</h6></td>
- <td width="35%;" align="right"><h6>'. $data->veget.'</h6></td>
+ <td width="70%;"><h6> 4.1 ทานกินผัก 5 ทัพพีต่อวันอย่างไร.</h6></td>
+ <td width="30%;" align="left"><h6>'. $data->veget.'</h6></td>
  </tr>
  <tr>
- <td width="60%;"><h6> 4.2 ท่านเติมเครื่องปรุงรสเค็มในอาหารที่กินหรือไม่.</h6></td>
- <td width="35%;" align="right"><h6>'. $data->condiment.'</h6></td>
+ <td width="70%;"><h6> 4.2 ท่านเติมเครื่องปรุงรสเค็มในอาหารที่กินหรือไม่.</h6></td>
+ <td width="30%;" align="left"><h6>'. $data->condiment.'</h6></td>
  </tr>
  <tr>
- <td width="60%;"><h6> 4.3 ท่านเติมน้ำตาลในอาหารหรือเครื่องดื่มรสหวานหรือไม่.</h6></td>
- <td width="35%;" align="right"><h6>'. $data->sweet.'</h6></td>
+ <td width="70%;"><h6> 4.3 ท่านเติมน้ำตาลในอาหารหรือเครื่องดื่มรสหวานหรือไม่.</h6></td>
+ <td width="30%;" align="left"><h6>'. $data->sweet.'</h6></td>
  </tr>
  <tr>
- <td width="60%;"><h6> 4.4 ท่านได้ออกกำลังกายจนรู้สึกเหนื่อยกว่าปกติหรือไม่.</h6></td>
- <td width="35%;" align="right"><h6>'. $data->exercise.'</h6></td>
+ <td width="70%;"><h6> 4.4 ท่านได้ออกกำลังกายจนรู้สึกเหนื่อยกว่าปกติหรือไม่.</h6></td>
+ <td width="30%;" align="left"><h6>'. $data->exercise.'</h6></td>
  </tr>
  <tr>
- <td width="60%;"><h6> 4.5 ท่านนั่งหรือเอนกายเฉยๆ ติดต่อกันเกิน 4 ชั่วโมงหรือไม่.</h6></td>
- <td width="35%;" align="right"><h6>'. $data->loll.'</h6></td>
+ <td width="70%;"><h6> 4.5 ท่านนั่งหรือเอนกายเฉยๆ ติดต่อกันเกิน 4 ชั่วโมงหรือไม่.</h6></td>
+ <td width="30%;" align="left"><h6>'. $data->loll.'</h6></td>
  </tr>
  <tr>
- <td width="60%;"><h6> 4.6 ท่านนอนเกิน 7 ชั่วโมงหรือไม่.</h6></td>
- <td width="35%;" align="right"><h6>'. $data->sleep.'</h6></td>
+ <td width="70%;"><h6> 4.6 ท่านนอนเกิน 7 ชั่วโมงหรือไม่.</h6></td>
+ <td width="30%;" align="left"><h6>'. $data->sleep.'</h6></td>
  </tr>
  <tr>
- <td width="60%;"><h6> 4.7 ท่านแปรงฟันก่อนนอนทุกวันหรือไม่.</h6></td>
- <td width="35%;" align="right"><h6>'. $data->brush.'</h6></td>
+ <td width="70%;"><h6> 4.7 ท่านแปรงฟันก่อนนอนทุกวันหรือไม่.</h6></td>
+ <td width="30%;" align="left"><h6>'. $data->brush.'</h6></td>
  </tr>
  <tr>
- <td width="60%;"><h6> 4.8 ท่านใช้เวลาแปรงฟันอย่างน้อยนานกี่นาที.</h6></td>
- <td width="35%;" align="right"><h6>'. $data->brushlong.'</h6></td>
+ <td width="70%;"><h6> 4.8 ท่านใช้เวลาแปรงฟันอย่างน้อยนานกี่นาที.</h6></td>
+ <td width="30%;" align="left"><h6>'. $data->brushlong.'</h6></td>
  </tr>
  <tr>
- <td width="60%;"><h6> 4.9 การสูบบุหรี่.</h6></td>
- <td width="35%;" align="right"><h6>'. $data->cigarette.'</h6></td>
+ <td width="70%;"><h6> 4.9 การสูบบุหรี่.</h6></td>
+ <td width="30%;" align="left"><h6>'. $data->cigarette.'</h6></td>
  </tr>
  <tr>
- <td width="60%;"><h6> 4.10 ชนิดของบุหรี่.</h6></td>
- <td width="35%;" align="right"><h6>'. $data->cigarate.'</h6></td>
+ <td width="70%;"><h6> 4.10 ชนิดของบุหรี่.</h6></td>
+ <td width="30%;" align="left"><h6>'. $data->cigarate.'</h6></td>
  </tr>
  <tr>
- <td width="60%;"><h6> 4.11 จำนวนมวนต่อวัน.</h6></td>
- <td width="35%;" align="right"><h6>'. $data->num.'</h6></td>
+ <td width="70%;"><h6> 4.11 จำนวนมวนต่อวัน.</h6></td>
+ <td width="30%;" align="left"><h6>'. $data->num.'</h6></td>
  </tr>
  <tr>
- <td width="60%;"><h6> 4.12 พฤติกรรมสูบมวนแรกหลังตื่นนอน.</h6></td>
- <td width="35%;" align="right"><h6>'. $data->after.'</h6></td>
+ <td width="70%;"><h6> 4.12 พฤติกรรมสูบมวนแรกหลังตื่นนอน.</h6></td>
+ <td width="30%;" align="left"><h6>'. $data->after.'</h6></td>
  </tr> <tr>
- <td width="60%;"><h6> 4.13 การดื่มสุรา.</h6></td>
- <td width="35%;" align="right"><h6>'. $data->drink.'</h6></td>
+ <td width="70%;"><h6> 4.13 การดื่มสุรา.</h6></td>
+ <td width="30%;" align="left"><h6>'. $data->drink.'</h6></td>
  </tr> 
  <tr>
- <td width="60%;"><h6> 4.14 ชนิดของสุรา.</h6></td>
- <td width="35%;" align="right"><h6>'. $data->alcohol.'</h6></td>
+ <td width="70%;"><h6> 4.14 ชนิดของสุรา.</h6></td>
+ <td width="30%;" align="left"><h6>'. $data->alcohol.'</h6></td>
  </tr>
  <tr>
- <td width="60%;"><h6> 4.15 ปริมาณที่ดื่มต่อครั้ง.</h6></td>
- <td width="35%;" align="right"><h6>'. $data->amount.'&nbsp;&nbsp;ก๊ง / กั๊ก / แบน / ขวด</h6></td>
+ <td width="70%;"><h6> 4.15 ปริมาณที่ดื่มต่อครั้ง.</h6></td>
+ <td width="30%;" align="left"><h6>'. $data->amount.'&nbsp;&nbsp;ก๊ง / กั๊ก / แบน / ขวด</h6></td>
  </tr>
- <tr>
- <td width="60%;"><h6></h6></td>
- <td width="35%;" align="center"><h6></h6></td>
- </tr>
- <tr>
- <td width="60%;"><h6> </h6></td>
- <td width="35%;" align="center"><h6></h6></td>
- </tr>
+ 
   </table>
 
 
