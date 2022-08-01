@@ -48,10 +48,10 @@ class login_model extends Database_set
                 $_SESSION['province_id'] = $row->province_id;
 
                 if ($row->user_rate == '5') {
-                    $module = "application/view/admin/dashborad.php";
+                    $module = "application/view/admin/menu.php";
                     $_SESSION['permission'] = 'admin';
                 } else {
-                    $module = 'application/view/user/dashborad.php';
+                    $module = 'application/view/user/menu.php';
                     $_SESSION['permission'] = 'user';
                 }
 

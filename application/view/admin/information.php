@@ -42,7 +42,7 @@ $data = mysqli_fetch_object($query);
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="./dashborad.php">Home</a></li>
+                                <li class="breadcrumb-item"><a href="./menu.php">Home</a></li>
                                 <li class="breadcrumb-item active">ข้อมูลส่วนตัว</li>
                             </ol>
                         </div>
@@ -175,7 +175,7 @@ $data = mysqli_fetch_object($query);
                     foreach ($query as $menu) {
                     ?>
                         <div class="row justify-content-between p-2">
-                            <div class="col-md-6 text-start">
+                            <div class="col-md-6 text-start  pt-2">
                                 <?= $menu['status_name'] ?>
                             </div>
                             <div class="col-md-6 text-end">
