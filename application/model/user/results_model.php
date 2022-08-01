@@ -144,7 +144,7 @@ class results_model extends Database_set
           WHEN 	cigarette = 4 THEN 'เคยสูบแต่เลิกแล้ว'
           END as cigarette,
       CASE  
-          WHEN 	cigarate = 0 THEN ''
+          WHEN 	cigarate = 0 THEN '     '
           WHEN 	cigarate = 1 THEN 'กรองทิพย์'
           WHEN 	cigarate = 2 THEN 'กรองทิพย์ 90'
           WHEN 	cigarate = 3 THEN 'กรุงทอง 33'

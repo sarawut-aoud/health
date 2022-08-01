@@ -123,8 +123,8 @@ $pdf->setTextShadow(array('enabled' => true, 'depth_w' => 0.2, 'depth_h' => 0.2,
 $provice = province($data->province_id);
 $amphoe = amphoe($data->ampher_id);
 $tumbon = tumbon($data->tumbon_id);
-// .table, th, td {
-//     border: 1px solid;
+// .table {
+//     width: 100%;
 //   }
 $html = '
 <style>
@@ -214,10 +214,10 @@ $html = '
         .text-center {
             text-align: center !important;
         }
-       
-          .table {
-            width: 100%;
+        .table, th, td {
+            border: 1px solid;
           }
+         
           b {
             font-weight: bold;
           }

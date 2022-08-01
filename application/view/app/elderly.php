@@ -339,7 +339,7 @@ $class = new addelderly();
                                                         </div>
                                                         <div class="col-md-2 p-1">
                                                             <div class="form-group">
-                                                                <label class="small mb-1">น้ำหนัก <span>*<span></label>
+                                                                <label class="small mb-1">น้ำหนัก กก.<span>*<span></label>
                                                                 <input class="form-control py-2" id="weight" name="weight" type="text" placeholder="น้ำหนัก" onkeypress="return onlyNumber(event)" maxlength="5" required>
                                                             </div>
                                                         </div>
@@ -347,13 +347,13 @@ $class = new addelderly();
                                                     <div class="d-md-flex d-sm-block form-row p-2">
                                                         <div class="col-md-3 p-1">
                                                             <div class="form-group">
-                                                                <label class="small mb-1">ส่วนสูง <span>*<span></label>
+                                                                <label class="small mb-1">ส่วนสูง ซม. <span>*<span></label>
                                                                 <input class="form-control py-2" id="height" name="height" type="text" placeholder="ส่วนสูง" onkeypress="return onlyNumber(event)" maxlength="3" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3 p-1">
                                                             <div class="form-group">
-                                                                <label class="small mb-1">รอบเอว <span>*<span></label>
+                                                                <label class="small mb-1">รอบเอว ซม. <span>*<span></label>
                                                                 <input class="form-control py-2" id="waistline" name="waistline" type="text" onkeypress="return onlyNumber(event)" placeholder="รอบเอว" required>
                                                             </div>
                                                         </div>
