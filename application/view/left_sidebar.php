@@ -49,13 +49,14 @@ $row = $query->fetch_object();
                             HOME
                         </p>
                     </a>
+                    <a href="./dashboradreport.php" class="nav-link active">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
                 <?php } ?>
-                <a href="./dashboradreport.php" class="nav-link active">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>
-                        Dashboard
-                    </p>
-                </a>
+
             <?php } ?>
             <?php
             if ($cut[4] == 'app') {
@@ -81,7 +82,7 @@ $row = $query->fetch_object();
                         </a>
                     <?php } ?>
                 <?php }
-                if ($_SESSION['permission'] == 'user') { ?>
+                if ($_SESSION['permission'] == 'user' && $row->user_rate != '1') { ?>
                     <a href="../user/dashboradreport.php" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
