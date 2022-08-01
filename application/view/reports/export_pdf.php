@@ -123,8 +123,8 @@ $pdf->setTextShadow(array('enabled' => true, 'depth_w' => 0.2, 'depth_h' => 0.2,
 $provice = province($data->province_id);
 $amphoe = amphoe($data->ampher_id);
 $tumbon = tumbon($data->tumbon_id);
-// .table {
-//     width: 100%;
+// .table, th, td {
+//     border: 1px solid;
 //   }
 $html = '
 <style>
@@ -214,8 +214,9 @@ $html = '
         .text-center {
             text-align: center !important;
         }
-        .table, th, td {
-            border: 1px solid;
+      
+          .table {
+            width: 100%;
           }
           b {
             font-weight: bold;
@@ -232,7 +233,7 @@ $html = '
 <h6><b>โรคประจำตัว 2</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->congen.'&nbsp;&nbsp;&nbsp;&nbsp;<b>เป็นมานาน</b>&nbsp;&nbsp;&nbsp;&nbsp; '. $data->long_time.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>ปีรพ.รักษาประจำ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->hospital.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>รพ.ที่ตรวจพบครั้งแรก</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->hospital_first.' </h6>
 <h6><b>โรคประจำตัว 3</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->congen.'&nbsp;&nbsp;&nbsp;&nbsp;<b>เป็นมานาน</b>&nbsp;&nbsp;&nbsp;&nbsp; '. $data->long_time.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>ปีรพ.รักษาประจำ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->hospital.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>รพ.ที่ตรวจพบครั้งแรก</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->hospital_first.' </h6>
 <h6><b>โรคประจำตัว 4</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->congen.'&nbsp;&nbsp;&nbsp;&nbsp;<b>เป็นมานาน</b>&nbsp;&nbsp;&nbsp;&nbsp; '. $data->long_time.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>ปีรพ.รักษาประจำ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->hospital.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>รพ.ที่ตรวจพบครั้งแรก</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->hospital_first.' </h6>
-<h6><b>โรคประจำตัว 5</b> &nbsp;&nbs &nbsp;p;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->congen.'&nbsp;&nbsp;&nbsp;&nbsp;<b>เป็นมานาน</b>&nbsp;&nbsp;&nbsp;&nbsp; '. $data->long_time.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>ปีรพ.รักษาประจำ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->hospital.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>รพ.ที่ตรวจพบครั้งแรก</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->hospital_first.' </h6>
+<h6><b>โรคประจำตัว 5</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->congen.'&nbsp;&nbsp;&nbsp;&nbsp;<b>เป็นมานาน</b>&nbsp;&nbsp;&nbsp;&nbsp; '. $data->long_time.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>ปีรพ.รักษาประจำ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->hospital.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>รพ.ที่ตรวจพบครั้งแรก</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->hospital_first.' </h6>
 <h5><b>2.ตรวจร่างกาย คัดกรอง</b></h5>
 <h6>ความดันโลหิตครั้งที่ 1 &nbsp;&nbsp;'. $data->blood1.'&nbsp;&nbsp;มม.ปรอท&nbsp;&nbsp;&nbsp;&nbsp; ความดันโลหิตครั้งที่ 2 &nbsp;&nbsp;'. $data->blood2.'&nbsp;&nbsp;มม.ปรอท. &nbsp;&nbsp;&nbsp;น้ำหนัก &nbsp;&nbsp;'. $data->weight.'&nbsp;&nbsp;กก.&nbsp;&nbsp;&nbsp; ส่วนสูง&nbsp;&nbsp;'. $data->height.'&nbsp;&nbsp; ซม.&nbsp;&nbsp;&nbsp; รอบเอว&nbsp;&nbsp;'. $data->waistline.'&nbsp;&nbsp;ซม.&nbsp;&nbsp;&nbsp; การคลุมกำเนิด&nbsp;&nbsp;'. $data->birth.' </h6>
 <h6>ถ้าอายุ 35 ปีขึ้นและไม่ป่วยเบาหวานความดัน ให้ตรวจระดับน้ำตาลในเลือดหลังอดอาหาร ผลตรวจครั้งนี้เท่ากับ&nbsp;&nbsp; '. $data->diabetes.' &nbsp;&nbsp;mg%&nbsp;&nbsp;&nbsp;

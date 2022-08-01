@@ -23,20 +23,26 @@ if ($func == 'getuser') {
 if ($func == 'insert') {
     parse_str($_POST["frmdata"], $_POST);
 
-    $pd_id =  $_POST['pd_id'] != "" ? $_POST['pd_id'] : "";
-    $chk1 =  $_POST['chk1'] != "" ? $_POST['chk1'] : "";
-    $chk2 =  $_POST['chk2'] != "" ? $_POST['chk2'] : "";
-    $chk3 =  $_POST['chk3'] != "" ? $_POST['chk3'] : "";
-    $chk4 =  $_POST['chk4'] != "" ? $_POST['chk4'] : "";
-    $chk5 =  $_POST['chk5'] != "" ? $_POST['chk5'] : "";
-    $chk6 =  $_POST['chk6'] != "" ? $_POST['chk6'] : "";
-   
+    $pd_id =  $_POST['pd_id'] != "" ? $_POST['pd_id'] : NULL;
+    $chk1 =  $_POST['chk1']!= "" ? $_POST['chk1'] : NULL;
+    $chk2 =  $_POST['chk2'];
+    $chk3 =  $_POST['chk3'] ;
+    $chk4 =  $_POST['chk4'];
+    $chk5 =  $_POST['chk5'];
+    $chk6 =  $_POST['chk6'] ;
+    if (empty($pd_id) || $chk1 == NULL) {
+        echo json_encode(array(
+            "is_successful" => false,
+            "messchk3" => "เกิดข้อผิดพลาด",
+        ));
+    } else {
     $query = $class->save_form_cancer($pd_id, $chk1, $chk2, $chk3, $chk4, $chk5, $chk6);
 
     echo json_encode(array(
                 "is_successful" => true,
                 "messchk3" => "ประเมินความเสี่ยงโรคมะเร็งสำเร็จ",
             ));
-}
+        }
+    }
 
 

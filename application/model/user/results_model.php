@@ -223,9 +223,56 @@ class results_model extends Database_set
           WHEN 	drink = 1 THEN 'ดื่มนานๆ ครั้ง(เดือนละ 1-2 ครั้ง)'
           WHEN 	drink = 2 THEN 'ดื่มเป็นครั้งคราว (อาทิตย์ละ 1-2 ครั้ง)'
           WHEN 	drink = 3 THEN 'ดื่มเป็นประจำทุกวัน'
-          WHEN 	drink = 4 THEN 'ดื่มเป็นประจำทุกวัน'
-          END as drink
-         
+          WHEN 	drink = 4 THEN 'เคยดื่มแต่เลิกแล้ว'
+          END as drink,
+      CASE 
+          WHEN 	bloodlast = 0 THEN 'ปกติ'
+          WHEN 	bloodlast = 1 THEN 'ปลอดภัย'
+          WHEN 	bloodlast = 2 THEN 'เสี่ยง'
+          WHEN 	bloodlast = 3 THEN 'ไม่ปลอดภัย'
+          WHEN 	bloodlast = 4 THEN 'ไม่เคยตรวจ'
+          END as bloodlast,
+      CASE 
+          WHEN 	gum = 0 THEN 'ปกติ'
+          WHEN 	gum = 1 THEN 'บวม'
+          WHEN 	gum = 2 THEN 'หนอง'
+          END as gum,
+      CASE 
+          WHEN 	limestone = 0 THEN 'มี'
+          WHEN 	limestone = 1 THEN 'ไม่มี'    
+          END as limestone,
+      CASE 
+          WHEN 	breast = 0 THEN 'ตนเอง'
+          WHEN 	breast = 1 THEN 'บุคลากรสาธารณสุข'    
+          END as breast,
+      CASE 
+          WHEN 	breastre = 0 THEN 'ปกติ'
+          WHEN 	breastre = 1 THEN 'ผิดปกติ'    
+          END as breastre,
+      CASE 
+          WHEN 	cervixre = 0 THEN 'ปกติ'
+          WHEN 	cervixre = 1 THEN 'ผิดปกติ'    
+          END as cervixre,
+      CASE 
+          WHEN 	eye = 0 THEN 'ปกติ'
+          WHEN 	eye = 1 THEN 'เป็นต้อหิน'
+          WHEN 	eye = 2 THEN 'เป็นต้อกระจก'
+          WHEN 	eye = 3 THEN 'สายตาสั้น'
+          WHEN 	eye = 4 THEN 'สายตายาว'
+          WHEN 	eye = 5 THEN 'สายตาเอียง'
+          END as eye,
+      CASE 
+          WHEN 	type_eye = 0 THEN 'เครื่องส่องตา'
+          WHEN 	type_eye = 1 THEN 'เครื่องถ่ายจอประสาทตาด้วยคอมพิวเตอร์'
+          END as type_eye,
+      CASE 
+          WHEN 	foot = 0 THEN 'ปกติ'
+          WHEN 	foot = 1 THEN 'เสี่ยงต่ำ'
+          WHEN 	foot = 2 THEN 'เสี่ยงปานกลาง'
+          WHEN 	foot = 3 THEN 'เสี่ยงสูง'
+          WHEN 	foot = 4 THEN 'เป็นแผล'
+          WHEN 	foot = 5 THEN 'ถูกตัดเท้า'
+          END as foot
           FROM
               personal_document pd
               LEFT JOIN user_status_keep uk ON uk.pd_id = pd.pd_id
