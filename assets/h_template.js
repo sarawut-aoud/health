@@ -31,7 +31,7 @@ $(document).ready(function () {
     url: "../../controller/top_navbar.php",
     success: function (result) {
       if (result.is_success) {
-        $("#user_position").html(result.status);
+        $("#user_position,#user_position2").html(result.status);
         $("#user_path").attr("href", result.path);
       }
     },

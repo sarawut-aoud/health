@@ -7,12 +7,8 @@ class dashboard extends Database_set
   public function personal()
   {
     $pd_id = $_SESSION['pd_id'];
-    $result = mysqli_query($this->dbcon, "SELECT *,
-    CASE 
-        WHEN title = 1 THEN 'นาย'
-        WHEN title = 2 THEN 'นาง'
-        WHEN title = 3 THEN 'นางสาว'
-        END as title 
+    $result = mysqli_query($this->dbcon, "SELECT *
+   
           
         FROM
             personal_document pd
@@ -49,7 +45,7 @@ class dashboard extends Database_set
       $result = mysqli_query($this->dbcon, "SELECT * FROM system_district ");
       return $result;
     } else {
-      $result = mysqli_query($this->dbcon, "SELECT * FROM system_district WHERE district_id ='$tumbon' ");
+      $result = mysqli_query($this->dbcon, "SELECT * FROM system_district WHERE amphoe_id  ='$tumbon' ");
       return $result;
     }
   }
@@ -59,7 +55,7 @@ class dashboard extends Database_set
       $result = mysqli_query($this->dbcon, "SELECT * FROM system_amphoe ");
       return $result;
     } else {
-      $result = mysqli_query($this->dbcon, "SELECT * FROM system_amphoe WHERE amphoe_id ='$amphoe' ");
+      $result = mysqli_query($this->dbcon, "SELECT * FROM system_amphoe WHERE province_id ='$amphoe' ");
       return $result;
     }
   }

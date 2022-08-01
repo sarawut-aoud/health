@@ -44,7 +44,7 @@ require_once '../../core/session.php';
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="<?= $_SESSION['permission'] == 'admin' ? "../admin/menu.php" : "../user/menu.php" ?>">Home</a></li>
                                 <li class="breadcrumb-item active">แบบบันทึกตรวจสุขภาพ</li>
                             </ol>
                         </div>
@@ -205,7 +205,7 @@ require_once '../../core/session.php';
                     foreach ($query as $menu) {
                     ?>
                         <div class="row justify-content-between p-2">
-                            <div class="col-md-6 text-start">
+                            <div class="col-md-6 text-start  pt-2">
                                 <?= $menu['status_name'] ?>
                             </div>
                             <div class="col-md-6 text-end">

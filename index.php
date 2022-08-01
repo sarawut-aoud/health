@@ -11,6 +11,7 @@
     <title><?= $title_path ?></title>
 
     <link rel="icon" href="./assets/icon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
     <link rel="stylesheet" href="./assets/bootstrap5/css/bootstrap.min.css">
     <link rel="stylesheet" href="./application/plugins/sweetalert2/sweetalert2.min.css">
@@ -37,18 +38,28 @@
                             <div role="alert" id="loginAlert"></div>
 
 
-                            <div class="  form-floating mb-3 mt-3">
+                            <div class="  form-floating  mb-3 mt-3">
                                 <input type="text" name="inputUsername" id="inputUsername" class="form-control" autocomplete="off" placeholder="ชื่อเข้าใช้งาน หรือ เบอร์โทร" required />
                                 <label for="floatingInputValue"> <small>ชื่อเข้าใช้งาน หรือ เบอร์โทร</small></label>
                                 <div class="invalid-feedback">
                                     ชื่อเข้าใช้งาน หรือ เบอร์โทร
                                 </div>
                             </div>
-                            <div class=" form-floating mb-3 mt-3">
-                                <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="รหัสผ่าน" required />
-                                <label for="floatingInputValue"><small>รหัสผ่าน</small></label>
+                            <div class="form-group  mb-3 mt-3">
+                                <div class="input-group">
+                                    <input class=" form-control p-2" type="password" id="inputPassword" name="inputPassword" aria-describedby="passwordHelp" placeholder="รหัสผ่านเข้าใช้งาน" maxlength="20" />
 
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary  p-2" type="button" onclick="myFunction()">
+                                            <span data-visible="hidden">
+                                                <i id="eyeshow" name="eyeshow" class="fas fa-eye-slash"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
+
+
                             <center>
                                 <div class="col-12 mt-4 mb-0">
                                     <button id="btnLogin" name="btnLogin" class="btn btn-info ">เข้าสู่ระบบ</button>
@@ -92,6 +103,22 @@
 <script src="./application/plugins/sweetalert2/sweetalert2.min.js"></script>
 <!-- <script src="./assets/h_template.js"></script> -->
 <script src="./assets/login.js"></script>
+<script>
+    function myFunction() {
+        var x = document.getElementById("inputPassword");
 
+        if (x.type === "password") {
+            x.type = "text";
+            $('#eyeshow').attr({
+                class: 'fas fa-eye'
+            });
+        } else {
+            x.type = "password";
+            $('#eyeshow').attr({
+                class: 'fas fa-eye-slash'
+            });
+        }
+    }
+</script>
 
 </html>

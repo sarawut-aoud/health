@@ -42,7 +42,7 @@ $data = mysqli_fetch_object($query);
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="./dashborad.php">Home</a></li>
+                                <li class="breadcrumb-item"><a href="./menu.php">Home</a></li>
                                 <li class="breadcrumb-item active">ข้อมูลส่วนตัว</li>
                             </ol>
                         </div>
@@ -55,7 +55,7 @@ $data = mysqli_fetch_object($query);
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-                            <form method="POST" id="register" class="needs-validation" novalidate>
+                            <form id="infomation" class="needs-validation" novalidate>
                                 <div class="card shadow-lg border-0 rounded-lg ">
                                     <div class="card-body">
                                         <ul class="nav nav-tabs nav-primary mb-0" data-bs-toggle="tabs">
@@ -63,92 +63,144 @@ $data = mysqli_fetch_object($query);
                                                 <a class="nav-link active" href="#">ข้อมูลส่วนตัว</a>
                                             </li>
                                         </ul>
-                                        <div class="d-md-flex d-sm-block form-row p-2">
-                                            <div class="col-md-2 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">คำนำหน้า</label>
-                                                    <input class="form-control py-2" id="title" name="title" type="text" value="<?php echo $data->title;  ?>" disabled>
+                                        <div class="card-body">
+                                            <div class="d-md-flex d-sm-block form-row p-2">
+                                                <div class="col-md-2 p-1">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1">คำนำหน้า </label>
+                                                        <select class="form-select py-2" id="title" name="title" autocomplete="off" placeholder="ชื่อ" required>
 
+                                                            <?php
+                                                            echo '<option value="" selected disabled>เลือกคำนำหน้า</option>';
+                                                            foreach ($title_name as $key => $val) {
+                                                                if ($data->title == $key) {
+                                                                    echo "<option selected value='$key'>$val</option>";
+                                                                } else {
+                                                                    echo "<option value='$key'>$val</option>";
+                                                                }
+                                                            }
+                                                            ?>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5 p-1">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1">ชื่อ </label>
+                                                        <input class="form-control py-2" id="fname" name="fname" type="text" onkeypress="not_number(event)" value="<?= $data->first_name ?>" autocomplete="off" placeholder="ชื่อ" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5 p-1">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1">นามสกุล </label>
+                                                        <input class="form-control py-2" id="lname" name="lname" type="text" onkeypress="not_number(event)" value="<?= $data->last_name ?>" autocomplete="off" placeholder="นามสกุล" required>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-5 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">ชื่อ</label>
-                                                    <input class="form-control py-2" id="fname" name="fname" type="text" value="<?php echo $data->first_name; ?>" placeholder="ชื่อ" disabled>
+                                            <div class="d-md-flex d-sm-block form-row p-2">
+                                                <div class="col-md-4 p-1">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1">อายุ </label>
+                                                        <input class="form-control py-2" id="age" name="age" type="text" maxlength="2" onkeypress="return onlyNumber(event)" value="<?= $data->age ?>" autocomplete="off" placeholder="อายุ" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8 p-1">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1">วัน/เดือน/ปีเกิด </label>
+                                                        <input class="form-control py-2" id="birthday" name="birthday" type="text" autocomplete="off" placeholder="วันเดินปีเกิด" value="<?= $data->birthday ?>" required>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-5 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">นามสกุล</label>
-                                                    <input class="form-control py-2" id="lname" name="lname" type="text" value="<?php echo $data->last_name; ?>" placeholder="นามสกุล" disabled>
+                                            <div class="d-md-flex d-sm-block form-row p-2">
+                                                <div class="col-md-6 p-1">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1">บัตรประชาชน </label>
+                                                        <input class="form-control py-2" id="id_card" name="id_card" type="tel" autocomplete="off" placeholder="" value="<?= $data->id_card ?>" required>
+                                                    </div>
                                                 </div>
+                                                <div class="col-md-6 p-1">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1">เบอร์โทร </label>
+                                                        <input class="form-control py-2" id="phone_number" name="phone_number" maxlength="10" onkeypress="return onlyNumber(event)" value="<?= $data->phone_number ?>" type="text" autocomplete="off" placeholder="เบอร์โทร" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class=" form-row p-2">
+                                                <div class="col-md-12 p-1">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1">ที่อยู่ปัจจุบัน </label>
+                                                        <textarea class="form-control py-2" id="address" name="address" type="tel" autocomplete="off" placeholder="ที่อยู่ปัจจุบัน" rows="4" required><?= $data->address ?></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="d-md-flex d-sm-block form-row p-2">
+                                                <div class="col-md-4 p-1">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1">จังหวัด </label>
+                                                        <select class="form-control select2" id="province_id" name="province_id" type="text" required>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 p-1">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1">อำเภอ </label>
+                                                        <select class="form-control select2" id="ampher_id" name="ampher_id" type="text" required>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 p-1">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1">ตำบล </label>
+                                                        <select class="form-control select2" id="tumbon_id" name="tumbon_id" type="text" required>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="d-md-flex d-sm-block form-row p-2">
+                                                <div class="col-md-6 p-1">
+                                                    <div class="form-group">
+                                                        <label class="small md-1">ชื่อเข้าใช้งาน </label>
+                                                        <input class="form-control py-2" id="username" name="username" type="text" value="<?= $data->username ?>" placeholder="ชื่อเข้าใช้งาน" autocomplete="off" required>
+                                                        <label class="p-2"> <span id="show_username"><span></label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="d-md-flex d-sm-block form-row p-2">
+                                                <div class="col-md-6 p-1">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1">รหัสผ่าน </label>
+                                                        <div class="input-group">
+                                                            <input class=" form-control py-2" type="password" id="password-input" name="password-input" autocomplete="off" placeholder="รหัสผ่าน" maxlength="20" required />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6 p-1">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1">ยันยันรหัสผ่าน </label>
+                                                        <div class="input-group">
+                                                            <input class=" form-control py-2" type="password" id="confirm_password" name="confirm_password" placeholder="ยืนยันรหัสผ่าน" autocomplete="off" maxlength="20" required />
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="card-footer text-end">
+                                                <a id="update" class="btn btn-sm btn-warning  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm mt-3"><i class="fas fa-edit"></i> ยืนยันการแก้ไขข้อมูล</a>
                                             </div>
                                         </div>
-                                        <div class="d-md-flex d-sm-block form-row p-2">
-                                            <div class="col-md-4 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">อายุ</label>
-                                                    <input class="form-control py-2" id="age" name="age" type="text" value="<?php echo $data->age; ?>" placeholder="อายุ" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">วันเดือนปีเกิด</label>
-                                                    <input class="form-control py-2" id="birthday" name="birthday" type="text" value="<?php echo $data->birthday; ?>" placeholder="วันเดินปีเกิด" disabled>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="d-md-flex d-sm-block form-row p-2">
-                                            <div class="col-md-6 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">บัตรประชาชน</label>
-                                                    <input class="form-control py-2" id="id_card" name="id_card" type="tel" value="<?php echo $data->id_card; ?>" placeholder="X-XXXX-XXXXX-XX-X" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">เบอร์โทร</label>
-                                                    <input class="form-control py-2" id="phone_number" name="phone_number" type="tel" value="<?php echo $data->phone_number; ?>" placeholder="เบอร์โทร" disabled>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class=" form-row p-2">
-                                            <div class="col-md-12 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">ที่อยู่ปัจจุบัน</label>
-                                                    <textarea class="form-control py-2" id="address" name="address" placeholder="ที่อยู่ปัจจุบัน" rows="4" disabled><?php echo $data->address; ?></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="d-md-flex d-sm-block form-row p-2">
-                                            <div class="col-md-4 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">ตำบล</label>
-                                                    <input class="form-control py-2" id="tumbon_id" name="tumbon_id" type="text" disabled>
-                                                    <input type="hidden" id="tumbon" value="<?php echo $data->tumbon_id; ?>">
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">อำเภอ</label>
-                                                    <input class="form-control py-2" id="amphoe_id" name="amphoe_id" type="text" disabled>
-                                                    <input type="hidden" id="amphoe" value="<?php echo $data->ampher_id; ?>">
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 p-1">
-                                                <div class="form-group">
-                                                    <label class="small mb-1">จังหวัด</label>
-                                                    <input class="form-control py-2" id="province_id" name="province_id" type="text" disabled>
-                                                    <input type="hidden" id="province" value="<?php echo $data->province_id; ?>">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
                                     </div>
+
                                 </div>
+                                <input type="hidden" id="tumbon_set" value="<?= $data->tumbon_id ?>">
+                                <input type="hidden" id="amphoe_set" value="<?= $data->ampher_id ?>">
+                                <input type="hidden" id="province_set" value="<?= $data->province_id ?>">
                             </form>
                         </div>
                     </div>
@@ -175,7 +227,7 @@ $data = mysqli_fetch_object($query);
                     foreach ($query as $menu) {
                     ?>
                         <div class="row justify-content-between p-2">
-                            <div class="col-md-6 text-start">
+                            <div class="col-md-6 text-start pt-2">
                                 <?= $menu['status_name'] ?>
                             </div>
                             <div class="col-md-6 text-end">

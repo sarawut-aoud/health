@@ -23,6 +23,13 @@ $row = $query->fetch_object();
                     <?php $cut = explode("/", $_SERVER["REQUEST_URI"]);
                     if ($cut[4] == 'admin') {
                     ?>
+                        <a href="./menu.php" class="nav-link active">
+                            <i class="nav-icon fas fa-bars"></i>
+
+                            <p>
+                                HOME
+                            </p>
+                        </a>
                         <a href="./dashborad.php" class="nav-link active">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
@@ -36,40 +43,49 @@ $row = $query->fetch_object();
             if ($cut[4] == 'user') {
                 if ($row->user_rate != '1') {
             ?>
-                    <a href="./dashboradreport.php" class="nav-link active">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <a href="./menu.php" class="nav-link active">
+                        <i class="nav-icon fas fa-bars"></i>
                         <p>
-                            Dashboard
+                            HOME
                         </p>
                     </a>
                 <?php } ?>
-                <a href="./dashborad.php" class="nav-link active">
-                    <i class="nav-icon fas fa-address-card"></i>
+                <a href="./dashboradreport.php" class="nav-link active">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
-                        ข้อมูลส่วนตัว
+                        Dashboard
                     </p>
                 </a>
             <?php } ?>
             <?php
             if ($cut[4] == 'app') {
                 if ($row->user_rate == '5') {
-                    $href = '../admin/dashborad.php';
+                    $href = '../admin/menu.php';
                 } else {
-                    $href = '../user/dashborad.php';
+                    $href = '../user/menu.php';
                 }
                 if ($row->user_rate != '1') {
             ?>
-                <a href="<?= $href ?>" class="nav-link active">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>
-                        Dashboard
-                    </p>
-                </a>
-                <?php } if ($_SESSION['permission'] == 'user') { ?>
                     <a href="<?= $href ?>" class="nav-link active">
-                        <i class="nav-icon fas fa-address-card"></i>
+                        <i class="nav-icon fas fa-bars"></i>
                         <p>
-                            ข้อมูลส่วนตัว
+                            HOME
+                        </p>
+                    </a>
+                    <?php if ($_SESSION['permission'] == 'admin') { ?>
+                        <a href="../admin/dashborad.php" class="nav-link active">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Dashboard
+                            </p>
+                        </a>
+                    <?php } ?>
+                <?php }
+                if ($_SESSION['permission'] == 'user') { ?>
+                    <a href="../user/dashboradreport.php" class="nav-link active">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Dashboard
                         </p>
                     </a>
                 <?php } ?>
