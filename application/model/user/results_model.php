@@ -226,12 +226,12 @@ class results_model extends Database_set
           WHEN 	drink = 4 THEN 'เคยดื่มแต่เลิกแล้ว'
           END as drink,
       CASE 
-          WHEN 	bloodlast = 0 THEN 'ปกติ'
-          WHEN 	bloodlast = 1 THEN 'ปลอดภัย'
-          WHEN 	bloodlast = 2 THEN 'เสี่ยง'
-          WHEN 	bloodlast = 3 THEN 'ไม่ปลอดภัย'
-          WHEN 	bloodlast = 4 THEN 'ไม่เคยตรวจ'
-          END as bloodlast,
+          WHEN 		resul = 0 THEN 'ปกติ'
+          WHEN 		resul = 1 THEN 'ปลอดภัย'
+          WHEN 		resul = 2 THEN 'เสี่ยง'
+          WHEN 		resul = 3 THEN 'ไม่ปลอดภัย'
+          WHEN 		resul = 4 THEN 'ไม่เคยตรวจ'
+          END as 	resul,
       CASE 
           WHEN 	gum = 0 THEN 'ปกติ'
           WHEN 	gum = 1 THEN 'บวม'
@@ -251,7 +251,7 @@ class results_model extends Database_set
           END as breastre,
       CASE 
           WHEN 	cervixre = 0 THEN 'ปกติ'
-          WHEN 	cervixre = 1 THEN 'ผิดปกติ'    
+          WHEN 	cervixre = 1 THEN 'ผิดปกติ คือ'    
           END as cervixre,
       CASE 
           WHEN 	eye = 0 THEN 'ปกติ'

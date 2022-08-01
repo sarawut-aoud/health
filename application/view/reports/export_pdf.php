@@ -319,72 +319,87 @@ $html = '
  <td width="35%;" align="center"><h6></h6></td>
  </tr>
   </table>
+
+
+
 <h5><b>ผลการตรวจคัดกรองสารเคมีในเลือด</b></h5>
 <table width="100%">
 <tr>
-<td width="40%;"><h6> ตรวจครั้งสุดท้ายเมื่อปี พ.ศ.</h6></td>
-<td width="20%;" align="center"><h6>'. $data->bloodlast.'</h6></td>
-<td width="25%;"><h6> ผลการตรวจ</h6></td>
+<td width="25%;"><h6> ตรวจครั้งสุดท้ายเมื่อปี พ.ศ.</h6></td>
+<td width="10%;" align="left"><h6>'. $data->bloodlast.'</h6></td>
+<td width="25%;" align="center"><h6> ผลการตรวจ</h6></td>
 <td width="10%;" align="center"><h6>'. $data->resul.'</h6></td>
 </tr>
+
  <tr>
- <td width="30%;"><h6> <b>การดูแลสุขภาพช่องปากเหงือก</b></h6></td>
- <td width="10%;" align="center"><h6>'. $data->gum.'</h6></td>
- <td width="8%;"><h6> หินปูน</h6></td>
- <td width="8%;" align="center"><h6>'. $data->limestone.'</h6></td>
- <td width="25%;"><h6> จำนวนฟันแท้ผุ</h6></td>
- <td width="10%;" align="center"><h6>'. $data->cavities.'</h6></td>
+ <td width="27%;"><h6> <b>การดูแลสุขภาพช่องปากเหงือก</b></h6></td>
+ <td width="10%;" align="left"><h6>'. $data->gum.'</h6></td>
+ <td width="15%;"><h6> หินปูน</h6></td>
+ <td width="10%;" align="left"><h6>'. $data->limestone.'</h6></td>
+ <td width="20%;"><h6> จำนวนฟันแท้ผุ</h6></td>
+ <td width="10%;" align="left"><h6>'. $data->cavities.'</h6></td>
+ <td width="25%;"><h6> ซี่</h6></td>
  </tr>
+
  <tr>
- <td width="80%;"><h6><b> การตรวจเต้านม ในสตรีอายุ 30 ปีขึ้นไปตรวจด้วย</b></h6></td>
- <td width="15%;" align="center"><h6>'. $data->breast.'</h6></td>
+ <td width="42%;"><h6><b> การตรวจเต้านม ในสตรีอายุ 30 ปีขึ้นไปตรวจด้วย</b></h6></td>
+ <td width="20%;" align="left"><h6>'. $data->breast.'</h6></td>
  </tr>
+
  <tr>
- <td width="40%;"><h6> ตรวจครั้งสุดท้ายเมื่อ</h6></td>
- <td width="15%;" align="center"><h6>'. $data->breastlast.'</h6></td>
- <td width="25%;"><h6> ผลการตรวจ.</h6></td>
+ <td width="25%;"><h6> ตรวจครั้งสุดท้ายเมื่อ</h6></td>
+ <td width="10%;" align="left"><h6>'. $data->breastlast.'</h6></td>
+ <td width="25%;" align="center"><h6> ผลการตรวจ</h6></td>
  <td width="10%;" align="center"><h6>'. $data->breastre.'</h6></td>
  </tr>
  </table>
+
+
 <h5><b>การตรวจคัดกรองมะเร็งปากมดลูกในสตรีอายุ 30 ปีขึ้นไป</b></h5>
 <table width="100%">
  <tr>
- <td width="40%;"><h6> ตรวจครั้งสุดท้ายเมื่อปี พ.ศ.</h6></td>
- <td width="15%;" align="center"><h6>'. $data->cervix.'</h6></td>
- <td width="15%;"><h6> ผลการตรวจ</h6></td>
- <td width="5%;" align="center"><h6>'. $data->cervixre.'</h6></td>
- <td width="10%;" align="center"><h6>'. $data->cervixsub . '</h6></td>
+ <td width="25%;"><h6> ตรวจครั้งสุดท้ายเมื่อปี พ.ศ.</h6></td>
+ <td width="10%;" align="left"><h6>'. $data->cervix.'</h6></td>
+ <td width="25%;" align="center"><h6> ผลการตรวจ</h6></td>
+ <td width="10%;" align="center"><h6>'. $data->cervixre.'</h6></td>
+ <td width="10%;" align="left"><h6>'. $data->cervixsub . '</h6></td>
  </tr>
  </table>
+
  <h5><b>คำถามเพิ่มเติมหากท่านรักษาโรคประจำตัวเบาหวาน ความดัน ไขมันสูง</b></h5>
  <table width="100%">
  <tr>
- <td width="40%;"><h6> ตรวจน้ำตาลครั้งสุดท้าย</h6></td>
- <td width="20%;" align="center"><h6>'. $data->sugar.'</h6></td>
- <td width="25%;"><h6> ค่าไต (Cr)</h6></td>
+ <td width="25%;"><h6> ตรวจน้ำตาลครั้งสุดท้าย</h6></td>
+ <td width="10%;" align="left"><h6>'. $data->sugar.'</h6></td>
+ <td width="25%;" align="center"><h6> ค่าไต (Cr)</h6></td>
  <td width="10%;" align="center"><h6>'. $data->kidney.'</h6></td>
  </tr>
+
  <tr>
  <td width="15%;"><h6> โคเลสเตอรอล (Cho)</h6></td>
  <td width="10%;" align="center"><h6>'. $data->cholesterol.'</h6></td>
  <td width="15%;"><h6> ไตรกลีเซอไรด์ (Tri)</h6></td>
  <td width="10%;" align="center"><h6>'. $data->trigly.'</h6></td>
- <td width="15%;"><h6> ไขมัน</h6></td>
- <td width="10%;" align="center"><h6>'. $data->fat_hdl.'</h6></td>
- <td width="10%;" align="center"><h6>'. $data->fat_ldl.'</h6></td>
+ <td width="10%;" align="center"><h6> ไขมัน</h6></td>
+ <td width="10%;"><h6> HDL</h6></td>
+ <td width="10%;" align="left"><h6>'. $data->fat_hdl.'</h6></td>
+ <td width="10%;"><h6> LDL</h6></td>
+ <td width="10%;" align="left"><h6>'. $data->fat_ldl.'</h6></td>
+ </tr>
 
- </tr>
  <tr>
- <td width="80%;"><h6> ผลตรวจตา</h6></td>
- <td width="15%;" align="center"><h6>'. $data->eye.'</h6></td>
+ <td width="15%;"><h6> ผลตรวจตา</h6></td>
+ <td width="15%;" align="left"><h6>'. $data->eye.'</h6></td>
  </tr>
+
  <tr>
- <td width="80%;"><h6> ชนิดเครื่องตรวจตา</h6></td>
- <td width="15%;" align="center"><h6>'. $data->type_eye.'</h6></td>
+ <td width="15%;"><h6> ชนิดเครื่องตรวจตา</h6></td>
+ <td width="30%;" align="left"><h6>'. $data->type_eye.'</h6></td>
  </tr>
+
  <tr>
- <td width="80%;"><h6> ผลตรวจเท้า</h6></td>
- <td width="15%;" align="center"><h6>'. $data->foot.'</h6></td>
+ <td width="15%;"><h6> ผลตรวจเท้า</h6></td>
+ <td width="15%;" align="left"><h6>'. $data->foot.'</h6></td>
  </tr>
  </table>
 ';
