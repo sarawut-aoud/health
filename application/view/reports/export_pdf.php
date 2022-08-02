@@ -55,6 +55,20 @@ function getname()
     $result2 = $query2->fetch_object();
     return $result2->first_name . ' ' . $result2->last_name;
 }
+function hospital()
+{
+    $pd_id = $_REQUEST['pd_id'];
+    $sql = new results_model();
+    $query = $sql->personal($pd_id);
+    $i = 1;
+    $html ="";
+    while ($data = mysqli_fetch_object($query)) {
+        $html[$i] = "<h6><b>โรคประจำตัว $i</b> &nbsp;&nbsp;&nbsp;&nbsp; $data->congen &nbsp;&nbsp;&nbsp;&nbsp;<b>เป็นมานาน</b>&nbsp;&nbsp;&nbsp;  $data->long_time&nbsp;&nbsp;&nbsp;&nbsp; <b>ปีรพ.รักษาประจำ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $data->hospital &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>รพ.ที่ตรวจพบครั้งแรก</b>&nbsp;&nbsp;&nbsp;&nbsp; $data->hospital_first </h6>";
+        
+    $i++;
+} 
+    return $html[1].$html[2].$html[3].$html[4].$html[5];
+}
 class MYPDF extends TCPDF
 {
 
@@ -126,6 +140,10 @@ $tumbon = tumbon($data->tumbon_id);
 // .table, th, td {
 //     border: 1px solid;
 //   }
+// <h6><b>โรคประจำตัว 2</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->congen.'&nbsp;&nbsp;&nbsp;&nbsp;<b>เป็นมานาน</b>&nbsp;&nbsp;&nbsp;&nbsp; '. $data->long_time.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>ปีรพ.รักษาประจำ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->hospital.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>รพ.ที่ตรวจพบครั้งแรก</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->hospital_first.' </h6>
+// <h6><b>โรคประจำตัว 3</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->congen.'&nbsp;&nbsp;&nbsp;&nbsp;<b>เป็นมานาน</b>&nbsp;&nbsp;&nbsp;&nbsp; '. $data->long_time.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>ปีรพ.รักษาประจำ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->hospital.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>รพ.ที่ตรวจพบครั้งแรก</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->hospital_first.' </h6>
+// <h6><b>โรคประจำตัว 4</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->congen.'&nbsp;&nbsp;&nbsp;&nbsp;<b>เป็นมานาน</b>&nbsp;&nbsp;&nbsp;&nbsp; '. $data->long_time.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>ปีรพ.รักษาประจำ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->hospital.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>รพ.ที่ตรวจพบครั้งแรก</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->hospital_first.' </h6>
+// <h6><b>โรคประจำตัว 5</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->congen.'&nbsp;&nbsp;&nbsp;&nbsp;<b>เป็นมานาน</b>&nbsp;&nbsp;&nbsp;&nbsp; '. $data->long_time.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>ปีรพ.รักษาประจำ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->hospital.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>รพ.ที่ตรวจพบครั้งแรก</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->hospital_first.' </h6>
 $html = '
 <style>
     b{
@@ -229,11 +247,9 @@ $html = '
 <h6><b>จังหวัด</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '.$provice.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <b>โทร</b>&nbsp;&nbsp;&nbsp; '. $data->phone_number.' </h6>
 <h6><b>สถานภาพ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->pd_status.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>การศึกษา</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->education.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>ประเภทพักอาศัย</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->type_live.' </h6>
 <h6><b>อาชีพหลักในปัจจุบัน</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->occupation.' </h6>
-<h6><b>โรคประจำตัว 1</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->congen.'&nbsp;&nbsp;&nbsp;&nbsp;<b>เป็นมานาน</b>&nbsp;&nbsp;&nbsp;&nbsp; '. $data->long_time.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>ปีรพ.รักษาประจำ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->hospital.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>รพ.ที่ตรวจพบครั้งแรก</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->hospital_first.' </h6>
-<h6><b>โรคประจำตัว 2</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->congen.'&nbsp;&nbsp;&nbsp;&nbsp;<b>เป็นมานาน</b>&nbsp;&nbsp;&nbsp;&nbsp; '. $data->long_time.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>ปีรพ.รักษาประจำ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->hospital.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>รพ.ที่ตรวจพบครั้งแรก</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->hospital_first.' </h6>
-<h6><b>โรคประจำตัว 3</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->congen.'&nbsp;&nbsp;&nbsp;&nbsp;<b>เป็นมานาน</b>&nbsp;&nbsp;&nbsp;&nbsp; '. $data->long_time.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>ปีรพ.รักษาประจำ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->hospital.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>รพ.ที่ตรวจพบครั้งแรก</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->hospital_first.' </h6>
-<h6><b>โรคประจำตัว 4</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->congen.'&nbsp;&nbsp;&nbsp;&nbsp;<b>เป็นมานาน</b>&nbsp;&nbsp;&nbsp;&nbsp; '. $data->long_time.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>ปีรพ.รักษาประจำ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->hospital.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>รพ.ที่ตรวจพบครั้งแรก</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->hospital_first.' </h6>
-<h6><b>โรคประจำตัว 5</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->congen.'&nbsp;&nbsp;&nbsp;&nbsp;<b>เป็นมานาน</b>&nbsp;&nbsp;&nbsp;&nbsp; '. $data->long_time.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>ปีรพ.รักษาประจำ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->hospital.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>รพ.ที่ตรวจพบครั้งแรก</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->hospital_first.' </h6>
+
+'.hospital().'
+
 <h5><b>2.ตรวจร่างกาย คัดกรอง</b></h5>
 <h6>ความดันโลหิตครั้งที่ 1 &nbsp;&nbsp;'. $data->blood1.'&nbsp;&nbsp;มม.ปรอท&nbsp;&nbsp;&nbsp;&nbsp; ความดันโลหิตครั้งที่ 2 &nbsp;&nbsp;'. $data->blood2.'&nbsp;&nbsp;มม.ปรอท. &nbsp;&nbsp;&nbsp;น้ำหนัก &nbsp;&nbsp;'. $data->weight.'&nbsp;&nbsp;กก.&nbsp;&nbsp;&nbsp; ส่วนสูง&nbsp;&nbsp;'. $data->height.'&nbsp;&nbsp; ซม.&nbsp;&nbsp;&nbsp; รอบเอว&nbsp;&nbsp;'. $data->waistline.'&nbsp;&nbsp;ซม.&nbsp;&nbsp;&nbsp; การคลุมกำเนิด&nbsp;&nbsp;'. $data->birth.' </h6>
 <h6>ถ้าอายุ 35 ปีขึ้นและไม่ป่วยเบาหวานความดัน ให้ตรวจระดับน้ำตาลในเลือดหลังอดอาหาร ผลตรวจครั้งนี้เท่ากับ&nbsp;&nbsp; '. $data->diabetes.' &nbsp;&nbsp;mg%&nbsp;&nbsp;&nbsp;
@@ -252,69 +268,71 @@ $html = '
 <h5><b>4.พฤติกรรมสุขภาพ</b></h5>
 <table width="100%">
  <tr>
- <td width="70%;"><h6> 4.1 ทานกินผัก 5 ทัพพีต่อวันอย่างไร.</h6></td>
- <td width="30%;" align="left"><h6>'. $data->veget.'</h6></td>
+ <td width="60%;"><h6> 4.1 ทานกินผัก 5 ทัพพีต่อวันอย่างไร.</h6></td>
+ <td width="40%;" align="left"><h6>'. $data->veget.'</h6></td>
  </tr>
  <tr>
- <td width="70%;"><h6> 4.2 ท่านเติมเครื่องปรุงรสเค็มในอาหารที่กินหรือไม่.</h6></td>
- <td width="30%;" align="left"><h6>'. $data->condiment.'</h6></td>
+ <td width="60%;"><h6> 4.2 ท่านเติมเครื่องปรุงรสเค็มในอาหารที่กินหรือไม่.</h6></td>
+ <td width="40%;" align="left"><h6>'. $data->condiment.'</h6></td>
  </tr>
  <tr>
- <td width="70%;"><h6> 4.3 ท่านเติมน้ำตาลในอาหารหรือเครื่องดื่มรสหวานหรือไม่.</h6></td>
- <td width="30%;" align="left"><h6>'. $data->sweet.'</h6></td>
+ <td width="60%;"><h6> 4.3 ท่านเติมน้ำตาลในอาหารหรือเครื่องดื่มรสหวานหรือไม่.</h6></td>
+ <td width="40%;" align="left"><h6>'. $data->sweet.'</h6></td>
  </tr>
  <tr>
- <td width="70%;"><h6> 4.4 ท่านได้ออกกำลังกายจนรู้สึกเหนื่อยกว่าปกติหรือไม่.</h6></td>
- <td width="30%;" align="left"><h6>'. $data->exercise.'</h6></td>
+ <td width="60%;"><h6> 4.4 ท่านได้ออกกำลังกายจนรู้สึกเหนื่อยกว่าปกติหรือไม่.</h6></td>
+ <td width="40%;" align="left"><h6>'. $data->exercise.'</h6></td>
  </tr>
  <tr>
- <td width="70%;"><h6> 4.5 ท่านนั่งหรือเอนกายเฉยๆ ติดต่อกันเกิน 4 ชั่วโมงหรือไม่.</h6></td>
- <td width="30%;" align="left"><h6>'. $data->loll.'</h6></td>
+ <td width="60%;"><h6> 4.5 ท่านนั่งหรือเอนกายเฉยๆ ติดต่อกันเกิน 4 ชั่วโมงหรือไม่.</h6></td>
+ <td width="40%;" align="left"><h6>'. $data->loll.'</h6></td>
  </tr>
  <tr>
- <td width="70%;"><h6> 4.6 ท่านนอนเกิน 7 ชั่วโมงหรือไม่.</h6></td>
- <td width="30%;" align="left"><h6>'. $data->sleep.'</h6></td>
+ <td width="60%;"><h6> 4.6 ท่านนอนเกิน 7 ชั่วโมงหรือไม่.</h6></td>
+ <td width="40%;" align="left"><h6>'. $data->sleep.'</h6></td>
  </tr>
  <tr>
- <td width="70%;"><h6> 4.7 ท่านแปรงฟันก่อนนอนทุกวันหรือไม่.</h6></td>
- <td width="30%;" align="left"><h6>'. $data->brush.'</h6></td>
+ <td width="60%;"><h6> 4.7 ท่านแปรงฟันก่อนนอนทุกวันหรือไม่.</h6></td>
+ <td width="40%;" align="left"><h6>'. $data->brush.'</h6></td>
  </tr>
  <tr>
- <td width="70%;"><h6> 4.8 ท่านใช้เวลาแปรงฟันอย่างน้อยนานกี่นาที.</h6></td>
- <td width="30%;" align="left"><h6>'. $data->brushlong.'</h6></td>
+ <td width="60%;"><h6> 4.8 ท่านใช้เวลาแปรงฟันอย่างน้อยนานกี่นาที.</h6></td>
+ <td width="40%;" align="left"><h6>'. $data->brushlong.'</h6></td>
  </tr>
  <tr>
- <td width="70%;"><h6> 4.9 การสูบบุหรี่.</h6></td>
- <td width="30%;" align="left"><h6>'. $data->cigarette.'</h6></td>
+ <td width="60%;"><h6> 4.9 การสูบบุหรี่.</h6></td>
+ <td width="40%;" align="left"><h6>'. $data->cigarette.'</h6></td>
  </tr>
  <tr>
- <td width="70%;"><h6> 4.10 ชนิดของบุหรี่.</h6></td>
- <td width="30%;" align="left"><h6>'. $data->cigarate.'</h6></td>
+ <td width="60%;"><h6> 4.10 ชนิดของบุหรี่.</h6></td>
+ <td width="40%;" align="left"><h6>'. $data->cigarate.'</h6></td>
  </tr>
  <tr>
- <td width="70%;"><h6> 4.11 จำนวนมวนต่อวัน.</h6></td>
- <td width="30%;" align="left"><h6>'. $data->num.'</h6></td>
+ <td width="60%;"><h6> 4.11 จำนวนมวนต่อวัน.</h6></td>
+ <td width="40%;" align="left"><h6>'. $data->num.'</h6></td>
  </tr>
  <tr>
- <td width="70%;"><h6> 4.12 พฤติกรรมสูบมวนแรกหลังตื่นนอน.</h6></td>
- <td width="30%;" align="left"><h6>'. $data->after.'</h6></td>
+ <td width="60%;"><h6> 4.12 พฤติกรรมสูบมวนแรกหลังตื่นนอน.</h6></td>
+ <td width="40%;" align="left"><h6>'. $data->after.'</h6></td>
  </tr> <tr>
- <td width="70%;"><h6> 4.13 การดื่มสุรา.</h6></td>
- <td width="30%;" align="left"><h6>'. $data->drink.'</h6></td>
+ <td width="60%;"><h6> 4.13 การดื่มสุรา.</h6></td>
+ <td width="40%;" align="left"><h6>'. $data->drink.'</h6></td>
  </tr> 
  <tr>
- <td width="70%;"><h6> 4.14 ชนิดของสุรา.</h6></td>
- <td width="30%;" align="left"><h6>'. $data->alcohol.'</h6></td>
+ <td width="60%;"><h6> 4.14 ชนิดของสุรา.</h6></td>
+ <td width="40%;" align="left"><h6>'. $data->alcohol.'</h6></td>
  </tr>
  <tr>
- <td width="70%;"><h6> 4.15 ปริมาณที่ดื่มต่อครั้ง.</h6></td>
- <td width="30%;" align="left"><h6>'. $data->amount.'&nbsp;&nbsp;ก๊ง / กั๊ก / แบน / ขวด</h6></td>
+ <td width="60%;"><h6> 4.15 ปริมาณที่ดื่มต่อครั้ง.</h6></td>
+ <td width="40%;" align="left"><h6>'. $data->amount.'&nbsp;&nbsp;ก๊ง / กั๊ก / แบน / ขวด</h6></td>
  </tr>
  
-  </table>
+  </table>';
+  $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
+  $pdf->AddPage();
 
-
-
+  $html2 = '
+  
 <h5><b>ผลการตรวจคัดกรองสารเคมีในเลือด</b></h5>
 <table width="100%">
 <tr>
@@ -396,7 +414,7 @@ $html = '
  </tr>
  </table>
 ';
-$pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
+$pdf->writeHTMLCell(0, 0, '', '', $html2, 0, 1, 0, true, '', true);
 // $pdf->WriteHTML($html, true, false, true, false);
 
 $pdf->Output(NULL, 'I');
