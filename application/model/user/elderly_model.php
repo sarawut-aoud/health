@@ -159,13 +159,11 @@ class addelderly extends Database_set
 
     private function disease($last_id, $congen, $long, $hospi, $hosfirst)
     {
-        echo '<pre>';
-        print_r($congen[1]);
-        die;
+       
         for ($i = 0; $i < count($congen); $i++) {
-            $this->disease_insert($last_id, $congen[$i], $long[$i], $hospi[$i], $hosfirst[$i]);
+          $result=  $this->disease_insert($last_id, $congen[$i], $long[$i], $hospi[$i], $hosfirst[$i]);
         }
-        return 'success';
+        return  $result;
     }
     private function disease_insert($last_id, $congen, $long, $hospi, $hosfirst)
     {
