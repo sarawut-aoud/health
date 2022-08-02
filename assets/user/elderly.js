@@ -298,6 +298,15 @@ $(document).ready(function () {
       $("input[name='brushlong']").prop("required", true);
     }
   });
+  $(document).on("change", "#cigarette1", function (e) {
+    if ($(this).is(':checked') === true) {
+      $("#num1,#num2,#num3,#after1,#after2,#after3").prop("checked", false).prop("disabled", true);
+      $("#cigarate").prop('disabled', true);
+    } else {
+      $("#cigarate").prop('disabled', false);
+      $("#num1,#num2,#num3,#after1,#after2,#after3").prop("disabled", false);
+    }
+  });
   $(document).on("change", " input[name='cigarette']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
@@ -320,6 +329,13 @@ $(document).ready(function () {
       $("input[name='after']").not(this).prop("checked", false).prop("required", false);
     } else {
       $("input[name='after']").prop("required", true);
+    }
+  });
+  $(document).on("change", "#drink1", function (e) {
+    if ($(this).is(':checked') === true) {
+      $("#alcohol,#amount").prop('disabled', true);
+    } else {
+      $("#alcohol,#amount").prop('disabled', false);
     }
   });
   $(document).on("change", " input[name='drink']", function (e) {
@@ -357,25 +373,33 @@ $(document).ready(function () {
   $(document).on("change", " input[name='breast']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='breast']").not(this).prop("checked", false).prop("required", false);
+      $("input[name='breast']").not(this).prop("checked", false);
     } else {
-      $("input[name='breast']").prop("required", true);
+      $("input[name='breast']");
     }
   });
   $(document).on("change", " input[name='breastre']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='breastre']").not(this).prop("checked", false).prop("required", false);
+      $("input[name='breastre']").not(this).prop("checked", false);
     } else {
-      $("input[name='breastre']").prop("required", true);
+      $("input[name='breastre']");
+    }
+  });
+  $(document).on("change", "#cervixre1", function (e) {
+    if ($(this).is(':checked') === true) {
+      $("#cervixsub").prop('disabled', true);
+    } else {
+      $("#cervixsub").prop('disabled', false);
     }
   });
   $(document).on("change", " input[name='cervixre']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
-      $("input[name='cervixre']").not(this).prop("checked", false).prop("required", false);
+      $("input[name='cervixre']").not(this).prop("checked", false);
     } else {
-      $("input[name='cervixre']").prop("required", true);
+      $("input[name='cervixre']");
+      
     }
   });
   $(document).on("change", " input[name='eye']", function (e) {
