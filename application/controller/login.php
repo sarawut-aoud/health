@@ -5,7 +5,7 @@ $class = new login_model();
 
 parse_str($_POST["frmLogin"], $_POST);
 if ($_POST['func'] == 'login') {
-    $username = $_POST['inputUsername'] != '' ? $_POST['inputUsername'] : '';
+    $username = $_POST['inputUsername'] != '' ? strtolower($_POST['inputUsername']) : '';
     $phone_number = $_POST['inputUsername'] != '' ? $_POST['inputUsername'] : '';
     $password = $_POST['inputPassword'] != '' ? $_POST['inputPassword'] : '';
 

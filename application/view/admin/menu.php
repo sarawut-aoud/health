@@ -77,8 +77,11 @@ $row = $query->fetch_object();
                         <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-10 col-sm col">
                             <div class="card card-shadow ">
                                 <div class="card-body text-center">
-                                    <sapn class="me-4"> ชื่อ - สกุล : <?= $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] ?></sapn>
-                                    <sapn class="ms-4"> สถานะตำแหน่ง : <span id='user_position2'></span></sapn>
+                                    <div class="row justify-content-center">
+                                        <sapn class="col-xxl-5 col-sm "> ชื่อ - สกุล : <?= $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] ?></sapn>
+                                        <sapn class="col-xxl-5 col-sm  "> สถานะตำแหน่ง : <span id='user_position2'></span></sapn>
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="card card-shadow  ">

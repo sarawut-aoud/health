@@ -71,11 +71,14 @@ $row = $query->fetch_object();
                         <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-10 col-sm col">
                             <div class="card card-shadow ">
                                 <div class="card-body text-center">
-                                    <div class=" d-flex justify-content-around">
-                                        <sapn class="me-4"> ชื่อ - สกุล : <?= $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] ?></sapn>
-                                        <sapn class="ms-4 me-5"> สถานะตำแหน่ง : <span id='user_position2'></span></sapn>
-                                        <a class="ms-5 " href="./dashborad.php"><i class="fas fa-user-cog"></i> แก้ไขข้อมูลส่วนตัว</a>
+
+                                    <div class="row justify-content-center">
+                                        <sapn class="col-xxl-4 col-sm p-2"> ชื่อ - สกุล : <?= $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] ?></sapn>
+                                        <sapn class="col-xxl-4 col-sm p-2"> สถานะตำแหน่ง : <span id='user_position2'></span></sapn>
+                                        <a class="col-xxl-4 col-sm p-2" href="./dashborad.php"><i class="fas fa-user-cog"></i> แก้ไขข้อมูลส่วนตัว</a>
                                     </div>
+
+
 
 
                                 </div>

@@ -29,7 +29,7 @@ if ($row->user_rate != '1') {
     <?php require '../../core/loadscript.php' ?>
     <link rel="stylesheet" href="../../plugins/bootstrap-datepicker-thai/css/datepicker.css">
     <link rel="stylesheet" href="../../../assets/custom_style.css">
-    
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -134,6 +134,78 @@ if ($row->user_rate != '1') {
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="d-md-flex d-sm-block form-row p-2">
+                                                <div class="col-md-4 p-1">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1">การศึกษา </label>
+                                                        <select class="form-select py-2" id="education" name="education" autocomplete="off" placeholder="ชื่อ" required>
+                                                            <?php
+                                                            echo '<option  selected disabled>เลือกการศึกษา</option>';
+                                                            foreach ($education2 as $keye => $vale) {
+                                                                if ($data->education == $keye) {
+                                                                    echo "<option selected value='$keye'>$vale</option>";
+                                                                } else {
+                                                                    echo "<option value='$keye'>$vale</option>";
+                                                                }
+                                                            }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8 p-1">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1">อาชีพหลักในปัจจุบัน </label>
+                                                        <select class="form-select py-2" id="occupation" name="occupation" autocomplete="off" placeholder="ชื่อ" required>
+                                                            <?php
+                                                            echo '<option  selected disabled>เลือกอาชีพหลักในปัจจุบัน</option>';
+                                                            foreach ($occupation as $keye => $vale) {
+                                                                if ($data->occupation == $keye) {
+                                                                    echo "<option selected value='$keye'>$vale</option>";
+                                                                } else {
+                                                                    echo "<option value='$keye'>$vale</option>";
+                                                                }
+                                                            }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="d-md-flex d-sm-block form-row p-2">
+                                                <div class="col-md-4 p-1">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1">สถานะภาพ </label>
+                                                        <select class="form-select py-2" id="pd_status" name="pd_status" autocomplete="off" placeholder="ชื่อ" required>
+                                                            <?php
+                                                            echo '<option  selected disabled>เลือกสถานะภาพ</option>';
+                                                            foreach ($pd_status as $keye => $vale) {
+                                                                if ($data->pd_status == $keye) {
+                                                                    echo "<option selected value='$keye'>$vale</option>";
+                                                                } else {
+                                                                    echo "<option value='$keye'>$vale</option>";
+                                                                }
+                                                            }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8 p-1">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1">ประเภทพักอาศัย </label>
+                                                        <select class="form-select py-2" id="type_live" name="type_live" autocomplete="off" placeholder="ชื่อ" required>
+                                                            <?php
+                                                            echo '<option  selected disabled>เลือกประเภทพักอาศัย</option>';
+                                                            foreach ($housing_type as $keye => $vale) {
+                                                                if ($data->type_live == $keye) {
+                                                                    echo "<option selected value='$keye'>$vale</option>";
+                                                                } else {
+                                                                    echo "<option value='$keye'>$vale</option>";
+                                                                }
+                                                            }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class=" form-row p-2">
                                                 <div class="col-md-12 p-1">
                                                     <div class="form-group">
@@ -172,7 +244,7 @@ if ($row->user_rate != '1') {
                                                 <div class="col-md-6 p-1">
                                                     <div class="form-group">
                                                         <label class="small md-1">ชื่อเข้าใช้งาน </label>
-                                                        <input class="form-control py-2" id="username" name="username" type="text" value="<?= $data->username ?>" placeholder="ชื่อเข้าใช้งาน" autocomplete="off" required>
+                                                        <input class="form-control py-2" id="username" name="username" type="text" value="<?= $data->username != "" ? $data->username : $data->phone_number ?>" disabled placeholder="ชื่อเข้าใช้งาน" autocomplete="off" required>
                                                         <label class="p-2"> <span id="show_username"><span></label>
                                                     </div>
                                                 </div>
@@ -210,6 +282,7 @@ if ($row->user_rate != '1') {
                                 <input type="hidden" id="tumbon_set" value="<?= $data->tumbon_id ?>">
                                 <input type="hidden" id="amphoe_set" value="<?= $data->ampher_id ?>">
                                 <input type="hidden" id="province_set" value="<?= $data->province_id ?>">
+                                <input type="hidden" name="pd_id" value="<?= $_SESSION['pd_id'] ?>">
                             </form>
                         </div>
                     </div>

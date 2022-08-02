@@ -74,27 +74,27 @@ class addelderly extends Database_set
         $province_id = trim($post["province_id"], "\0");
         $amher_id = trim($post["ampher_id"], "\0");
         $tumbon_id = trim($post["tumbon_id"], "\0");
-        $username = trim($post["username"], "\0");
 
         if (
             !empty($title) &&  !empty($fname) && !empty($lname) && !empty($age) && !empty($birthday_set) && !empty($id_card_set)
-            && !empty($phone_number_set)
-            && !empty($education) && !empty($pd_status) && !empty($type_live) && !empty($occupation) && !empty($address)
-            && !empty($province_id) && !empty($amher_id) && !empty($tumbon_id && !empty($username))
+            && !empty($phone_number_set) && !empty($education) && !empty($pd_status) && !empty($type_live) && !empty($occupation) && !empty($address)
+            && !empty($province_id) && !empty($amher_id) && !empty($tumbon_id)
         ) {
 
             $id_card = preg_replace('/[-]/i', '', $id_card_set);
             $phone_number = preg_replace('/[-]/i', '', $phone_number_set);
             $birthday = date('Y-m-d', strtotime($birthday_set . "-543 year"));
-
+            $username =  $post["username"] == "" ? $phone_number : trim(strtolower($post["username"]), "\0");
             $personal_last_id = $this->addelderly_model($title, $fname, $lname, $address, $amher_id, $tumbon_id, $province_id, $id_card, $age, $birthday, $phone_number, $education, $pd_status, $occupation, $type_live, $username);
             if (!empty($personal_last_id)) {
 
-                if (!empty($post["congen"])) {
+                if ($post["congen"]) {
+
                     $disease = $this->disease($personal_last_id, $post["congen"], $post["long"], $post["hospi"], $post["hosfirst"]);
                     if (!empty($disease)) {
                         $this->health_keep($personal_last_id,  $data);
                         $this->darily_keep($personal_last_id,  $data);
+                        return true;
                     }
                 } else {
                     $this->health_keep($personal_last_id,  $data);
@@ -159,7 +159,9 @@ class addelderly extends Database_set
 
     private function disease($last_id, $congen, $long, $hospi, $hosfirst)
     {
-
+        echo '<pre>';
+        print_r($congen[1]);
+        die;
         for ($i = 0; $i < count($congen); $i++) {
             $this->disease_insert($last_id, $congen[$i], $long[$i], $hospi[$i], $hosfirst[$i]);
         }
@@ -225,25 +227,41 @@ class addelderly extends Database_set
         $sleep = trim($post["sleep"], "\0");
         $brush = trim($post["brush"], "\0");
         $brushlong = trim($post["brushlong"], "\0");
+
+
         $cigarette = trim($post["cigarette"], "\0");
+        if ($cigarette != '0') {
+            $cigarate = trim($post["cigarate"], "\0");
+            $num = trim($post["num"], "\0");
+            $after = trim($post["after"], "\0");
+        } else {
+            $cigarate = NULL;
+            $num = NULL;
+            $after = NULL;
+        }
         //? -----------------------------------ส่วนที่ห้า
-        $cigarate = trim($post["cigarate"], "\0");
-        $num = trim($post["num"], "\0");
-        $after = trim($post["after"], "\0");
+
         $drink = trim($post["drink"], "\0");
-        $alcohol = trim($post["alcohol"], "\0");
-        $amount = trim($post["amount"], "\0");
+        if ($drink != '0') {
+            $alcohol = trim($post["alcohol"], "\0");
+            $amount = trim($post["amount"], "\0");
+        } else {
+            $alcohol = NULL;
+            $amount = NULL;
+        }
         $bloodlast = trim($post["bloodlast"], "\0");
         $resul = trim($post["resul"], "\0");
         $gum = trim($post["gum"], "\0");
         $limestone = trim($post["limestone"], "\0");
         $cavities = trim($post["cavities"], "\0");
-        $breast = trim($post["breast"], "\0");
-        $breastlast = trim($post["breastlast"], "\0");
-        $breastre = trim($post["breastre"], "\0");
-        $cervix = trim($post["cervix"], "\0");
-        $cervixre = trim($post["cervixre"], "\0");
-        $cervixsub = trim($post["cervixsub"], "\0");
+
+        $breast = $post["breast"] == "" ? NULL : trim($post["breast"], "\0");
+        $breastlast = $post["breastlast"] == "" ? NULL : trim($post["breastlast"], "\0");
+        $breastre = $post["breastre"] == "" ? NULL : trim($post["breastre"], "\0");
+
+        $cervix = $post["cervix"] == "" ? NULL : trim($post["cervix"], "\0");
+        $cervixre = $post["cervixre"] == "" ? NULL : trim($post["cervixre"], "\0");
+        $cervixsub = $post["cervixsub"] == "" ? NULL : trim($post["cervixsub"], "\0");
 
         //? -----------------------------------ส่วนที่หก
 

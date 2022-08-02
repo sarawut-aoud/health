@@ -96,6 +96,60 @@ var infomation = {
       },
     });
   },
+  check_username: function (data) {
+    let frmdata = "../../controller/user/dashborad.php";
+    $.ajax({
+      type: "get",
+      dataType: "json",
+      url: frmdata,
+      data: {
+        func: "username_check",
+        username_check: data,
+      },
+      success: function (result) {
+        if (result.is_successful == false) {
+          $("#show_username").html(result.message).css("color", "red");
+          $("#username").addClass("is-invalid");
+        } else {
+          $("#show_username").html("");
+          $("#username").removeClass("is-invalid");
+
+          $("#username").addClass("is-valid");
+        }
+      },
+    });
+  },
+  updateFormdata: async function () {
+    let frmdata = "../../controller/user/dashborad.php";
+    let fdata = $("#infomation").serialize();
+
+    $.ajax({
+      type: "POST",
+      dataType: "json",
+      url: frmdata,
+      data: { formdata: fdata, func: "update" },
+      success: function (results) {
+        if (results.is_successful == true) {
+          Swal.fire({
+            icon: "success",
+            title: results.message,
+            showConfirmButton: false,
+            timer: 1500,
+          }).then(function () {
+            location.reload();
+          });
+        } else {
+          Swal.fire({
+            icon: "info",
+            title: "เกิดข้อผิดพลาด",
+            html: results.message,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      },
+    });
+  },
 };
 
 $(document).ready(function () {
@@ -121,4 +175,18 @@ $(document).ready(function () {
     var id = $(this).val(); // $(this).val() value ของ id form select ชุดนี้
     infomation.add_tumbon(id, "");
   });
+
+  $(document).on("keyup", "#username", function (e) {
+    e.preventDefault();
+    if ($(this).val() != "") {
+      infomation.check_username($(this).val());
+    } else {
+      $("#username").removeClass("is-valid");
+    }
+  });
+
+  $(document).on('click', "#update", function (e) {
+    e.preventDefault();
+    infomation.updateFormdata();
+  })
 });

@@ -163,7 +163,7 @@ if ($func == 'update') {
     $province_id =  $_POST['province_id'] != "" ? $_POST['province_id'] : "";
     $ampher_id =  $_POST['ampher_id'] != "" ? $_POST['ampher_id'] : "";
     $tumbon_id =  $_POST['tumbon_id'] != "" ? $_POST['tumbon_id'] : "";
-    $username = $_POST['username'] != "" ? $_POST['username'] : "";
+    $username = $_POST['username'] != "" ? strtolower($_POST['username']) : "";
     $password =   $_POST['password-input'] != "" ? $class->encode($_POST['password-input']) : "";
     $status_id =   $_POST['status_id'] != "" ? $_POST['status_id'] : "";
 
