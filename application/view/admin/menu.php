@@ -181,7 +181,7 @@ $row = $query->fetch_object();
     <input type="hidden" id="personal_id" value="<?= $_SESSION['pd_id'] ?>">
     <!-- ส่วนของ Modal เปลี่ยนตำแหน่ง -->
     <div class="modal fade" id="change_position" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered ">
             <div class="modal-content">
                 <div class="modal-header bg-info">
                     <h5 class="modal-title ">เปลี่ยนตำแหน่ง</h5>
@@ -196,10 +196,10 @@ $row = $query->fetch_object();
                     foreach ($query as $menu) {
                     ?>
                         <div class="row justify-content-between p-2">
-                            <div class="col-md-6 text-start  pt-2">
+                            <div class="col-md-5  col text-start  pt-2">
                                 <?= $menu['status_name'] ?>
                             </div>
-                            <div class="col-md-6 text-end">
+                            <div class="col-md-5  col text-end">
                                 <button id="btn_change_status" name="btn_change_status" value="<?= $menu['id'] ?>" class="btn btn-outline-info">เลือก</button>
                             </div>
                         </div>
