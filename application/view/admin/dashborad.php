@@ -263,10 +263,10 @@ $class =  new dashboard_model();
                     foreach ($query as $menu) {
                     ?>
                         <div class="row justify-content-between p-2">
-                            <div class="col-md-6 text-start  pt-2">
+                            <div class="col-md-6 col text-start  pt-2">
                                 <?= $menu['status_name'] ?>
                             </div>
-                            <div class="col-md-6 text-end">
+                            <div class="col-md-6 col text-end">
                                 <button id="btn_change_status" name="btn_change_status" value="<?= $menu['id'] ?>" class="btn btn-outline-info">เลือก</button>
                             </div>
                         </div>
@@ -277,7 +277,7 @@ $class =  new dashboard_model();
     </div>
 
     <div class="modal fade" id="show_iframe_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl modal-fullscreen-sm-down modal-fullscreen-md-down modal-fullscreen-lg-down">
             <div class="modal-content">
                 <div class="modal-header bg-info">
                     <h5 class="modal-title ">ข้อมูลแบบปันทึกสุขภาพ</h5>

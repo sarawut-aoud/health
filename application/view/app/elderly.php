@@ -1233,10 +1233,10 @@ $class = new addelderly();
                     foreach ($query as $menu) {
                     ?>
                         <div class="row justify-content-between p-2">
-                            <div class="col-md-6 text-start  pt-2">
+                            <div class="col-md-6 col text-start  pt-2">
                                 <?= $menu['status_name'] ?>
                             </div>
-                            <div class="col-md-6 text-end">
+                            <div class="col-md-6 col text-end">
                                 <button id="btn_change_status" name="btn_change_status" value="<?= $menu['id'] ?>" class="btn btn-outline-info">เลือก</button>
                             </div>
                         </div>
