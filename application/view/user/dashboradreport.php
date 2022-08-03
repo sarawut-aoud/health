@@ -228,16 +228,25 @@ $row_stat = $sql2->fetch_object();
                                                     <tr align="center">
                                                         <td style="width: 30%;">ชื่อ – สกุล</td>
                                                         <td>เบอร์โทร</td>
+                                                        <td>ผู้บันทึกผลตรวจ</td>
                                                         <td style="width: 10%;">ดูผลการตรวจ</td>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php
                                                     $sql = $class->get_table_4();
+                                                    function getname($id)
+                                                    {
+                                                        $class =  new dashboard_model();
+                                                        $sql = $class->get_name($id);
+                                                        $row = $sql->fetch_object();
+                                                        return $row->title . $row->fullname;
+                                                    }
                                                     while ($row = $sql->fetch_object()) { ?>
                                                         <tr>
                                                             <td><?= $row->title . $row->fullname; ?></td>
                                                             <td><?= $row->phone_number; ?></td>
+                                                            <td><?= getname($row->pd_id_doctor); ?></td>
                                                             <td align="center">
                                                                 <?php if ($row->em_id != '' || $row->em_id != NULL) { ?>
                                                                     <button id="view_pdf" data-id="<?= $row->pd_id; ?>" class="btn btn-info btn-sm"><i class="fas fa-clipboard-list-check"></i></button>
