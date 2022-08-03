@@ -77,7 +77,7 @@ if ($func == 'insert') {
     $chk7 =  $_POST['chk7'];
     $chk8 =  $_POST['chk8'] ;
 
-    if (empty($pd_id) || $chk1 == NULL) {
+    if (empty($pd_id) ) {
         echo json_encode(array(
             "is_successful" => false,
             "messchk3" => "เกิดข้อผิดพลาด",

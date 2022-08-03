@@ -8,7 +8,7 @@ $class =  new dashboard_model();
 require_once '../../model/user/dashborad_model.php';
 $class2 =  new dashboard();
 $sql2 = $class2->set_report($_SESSION['pd_id']);
-$row = $sql2->fetch_object();
+$row_stat = $sql2->fetch_object();
 
 ?>
 <!DOCTYPE html>
@@ -65,7 +65,7 @@ $row = $sql2->fetch_object();
                     <div class="row justify-content-center">
                         <?php
 
-                        if ($row->user_rate >= '4') {
+                        if ($row_stat->user_rate >= '4') {
                         ?>
                             <div class="col-lg-3 col-6">
                                 <div class="small-box bg-info">
@@ -85,7 +85,7 @@ $row = $sql2->fetch_object();
                             </div>
                         <?php
                         }
-                        if ($row->user_rate >= '3') {
+                        if ($row_stat->user_rate >= '3') {
                         ?>
                             <div class="col-lg-3 col-6">
                                 <div class="small-box bg-success">
@@ -104,7 +104,7 @@ $row = $sql2->fetch_object();
                             </div>
                         <?php
                         }
-                        if ($row->user_rate >= '2') {
+                        if ($row_stat->user_rate >= '2') {
                         ?>
                             <div class="col-lg-3 col-6">
                                 <div class="small-box bg-warning ">
@@ -239,8 +239,9 @@ $row = $sql2->fetch_object();
                                                             <td><?= $row->title . $row->fullname; ?></td>
                                                             <td><?= $row->phone_number; ?></td>
                                                             <td align="center">
-                                                                <button id="view_pdf" data-id="<?= $row->pd_id; ?>" class="btn btn-info btn-sm"><i class="fas fa-clipboard-list-check"></i></button>
-
+                                                                <?php if ($row->em_id != '' || $row->em_id != NULL) { ?>
+                                                                    <button id="view_pdf" data-id="<?= $row->pd_id; ?>" class="btn btn-info btn-sm"><i class="fas fa-clipboard-list-check"></i></button>
+                                                                <?php } ?>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>

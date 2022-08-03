@@ -72,27 +72,37 @@ class dashboard_model extends Database_set
   }
   public function get_table_4()
   {
-    $result = mysqli_query($this->dbcon, "SELECT  
-    CASE 
-      WHEN pd.title = '1' THEN 'นาย'
-      WHEN pd.title = '2' THEN 'นาง'
-      WHEN pd.title = '3' THEN 'นางสาว'
-    END AS title,
-      CONCAT(pd.first_name,' ',pd.last_name) As fullname,
-      pd.phone_number,
-      pd.pd_id,
-      hk.date,
-      hk.hk_id
-    FROM  personal_document pd
-    LEFT JOIN   health_kepp hk  ON hk.pd_id =pd.pd_id
-    LEFT JOIN user_status_keep uk ON uk.pd_id = pd.pd_id 
-    LEFT JOIN user_status us ON us.id = uk.status_id
-    WHERE 
-    pd.`status` = 'active' AND us.user_rate = '1' AND uk.set_status ='1'
-    AND  pd.pd_id NOT IN ( SELECT MIN( pdid.pd_id ) FROM personal_document AS pdid ORDER BY
-        pdid.pd_id ASC  )
-    GROUP BY 
-        pd.pd_id ");
+    $result = mysqli_query($this->dbcon, "SELECT
+    CASE
+        
+      WHEN
+        pd.title = '1' THEN
+          'นาย' 
+          WHEN pd.title = '2' THEN
+          'นาง' 
+          WHEN pd.title = '3' THEN
+          'นางสาว' 
+        END AS title,
+        CONCAT( pd.first_name, ' ', pd.last_name ) AS fullname,
+        pd.phone_number,
+        pd.pd_id,
+        hk.date,
+        hk.hk_id,
+        em.em_id 
+      FROM
+        personal_document pd
+        LEFT JOIN health_kepp hk ON hk.pd_id = pd.pd_id
+        LEFT JOIN user_status_keep uk ON uk.pd_id = pd.pd_id
+        LEFT JOIN user_status us ON us.id = uk.status_id
+        LEFT JOIN cancer cc ON cc.pd_id = pd.pd_id
+        LEFT JOIN estimate em ON em.pd_id = pd.pd_id 
+      WHERE
+        pd.`status` = 'active' 
+        AND us.user_rate = '1' 
+        AND uk.set_status = '1' 
+        AND pd.pd_id NOT IN ( SELECT MIN( pdid.pd_id ) FROM personal_document AS pdid ORDER BY pdid.pd_id ASC ) 
+    GROUP BY
+      pd.pd_id ");
     return $result;
   }
 

@@ -225,8 +225,9 @@ $class =  new dashboard_model();
                                                             <td><?= $row->title . $row->fullname; ?></td>
                                                             <td><?= $row->phone_number; ?></td>
                                                             <td align="center">
-                                                                <button id="view_pdf" data-id="<?= $row->pd_id; ?>" class="btn btn-info btn-sm"><i class="fas fa-clipboard-list-check"></i></button>
-
+                                                                <?php if ($row->em_id != '' || $row->em_id != NULL) { ?>
+                                                                    <button id="view_pdf" data-id="<?= $row->pd_id; ?>" class="btn btn-info btn-sm"><i class="fas fa-clipboard-list-check"></i></button>
+                                                                <?php } ?>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
