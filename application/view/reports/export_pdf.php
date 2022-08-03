@@ -114,10 +114,6 @@ $pdf->SetTitle('แบบบันทึกข้อมูล');
 $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
 // set header and footer fonts
 
-// set default header data
-// $pdf->setHeaderFont(array('thsarabun', 'B', 20));
-// $pdf->setFooterFont(array('thsarabun', 'B', 9));
-
 // set default monospaced font
 $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
@@ -143,13 +139,6 @@ $pdf->setTextShadow(array('enabled' => true, 'depth_w' => 0.2, 'depth_h' => 0.2,
 $provice = province($data->province_id);
 $amphoe = amphoe($data->ampher_id);
 $tumbon = tumbon($data->tumbon_id);
-// .table, th, td {
-//     border: 1px solid;
-//   }
-// <h6><b>โรคประจำตัว 2</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->congen.'&nbsp;&nbsp;&nbsp;&nbsp;<b>เป็นมานาน</b>&nbsp;&nbsp;&nbsp;&nbsp; '. $data->long_time.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>ปีรพ.รักษาประจำ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->hospital.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>รพ.ที่ตรวจพบครั้งแรก</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->hospital_first.' </h6>
-// <h6><b>โรคประจำตัว 3</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->congen.'&nbsp;&nbsp;&nbsp;&nbsp;<b>เป็นมานาน</b>&nbsp;&nbsp;&nbsp;&nbsp; '. $data->long_time.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>ปีรพ.รักษาประจำ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->hospital.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>รพ.ที่ตรวจพบครั้งแรก</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->hospital_first.' </h6>
-// <h6><b>โรคประจำตัว 4</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->congen.'&nbsp;&nbsp;&nbsp;&nbsp;<b>เป็นมานาน</b>&nbsp;&nbsp;&nbsp;&nbsp; '. $data->long_time.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>ปีรพ.รักษาประจำ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->hospital.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>รพ.ที่ตรวจพบครั้งแรก</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->hospital_first.' </h6>
-// <h6><b>โรคประจำตัว 5</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->congen.'&nbsp;&nbsp;&nbsp;&nbsp;<b>เป็นมานาน</b>&nbsp;&nbsp;&nbsp;&nbsp; '. $data->long_time.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>ปีรพ.รักษาประจำ</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $data->hospital.' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>รพ.ที่ตรวจพบครั้งแรก</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $data->hospital_first.' </h6>
 $html = '
 <style>
     b{
@@ -346,7 +335,40 @@ $pdf->AddPage();
 
 // set text shadow effect
 $pdf->setTextShadow(array('enabled' => true, 'depth_w' => 0.2, 'depth_h' => 0.2, 'color' => array(196, 196, 196), 'opacity' => 1, 'blend_mode' => 'Normal'));
-$chk1 = $data->not_found !=null ? "" : "hidden='hidden'";
+
+function get_result()
+{
+    $pd_id = $_REQUEST['pd_id'];
+    $sql = new results_model();
+    $query = $sql->personal($pd_id);
+    $data = mysqli_fetch_object($query);
+
+
+    $html = '<h5><b>สรุปผลการประเมินตรวจคัดกรองยืนยัน และการดำเนินงาน</b></h5><table width="100%">';
+
+    if (!empty($data->not_found)) {
+        $html1 = '<tr><td width="80%;"><h6>' . $data->not_found . '</h6></td></tr>';
+    }
+
+    if (!empty($data->is_found)) {
+        $html2 = ' <tr> <td width="40%;"><h6>' . $data->is_found . '</h6></td>
+        <td width="10%;" align="left"><h6>' . $data->is_found_id . '</h6></td>
+        <td width="10%;" align="left"><h6>' . $data->is_found_sub . '</h6></td> </tr>';
+    }
+    if (!empty($data->is_sick)) {
+        $html3 =
+            '<tr><td width="40%;"><h6>' . $data->is_sick . '</h6></td>
+            <td width="10%;" align="left"><h6>' . $data->is_sick_id . '</h6></td>
+            <td width="10%;" align="left"><h6>' . $data->is_sick_sub . '</h6></td>
+       </tr>';
+    }
+
+    if (!empty($data->operate)) {
+        $html4 = '<tr><td width="80%;"><h6>' . $data->operate . '</h6></td></tr>';
+    }
+    $html5 = '</table>';
+    return $html . $html1 . $html2 . $html3 . $html4 . $html5;
+}
 $html2 = '
 <style>
 b{
@@ -492,27 +514,27 @@ font-weight:bold !important;
      <table width="100%">
      <tr>
      <td width="80%;"><h6> ดื่มสุราเป็นประจำ</h6></td>
-     <td width="15%;" align="right"><h6>'. $data->alcohol.'</h6></td>
+     <td width="15%;" align="right"><h6>' . $data->alcohol . '</h6></td>
      </tr>
      <tr>
      <td width="80%;"><h6> รับประทานอาหารที่มีสารก่อมะเร็ง เช่น ปลาร้า ปลาจ่อม แหนม ไส้กรอก อาหารปิ้งย่างจนไหม้เกรียม</h6></td>
-     <td width="15%;" align="right"><h6>'. $data->cancer_1.'</h6></td>
+     <td width="15%;" align="right"><h6>' . $data->cancer_1 . '</h6></td>
       </tr>
       <tr>
       <td width="80%;"><h6> รับปรัทานอาหารที่มีราใน ถั่ว ข้าวโพด กระเทียม เต้าเจี้ยว เต้าหู้ยี้ พริกป่น พริกแห้ง</h6></td>
-      <td width="15%;" align="right"><h6>'. $data->cancer_2.'</h6></td>
+      <td width="15%;" align="right"><h6>' . $data->cancer_2 . '</h6></td>
        </tr>
        <tr>
        <td width="80%;"><h6> มีประวัติครอบครัว โดยเฉพาะญาติสายตรง เป็นมะเร็งตับ</h6></td>
-       <td width="15%;" align="right"><h6>'. $data->cancer_3.'</h6></td>
+       <td width="15%;" align="right"><h6>' . $data->cancer_3 . '</h6></td>
         </tr>
         <tr>
         <td width="80%;"><h6> มีภาวะตับอักเสบ หรือมีการติดเชื้อของไวรัสตับอักเสบชนิด บี ซี</h6></td>
-        <td width="15%;" align="right"><h6>'. $data->cancer_4.'</h6></td>
+        <td width="15%;" align="right"><h6>' . $data->cancer_4 . '</h6></td>
          </tr>
          <tr>
          <td width="80%;"><h6> มีพยาธิใบไม้ในตับ</h6></td>
-         <td width="15%;" align="right"><h6>'. $data->cancer_5.'</h6></td>
+         <td width="15%;" align="right"><h6>' . $data->cancer_5 . '</h6></td>
           </tr>
       </table>
      
@@ -553,26 +575,9 @@ font-weight:bold !important;
      </tr>
      </table>
     
-    
-     <h5><b>สรุปผลการประเมินตรวจคัดกรองยืนยัน และการดำเนินงาน</b></h5>
-     <table width="100%">
-     <tr '.$chk1.' >
-     <td width="80%;"><h6>'.$data->not_found.'</h6></td>
-     </tr>
-     <tr>
-     <td width="40%;"><h6>'.$data->is_found.'</h6></td>
-     <td width="10%;" align="left"><h6>'. $data->is_found_id.'</h6></td>
-     <td width="10%;" align="left"><h6>'. $data->is_found_sub.'</h6></td>
-      </tr>
-      <tr>
-      <td width="40%;"><h6>'.$data->is_sick.'</h6></td>
-      <td width="10%;" align="left"><h6>'. $data->is_sick_id.'</h6></td>
-      <td width="10%;" align="left"><h6>'. $data->is_sick_sub.'</h6></td>
-       </tr>
-      <tr>
-      <td width="80%;"><h6>'. $data->operate.'</h6></td>
-      </tr>
-      </table>
+    ' . get_result() . '
+     
+      
 ';
 $pdf->writeHTMLCell(0, 0, '', '', $html2, 0, 1, 0, true, '', true);
 // $pdf->WriteHTML($html, true, false, true, false);
