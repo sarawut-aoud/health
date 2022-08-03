@@ -288,7 +288,7 @@ $class =  new dashboard_model();
     </div>
 
     <div class="modal fade" id="show_iframe_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl modal-fullscreen-sm-down modal-fullscreen-md-down modal-fullscreen-lg-down">
+        <div class="modal-dialog modal-fullscreen modal-xl">
             <div class="modal-content">
                 <div class="modal-header bg-info">
                     <h5 class="modal-title ">ข้อมูลแบบปันทึกสุขภาพ</h5>
@@ -296,8 +296,8 @@ $class =  new dashboard_model();
                 </div>
 
                 <div class="modal-body mt-3 ms-4 me-4">
-                    <div class="ratio ratio-16x9">
-                        <iframe title="PDF" allowfullscreen></iframe>
+                    <div class="ratio  " style="--bs-aspect-ratio:400%;">
+                        <iframe title="PDF" allowfullscreen ></iframe>
                     </div>
                 </div>
             </div>
