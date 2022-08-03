@@ -116,7 +116,7 @@ require_once '../../core/session.php';
                                                         <label class="form-check-label" for="inlineRadio2">Obesity</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk4" id="chk7" value="0" required>
+                                                        <input class="form-check-input" type="checkbox" name="chk4" id="chk7"  required>
                                                         <input type="text" class="form-control md-2" name="found_sub" id="found_sub" required aria-label="Text input with checkbox">
                                                     </div>
                                                 </div>
@@ -144,7 +144,7 @@ require_once '../../core/session.php';
                                                         <label class="form-check-label" for="inlineRadio2">Obesity</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk7" id="chk13" value="0" required>
+                                                        <input class="form-check-input" type="checkbox" name="chk7" id="chk13"  required>
                                                         <input type="text" class="form-control md-2" name="found_sub2" id="found_sub2" required>
                                                     </div>
                                                 </div>
@@ -161,13 +161,13 @@ require_once '../../core/session.php';
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk8" id="chk15" value="0" target="check">
+                                                        <input class="form-check-input" type="checkbox" name="chk8" id="chk15" value="1" target="check">
                                                         <label class="mb-1 ms-2">ลงทะเบียนกลุ่มเสี่ยงต่อโรค Metabolic และแนะนำเข้าโครงการปรับเปลี่ยนพฤติกรรม </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" name="chk8" id="chk16" value="0" target="check">
+                                                        <input class="form-check-input" type="checkbox" name="chk8" id="chk16" value="2" target="check">
                                                         <label class="mb-1 ms-2">ส่งต่อเพื่อรักษา</label>
                                                     </div>
                                                 </div>

@@ -335,90 +335,244 @@ $html = '
  
   </table>';
 $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
+
+$pdf->setFontSubsetting(true);
+
+// Set font
+$pdf->SetFont('THSarabunNew', '', 16);
+
+// Add a page
 $pdf->AddPage();
 
+// set text shadow effect
+$pdf->setTextShadow(array('enabled' => true, 'depth_w' => 0.2, 'depth_h' => 0.2, 'color' => array(196, 196, 196), 'opacity' => 1, 'blend_mode' => 'Normal'));
+$chk1 = $data->not_found !=null ? "" : "hidden='hidden'";
 $html2 = '
+<style>
+b{
+font-weight:bold !important;
+},
+    .mt-4,
+    .my-4 {
+        margin-top: 1.5rem !important;
+    }
+
+    .mb-4,
+    .mx-4 {
+        margin-bottom: 1.5rem !important;
+    }
+
+    .px-5 {
+        padding-left: 3rem !important;
+        padding-right: 3rem !important;
+    }
+
+    .p-0 {
+        padding: 0 !important;
+        margin: 0 !important;
+        line-height: 0 !important;
+    }
+
+    h1,
+    .h1 {
+        font-size: 2.5rem;
+    }
+
+    h2,
+    .h2 {
+        font-size: 2rem;
+    }
+
+    h3,
+    .h3 {
+        font-size: 1.75rem;
+    }
+
+    h4,
+    .h4 {
+        font-size: 1.5rem;
+    }
+
+    h5,
+    .h5 {
+        font-size: 1.25rem;
+    }
+
+    h6,
+    .h6 {
+        font-size: 1rem;
+    }
+
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    .tr_black {
+        background-color: rgba(0, 0, 0, 0.475) !important
+    }
+
+    .text-start {
+        text-align: left !important;
+    }
+
+    .text-end {
+        text-align: right !important;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
   
-<h5><b>ผลการตรวจคัดกรองสารเคมีในเลือด</b></h5>
-<table width="100%">
-<tr>
-<td width="25%;"><h6> ตรวจครั้งสุดท้ายเมื่อปี พ.ศ.</h6></td>
-<td width="10%;" align="left"><h6>' . $data->bloodlast . '</h6></td>
-<td width="25%;" align="center"><h6> ผลการตรวจ</h6></td>
-<td width="10%;" align="center"><h6>' . $data->resul . '</h6></td>
-</tr>
-
- <tr>
- <td width="27%;"><h6> <b>การดูแลสุขภาพช่องปากเหงือก</b></h6></td>
- <td width="10%;" align="left"><h6>' . $data->gum . '</h6></td>
- <td width="15%;"><h6> หินปูน</h6></td>
- <td width="10%;" align="left"><h6>' . $data->limestone . '</h6></td>
- <td width="20%;"><h6> จำนวนฟันแท้ผุ</h6></td>
- <td width="10%;" align="left"><h6>' . $data->cavities . '</h6></td>
- <td width="25%;"><h6> ซี่</h6></td>
- </tr>
-
- <tr>
- <td width="42%;"><h6><b> การตรวจเต้านม ในสตรีอายุ 30 ปีขึ้นไปตรวจด้วย</b></h6></td>
- <td width="20%;" align="left"><h6>' . $data->breast . '</h6></td>
- </tr>
-
- <tr>
- <td width="25%;"><h6> ตรวจครั้งสุดท้ายเมื่อ</h6></td>
- <td width="10%;" align="left"><h6>' . $data->breastlast . '</h6></td>
- <td width="25%;" align="center"><h6> ผลการตรวจ</h6></td>
- <td width="10%;" align="center"><h6>' . $data->breastre . '</h6></td>
- </tr>
- </table>
-
-
-<h5><b>การตรวจคัดกรองมะเร็งปากมดลูกในสตรีอายุ 30 ปีขึ้นไป</b></h5>
-<table width="100%">
- <tr>
- <td width="25%;"><h6> ตรวจครั้งสุดท้ายเมื่อปี พ.ศ.</h6></td>
- <td width="10%;" align="left"><h6>' . $data->cervix . '</h6></td>
- <td width="25%;" align="center"><h6> ผลการตรวจ</h6></td>
- <td width="10%;" align="center"><h6>' . $data->cervixre . '</h6></td>
- <td width="10%;" align="left"><h6>' . $data->cervixsub . '</h6></td>
- </tr>
- </table>
-
- <h5><b>คำถามเพิ่มเติมหากท่านรักษาโรคประจำตัวเบาหวาน ความดัน ไขมันสูง</b></h5>
- <table width="100%">
- <tr>
- <td width="25%;"><h6> ตรวจน้ำตาลครั้งสุดท้าย</h6></td>
- <td width="10%;" align="left"><h6>' . $data->sugar . '</h6></td>
- <td width="25%;" align="center"><h6> ค่าไต (Cr)</h6></td>
- <td width="10%;" align="center"><h6>' . $data->kidney . '</h6></td>
- </tr>
-
- <tr>
- <td width="15%;"><h6> โคเลสเตอรอล (Cho)</h6></td>
- <td width="10%;" align="center"><h6>' . $data->cholesterol . '</h6></td>
- <td width="15%;"><h6> ไตรกลีเซอไรด์ (Tri)</h6></td>
- <td width="10%;" align="center"><h6>' . $data->trigly . '</h6></td>
- <td width="10%;" align="center"><h6> ไขมัน</h6></td>
- <td width="10%;"><h6> HDL</h6></td>
- <td width="10%;" align="left"><h6>' . $data->fat_hdl . '</h6></td>
- <td width="10%;"><h6> LDL</h6></td>
- <td width="10%;" align="left"><h6>' . $data->fat_ldl . '</h6></td>
- </tr>
-
- <tr>
- <td width="15%;"><h6> ผลตรวจตา</h6></td>
- <td width="15%;" align="left"><h6>' . $data->eye . '</h6></td>
- </tr>
-
- <tr>
- <td width="15%;"><h6> ชนิดเครื่องตรวจตา</h6></td>
- <td width="30%;" align="left"><h6>' . $data->type_eye . '</h6></td>
- </tr>
-
- <tr>
- <td width="15%;"><h6> ผลตรวจเท้า</h6></td>
- <td width="15%;" align="left"><h6>' . $data->foot . '</h6></td>
- </tr>
- </table>
+      .table {
+        width: 100%;
+      }
+      b {
+        font-weight: bold;
+      }
+    </style>
+ 
+    <h5><b>ผลการตรวจคัดกรองสารเคมีในเลือด</b></h5>
+    <table width="100%">
+    <tr>
+    <td width="25%;"><h6> ตรวจครั้งสุดท้ายเมื่อปี พ.ศ.</h6></td>
+    <td width="10%;" align="left"><h6>' . $data->bloodlast . '</h6></td>
+    <td width="25%;" align="center"><h6> ผลการตรวจ</h6></td>
+    <td width="10%;" align="center"><h6>' . $data->resul . '</h6></td>
+    </tr>
+    
+     <tr>
+     <td width="27%;"><h6> <b>การดูแลสุขภาพช่องปากเหงือก</b></h6></td>
+     <td width="10%;" align="left"><h6>' . $data->gum . '</h6></td>
+     <td width="15%;"><h6> หินปูน</h6></td>
+     <td width="10%;" align="left"><h6>' . $data->limestone . '</h6></td>
+     <td width="20%;"><h6> จำนวนฟันแท้ผุ</h6></td>
+     <td width="10%;" align="left"><h6>' . $data->cavities . '</h6></td>
+     <td width="25%;"><h6> ซี่</h6></td>
+     </tr>
+    
+     <tr>
+     <td width="42%;"><h6><b> การตรวจเต้านม ในสตรีอายุ 30 ปีขึ้นไปตรวจด้วย</b></h6></td>
+     <td width="20%;" align="left"><h6>' . $data->breast . '</h6></td>
+     </tr>
+    
+     <tr>
+     <td width="25%;"><h6> ตรวจครั้งสุดท้ายเมื่อ</h6></td>
+     <td width="10%;" align="left"><h6>' . $data->breastlast . '</h6></td>
+     <td width="25%;" align="center"><h6> ผลการตรวจ</h6></td>
+     <td width="10%;" align="center"><h6>' . $data->breastre . '</h6></td>
+     </tr>
+     </table>
+    
+    
+    <h5><b>การตรวจคัดกรองมะเร็งปากมดลูกในสตรีอายุ 30 ปีขึ้นไป</b></h5>
+    <table width="100%">
+     <tr>
+     <td width="25%;"><h6> ตรวจครั้งสุดท้ายเมื่อปี พ.ศ.</h6></td>
+     <td width="10%;" align="left"><h6>' . $data->cervix . '</h6></td>
+     <td width="25%;" align="center"><h6> ผลการตรวจ</h6></td>
+     <td width="10%;" align="center"><h6>' . $data->cervixre . '</h6></td>
+     <td width="10%;" align="left"><h6>' . $data->cervixsub . '</h6></td>
+     </tr>
+     </table>
+    
+     <h5><b>5.ประเมินความเสี่ยงโรคมะเร็ง</b></h5>
+     <table width="100%">
+     <tr>
+     <td width="80%;"><h6> ดื่มสุราเป็นประจำ</h6></td>
+     <td width="15%;" align="right"><h6>'. $data->alcohol.'</h6></td>
+     </tr>
+     <tr>
+     <td width="80%;"><h6> รับประทานอาหารที่มีสารก่อมะเร็ง เช่น ปลาร้า ปลาจ่อม แหนม ไส้กรอก อาหารปิ้งย่างจนไหม้เกรียม</h6></td>
+     <td width="15%;" align="right"><h6>'. $data->cancer_1.'</h6></td>
+      </tr>
+      <tr>
+      <td width="80%;"><h6> รับปรัทานอาหารที่มีราใน ถั่ว ข้าวโพด กระเทียม เต้าเจี้ยว เต้าหู้ยี้ พริกป่น พริกแห้ง</h6></td>
+      <td width="15%;" align="right"><h6>'. $data->cancer_2.'</h6></td>
+       </tr>
+       <tr>
+       <td width="80%;"><h6> มีประวัติครอบครัว โดยเฉพาะญาติสายตรง เป็นมะเร็งตับ</h6></td>
+       <td width="15%;" align="right"><h6>'. $data->cancer_3.'</h6></td>
+        </tr>
+        <tr>
+        <td width="80%;"><h6> มีภาวะตับอักเสบ หรือมีการติดเชื้อของไวรัสตับอักเสบชนิด บี ซี</h6></td>
+        <td width="15%;" align="right"><h6>'. $data->cancer_4.'</h6></td>
+         </tr>
+         <tr>
+         <td width="80%;"><h6> มีพยาธิใบไม้ในตับ</h6></td>
+         <td width="15%;" align="right"><h6>'. $data->cancer_5.'</h6></td>
+          </tr>
+      </table>
+     
+     <h5><b>6.คำถามเพิ่มเติมหากท่านรักษาโรคประจำตัวเบาหวาน ความดัน ไขมันสูง</b></h5>
+     <table width="100%">
+     <tr>
+     <td width="25%;"><h6> ตรวจน้ำตาลครั้งสุดท้าย</h6></td>
+     <td width="10%;" align="left"><h6>' . $data->sugar . '</h6></td>
+     <td width="25%;" align="center"><h6> ค่าไต (Cr)</h6></td>
+     <td width="10%;" align="center"><h6>' . $data->kidney . '</h6></td>
+     </tr>
+    
+     <tr>
+     <td width="15%;"><h6> โคเลสเตอรอล (Cho)</h6></td>
+     <td width="10%;" align="center"><h6>' . $data->cholesterol . '</h6></td>
+     <td width="15%;"><h6> ไตรกลีเซอไรด์ (Tri)</h6></td>
+     <td width="10%;" align="center"><h6>' . $data->trigly . '</h6></td>
+     <td width="10%;" align="center"><h6> ไขมัน</h6></td>
+     <td width="10%;"><h6> HDL</h6></td>
+     <td width="10%;" align="left"><h6>' . $data->fat_hdl . '</h6></td>
+     <td width="10%;"><h6> LDL</h6></td>
+     <td width="10%;" align="left"><h6>' . $data->fat_ldl . '</h6></td>
+     </tr>
+    
+     <tr>
+     <td width="15%;"><h6> ผลตรวจตา</h6></td>
+     <td width="15%;" align="left"><h6>' . $data->eye . '</h6></td>
+     </tr>
+    
+     <tr>
+     <td width="15%;"><h6> ชนิดเครื่องตรวจตา</h6></td>
+     <td width="30%;" align="left"><h6>' . $data->type_eye . '</h6></td>
+     </tr>
+    
+     <tr>
+     <td width="15%;"><h6> ผลตรวจเท้า</h6></td>
+     <td width="15%;" align="left"><h6>' . $data->foot . '</h6></td>
+     </tr>
+     </table>
+    
+    
+     <h5><b>สรุปผลการประเมินตรวจคัดกรองยืนยัน และการดำเนินงาน</b></h5>
+     <table width="100%">
+     <tr '.$chk1.' >
+     <td width="80%;"><h6>'.$data->not_found.'</h6></td>
+     </tr>
+     <tr>
+     <td width="40%;"><h6>'.$data->is_found.'</h6></td>
+     <td width="10%;" align="left"><h6>'. $data->is_found_id.'</h6></td>
+     <td width="10%;" align="left"><h6>'. $data->is_found_sub.'</h6></td>
+      </tr>
+      <tr>
+      <td width="40%;"><h6>'.$data->is_sick.'</h6></td>
+      <td width="10%;" align="left"><h6>'. $data->is_sick_id.'</h6></td>
+      <td width="10%;" align="left"><h6>'. $data->is_sick_sub.'</h6></td>
+       </tr>
+      <tr>
+      <td width="80%;"><h6>'. $data->operate.'</h6></td>
+      </tr>
+      </table>
 ';
 $pdf->writeHTMLCell(0, 0, '', '', $html2, 0, 1, 0, true, '', true);
 // $pdf->WriteHTML($html, true, false, true, false);
