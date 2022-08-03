@@ -35,13 +35,14 @@ class report_model extends Database_set
           CONCAT(pd.first_name,' ',pd.last_name) As fullname,
           pd.phone_number,
           pd.pd_id,
-          hk.date
+          hk.date,
+          hk.pd_id_doctor
         FROM  health_kepp hk
         LEFT JOIN personal_document pd ON pd.pd_id = hk.pd_id
         LEFT JOIN user_status_keep uk ON uk.pd_id = pd.pd_id 
         LEFT JOIN user_status us ON us.id = uk.status_id
-				LEFT JOIN cancer cc ON cc.pd_id = pd.pd_id
-				LEFT JOIN estimate em ON em.pd_id = pd.pd_id
+		LEFT JOIN cancer cc ON cc.pd_id = pd.pd_id
+		LEFT JOIN estimate em ON em.pd_id = pd.pd_id
         WHERE  
         pd.`status` = 'active' AND us.user_rate = '1' AND uk.set_status ='1' AND hk.hk_id IS NOT NULL  $where
          AND em.em_id IS NOT NULL AND  cc.cc_id IS NOT NULL
@@ -69,6 +70,26 @@ class report_model extends Database_set
         LEFT JOIN user_status us ON us.id = uk.status_id
         WHERE  pd.`status` = 'active'
          AND us.user_rate = '1'  $sql
+        ");
+        return $result;
+    }
+    public function get_name($pd_id)
+    {
+        $result = mysqli_query($this->dbcon, " SELECT  CASE
+          
+      WHEN
+        pd.title = '1' THEN
+          'นาย' 
+          WHEN pd.title = '2' THEN
+          'นาง' 
+          WHEN pd.title = '3' THEN
+          'นางสาว' 
+        END AS title,
+        CONCAT( pd.first_name, ' ', pd.last_name ) AS fullname
+        FROM 
+           personal_document pd
+        WHERE pd.`status` = 'active' AND pd.pd_id = '$pd_id'
+        
         ");
         return $result;
     }

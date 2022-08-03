@@ -88,7 +88,8 @@ class dashboard_model extends Database_set
         pd.pd_id,
         hk.date,
         hk.hk_id,
-        em.em_id 
+        em.em_id ,
+        hk.pd_id_doctor
       FROM
         personal_document pd
         LEFT JOIN health_kepp hk ON hk.pd_id = pd.pd_id
@@ -117,6 +118,26 @@ class dashboard_model extends Database_set
     pd.`status` = 'active' AND us.user_rate = '$num' AND uk.set_status ='1'
     AND  pd.pd_id NOT IN ( SELECT MIN( pdid.pd_id ) FROM personal_document AS pdid ORDER BY
         pdid.pd_id ASC  )");
+    return $result;
+  }
+  public function get_name($pd_id)
+  {
+    $result = mysqli_query($this->dbcon, " SELECT  CASE
+        
+    WHEN
+      pd.title = '1' THEN
+        'นาย' 
+        WHEN pd.title = '2' THEN
+        'นาง' 
+        WHEN pd.title = '3' THEN
+        'นางสาว' 
+      END AS title,
+      CONCAT( pd.first_name, ' ', pd.last_name ) AS fullname
+      FROM 
+         personal_document pd
+      WHERE pd.`status` = 'active' AND pd.pd_id = '$pd_id'
+      
+      ");
     return $result;
   }
 }

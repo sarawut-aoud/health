@@ -143,7 +143,7 @@ function DateThai($datetoday)
                                         <?php } ?>
                                         <td style="width: 18%;">วันที่ทำเอกสาร</td>
                                         <td style="width: 30%;">ชื่อ – สกุล</td>
-
+                                        <td>ผู้บันทึกผลตรวจ</td>
                                         <td style="width: 10%;">ดูผลการตรวจ</td>
                                     </tr>
                                 </thead>
@@ -157,7 +157,13 @@ function DateThai($datetoday)
                                         }
                                     }
                                     $sql = $class->get_table($id);
-
+                                    function getname($id)
+                                    {
+                                        $class =  new report_model();
+                                        $sql = $class->get_name($id);
+                                        $row = $sql->fetch_object();
+                                        return $row->title . $row->fullname;
+                                    }
                                     while ($row2 = $sql->fetch_object()) {
                                         $i = 1;
 
@@ -171,7 +177,7 @@ function DateThai($datetoday)
                                             } ?>
                                             <td><?= Datethai($row2->date) ?></td>
                                             <td><?= $row2->title . $row2->fullname ?></td>
-
+                                            <td><?= getname($row2->pd_id_doctor); ?></td>
                                             <td align="center">
                                                 <button id="view_pdf" data-id="<?= $row2->pd_id ?>" class="btn btn-info btn-sm"><i class="fas fa-clipboard-list-check"></i></button>
 

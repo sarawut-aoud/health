@@ -67,8 +67,18 @@ $data = mysqli_fetch_object($query);
                                             <div class="col-md-2 p-1">
                                                 <div class="form-group">
                                                     <label class="small mb-1">คำนำหน้า</label>
-                                                    <input class="form-control py-2" id="title" name="title" type="text" value="<?php echo $data->title;  ?>" disabled>
-
+                                                    <select class="custom-select py-2" id="title" name="title" autocomplete="off" placeholder="ชื่อ" disabled>
+                                                        <?php
+                                                        echo '<option  selected disabled>เลือกคำนำหน้า</option>';
+                                                        foreach ($title_name as $keye => $vale) {
+                                                            if ($data->title == $keye) {
+                                                                echo "<option selected value='$keye'>$vale</option>";
+                                                            } else {
+                                                                echo "<option value='$keye'>$vale</option>";
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-5 p-1">
@@ -125,7 +135,7 @@ $data = mysqli_fetch_object($query);
                                                 <div class="form-group">
                                                     <label class="small mb-1">ตำบล</label>
                                                     <input class="form-control py-2" id="tumbon_id" name="tumbon_id" type="text" disabled>
-                                                    <input type="hidden" id="tumbon" value="<?php echo $data->tumbon_id; ?>">
+                                                    <input type="hidden" id="tumbon_set" value="<?php echo $data->tumbon_id; ?>">
 
                                                 </div>
                                             </div>
@@ -133,7 +143,7 @@ $data = mysqli_fetch_object($query);
                                                 <div class="form-group">
                                                     <label class="small mb-1">อำเภอ</label>
                                                     <input class="form-control py-2" id="amphoe_id" name="amphoe_id" type="text" disabled>
-                                                    <input type="hidden" id="amphoe" value="<?php echo $data->ampher_id; ?>">
+                                                    <input type="hidden" id="amphoe_set" value="<?php echo $data->ampher_id; ?>">
 
                                                 </div>
                                             </div>
@@ -141,7 +151,7 @@ $data = mysqli_fetch_object($query);
                                                 <div class="form-group">
                                                     <label class="small mb-1">จังหวัด</label>
                                                     <input class="form-control py-2" id="province_id" name="province_id" type="text" disabled>
-                                                    <input type="hidden" id="province" value="<?php echo $data->province_id; ?>">
+                                                    <input type="hidden" id="province_set" value="<?php echo $data->province_id; ?>">
 
                                                 </div>
                                             </div>
