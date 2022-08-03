@@ -21,28 +21,30 @@ $row = $query->fetch_object();
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item menu-open">
                     <?php $cut = explode("/", $_SERVER["REQUEST_URI"]);
-                    if ($cut[4] == 'admin') {
+                    foreach ($cut as  $val) {
+                        if ($val == 'admin') {
                     ?>
-                        <a href="./menu.php" class="nav-link active">
-                            <i class="nav-icon fas fa-bars"></i>
+                            <a href="./menu.php" class="nav-link active">
+                                <i class="nav-icon fas fa-bars"></i>
 
-                            <p>
-                                HOME
-                            </p>
-                        </a>
-                        <a href="./dashborad.php" class="nav-link active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Dashboard
-                            </p>
-                        </a>
+                                <p>
+                                    HOME
+                                </p>
+                            </a>
+                            <a href="./dashborad.php" class="nav-link active">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
                 </li>
-            <?php } ?>
+        <?php }
+                    } ?>
 
-            <?php
-            if ($cut[4] == 'user') {
+        <?php foreach ($cut as  $val) {
+            if ($val == 'user') {
                 if ($row->user_rate != '1') {
-            ?>
+        ?>
                     <a href="./menu.php" class="nav-link active">
                         <i class="nav-icon fas fa-bars"></i>
                         <p>
@@ -59,7 +61,8 @@ $row = $query->fetch_object();
 
             <?php } ?>
             <?php
-            if ($cut[4] == 'app') {
+
+            if ($val == 'app') {
                 if ($row->user_rate == '5') {
                     $href = '../admin/menu.php';
                 } else {
@@ -90,135 +93,136 @@ $row = $query->fetch_object();
                         </p>
                     </a>
                 <?php } ?>
-            <?php } ?>
-            <?php
-            if ($row->user_rate == '5') {
-            ?>
-                <li class="nav-header">Setting</li>
+        <?php }
+        } ?>
+        <?php
+        if ($row->user_rate == '5') {
+        ?>
+            <li class="nav-header">Setting</li>
+            <li class="nav-item ">
+                <a href="#" class="nav-link active ">
+                    <i class=" nav-icon far fa-cog"></i>
+                    <p>
+                        ตั้งค่า
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item ">
+                        <a href="../admin/status.php" class="nav-link ">
+                            <i class="far fa-user-cog nav-icon"></i>
+                            <span>กำหนดสถานะ</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="../admin/application.php" class="nav-link ">
+                            <i class="fas fa-shield-check nav-icon"></i>
+                            <span>กำหนดสิทธิ์การเข้าถึงแอป</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="../admin/add_user.php" class="nav-link ">
+                            <i class="far fa-user nav-icon"></i>
+                            <span>ผู้ใช้งานระบบ</span>
+                        </a>
+
+                    </li>
+
+                </ul>
+            </li>
+        <?php } ?>
+        <!-- ส่วนของเพิ่มข้อมูล -->
+        <?php if ($row->user_rate != "" && $row->user_rate != NULL && $row->user_rate != '1') {
+            if ($_SESSION['permission'] == "admin") {
+        ?>
+                <li class="nav-header">Infomation</li>
                 <li class="nav-item ">
-                    <a href="#" class="nav-link active ">
-                        <i class=" nav-icon far fa-cog"></i>
+                    <a href="#" class="nav-link active">
+                        <i class="nav-icon fas fa-plus-circle"></i>
                         <p>
-                            ตั้งค่า
-                            <i class="fas fa-angle-left right"></i>
+                            เพิ่มข้อมูล
+                            <i class="far fa-angle-left right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item ">
-                            <a href="../admin/status.php" class="nav-link ">
-                                <i class="far fa-user-cog nav-icon"></i>
-                                <span>กำหนดสถานะ</span>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="../admin/application.php" class="nav-link ">
-                                <i class="fas fa-shield-check nav-icon"></i>
-                                <span>กำหนดสิทธิ์การเข้าถึงแอป</span>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="../admin/add_user.php" class="nav-link ">
-                                <i class="far fa-user nav-icon"></i>
-                                <span>ผู้ใช้งานระบบ</span>
-                            </a>
-
-                        </li>
-
+                        <?php foreach ($query as $menu) {
+                            if ($menu['href_module'] != "") {
+                        ?>
+                                <li class="nav-item">
+                                    <a href="<?= '..' . $menu['href_module'] ?>" class="nav-link">
+                                        <i class="<?= $menu['app_icon'] ?> nav-icon"></i>
+                                        <span><?= $menu['application_name'] ?></span>
+                                    </a>
+                                </li>
+                        <?php }
+                        } ?>
                     </ul>
                 </li>
-            <?php } ?>
-            <!-- ส่วนของเพิ่มข้อมูล -->
-            <?php if ($row->user_rate != "" && $row->user_rate != NULL && $row->user_rate != '1') {
-                if ($_SESSION['permission'] == "admin") {
-            ?>
-                    <li class="nav-header">Infomation</li>
+            <?php } else { ?>
+                <li class="nav-header">Infomation</li>
+                <li class="nav-item ">
+                    <a href="#" class="nav-link active">
+                        <i class="nav-icon fas fa-plus-circle"></i>
+                        <p>
+                            เพิ่มข้อมูล
+                            <i class="far fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <?php foreach ($query as $menu) {
+                            if ($menu['href_module'] != "") {
+                        ?>
+                                <li class="nav-item">
+                                    <a href="<?= '..' . $menu['href_module'] ?>" class="nav-link">
+                                        <i class="<?= $menu['app_icon'] ?> nav-icon"></i>
+                                        <span><?= $menu['application_name'] ?></span>
+                                    </a>
+                                </li>
+                        <?php }
+                        } ?>
+                    </ul>
+                </li>
+
+
+        <?php }
+        } ?>
+        <!-- ส่วนของรายงานข้อมูล -->
+        <li class="nav-header">Report</li>
+        <li class="nav-item menu-is-opening menu-open">
+            <a href="#" class="nav-link active">
+
+                <p>
+                    รายงานข้อมูล
+                    <i class="far fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview ">
+                <?php if ($_SESSION['permission'] == "admin") { ?>
                     <li class="nav-item ">
-                        <a href="#" class="nav-link active">
-                            <i class="nav-icon fas fa-plus-circle"></i>
-                            <p>
-                                เพิ่มข้อมูล
-                                <i class="far fa-angle-left right"></i>
-                            </p>
+                        <a href="../app/report.php" class="nav-link  ">
+                            <i class="nav-icon fad fa-file-chart-line"></i>
+                            <p>รายงานผลตรวจและผลการประเมินของผู้สูงอายุ</p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <?php foreach ($query as $menu) {
-                                if ($menu['href_module'] != "") {
-                            ?>
-                                    <li class="nav-item">
-                                        <a href="<?= '..' . $menu['href_module'] ?>" class="nav-link">
-                                            <i class="<?= $menu['app_icon'] ?> nav-icon"></i>
-                                            <span><?= $menu['application_name'] ?></span>
-                                        </a>
-                                    </li>
-                            <?php }
-                            } ?>
-                        </ul>
                     </li>
-                <?php } else { ?>
-                    <li class="nav-header">Infomation</li>
-                    <li class="nav-item ">
-                        <a href="#" class="nav-link active">
-                            <i class="nav-icon fas fa-plus-circle"></i>
-                            <p>
-                                เพิ่มข้อมูล
-                                <i class="far fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <?php foreach ($query as $menu) {
-                                if ($menu['href_module'] != "") {
-                            ?>
-                                    <li class="nav-item">
-                                        <a href="<?= '..' . $menu['href_module'] ?>" class="nav-link">
-                                            <i class="<?= $menu['app_icon'] ?> nav-icon"></i>
-                                            <span><?= $menu['application_name'] ?></span>
-                                        </a>
-                                    </li>
-                            <?php }
-                            } ?>
-                        </ul>
-                    </li>
-
-
-            <?php }
-            } ?>
-            <!-- ส่วนของรายงานข้อมูล -->
-            <li class="nav-header">Report</li>
-            <li class="nav-item menu-is-opening menu-open">
-                <a href="#" class="nav-link active">
-
-                    <p>
-                        รายงานข้อมูล
-                        <i class="far fa-angle-left right"></i>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview ">
-                    <?php if ($_SESSION['permission'] == "admin") { ?>
+                    <?php } else {
+                    if ($row->user_rate != '1' && $row->user_rate != '5') { ?>
                         <li class="nav-item ">
                             <a href="../app/report.php" class="nav-link  ">
                                 <i class="nav-icon fad fa-file-chart-line"></i>
                                 <p>รายงานผลตรวจและผลการประเมินของผู้สูงอายุ</p>
                             </a>
                         </li>
-                        <?php } else {
-                        if ($row->user_rate != '1' && $row->user_rate != '5') { ?>
-                            <li class="nav-item ">
-                                <a href="../app/report.php" class="nav-link  ">
-                                    <i class="nav-icon fad fa-file-chart-line"></i>
-                                    <p>รายงานผลตรวจและผลการประเมินของผู้สูงอายุ</p>
-                                </a>
-                            </li>
 
-                        <?php } else { ?>
-                            <li class="nav-item ">
-                                <a href="../app/report.php" class="nav-link  ">
-                                    <i class="nav-icon fad fa-file-chart-line"></i>
-                                    <p>รายงานผลตรวจและผลการประเมิน</p>
-                                </a>
-                            </li>
-                    <?php }
-                    } ?>
-                </ul>
+                    <?php } else { ?>
+                        <li class="nav-item ">
+                            <a href="../app/report.php" class="nav-link  ">
+                                <i class="nav-icon fad fa-file-chart-line"></i>
+                                <p>รายงานผลตรวจและผลการประเมิน</p>
+                            </a>
+                        </li>
+                <?php }
+                } ?>
+            </ul>
 
             </ul>
 
