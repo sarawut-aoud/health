@@ -69,7 +69,7 @@ function hospital()
         $i++;
     }
 
-    if (count($html) > 1) {
+    if ($html >= 1) {
         return  $html[1] . $html[2] . $html[3] . $html[4] . $html[5];
     } else {
         return $html = "";
@@ -325,6 +325,25 @@ $html = '
   </table>';
 $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
 
+
+$pdf->SetCreator(PDF_CREATOR);
+
+$pdf->SetTitle('แบบบันทึกข้อมูล');
+
+// set default header data
+$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
+// set header and footer fonts
+
+// set default monospaced font
+$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
+// set margins
+$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+$pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+
+// set default font subsetting mode
 $pdf->setFontSubsetting(true);
 
 // Set font

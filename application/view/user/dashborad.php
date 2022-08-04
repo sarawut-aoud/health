@@ -17,6 +17,16 @@ if ($row->user_rate != '1') {
 } else {
     $chk = 'disabled';
 }
+function DateThai($datetoday)
+{
+    $strYear = date("Y", strtotime($datetoday)) + 543;
+    $strMonth = date("n", strtotime($datetoday));
+    $strDay = date("j", strtotime($datetoday));
+
+    $strMonthCut = array("", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
+    $strMonthThai = $strMonthCut[$strMonth];
+    return "$strDay $strMonthThai $strYear";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -116,7 +126,7 @@ if ($row->user_rate != '1') {
                                                 <div class="col-md-8 p-1">
                                                     <div class="form-group">
                                                         <label class="small mb-1">วัน/เดือน/ปีเกิด </label>
-                                                        <input class="form-control py-2" id="birthday" name="birthday" type="text" autocomplete="off" placeholder="วันเดินปีเกิด" value="<?= $data->birthday ?>" <?= $chk ?> required>
+                                                        <input class="form-control py-2" id="birthday" name="birthday" type="text" autocomplete="off" placeholder="วันเดินปีเกิด" value="<?= DateThai($data->birthday) ?>" <?= $chk ?> required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -138,7 +148,7 @@ if ($row->user_rate != '1') {
                                                 <div class="col-md-4 p-1">
                                                     <div class="form-group">
                                                         <label class="small mb-1">การศึกษา </label>
-                                                        <select class="form-select py-2" id="education" name="education" autocomplete="off" placeholder="ชื่อ" required <?= $chk ?> >
+                                                        <select class="form-select py-2" id="education" name="education" autocomplete="off" placeholder="ชื่อ" required <?= $chk ?>>
                                                             <?php
                                                             echo '<option  selected disabled>เลือกการศึกษา</option>';
                                                             foreach ($education2 as $keye => $vale) {
@@ -155,7 +165,7 @@ if ($row->user_rate != '1') {
                                                 <div class="col-md-8 p-1">
                                                     <div class="form-group">
                                                         <label class="small mb-1">อาชีพหลักในปัจจุบัน </label>
-                                                        <select class="form-select py-2" id="occupation" name="occupation" autocomplete="off" placeholder="ชื่อ" required  <?= $chk ?> >
+                                                        <select class="form-select py-2" id="occupation" name="occupation" autocomplete="off" placeholder="ชื่อ" required <?= $chk ?>>
                                                             <?php
                                                             echo '<option  selected disabled>เลือกอาชีพหลักในปัจจุบัน</option>';
                                                             foreach ($occupation as $keye => $vale) {
@@ -174,7 +184,7 @@ if ($row->user_rate != '1') {
                                                 <div class="col-md-4 p-1">
                                                     <div class="form-group">
                                                         <label class="small mb-1">สถานะภาพ </label>
-                                                        <select class="form-select py-2" id="pd_status" name="pd_status" autocomplete="off" placeholder="ชื่อ" required <?= $chk ?> >
+                                                        <select class="form-select py-2" id="pd_status" name="pd_status" autocomplete="off" placeholder="ชื่อ" required <?= $chk ?>>
                                                             <?php
                                                             echo '<option  selected disabled>เลือกสถานะภาพ</option>';
                                                             foreach ($pd_status as $keye => $vale) {
@@ -191,7 +201,7 @@ if ($row->user_rate != '1') {
                                                 <div class="col-md-8 p-1">
                                                     <div class="form-group">
                                                         <label class="small mb-1">ประเภทพักอาศัย </label>
-                                                        <select class="form-select py-2" id="type_live" name="type_live" autocomplete="off" placeholder="ชื่อ" required  <?= $chk ?> >
+                                                        <select class="form-select py-2" id="type_live" name="type_live" autocomplete="off" placeholder="ชื่อ" required <?= $chk ?>>
                                                             <?php
                                                             echo '<option  selected disabled>เลือกประเภทพักอาศัย</option>';
                                                             foreach ($housing_type as $keye => $vale) {

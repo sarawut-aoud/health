@@ -62,7 +62,7 @@ $(document).ready(function () {
     });
   });
   //---------------------- ส่วนของ การออกจากระบบ
-
+  const supportsPDF = "application/pdf" in navigator.mimeTypes;
   $(document).on("click", ".is_logout", function (e) {
     e.preventDefault();
 
@@ -132,7 +132,7 @@ $(document).ready(function () {
   $(document).on('click', "#view_pdf", function (e) {
     e.preventDefault();
     var id = $(this).attr('data-id');
-    $('#show_iframe_modal iframe').attr('src', '../../view/reports/export_pdf.php?pd_id=' + id + '&embedded=true#zoom=FitH');
+    $('#show_iframe_modal iframe').attr('src', '../../view/reports/export_pdf.php?pd_id=' + id + '&embedded=true');
     $('#show_iframe_modal').modal('show');
 
   })

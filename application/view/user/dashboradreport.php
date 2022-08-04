@@ -223,7 +223,7 @@ $row_stat = $sql2->fetch_object();
                                     <div class="accordion-body">
                                         <div class="table-responsive">
                                             <h3 class="text-center">ผู้สูงอายุ</h3>
-                                            <table class="table table-bordered" id="example4" width="100%" cellspacing="0">
+                                            <table class="table table-bordered" id="datra" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr align="center">
                                                         <td style="width: 30%;">ชื่อ – สกุล</td>
@@ -401,7 +401,7 @@ $row_stat = $sql2->fetch_object();
             .buttons()
             .container()
             .appendTo("#example3_wrapper .col-md-6:eq(0)");
-        $("#example4")
+        $("#datra")
             .DataTable({
                 // "searching": true,
                 responsive: true,

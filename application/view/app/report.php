@@ -135,7 +135,7 @@ function DateThai($datetoday)
                             <h5 class="card-title">รายงานผลตรวจและผลการประเมิน<?= $set ?></h5>
                         </div>
                         <div class="card-body">
-                            <table class="table table-bordered" id="example" width="100%" cellspacing="0">
+                            <table class="table table-bordered" id="example10" width="100%" cellspacing="0">
                                 <thead>
                                     <tr align="center">
                                         <?php if ($row->user_rate == '1') { ?>
@@ -243,7 +243,9 @@ function DateThai($datetoday)
 
                 <div class="modal-body mt-3 ms-4 me-4">
                     <div class="ratio  " style="--bs-aspect-ratio:400%;">
-                        <iframe title="PDF" allowfullscreen ></iframe>
+                        <!-- <object data="" type="application/pdf" width="100%" height="100%"> -->
+                        <iframe title="PDF" type='application/pdf' allowfullscreen></iframe>
+                        <!-- </object> -->
                     </div>
                 </div>
             </div>
@@ -252,6 +254,35 @@ function DateThai($datetoday)
 
     <script src="../../../assets/h_template.js"></script>
     <script src="../../../assets/report_view.js"></script>
+    <script>
+        $("#example10")
+            .DataTable({
+                // "searching": true,
+                responsive: true,
+                lengthChange: false,
+                autoWidth: false,
+                // dom: "Btrip",
+                buttons: {
+                    dom: {
+                        button: {
+                            className: "btn btn-light  ",
+                        },
+                    },
+                    buttons: [{
+                        extend: "colvis",
+                        className: "btn btn-outline-info",
+                    }, ],
+                },
+                language: {
+                    buttons: {
+                        colvis: "เลือกดูคอลัมน์",
+                    },
+                },
+            })
+            .buttons()
+            .container()
+            .appendTo("#example_wrapper .col-md-6:eq(0)");
+    </script>
 </body>
 
 </html>

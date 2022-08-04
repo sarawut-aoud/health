@@ -82,10 +82,10 @@ require '../../core/session.php';
 
                                     </div>
                                     <div class="card-footer text-end">
-                                        <a id="cancle" class="btn btn-sm btn-secondary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm">ยกเลิก</a>
+                                        <a id="cancle" class="btn btn-sm btn-secondary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm  mt-3">ยกเลิก</a>
 
-                                        <a id="updateStatus" class="btn btn-sm btn-warning  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm"><i class="fas fa-edit"></i> ยืนยันการแก้ไขข้อมูล</a>
-                                        <a id="saveStatus" class="btn btn-sm btn-primary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm"><i class="fas fa-save"></i> ยืนยันการเพิ่มข้อมูล</a>
+                                        <a id="updateStatus" class="btn btn-sm btn-warning  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm  mt-3"><i class="fas fa-edit"></i> ยืนยันการแก้ไขข้อมูล</a>
+                                        <a id="saveStatus" class="btn btn-sm btn-primary  rounded-pill col col-xxl-2 col-xl-2 col-lg-4 col-md col-sm  mt-3"><i class="fas fa-save"></i> ยืนยันการเพิ่มข้อมูล</a>
                                     </div>
                                 </form>
                             </div>
@@ -132,8 +132,8 @@ require '../../core/session.php';
                                                         </td>
                                                         <td align="center">
                                                             <div class="btn-group btn-group-toggle">
-                                                                <button value="<?= $row->pd_id ?>" id="edit" class="btn  btn-outline-warning  "><i class="fas fa-cog"></i></button>
-                                                                <button value="<?= $row->pd_id ?>" id="delete" class="btn  btn-outline-danger  "><i class="fas fa-trash-alt"></i></button>
+                                                                <button value="<?= $row->pd_id ?>" id="edit" class="btn  btn-outline-warning   "><i class="fas fa-cog"></i></button>
+                                                                <button value="<?= $row->pd_id ?>" id="delete" class="btn  btn-outline-danger   "><i class="fas fa-trash-alt"></i></button>
                                                             </div>
 
                                                         </td>
