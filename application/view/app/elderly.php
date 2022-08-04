@@ -1052,7 +1052,7 @@ $class = new addelderly();
                                                                     </div>
                                                                     <div class="form-check form-check-inline">
                                                                         <input class="form-check-input" type="checkbox" name="cervixre" id="cervixre2" value="0">
-                                                                        <label class="form-check-label col-1" for="cervixre2">ผิดปกติ</label>
+                                                                        <label class="form-check-label col-3" for="cervixre2">ผิดปกติ</label>
                                                                         <input type="text" id="cervixsub" name="cervixsub" class="form-control py-2" placeholder="คือ">
                                                                     </div>
 
