@@ -205,7 +205,7 @@ $class =  new dashboard_model();
                                         </div>
                                     </div>
                                 </div>
-                                <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionExample">
+                                <div id="collapse4" class="accordion-collapse collapse show" aria-labelledby="heading4" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <div class="table-responsive">
                                             <h3 class="text-center">ผู้สูงอายุ</h3>
