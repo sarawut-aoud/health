@@ -985,32 +985,44 @@ $class = new addelderly();
                                                     <div class="d-md-flex d-sm-block form-row p-2">
                                                         <div class="col-md-12 p-1">
                                                             <div class="form-group">
-                                                                <label class="mb-1">การดูแลสุขภาพช่องปากเหงือก <span>*<span></label>
-                                                                <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" type="checkbox" name="gum" id="gum1" value="0" required>
-                                                                    <label class="form-check-label" for="gum1">ปกติ</label>
-                                                                </div>
-                                                                <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" type="checkbox" name="gum" id="gum2" value="1" required>
-                                                                    <label class="form-check-label" for="gum2">บวม</label>
-                                                                </div>
-                                                                <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" type="checkbox" name="gum" id="gum3" value="2" required>
-                                                                    <label class="form-check-label" for="gum3">หนอง</label>
-                                                                </div>
-                                                                <label class="mb-1">หินปูน <span>*<span></label>
-                                                                <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" type="checkbox" name="limestone" id="limestone1" value="0" required>
-                                                                    <label class="form-check-label" for="limestone1">มี</label>
-                                                                </div>
-                                                                <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" type="checkbox" name="limestone" id="limestone2" value="1" required>
-                                                                    <label class="form-check-label" for="limestone2">ไม่มี</label>
-                                                                </div>
-                                                                <label class="md-4">จำนวนฟันแท้ผุ </label>
-                                                                <div class="form-check form-check-inline">
-                                                                    <input type="text" id="cavities" name="cavities" class="form-control py-2" placeholder="จำนวนฟันแท้ผุ">
-                                                                    <label class="mb-2 p-2">ซี่ </label>
+                                                                <div class="row g-6  align-items-center p-2">
+                                                                    <div class="col-auto mt-2">
+                                                                        <label class="mb-1">การดูแลสุขภาพช่องปากเหงือก <span>*<span></label>
+                                                                        <div class="form-check form-check-inline">
+                                                                            <input class="form-check-input" type="checkbox" name="gum" id="gum1" value="0" required>
+                                                                            <label class="form-check-label" for="gum1">ปกติ</label>
+                                                                        </div>
+                                                                        <div class="form-check form-check-inline">
+                                                                            <input class="form-check-input" type="checkbox" name="gum" id="gum2" value="1" required>
+                                                                            <label class="form-check-label" for="gum2">บวม</label>
+                                                                        </div>
+                                                                        <div class="form-check form-check-inline">
+                                                                            <input class="form-check-input" type="checkbox" name="gum" id="gum3" value="2" required>
+                                                                            <label class="form-check-label" for="gum3">หนอง</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-auto mt-2">
+                                                                        <label class="mb-1">หินปูน <span>*<span></label>
+                                                                        <div class="form-check form-check-inline">
+
+                                                                            <input class="form-check-input" type="checkbox" name="limestone" id="limestone1" value="0" required>
+                                                                            <label class="form-check-label" for="limestone1">มี</label>
+                                                                        </div>
+                                                                        <div class="form-check form-check-inline">
+                                                                            <input class="form-check-input" type="checkbox" name="limestone" id="limestone2" value="1" required>
+                                                                            <label class="form-check-label" for="limestone2">ไม่มี</label>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="col-auto mt-2">
+                                                                        <label class="md-4">จำนวนฟันแท้ผุ </label>
+                                                                        <div class="form-check form-check-inline">
+                                                                            <input type="text" id="cavities" name="cavities" class="form-control py-2" placeholder="จำนวนฟันแท้ผุ">
+                                                                            <label class="mb-2 p-2">ซี่ </label>
+                                                                        </div>
+                                                                    </div>
+
+
                                                                 </div>
                                                             </div>
 
