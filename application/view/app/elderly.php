@@ -797,7 +797,7 @@ $class = new addelderly();
                                                             <div class="form-group">
                                                                 <label class="mb-1">การสูบบุหรี่ <span>*<span></label>
                                                                 <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" type="checkbox" name="cigarette" id="cigarette1" required value="0">
+                                                                    <input class="form-check-input" type="checkbox" name="cigarette" id="cigarette1" data-id="set" required value="0">
                                                                     <label class="form-check-label" for="cigarette1">ไม่สูบ</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
@@ -831,7 +831,7 @@ $class = new addelderly();
                                             <form id="form5" class="needs-validation" novalidate>
                                                 <!-- ส่วนของบันทึกข้อมูลสุขภาพ -->
                                                 <div id="test-nl-5" role="tabpanel" class="bs-stepper-pane " aria-labelledby="stepper2trigger5">
-                                                    <div class="d-md-flex d-sm-block form-row p-2">
+                                                    <div class="d-md-flex d-sm-block form-row p-2 " id="show_cigarate">
                                                         <div class="row g-6  align-items-center p-2">
                                                             <div class="col-auto">
                                                                 <label class="mb-1">ชนิดของบุหรี่</label>
@@ -868,7 +868,7 @@ $class = new addelderly();
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="d-md-flex d-sm-block form-row p-2">
+                                                    <div class="d-md-flex d-sm-block form-row p-2" id="show_cigarate2">
                                                         <div class="col-md-12 p-1">
                                                             <div class="form-group">
                                                                 <label class="mb-1">พฤติกรรมสูบมวนแรกหลังตื่นนอน <span>*<span></label>
@@ -892,7 +892,7 @@ $class = new addelderly();
                                                             <div class="form-group">
                                                                 <label class="mb-1">การดื่มสุรา <span>*<span></label>
                                                                 <div class="form-check form-check-inline">
-                                                                    <input class="form-check-input" type="checkbox" name="drink" id="drink1" required value="0">
+                                                                    <input class="form-check-input" type="checkbox" name="drink" id="drink1" data-id="set" required value="0">
                                                                     <label class="form-check-label" for="drink1">ไม่ดื่ม</label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
@@ -914,7 +914,7 @@ $class = new addelderly();
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="d-md-flex d-sm-block form-row p-2">
+                                                    <div class="d-md-flex d-sm-block form-row p-2" id="show_alcohol">
                                                         <div class="row g-6  align-items-center p-2">
                                                             <div class="col-auto">
                                                                 <label class="mb-1">ชนิดของสุรา <span>*<span></label>
@@ -1056,26 +1056,30 @@ $class = new addelderly();
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="d-md-flex d-sm-block form-row p-2">
+                                                    <div class="d-md-flex d-sm-block">
                                                         <div class="form-group">
                                                             <label class="mb-1 p-2">การตรวจคัดกรองมะเร็งปากมดลูกในสตรีอายุ 30 ปีขึ้นไป</label>
                                                             <div class="row g-6  align-items-center p-2">
-                                                                <div class="col-auto">
+                                                                <div class="col-auto mt-1">
                                                                     <label class="mb-1">ตรวจครั้งสุดท้ายเมื่อปี พ.ศ. </label>
                                                                 </div>
-                                                                <div class="col-auto">
+                                                                <div class="col-auto  mt-1">
                                                                     <input type="text" id="cervix" name="cervix" class="form-control py-2" placeholder="ตรวจครั้งสุดท้ายเมื่อปี พ.ศ." onkeypress="return onlyNumber(event)">
                                                                 </div>
-                                                                <div class="col-auto ">
+                                                                <div class="col-auto  mt-1">
+
                                                                     <label class="mb-1 py-2">ผลการตรวจ</label>
-                                                                    <div class="form-check form-check-inline py-2">
+                                                                    <div class="form-check  py-2 form-check-inline">
                                                                         <input class="form-check-input" type="checkbox" name="cervixre" id="cervixre1" value="0">
                                                                         <label class="form-check-label" for="cervixre1">ปกติ</label>
                                                                     </div>
-                                                                    <div class="form-check form-check-inline">
+                                                                    <div class="form-check  py-2 form-check-inline">
                                                                         <input class="form-check-input" type="checkbox" name="cervixre" id="cervixre2" value="0">
                                                                         <label class="form-check-label " for="cervixre2">ผิดปกติ</label>
-                                                                        <input type="text" id="cervixsub" name="cervixsub" class="form-control py-2" placeholder="คือ">
+                                                                    </div>
+                                                                    <div class="form-check  py-2 form-check-inline">
+
+                                                                        <input type="text" id="cervixsub" name="cervixsub" class="form-control py-2 " placeholder="คือ">
                                                                     </div>
 
                                                                 </div>

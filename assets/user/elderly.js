@@ -298,19 +298,34 @@ $(document).ready(function () {
       $("input[name='brushlong']").prop("required", true);
     }
   });
-  $(document).on("change", "#cigarette1", function (e) {
-    if ($(this).is(':checked') === true) {
-      $("#num1,#num2,#num3,#after1,#after2,#after3").prop("checked", false).prop("disabled", true);
-      $("#cigarate").prop('disabled', true);
-    } else {
-      $("#cigarate").prop('disabled', false);
-      $("#num1,#num2,#num3,#after1,#after2,#after3").prop("disabled", false);
-    }
-  });
+  // $(document).on("change", "#cigarette1", function (e) {
+  //   if ($(this).is(':checked') === true) {
+  //     $("#num1,#num2,#num3,#after1,#after2,#after3").prop("checked", false).prop("disabled", true);
+  //     $("#cigarate").prop('disabled', true);
+
+  //   } else {
+  //     $("#cigarate").prop('disabled', false);
+
+
+
+  //     $("#num1,#num2,#num3,#after1,#after2,#after3").prop("disabled", false);
+  //   }
+  // });
   $(document).on("change", " input[name='cigarette']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
       $("input[name='cigarette']").not(this).prop("checked", false).prop("required", false);
+      if ($(this).attr('data-id') == 'set') {
+        $('#cigarate,#num1,#num2,#num3,#after1,#after2,#after3').prop("required", false);
+        $('#show_cigarate,#show_cigarate2').removeClass('d-md-flex d-sm-block');
+        $('#show_cigarate,#show_cigarate2').addClass('d-none');
+
+      } else {
+        $('#cigarate,#num1,#num2,#num3,#after1,#after2,#after3').prop("required", true);
+        $('#show_cigarate,#show_cigarate2').removeClass('d-none');
+        $('#show_cigarate,#show_cigarate2').addClass('d-md-flex d-sm-block');
+
+      }
     } else {
       $("input[name='cigarette']").prop("required", true);
     }
@@ -331,17 +346,26 @@ $(document).ready(function () {
       $("input[name='after']").prop("required", true);
     }
   });
-  $(document).on("change", "#drink1", function (e) {
-    if ($(this).is(':checked') === true) {
-      $("#alcohol,#amount").prop('disabled', true);
-    } else {
-      $("#alcohol,#amount").prop('disabled', false);
-    }
-  });
+  // $(document).on("change", "#drink1", function (e) {
+  //   if ($(this).is(':checked') === true) {
+  //     $("#alcohol,#amount").prop('disabled', true);
+  //   } else {
+  //     $("#alcohol,#amount").prop('disabled', false);
+  //   }
+  // });
   $(document).on("change", " input[name='drink']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
       $("input[name='drink']").not(this).prop("checked", false).prop("required", false);
+      if ($(this).attr('data-id') == 'set') {
+        $('#alcohol,#amount').prop("required", false);
+        $("#show_alcohol").removeClass('d-md-flex d-sm-block');
+        $("#show_alcohol").addClass('d-none');
+      } else {
+        $('#alcohol,#amount').prop("required", true);
+        $("#show_alcohol").removeClass('d-none');
+        $("#show_alcohol").addClass('d-md-flex d-sm-block');
+      }
     } else {
       $("input[name='drink']").prop("required", true);
     }
@@ -399,7 +423,7 @@ $(document).ready(function () {
       $("input[name='cervixre']").not(this).prop("checked", false);
     } else {
       $("input[name='cervixre']");
-      
+
     }
   });
   $(document).on("change", " input[name='eye']", function (e) {
