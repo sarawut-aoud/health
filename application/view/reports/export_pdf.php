@@ -388,6 +388,43 @@ function get_result()
     $html5 = '</table>';
     return $html . $html1 . $html2 . $html3 . $html4 . $html5;
 }
+function alcohol()
+{
+    $pd_id = $_REQUEST['pd_id'];
+    $sql = new results_model();
+    $query = $sql->personal($pd_id);
+    $data = mysqli_fetch_object($query);
+    
+    $html = ' <h5><b>5.ประเมินความเสี่ยงโรคมะเร็ง</b></h5><table width="100%">';
+    if ($data->alcohol) {
+        $html1 = '<tr><td width="80%;"><h6> ดื่มสุราเป็นประจำ</h6></td>';
+        $html2 =  '<td width="15%;" align="right"><h6>' . $data->alcohol . '</h6></td></tr>';
+    }
+    if ($data->cancer_1) {
+        $html3 = '<tr><td width="80%;"><h6>  รับประทานอาหารที่มีสารก่อมะเร็ง เช่น ปลาร้า ปลาจ่อม แหนม ไส้กรอก อาหารปิ้งย่างจนไหม้เกรียม</h6></td>';
+        $html4 =  '<td width="15%;" align="right"><h6>' . $data->cancer_1 . '</h6></td></tr>';
+    }
+    if ($data->cancer_2) {
+        $html6 = '<tr><td width="80%;"><h6>  รับปรัทานอาหารที่มีราใน ถั่ว ข้าวโพด กระเทียม เต้าเจี้ยว เต้าหู้ยี้ พริกป่น พริกแห้ง</h6></td>';
+        $html7 =  '<td width="15%;" align="right"><h6>' . $data->cancer_2 . '</h6></td></tr>';
+    }
+    if ($data->cancer_3) {
+        $html8 = '<tr><td width="80%;"><h6>  มีประวัติครอบครัว โดยเฉพาะญาติสายตรง เป็นมะเร็งตับ</h6></td>';
+        $html9 =  '<td width="15%;" align="right"><h6>' . $data->cancer_3 . '</h6></td></tr>';
+    }
+    if ($data->cancer_4) {
+        $html10 = '<tr><td width="80%;"><h6>  มีภาวะตับอักเสบ หรือมีการติดเชื้อของไวรัสตับอักเสบชนิด บี ซี</h6></td>';
+        $html11 =  '<td width="15%;" align="right"><h6>' . $data->cancer_4 . '</h6></td></tr>';
+    }if ($data->cancer_5) {
+        $html12 = '<tr><td width="80%;"><h6>  มีพยาธิใบไม้ในตับ</h6></td>';
+        $html13 =  '<td width="15%;" align="right"><h6>' . $data->cancer_5 . '</h6></td></tr>';
+    }
+    
+          $html5 = '</table>';
+          return $html . $html1 . $html2 . $html3 . $html4 . $html5 . $html6 . $html7 . $html8 . $html9 . $html10 . $html11 . $html12 . $html13;
+
+}
+   
 $html2 = '
 <style>
 b{
@@ -529,33 +566,9 @@ font-weight:bold !important;
      </tr>
      </table>
     
-     <h5><b>5.ประเมินความเสี่ยงโรคมะเร็ง</b></h5>
-     <table width="100%">
-     <tr>
-     <td width="80%;"><h6> ดื่มสุราเป็นประจำ</h6></td>
-     <td width="15%;" align="right"><h6>' . $data->alcohol . '</h6></td>
-     </tr>
-     <tr>
-     <td width="80%;"><h6> รับประทานอาหารที่มีสารก่อมะเร็ง เช่น ปลาร้า ปลาจ่อม แหนม ไส้กรอก อาหารปิ้งย่างจนไหม้เกรียม</h6></td>
-     <td width="15%;" align="right"><h6>' . $data->cancer_1 . '</h6></td>
-      </tr>
-      <tr>
-      <td width="80%;"><h6> รับปรัทานอาหารที่มีราใน ถั่ว ข้าวโพด กระเทียม เต้าเจี้ยว เต้าหู้ยี้ พริกป่น พริกแห้ง</h6></td>
-      <td width="15%;" align="right"><h6>' . $data->cancer_2 . '</h6></td>
-       </tr>
-       <tr>
-       <td width="80%;"><h6> มีประวัติครอบครัว โดยเฉพาะญาติสายตรง เป็นมะเร็งตับ</h6></td>
-       <td width="15%;" align="right"><h6>' . $data->cancer_3 . '</h6></td>
-        </tr>
-        <tr>
-        <td width="80%;"><h6> มีภาวะตับอักเสบ หรือมีการติดเชื้อของไวรัสตับอักเสบชนิด บี ซี</h6></td>
-        <td width="15%;" align="right"><h6>' . $data->cancer_4 . '</h6></td>
-         </tr>
-         <tr>
-         <td width="80%;"><h6> มีพยาธิใบไม้ในตับ</h6></td>
-         <td width="15%;" align="right"><h6>' . $data->cancer_5 . '</h6></td>
-          </tr>
-      </table>
+     
+     ' . alcohol() . '
+
      
      <h5><b>6.คำถามเพิ่มเติมหากท่านรักษาโรคประจำตัวเบาหวาน ความดัน ไขมันสูง</b></h5>
      <table width="100%">
