@@ -105,7 +105,7 @@ require_once '../../core/session.php';
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="mb-1">รับปรัทานอาหารที่มีราใน ถั่ว ข้าวโพด กระเทียม เต้าเจี้ยว เต้าหู้ยี้ พริกป่น พริกแห้ง <span>*<span></label>
+                                                    <label class="mb-1">รับประทานอาหารที่มีราใน ถั่ว ข้าวโพด กระเทียม เต้าเจี้ยว เต้าหู้ยี้ พริกป่น พริกแห้ง <span>*<span></label>
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="checkbox" name="chk3" id="chk5" value="0" required>
                                                         <label class="form-check-label" for="inlineRadio1">ใช่</label>
