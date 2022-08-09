@@ -397,7 +397,7 @@ function alcohol()
     
     $html = ' <h5><b>5.ประเมินความเสี่ยงโรคมะเร็ง</b></h5><table width="100%">';
     if ($data->alcohol) {
-        $html1 = '<tr><td width="80%;"><h6> ดื่มสุราเป็นประจำ</h6></td>';
+        $html1 = '<tr><td width="80%;"><h6>  ดื่มสุราเป็นประจำ</h6></td>';
         $html2 =  '<td width="15%;" align="right"><h6>' . $data->alcohol . '</h6></td></tr>';
     }
     if ($data->cancer_1) {
