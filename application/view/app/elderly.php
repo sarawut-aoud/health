@@ -30,6 +30,28 @@ $class = new addelderly();
     #form5 label span {
         color: red;
     }
+
+    input#username::placeholder {
+        font-size: 9px;
+    }
+
+    @media (min-width: 992px) {
+        input#username::placeholder {
+            font-size: 14px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        input#username::placeholder {
+            font-size: 14px;
+        }
+    }
+
+    @media (min-width: 1400px) {
+        input#username::placeholder {
+            font-size: 14px;
+        }
+    }
 </style>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -301,14 +323,14 @@ $class = new addelderly();
                                                         </div>
                                                     </div>
                                                     <div class="d-md-flex d-sm-block form-row p-2">
-                                                        <div class="col-md-4 p-1">
+                                                        <div class="col-md-6 col-12 p-1">
                                                             <div class="form-group">
                                                                 <label class="small mb-1">ชื่อเข้าใช้งานสำหรับผู้สูงอายุ </label>
-                                                                <input class="form-control " id="username" name="username" type="text">
+                                                                <input class="form-control " id="username" name="username" type="text" placeholder="ถ้าไม่กรอกชื่อผู้เข้าใช้งาน ระบบจะตั้งค่าชื่อผู้เข้าใช้งานเป็นเบอร์โทรศัทพ์">
 
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4 p-1">
+                                                        <div class="col-md-6 col-12 p-1">
                                                             <div class="form-group">
                                                                 <label class="small mb-1">รหัสเข้าใช้งานสำหรับผู้สูงอายุ <span>* ค่าเดิมเป็น 1234 <span></label>
                                                                 <input class="form-control " id="password" type="text" placeholder="1234" disabled>
