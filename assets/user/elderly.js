@@ -410,13 +410,13 @@ $(document).ready(function () {
       $("input[name='breastre']");
     }
   });
-  $(document).on("change", "#cervixre1", function (e) {
-    if ($(this).is(':checked') === true) {
-      $("#cervixsub").prop('disabled', true);
-    } else {
-      $("#cervixsub").prop('disabled', false);
-    }
-  });
+  // $(document).on("change", "#cervixre1", function (e) {
+  //   if ($(this).is(':checked') === true) {
+  //     $("#cervixsub").prop('disabled', true);
+  //   } else {
+  //     $("#cervixsub").prop('disabled', false);
+  //   }
+  // });
   $(document).on("change", "#cervixre2", function (e) {
     if ($(this).is(':checked') === true) {
       $("#cervixsub").prop('disabled', false);

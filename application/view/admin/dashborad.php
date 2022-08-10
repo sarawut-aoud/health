@@ -291,7 +291,7 @@ $class =  new dashboard_model();
         <div class="modal-dialog modal-fullscreen modal-xl">
             <div class="modal-content">
                 <div class="modal-header bg-info">
-                    <h5 class="modal-title ">ข้อมูลแบบปันทึกสุขภาพ</h5>
+                    <h5 class="modal-title ">ข้อมูลแบบบันทึกสุขภาพ</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 

@@ -384,7 +384,7 @@ $class = new addelderly();
                                                                 <label class="small mb-1">การคุมกำเนิด <span>*<span></label>
                                                                 <select class="form-select" id="birth" name="birth" autocomplete="off" required>
                                                                     <?php
-                                                                    echo '<option value="" selected disabled>เลือกการคลุมกำเนิด</option>';
+                                                                    echo '<option value="" selected disabled>เลือกการคุมกำเนิด</option>';
                                                                     foreach ($contraceptive as $keye => $vale) {
                                                                         if ($dataset == $keye) {
                                                                             echo "<option selected value='$keye'>$vale</option>";
