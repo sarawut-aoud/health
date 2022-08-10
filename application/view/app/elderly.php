@@ -954,7 +954,7 @@ $class = new addelderly();
                                                                     <label class="mb-1">ตรวจครั้งสุดท้ายเมื่อปี พ.ศ. <span>*<span></label>
                                                                 </div>
                                                                 <div class="col-auto">
-                                                                    <input type="text" id="bloodlast" name="bloodlast" class="form-control py-2" placeholder="ตรวจครั้งสุดท้ายเมื่อปี พ.ศ." onkeypress="return onlyNumber(event)" required>
+                                                                    <input type="text" id="bloodlast" name="bloodlast" class="form-control py-2" placeholder="ตรวจครั้งสุดท้ายเมื่อปี พ.ศ." onkeypress="return onlyNumber(event)" >
                                                                 </div>
                                                                 <div class="col-auto ">
                                                                     <label class="mb-1 py-2">ผลการตรวจ</label>
