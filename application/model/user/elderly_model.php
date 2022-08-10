@@ -280,4 +280,28 @@ class addelderly extends Database_set
 
         return $result;
     }
+
+    public function get_user()
+    {
+        $results = mysqli_query($this->dbcon, "SELECT
+        CONCAT( pd.first_name, ' ', pd.last_name ) AS fullname,
+        pd.pd_id,
+        ps.id,
+				pd.*
+    FROM personal_document pd
+      
+        LEFT JOIN   permission_status ps ON ps.pd_id = pd.pd_id
+        LEFT JOIN application ap ON ap.id = ps.appplication_id
+        LEFT JOIN user_status_keep uk ON uk.pd_id = pd.pd_id 
+        LEFT JOIN user_status us ON us.id = uk.status_id
+		LEFT JOIN cancer cc ON cc.pd_id = pd.pd_id
+		LEFT JOIN estimate em ON em.pd_id = pd.pd_id
+    WHERE
+        pd.`status` = 'active'  AND us.user_rate ='1' AND em.em_id IS  NULL AND cc.cc_id IS  NULL
+         AND pd.pd_id NOT IN ( SELECT MIN( pdid.pd_id ) FROM personal_document AS pdid ORDER BY
+        pdid.pd_id ASC  )
+    GROUP BY 
+        pd.pd_id");
+        return $results;
+    }
 }

@@ -91,7 +91,7 @@ $row_stat = $sql2->fetch_object();
                                 <div class="small-box bg-success">
                                     <div class="inner">
                                         <h3 id="dash2"></h3>
-                                        <p>เจ้าหน้าที่สาธารณะสุข</p>
+                                        <p>เจ้าหน้าที่สาธารณสุข</p>
                                     </div>
                                     <div class="icon">
                                         <i class="fas  fa-user-md"></i>
@@ -172,7 +172,7 @@ $row_stat = $sql2->fetch_object();
                                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <div class="table-responsive">
-                                            <h3 class="text-center">เจ้าหน้าที่สาธารณะสุข</h3>
+                                            <h3 class="text-center">เจ้าหน้าที่สาธารณสุข</h3>
                                             <table class="table table-bordered" id="example2" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr align="center">
