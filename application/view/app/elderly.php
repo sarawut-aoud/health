@@ -381,7 +381,7 @@ $class = new addelderly();
                                                         </div>
                                                         <div class="col-md-6 p-1">
                                                             <div class="form-group">
-                                                                <label class="small mb-1">การคลุมกำเนิด <span>*<span></label>
+                                                                <label class="small mb-1">การคุมกำเนิด <span>*<span></label>
                                                                 <select class="form-select" id="birth" name="birth" autocomplete="off" required>
                                                                     <?php
                                                                     echo '<option value="" selected disabled>เลือกการคลุมกำเนิด</option>';

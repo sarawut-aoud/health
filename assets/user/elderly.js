@@ -417,6 +417,11 @@ $(document).ready(function () {
       $("#cervixsub").prop('disabled', false);
     }
   });
+  $(document).on("change", "#cervixre2", function (e) {
+    if ($(this).is(':checked') === true) {
+      $("#cervixsub").prop('disabled', false);
+    } 
+  });
   $(document).on("change", " input[name='cervixre']", function (e) {
     e.preventDefault();
     if ($(this).is(":checked") == true) {
