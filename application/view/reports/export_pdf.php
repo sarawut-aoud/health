@@ -82,9 +82,9 @@ class MYPDF extends TCPDF
     public function Header()
     {
         $html = 'วัน-เดือน-ปีที่ให้บริการ&nbsp;&nbsp;&nbsp;' . DateThai(date("Y-m-d")) . '  &nbsp;&nbsp;&nbsp;&nbsp;อสม&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . getname();
-        $this->SetFont('THSarabunNew', 'B', 14);
+        $this->SetFont('angsau', 'B', 16);
         $this->writeHTMLCell($w = 0, $h = 0, $x = '', $y = '', $html, $border = 0, $ln = 1, $fill = 0, $reseth = true, $align = 'C', $autopadding = true);
-        $this->SetFont('THSarabunNew', 'B', 20);
+        $this->SetFont('angsau', 'B', 22);
         $html1 = 'แบบตรวจบันทึกข้อมูลสุขภาพ';
 
         $this->writeHTMLCell($w = 0, $h = 0, $x = '', $y = 15, $html1, $border = 0, $ln = 1, $fill = 0, $reseth = true, $align = 'C', $autopadding = true);
@@ -96,7 +96,7 @@ class MYPDF extends TCPDF
         // Position at 15 mm from bottom
         $this->SetY(-15);
         // Set font
-        $this->SetFont('THSarabunNew', 'I', 8);
+        $this->SetFont('angsau', 'I', 8);
         // Page number
         $this->Cell(0, 10, 'หน้า ' . $this->getAliasNumPage() . '/' . $this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
     }
@@ -127,7 +127,7 @@ $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 $pdf->setFontSubsetting(true);
 
 // Set font
-$pdf->SetFont('THSarabunNew', '', 16);
+$pdf->SetFont('angsau', '', 18);
 
 // Add a page
 $pdf->AddPage();
@@ -347,7 +347,7 @@ $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 $pdf->setFontSubsetting(true);
 
 // Set font
-$pdf->SetFont('THSarabunNew', '', 16);
+$pdf->SetFont('angsau', '', 18);
 
 // Add a page
 $pdf->AddPage();

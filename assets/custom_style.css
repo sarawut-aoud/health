@@ -4,10 +4,15 @@
   margin: 0;
   /* font-family: 'Itim', cursive; */
   font-family: 'Mitr', sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   padding: 0;
+
 }
 
+*:not(span) {
+  color: black !important;
+  font-weight: 600;
+}
 
 .body_index {
   background-color: #CBDDEA;
