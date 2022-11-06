@@ -9,6 +9,11 @@
 
 }
 
+.brand-text {
+  color: #fff !important;
+  font-size: 28px !important;
+}
+
 *:not(span) {
   color: black !important;
   font-weight: 600;
