@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 09, 2022 at 10:32 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.28
+-- Host: localhost
+-- Generation Time: Sep 24, 2023 at 10:18 PM
+-- Server version: 10.11.3-MariaDB-1
+-- PHP Version: 8.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,20 @@ CREATE TABLE `application` (
   `application_name` varchar(100) DEFAULT NULL,
   `href_module` varchar(100) DEFAULT NULL,
   `app_order` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `application`
+--
+
+INSERT INTO `application` (`id`, `application_name`, `href_module`, `app_order`) VALUES
+(1, 'ข้อมูลทั่วไป', 'null', 1),
+(2, 'ตรวจร่างกาย คัดกรอง', 'null', 2),
+(3, 'คัดกรองโรคซึมเศร้า', 'null', 3),
+(4, 'พฤติกรรมสุขภาพ', 'null', 4),
+(5, 'ประเมินความเสี่ยงโรคมะเร็ง', 'null', 5),
+(6, 'คำถามเพิ่มเติมหากเป็นโรคเบาหวาน ความดัน ไขมันสูง', 'null', 6),
+(7, 'สรุปผลการตรวจ', 'null', 7);
 
 -- --------------------------------------------------------
 
@@ -53,7 +66,7 @@ CREATE TABLE `darily_keep` (
   `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `update_at` datetime DEFAULT NULL,
   `status` enum('active','inactive') NOT NULL DEFAULT 'active'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -67,7 +80,7 @@ CREATE TABLE `health_main` (
   `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `update_at` datetime DEFAULT NULL,
   `status` enum('active','inactive') NOT NULL DEFAULT 'active'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -82,7 +95,7 @@ CREATE TABLE `health_sub` (
   `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `update_at` datetime DEFAULT NULL,
   `status` enum('active','inactive') NOT NULL DEFAULT 'active'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -94,7 +107,7 @@ CREATE TABLE `permission_status` (
   `id` int(11) NOT NULL,
   `pd_id` int(11) NOT NULL,
   `appplication_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -105,22 +118,22 @@ CREATE TABLE `permission_status` (
 CREATE TABLE `personal_document` (
   `pd_id` int(11) NOT NULL,
   `titile` int(11) NOT NULL,
-  `first_name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `last_name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `first_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `last_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   `address` text DEFAULT NULL,
   `ampher_id` int(11) DEFAULT NULL,
   `tumbon_id` int(11) DEFAULT NULL,
   `province_id` int(11) DEFAULT NULL,
-  `id_card` varchar(13) CHARACTER SET utf8 DEFAULT NULL,
-  `username` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
-  `password` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
-  `age` varchar(10) CHARACTER SET utf8 DEFAULT NULL,
+  `id_card` varchar(13) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `username` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `password` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `age` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   `birthday` date DEFAULT NULL,
-  `phone_number` varchar(10) CHARACTER SET utf8 DEFAULT NULL,
+  `phone_number` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `update_at` datetime NOT NULL,
   `status` enum('active','inactive') NOT NULL DEFAULT 'active'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -134,7 +147,7 @@ CREATE TABLE `system_amphoe` (
   `nameTh` varchar(200) NOT NULL,
   `nameEn` varchar(200) DEFAULT NULL,
   `zipcode` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `system_amphoe`
@@ -1083,7 +1096,7 @@ CREATE TABLE `system_district` (
   `district_name_local` varchar(200) NOT NULL,
   `district_name` varchar(200) DEFAULT NULL,
   `zipcode` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `system_district`
@@ -8546,7 +8559,7 @@ CREATE TABLE `system_province` (
   `latitudes` varchar(200) NOT NULL,
   `longitudes` varchar(200) NOT NULL,
   `zoom` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `system_province`
@@ -8641,7 +8654,7 @@ CREATE TABLE `user_status` (
   `id` int(11) NOT NULL,
   `status_name` varchar(50) NOT NULL,
   `user_rate` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_status`
@@ -8664,7 +8677,7 @@ CREATE TABLE `user_status_keep` (
   `id` int(11) NOT NULL,
   `pd_id` int(11) NOT NULL,
   `status_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables

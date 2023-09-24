@@ -1,8 +1,8 @@
 <?php
 error_reporting(~E_NOTICE);
 define('DB_SERVER', 'localhost'); // Hostname
-define('DB_USER', 'root'); //Database Username
-define('DB_PASS', ''); // Database Password
+define('DB_USER', 'admingoatgether1'); //Database Username
+define('DB_PASS', '!P@ssw0rd8694_sql'); // Database Password
 define('DB_NAME', 'db_health'); // Database Name
 date_default_timezone_set('Asia/Bangkok');
 
