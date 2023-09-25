@@ -34,11 +34,12 @@ class register extends Database_set
 
     public function register_model($title, $fname, $lname, $address, $ampher, $tumbon, $province, $id_card, $username, $password, $age, $birthday, $phone_number)
     {
+
         $result = mysqli_query($this->dbcon, "INSERT INTO personal_document ( title, first_name, last_name, address, ampher_id, tumbon_id, province_id, id_card, username, `password`, age, birthday, phone_number )
         VALUES ('$title','$fname','$lname','$address','$ampher','$tumbon','$province','$id_card','$username','$password','$age','$birthday','$phone_number')");
 
         $last_id = mysqli_insert_id($this->dbcon);
-       
+
         $this->set_user($last_id);
 
         return $result;
@@ -54,6 +55,7 @@ class register extends Database_set
 
     private function set_user($last_id)
     {
+      
         $result = mysqli_query($this->dbcon, "INSERT INTO `user_status_keep` ( `pd_id`, `status_id`, `set_status` )
         VALUES
             ('$last_id','5','1') ");

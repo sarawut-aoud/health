@@ -57,7 +57,7 @@ if ($func == 'register') {
     $fname =  $_POST['fname'] != "" ? $_POST['fname'] : "";
     $lname =  $_POST['lname'] != "" ? $_POST['lname'] : "";
     $age =  $_POST['age'] != "" ? $_POST['age'] : "";
-    $birthday =  $_POST['birthday'] != '' ? date('Y-m-d', strtotime($_POST['birthday'] . "-543 year")) : date("Y-m-d");
+    $birthday =  $_POST['birthday'] != '' ? date('Y-m-d', strtotime(str_replace("/", "-", $_POST['birthday']) . "-543 year")) : date("Y-m-d");
     $id_card =  $_POST['id_card'] != '' ? preg_replace('/[-]/i', '', $_POST['id_card']) : "";
     $phone_number =  $_POST['phone_number'] != "" ? $_POST['phone_number'] : "";
     $address =  $_POST['address'] != "" ? $_POST['address'] : "";
@@ -67,7 +67,7 @@ if ($func == 'register') {
     $username = $_POST['username'] != "" ? strtolower($_POST['username']) : "";
     $password =   $_POST['password-input'] != "" ? $class->encode($_POST['password-input']) : "";
 
-
+  
     if (
         empty($title) || empty($fname) || empty($lname) || empty($address)
         || empty($ampher_id) || empty($tumbon_id) || empty($province_id) || empty($id_card)
