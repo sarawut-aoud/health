@@ -29,8 +29,6 @@ $class =  new dashboard_model();
         <?php
         require '../top_navbar.php';
 
-
-
         require '../left_sidebar.php';
         ?>
 

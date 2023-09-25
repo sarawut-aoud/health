@@ -7,9 +7,10 @@ class left_sidemodel  extends Database_set
     public function Get_application()
     {
         $app = $this->get_user();
-
+       
         if (!empty($app)) {
             $row = $app->fetch_object();
+          
             $result = mysqli_query($this->dbcon, "SELECT
             ap.application_name,
             ap.href_module ,
@@ -44,6 +45,7 @@ class left_sidemodel  extends Database_set
         WHERE
             pd.`status` = 'active' 
             AND pd.pd_id = '$pd_id'  
+            AND uk.set_status = 1
              ");
         return $result;
     }

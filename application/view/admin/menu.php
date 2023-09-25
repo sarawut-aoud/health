@@ -1,4 +1,5 @@
 <?php
+require_once '../../core/data_utllities.php';
 require_once '../../model/left_sidebar_model.php';
 require_once '../../core/path.php';
 require_once '../../core/session.php';
